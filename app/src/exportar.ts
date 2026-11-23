@@ -1,14 +1,15 @@
 import * as XLSX from "xlsx";
 import type { Base, Edicao, Projeto } from "./tipos";
-import { chave, indicador, normalizar, type Linha } from "./ranking";
+import { chave, indicador, type Linha } from "./ranking";
+import { ativas, descreve, DEFS } from "./definicoes";
 
 type L = Record<string, string | number | null>;
 export function tabelas(base: Base, p: Projeto, linhas: Linha[], edicoes: Record<string, Edicao>) {
-  const pesos = normalizar(p.pesos); const crits = base.criterios.filter((c) => pesos[c.id] > 0);
+  const defs = ativas(p); const resp = p.respostas ?? {};
   const ranking: L[] = linhas.map((l) => {
     const r: L = { posicao: l.posicao, unidade_id: l.u.unidade_id, unidade: l.u.nome, tipo: l.u.tipo, condado: l.u.condado, isd: l.u.isd_nome,
-      nota_final: l.nota === null ? null : Math.round(l.nota * 10) / 10, cobertura_pct: Math.round(l.cobertura * 100), eliminada_por: l.eliminada.map((m) => m.filtro).join("; ") };
-    for (const c of crits) { r[`${c.id} ${c.nome} (${c.unidade_medida})`] = l.porCriterio[c.id].bruto; r[`${c.id} nota`] = l.porCriterio[c.id].nota === null ? null : Math.round(l.porCriterio[c.id].nota!); }
+      criterios_atendidos: l.atendidos ?? null, criterios_com_dado: l.avaliados ?? null, criterios_definidos: defs.length, eliminada_por: l.eliminada.map((m) => m.filtro).join("; ") };
+    for (const d of defs) { const x = l.porCriterio[d.id]; r[`${d.pergunta} (valor)`] = x?.texto ?? x?.bruto ?? null; r[`${d.pergunta} (atende)`] = x?.nota == null ? "sem dado" : x.nota === 100 ? "sim" : "não"; }
     return r;
   });
   const dados: L[] = []; const pend: L[] = [];
@@ -27,9 +28,9 @@ export function tabelas(base: Base, p: Projeto, linhas: Linha[], edicoes: Record
   }
   const projeto: L[] = [
     { campo: "projeto", valor: p.nome }, { campo: "faixa de investimento", valor: base.faixas.find((f) => f.id === p.faixa_id)?.nome ?? p.faixa_id },
-    { campo: "perfil de origem", valor: p.perfil_origem }, { campo: "tamanho do terreno", valor: p.tamanho.modo === "faixa" ? `faixa-alvo ${p.tamanho.min}–${p.tamanho.max} acres` : p.tamanho.modo + " é melhor" },
-    { campo: "filtros", valor: JSON.stringify(p.filtros) }, { campo: "unidade eleita", valor: p.unidade_eleita_id },
-    ...base.criterios.map((c) => ({ campo: `peso ${c.id} ${c.nome}`, valor: Math.round((pesos[c.id] ?? 0) * 1000) / 10 })),
+    { campo: "caminho", valor: p.caminho ?? "" }, { campo: "unidade eleita", valor: p.unidade_eleita_id },
+    ...DEFS.filter((d) => resp[d.id]).map((d) => { const r = resp[d.id]; const cen = d.tipo.startsWith("cenario");
+      return { campo: d.pergunta, valor: (cen || d.tipo === "exige" || d.tipo === "nao_aceita" || d.tipo === "so_cidade" ? String(r.v ?? "") : defs.includes(d) ? descreve(d, r) : "") + (r.obrigatorio ? " (obrigatório)" : "") + (r.data ? ` · definido em ${r.data}` : "") }; }),
     { campo: "base gerada em", valor: base.gerado_em },
   ];
   return { ranking, dados, pend, projeto };

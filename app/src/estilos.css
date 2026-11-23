@@ -86,3 +86,19 @@ button.grande { font-size:15px; padding:9px 18px; } .fim-passo { display:flex; j
 .significa { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:12px 0; }
 .significa section { background:var(--papel); border:1px solid var(--linha); border-radius:8px; padding:12px; }
 .significa .item { display:flex; justify-content:space-between; gap:10px; padding:4px 0; border-top:1px solid var(--linha); font-size:13px; } .significa .item b { text-align:right; }
+
+/* Critérios definidos (sim/não ou número) */
+.form-criterios { display:grid; grid-template-columns:repeat(auto-fit,minmax(420px,1fr)); gap:12px; align-items:start; }
+.form-criterios .bloco { background:var(--papel); border:1px solid var(--linha); border-radius:8px; padding:12px 14px; }
+.crit { display:flex; flex-wrap:wrap; gap:8px 14px; justify-content:space-between; align-items:flex-start; padding:10px 0; border-top:1px solid var(--linha); }
+.crit .perg { flex:1 1 220px; min-width:0; } .crit .perg p { margin:2px 0 0; font-size:12px; color:var(--suave); } .crit .perg i { font-size:11px; color:#a26b00; font-style:normal; }
+.crit .resp { display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:flex-end; } .crit.definido .perg b::before { content:"● "; color:#2f8f5b; }
+.crit input[type=number] { width:96px; background:#fff8d6; border-color:#e0c95a; } .crit select { background:#fff8d6; border-color:#e0c95a; }
+.simnao { display:inline-flex; } .simnao button { border-radius:0; background:#fff8d6; border-color:#e0c95a; } .simnao button:first-child { border-radius:6px 0 0 6px; } .simnao button:last-child { border-radius:0 6px 6px 0; margin-left:-1px; }
+.simnao button.ativo { background:var(--tinta); border-color:var(--tinta); }
+.obrig { font-size:12px; color:var(--suave); display:flex; gap:4px; align-items:center; } .tag { font-size:11px; padding:1px 7px; border-radius:9px; background:#e9e2f8; color:#4c2a91; }
+.chips { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; } .chip { font-size:12px; padding:3px 9px; border:1px solid var(--linha); border-radius:12px; background:var(--papel); } .chip.obrig { border-color:var(--acento); }
+td.sim .marca-ok { color:#2f8f5b; font-weight:700; } td.nao .marca-ok { color:#b3402e; font-weight:700; } td.nao { background:#fdf1ef; } table.comp td.sim { background:#e8f5ec; }
+.nota-final { white-space:nowrap; }
+@media (max-width: 520px) { .form-criterios { grid-template-columns:1fr; } }
+a.botao { text-decoration:none; color:inherit; display:inline-block; } .det td.nao { background:#fdf1ef; }

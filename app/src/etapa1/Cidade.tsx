@@ -38,7 +38,7 @@ export default function Cidade({ base, projeto, edicoes, linhas, sel, setSel, ed
           </section>)}
         </div>
         {semDado > 0 && <p className="aviso">{semDado} destes dados ainda não existem para esta cidade. Enquanto estiverem vazios, os custos e prazos correspondentes não entram nas contas das próximas etapas; você pode preenchê-los no detalhe abaixo.</p>}
-        {linha.posicao && <p className="nota">Pelos critérios deste projeto, esta escolha ficaria em {linha.posicao}º lugar entre as unidades avaliadas (nota {linha.nota?.toFixed(0)}).</p>}
+        {!!linha.avaliados && <p className="nota">Pelos critérios definidos neste projeto, esta escolha atende {linha.atendidos} de {linha.avaliados}{linha.posicao ? ` e ficaria em ${linha.posicao}º lugar` : ""}.</p>}
         <Detalhe key={atual.unidade_id} base={base} projeto={projeto} edicoes={edicoes} linha={linha} editar={editar} fechar={() => setSel(null)} eleger={eleger} irParaEtapa2={irParaEtapa2}
           emComparacao={false} alternar={() => {}} semRolagem />
       </>}

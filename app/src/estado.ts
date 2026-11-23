@@ -12,7 +12,7 @@ export function novoProjeto(base: Base, nome = "Novo projeto"): Projeto {
   // Começa só com os critérios que já têm dado, em pesos iguais, para o primeiro ranking já fazer sentido.
   const pesos = Object.fromEntries(base.criterios.filter((c) => c.cobertura === "coletado").map((c) => [c.id, 10]));
   return { projeto_id: id(), nome, criado_em: hoje(), alterado_em: hoje(), faixa_id: "F2", perfil_origem: "so_com_dado", pesos,
-    tamanho: { modo: "maior", min: 0.25, max: 2 }, filtros: { ...FILTROS_PADRAO }, unidade_eleita_id: null, eleita_em: null, margem_alvo_pct: null, juros_aa_pct: null,
+    tamanho: { modo: "maior", min: 0.25, max: 2 }, filtros: { ...FILTROS_PADRAO }, unidade_eleita_id: null, eleita_em: null, margem_alvo_pct: null, juros_aa_pct: null, caminho: null, respostas: {},
     terrenos: [], casas: [], linhas_custo: [], cronograma: [] };
 }
 export function duplicar(p: Projeto): Projeto {

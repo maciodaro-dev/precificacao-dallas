@@ -33,12 +33,17 @@ export interface Filtros {
 }
 export interface Tamanho { modo: "maior" | "menor" | "faixa"; min: number; max: number }
 
+/** Resposta do usuário a um critério definido: sim/não, um número, uma letra ou um intervalo. */
+export interface Resposta { v?: number | string | null; min?: number | null; max?: number | null; obrigatorio?: boolean; data?: string }
+
 /** Registro central. Nasce na etapa 1 e acumula terrenos, casas, pilha de custos e cronograma. */
 export interface Projeto {
   projeto_id: string; nome: string; criado_em: string; alterado_em: string;
   faixa_id: string; perfil_origem: string; pesos: Record<string, number>; tamanho: Tamanho; filtros: Filtros;
   /** Como o lugar é definido: "cidade" = o usuário já sabe onde quer construir; "criterios" = o lugar sai dos critérios. */
   caminho?: "cidade" | "criterios" | null;
+  /** Critérios definidos (sim/não ou número), por id de src/definicoes.ts. Substituem os pesos. */
+  respostas?: Record<string, Resposta>;
   unidade_eleita_id: string | null; eleita_em: string | null;
   margem_alvo_pct: number | null; juros_aa_pct: number | null;
   terrenos: Terreno[]; casas: Casa[]; linhas_custo: LinhaCusto[]; cronograma: Marco[];

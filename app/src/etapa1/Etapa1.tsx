@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import type { Base, Edicao, Projeto } from "../tipos";
-import { calcular, normalizar, pesoCorrelacionado } from "../ranking";
+import { avaliar, ativas, descreve } from "../definicoes";
 import { exportarCsv, exportarXlsx } from "../exportar";
-import Painel from "./Painel";
+import Criterios from "./Criterios";
 import Tabela from "./Tabela";
 import Detalhe from "./Detalhe";
 import Mapa from "./Mapa";
@@ -23,12 +23,11 @@ export default function Etapa1(p: Props) {
   const [aba, setAba] = useState<"ranking" | "mapa" | "unidades" | "projetos">("ranking");
   const [sel, setSel] = useState<string | null>(projeto.caminho === "cidade" ? projeto.unidade_eleita_id : null);
   const [comparar, setComparar] = useState<string[]>([]);
-  const linhas = useMemo(() => calcular(base, projeto, edicoes), [base, projeto, edicoes]);
-  const pesos = normalizar(projeto.pesos);
-  const corr = pesoCorrelacionado(base, projeto.pesos);
+  const linhas = useMemo(() => avaliar(base, projeto, edicoes), [base, projeto, edicoes]);
+  const defs = ativas(projeto); const resp = projeto.respostas ?? {};
   const vivas = linhas.filter((l) => !l.eliminada.length);
   const cobMedia = vivas.length ? vivas.reduce((a, l) => a + l.cobertura, 0) / vivas.length : 0;
-  const semPeso = Object.keys(pesos).length === 0;
+  const semCriterio = defs.length === 0;
   const alternar = (id: string) => setComparar((c) => (c.includes(id) ? c.filter((x) => x !== id) : c.length < 4 ? [...c, id] : c));
   const eleger = (id: string) => { p.alterar({ unidade_eleita_id: id, eleita_em: new Date().toISOString().slice(0, 10) }); };
   const linhaSel = linhas.find((l) => l.u.unidade_id === sel) ?? null;
@@ -53,20 +52,18 @@ export default function Etapa1(p: Props) {
       </ol>}
       {passo === "cidade" && <Cidade base={base} projeto={projeto} edicoes={edicoes} linhas={linhas} sel={sel} setSel={setSel} editar={p.editar} eleger={eleger} irParaEtapa2={p.irParaEtapa2} />}
       {passo === "criterios" && <>
-        <div className="cab-passo"><div><h1>Critérios</h1><p>Defina a faixa de investimento, a estratégia, os pesos e os filtros. O resultado mostra onde procurar.</p></div>
-          <button className="primario grande" disabled={semPeso} onClick={verResultado}>Ver resultado →</button></div>
-        {corr > 0.4 && <p className="aviso">ISD, segurança e renda somam {Math.round(corr * 100)}% do peso. Esses critérios andam juntos: o ranking pode estar contando a mesma coisa três vezes.</p>}
-        {semPeso && <p className="aviso erro">Todos os pesos estão em zero. Dê peso a pelo menos um critério.</p>}
-        <Painel {...p} />
-        <div className="fim-passo"><button className="primario grande" disabled={semPeso} onClick={verResultado}>Ver resultado →</button></div>
+        <div className="cab-passo"><div><h1>Critérios</h1><p>Responda só o que importa para você: sim ou não, ou um número. O que ficar em branco não é considerado. O resultado mostra onde procurar.</p></div>
+          <button className="primario grande" onClick={verResultado}>Ver resultado →</button></div>
+        <Criterios {...p} />
+        <div className="fim-passo"><button className="primario grande" onClick={verResultado}>Ver resultado →</button></div>
       </>}
       {passo === "resultado" && <main id="resultado">
         <div className="cab-passo"><div><h1>Resultado: onde procurar</h1>
-          <p>{base.faixas.find((f) => f.id === projeto.faixa_id)?.nome} · {Object.entries(pesos).sort((x, y) => y[1] - x[1]).slice(0, 4).map(([k, v]) => `${base.criterios.find((c) => c.id === k)?.nome} ${Math.round(v * 100)}%`).join(" · ")}{Object.keys(pesos).length > 4 && ` · mais ${Object.keys(pesos).length - 4}`}</p></div>
+          <p>Investimento no terreno: {base.faixas.find((f) => f.id === projeto.faixa_id)?.nome}{resp.lote_pronto?.v && ` · lote pronto: ${resp.lote_pronto.v === "sim" ? "sim" : "não"}`} · {defs.length} {defs.length === 1 ? "critério definido" : "critérios definidos"}</p></div>
           <button onClick={() => setPasso("criterios")}>← Ajustar critérios</button></div>
-        {corr > 0.4 && <p className="aviso">ISD, segurança e renda somam {Math.round(corr * 100)}% do peso. Esses critérios andam juntos: o ranking pode estar contando a mesma coisa três vezes.</p>}
-        {semPeso && <p className="aviso erro">Todos os pesos estão em zero. Dê peso a pelo menos um critério.</p>}
-        {!semPeso && cobMedia < 0.5 && <p className="aviso">Em média, só {Math.round(cobMedia * 100)}% do peso deste projeto está em critérios que já têm dado. A nota é calculada apenas com o que existe; veja a coluna "Cobertura" e a tela "Base de dados".</p>}
+        {semCriterio && <p className="aviso">Nenhum critério que avalia a cidade foi definido, então todas aparecem sem nota. Volte em "Ajustar critérios" e responda ao menos um.</p>}
+        {!semCriterio && <div className="chips">{defs.map((d) => <span key={d.id} className={resp[d.id]?.obrigatorio ? "chip obrig" : "chip"}>{d.pergunta.replace(/, no (máximo|mínimo)$/, "")}: <b>{descreve(d, resp[d.id])}</b>{resp[d.id]?.obrigatorio && " · obrigatório"}</span>)}</div>}
+        {!semCriterio && cobMedia < 0.5 && <p className="aviso">Em média, só {Math.round(cobMedia * 100)}% dos seus critérios têm dado nas cidades. Onde falta dado aparece "sem dado", e a cidade não é julgada por esse critério.</p>}
         <div className="barra">
           <div className="abas">
             {([["ranking", "Ranking"], ["mapa", "Mapa"], ["unidades", `Comparar unidades (${comparar.length}/4)`], ["projetos", "Comparar projetos"]] as const).map(([k, n]) =>
@@ -84,7 +81,7 @@ export default function Etapa1(p: Props) {
             <button onClick={() => exportarCsv(base, projeto, linhas, edicoes, "dados")}>Dados .csv</button>
           </div>
         </div>
-        {aba === "ranking" && <Tabela base={base} projeto={projeto} linhas={linhas} sel={sel} setSel={setSel} comparar={comparar} alternar={alternar} />}
+        {aba === "ranking" && <Tabela defs={defs} projeto={projeto} linhas={linhas} sel={sel} setSel={setSel} comparar={comparar} alternar={alternar} />}
         {aba === "mapa" && <Mapa geo={p.geo} linhas={linhas} sel={sel} setSel={setSel} eleita={projeto.unidade_eleita_id} />}
         {aba === "unidades" && <CompararUnidades base={base} projeto={projeto} edicoes={edicoes} linhas={linhas.filter((l) => comparar.includes(l.u.unidade_id))} remover={alternar} />}
         {aba === "projetos" && <CompararProjetos base={base} projetos={p.projetos} edicoes={edicoes} />}
