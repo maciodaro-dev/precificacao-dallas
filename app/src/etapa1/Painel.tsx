@@ -8,7 +8,6 @@ export default function Painel({ base, projeto, alterar }: Props) {
   const filtro = (m: Partial<typeof f>) => alterar({ filtros: { ...f, ...m } });
   return (
     <aside>
-      <button className="primario ver-ranking" onClick={() => document.getElementById("resultado")?.scrollIntoView({ behavior: "smooth" })}>Ver ranking ↓</button>
       <section>
         <h3>Faixa de investimento no terreno</h3>
         <div className="faixas">{base.faixas.map((x) => <button key={x.id} className={projeto.faixa_id === x.id ? "ativo" : ""} onClick={() => alterar({ faixa_id: x.id })}>{x.nome}</button>)}</div>
@@ -53,7 +52,6 @@ export default function Painel({ base, projeto, alterar }: Props) {
         <label className="linha">Cobertura mínima <input type="number" min={0} max={100} step={10} value={f.cobertura_min} onChange={(e) => filtro({ cobertura_min: Number(e.target.value) })} /> % do peso</label>
         <label className="linha"><input type="checkbox" checked={f.eliminar_sem_dado} onChange={(e) => filtro({ eliminar_sem_dado: e.target.checked })} /> Eliminar unidade sem dado no filtro</label>
       </section>
-      <button className="primario ver-ranking" onClick={() => document.getElementById("resultado")?.scrollIntoView({ behavior: "smooth" })}>Ver ranking ↓</button>
     </aside>
   );
 }

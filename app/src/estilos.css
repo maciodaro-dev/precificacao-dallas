@@ -65,3 +65,12 @@ footer.passos { position:sticky; bottom:0; display:flex; flex-wrap:wrap; gap:8px
 footer.passos .onde { color:var(--suave); font-size:13px; }
 @media (max-width: 860px) { .ver-ranking { display:block; } }
 .escolher { display:flex; gap:6px; align-items:center; font-size:13px; } .escolher select { max-width:240px; }
+
+/* Etapa 1 em dois passos: critérios primeiro, resultado depois */
+.etapa1 { display:block; padding:16px; min-height:0; } .etapa1 main { padding:0; }
+.etapa1 .guia button.link { padding:0; font-size:13px; }
+.cab-passo { display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:flex-end; margin-bottom:12px; } .cab-passo h1 { margin:0 0 2px; } .cab-passo p { margin:0; color:var(--suave); }
+button.grande { font-size:15px; padding:9px 18px; } .fim-passo { display:flex; justify-content:flex-end; margin-top:12px; }
+.etapa1 aside { position:static; max-height:none; overflow:visible; border:1px solid var(--linha); border-radius:8px; columns:3 300px; column-gap:28px; }
+.etapa1 aside section { break-inside:avoid; } .etapa1 aside .grupo { break-inside:avoid; }
+.etapa1 aside section:has(.grupo) { break-inside:auto; }
