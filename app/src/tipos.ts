@@ -37,6 +37,8 @@ export interface Tamanho { modo: "maior" | "menor" | "faixa"; min: number; max: 
 export interface Projeto {
   projeto_id: string; nome: string; criado_em: string; alterado_em: string;
   faixa_id: string; perfil_origem: string; pesos: Record<string, number>; tamanho: Tamanho; filtros: Filtros;
+  /** Como o lugar é definido: "cidade" = o usuário já sabe onde quer construir; "criterios" = o lugar sai dos critérios. */
+  caminho?: "cidade" | "criterios" | null;
   unidade_eleita_id: string | null; eleita_em: string | null;
   margem_alvo_pct: number | null; juros_aa_pct: number | null;
   terrenos: Terreno[]; casas: Casa[]; linhas_custo: LinhaCusto[]; cronograma: Marco[];

@@ -74,3 +74,15 @@ button.grande { font-size:15px; padding:9px 18px; } .fim-passo { display:flex; j
 .etapa1 aside { position:static; max-height:none; overflow:visible; border:1px solid var(--linha); border-radius:8px; columns:3 300px; column-gap:28px; }
 .etapa1 aside section { break-inside:avoid; } .etapa1 aside .grupo { break-inside:avoid; }
 .etapa1 aside section:has(.grupo) { break-inside:auto; }
+
+/* Dois caminhos para definir o lugar */
+.inicio { max-width:900px; margin:24px auto; } .inicio p { color:var(--suave); }
+.caminhos { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-top:16px; }
+.caminhos button { display:flex; flex-direction:column; gap:8px; align-items:flex-start; text-align:left; white-space:normal; padding:18px; border-radius:10px; }
+.caminhos button b { font-size:17px; } .caminhos button span { color:var(--suave); } .caminhos button i { font-style:normal; color:var(--acento); font-weight:600; margin-top:auto; }
+.caminhos button:hover { border-color:var(--acento); }
+.escolha-cidade { display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin-bottom:10px; } .escolha-cidade label { display:flex; gap:8px; align-items:center; font-weight:600; } .escolha-cidade select { font-size:15px; padding:6px 8px; }
+.isds { display:flex; flex-wrap:wrap; gap:6px; align-items:center; } .isds small { color:inherit; opacity:.7; display:inline; }
+.significa { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:12px 0; }
+.significa section { background:var(--papel); border:1px solid var(--linha); border-radius:8px; padding:12px; }
+.significa .item { display:flex; justify-content:space-between; gap:10px; padding:4px 0; border-top:1px solid var(--linha); font-size:13px; } .significa .item b { text-align:right; }
