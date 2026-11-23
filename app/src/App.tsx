@@ -19,7 +19,9 @@ export default function App() {
   const [msg, setMsg] = useState("");
 
   useEffect(() => {
-    Promise.all([fetch("./base.json").then((r) => r.json()), fetch("./unidades.geojson").then((r) => r.json())])
+    const emb = (id: string) => { const el = document.getElementById(id); return el?.textContent ? Promise.resolve(JSON.parse(el.textContent)) : null; };
+    // Página única (pré-visualização): os dados vêm embutidos no HTML; no site normal, são lidos dos arquivos.
+    Promise.all([emb("dados-base") ?? fetch("./base.json").then((r) => r.json()), emb("dados-geo") ?? fetch("./unidades.geojson").then((r) => r.json())])
       .then(([b, g]) => { setBase(b); setGeo(g); }).catch((e) => setErro(String(e)));
   }, []);
   useEffect(() => {
