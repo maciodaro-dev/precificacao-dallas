@@ -1,0 +1,6 @@
+premissa_id,descricao,valor,unidade,autor,data,justificativa,usada_em
+P-001,"Polos de emprego para o critério 19: Downtown Dallas, Legacy (Plano/Frisco), Las Colinas, Telecom Corridor, Aeroporto DFW",5,polos,Claude,2026-11-23,"Escolha por conhecimento geral dos maiores centros de emprego da região; não foi derivada de dados LEHD/LODES. Substituir se o usuário indicar outros polos.",etapa 1 c19
+P-002,"Regra de corte das unidades: fatia cidade × ISD com >= 5% da área de terra da cidade ou >= 1.000 acres",5% / 1000,% / acres,Claude,2026-11-23,"Evita unidades com área irrelevante; aprovada pelo usuário em 2026-11-23.",unidades
+P-003,"Corpos d'água com menos de ~10 acres não são descontados da área de terra",10,acres,Claude,2026-11-23,"Simplificação de processamento; efeito desprezível na área das unidades.",unidades; c25
+P-004,"Normalização da nota 0–100: min–max entre as unidades que passam nos filtros, com corte nos percentis 5 e 95",5 / 95,percentil,Claude,2026-11-23,"Reduz o efeito de valores extremos (ex.: Dallas em permits). Regra de método, não dado.",etapa 1 ranking
+P-005,"Dado com data de referência há mais de 6 meses é sinalizado como desatualizado",183,dias,Usuário,2026-11-23,"Regra de controle de erro definida pelo usuário.",todas as etapas

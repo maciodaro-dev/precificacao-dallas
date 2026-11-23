@@ -1,0 +1,317 @@
+[
+ {
+  "id": "c01",
+  "grupo": "Terra",
+  "nome": "Preço da terra",
+  "metrica": "preco_terra_acre",
+  "unidade_medida": "US$/acre",
+  "direcao": "menor",
+  "fonte_planejada": "Anúncios de terrenos (MLS) — adiado por decisão do usuário",
+  "cobertura": "adiado",
+  "aux": [
+   "preco_terra_sqft"
+  ]
+ },
+ {
+  "id": "c02",
+  "grupo": "Terra",
+  "nome": "Tamanho típico dos terrenos",
+  "metrica": "tamanho_tipico_acres",
+  "unidade_medida": "acres",
+  "direcao": "configuravel",
+  "fonte_planejada": "Anúncios de terrenos (MLS) — adiado",
+  "cobertura": "adiado",
+  "aux": [
+   "tamanho_min_acres",
+   "tamanho_max_acres"
+  ]
+ },
+ {
+  "id": "c03",
+  "grupo": "Terra",
+  "nome": "Oferta na faixa de investimento",
+  "metrica": "anuncios_na_faixa",
+  "unidade_medida": "anúncios",
+  "direcao": "maior",
+  "fonte_planejada": "Anúncios de terrenos (MLS) — adiado",
+  "cobertura": "adiado",
+  "por_faixa": true
+ },
+ {
+  "id": "c04",
+  "grupo": "Terra",
+  "nome": "Lotes prontos / infill",
+  "metrica": "lotes_prontos",
+  "unidade_medida": "lotes",
+  "direcao": "maior",
+  "fonte_planejada": "Cadastro dos appraisal districts (parcelas residenciais vagas)",
+  "cobertura": "pendente"
+ },
+ {
+  "id": "c05",
+  "grupo": "Terra",
+  "nome": "Liquidez do terreno",
+  "metrica": "dom_terreno",
+  "unidade_medida": "dias",
+  "direcao": "menor",
+  "fonte_planejada": "Anúncios de terrenos (MLS) — adiado",
+  "cobertura": "adiado"
+ },
+ {
+  "id": "c06",
+  "grupo": "Viabilidade",
+  "nome": "Zoneamento e lote mínimo",
+  "metrica": "lote_minimo_sqft",
+  "unidade_medida": "sqft",
+  "direcao": "menor",
+  "fonte_planejada": "Código de zoneamento de cada prefeitura; SB 15 (texto da lei)",
+  "cobertura": "manual",
+  "aux": [
+   "coberta_sb15"
+  ]
+ },
+ {
+  "id": "c07",
+  "grupo": "Viabilidade",
+  "nome": "Taxas por casa",
+  "metrica": "taxas_por_casa",
+  "unidade_medida": "US$/casa",
+  "direcao": "menor",
+  "fonte_planejada": "Fee schedules e estudos de impact fee das prefeituras",
+  "cobertura": "manual",
+  "aux": [
+   "impact_fee",
+   "permit_fee",
+   "parkland_fee"
+  ]
+ },
+ {
+  "id": "c08",
+  "grupo": "Viabilidade",
+  "nome": "Atrito regulatório",
+  "metrica": "prazo_aprovacao_dias",
+  "unidade_medida": "dias",
+  "direcao": "menor",
+  "fonte_planejada": "Relatórios de permits das prefeituras; atas para moratórias; HB 2559",
+  "cobertura": "manual",
+  "aux": [
+   "moratoria_ativa"
+  ]
+ },
+ {
+  "id": "c09",
+  "grupo": "Viabilidade",
+  "nome": "Água e esgoto",
+  "metrica": "rede_esgoto",
+  "unidade_medida": "sim/nao",
+  "direcao": "maior",
+  "fonte_planejada": "TCEQ Water Districts Database; PUC (CCN); utilities das prefeituras",
+  "cobertura": "manual",
+  "aux": [
+   "prestador_agua",
+   "restricao_capacidade"
+  ]
+ },
+ {
+  "id": "c10",
+  "grupo": "Viabilidade",
+  "nome": "Custo de lotear terra bruta",
+  "metrica": "custo_lotear_por_lote",
+  "unidade_medida": "US$/lote",
+  "direcao": "menor",
+  "fonte_planejada": "Sem fonte pública: premissa do usuário",
+  "cobertura": "premissa"
+ },
+ {
+  "id": "c11",
+  "grupo": "Viabilidade",
+  "nome": "Terra disponível em ETJ",
+  "metrica": "acres_etj",
+  "unidade_medida": "acres",
+  "direcao": "maior",
+  "fonte_planejada": "Mapas de ETJ das prefeituras / NCTCOG",
+  "cobertura": "manual"
+ },
+ {
+  "id": "c12",
+  "grupo": "Mercado",
+  "nome": "Margem potencial",
+  "metrica": "margem_potencial",
+  "unidade_medida": "%",
+  "direcao": "maior",
+  "fonte_planejada": "Calculado: preço de venda − terreno − construção − taxas",
+  "cobertura": "derivado",
+  "por_faixa": true
+ },
+ {
+  "id": "c13",
+  "grupo": "Mercado",
+  "nome": "Relação terreno / preço final",
+  "metrica": "relacao_terreno_preco",
+  "unidade_medida": "%",
+  "direcao": "menor",
+  "fonte_planejada": "Calculado: terreno ÷ preço da casa",
+  "cobertura": "derivado"
+ },
+ {
+  "id": "c14",
+  "grupo": "Mercado",
+  "nome": "Liquidez da casa",
+  "metrica": "dom_casa",
+  "unidade_medida": "dias",
+  "direcao": "menor",
+  "fonte_planejada": "Redfin Data Center (por cidade)",
+  "cobertura": "bloqueado",
+  "aux": [
+   "meses_estoque"
+  ]
+ },
+ {
+  "id": "c15",
+  "grupo": "Mercado",
+  "nome": "Absorção de casas novas",
+  "metrica": "permits_unifamiliares_ano",
+  "unidade_medida": "unidades/ano",
+  "direcao": "maior",
+  "fonte_planejada": "Census Building Permits Survey (proxy: permits, não vendas)",
+  "cobertura": "coletado",
+  "aux": [
+   "valor_declarado_por_unidade",
+   "permits_unifamiliares_2024",
+   "permits_unifamiliares_2023"
+  ]
+ },
+ {
+  "id": "c16",
+  "grupo": "Mercado",
+  "nome": "Faixa de preço que mais vende",
+  "metrica": "valor_tipico_casa",
+  "unidade_medida": "US$",
+  "direcao": "maior",
+  "fonte_planejada": "Zillow ZHVI (valor típico); preço por sqft depende do Redfin",
+  "cobertura": "coletado",
+  "aux": [
+   "preco_venda_sqft"
+  ]
+ },
+ {
+  "id": "c17",
+  "grupo": "Mercado",
+  "nome": "Concorrência de grandes builders",
+  "metrica": "pct_top_builders",
+  "unidade_medida": "%",
+  "direcao": "menor",
+  "fonte_planejada": "Bases abertas de permits das prefeituras",
+  "cobertura": "manual"
+ },
+ {
+  "id": "c18",
+  "grupo": "Valorização",
+  "nome": "Valorização em 5 anos",
+  "metrica": "valorizacao_5a",
+  "unidade_medida": "%",
+  "direcao": "maior",
+  "fonte_planejada": "Zillow ZHVI por cidade",
+  "cobertura": "coletado"
+ },
+ {
+  "id": "c19",
+  "grupo": "Valorização",
+  "nome": "Acesso a emprego",
+  "metrica": "min_polo_mais_proximo",
+  "unidade_medida": "min",
+  "direcao": "menor",
+  "fonte_planejada": "OSRM / OpenStreetMap até 5 polos (premissa P-001)",
+  "cobertura": "coletado",
+  "aux": [
+   "min_downtown_dallas",
+   "min_legacy_plano",
+   "min_las_colinas",
+   "min_telecom_corridor",
+   "min_dfw_airport"
+  ]
+ },
+ {
+  "id": "c20",
+  "grupo": "Valorização",
+  "nome": "Obras de infraestrutura previstas",
+  "metrica": "obras_previstas_usd",
+  "unidade_medida": "US$",
+  "direcao": "maior",
+  "fonte_planejada": "TxDOT Project Tracker, NCTCOG TIP, CIPs municipais",
+  "cobertura": "manual"
+ },
+ {
+  "id": "c21",
+  "grupo": "Comprador",
+  "nome": "Nota do ISD (TEA)",
+  "metrica": "nota_isd_score",
+  "unidade_medida": "pontos 0-100",
+  "direcao": "maior",
+  "fonte_planejada": "TEA Accountability Ratings",
+  "cobertura": "coletado",
+  "aux": [
+   "nota_isd_letra"
+  ],
+  "correlacionado": true
+ },
+ {
+  "id": "c22",
+  "grupo": "Comprador",
+  "nome": "Segurança",
+  "metrica": "crimes_por_mil",
+  "unidade_medida": "crimes/mil hab.",
+  "direcao": "menor",
+  "fonte_planejada": "Texas DPS UCR / FBI Crime Data Explorer",
+  "cobertura": "pendente",
+  "correlacionado": true
+ },
+ {
+  "id": "c23",
+  "grupo": "Comprador",
+  "nome": "Renda mediana e preço/renda",
+  "metrica": "renda_mediana",
+  "unidade_medida": "US$/ano",
+  "direcao": "maior",
+  "fonte_planejada": "Census ACS 5 anos",
+  "cobertura": "coletado",
+  "aux": [
+   "preco_renda",
+   "valor_mediano_imovel_acs"
+  ],
+  "correlacionado": true
+ },
+ {
+  "id": "c24",
+  "grupo": "Comprador",
+  "nome": "Property tax total",
+  "metrica": "aliquota_total",
+  "unidade_medida": "% do valor",
+  "direcao": "menor",
+  "fonte_planejada": "Texas Comptroller / appraisal districts; TCEQ para MUD",
+  "cobertura": "bloqueado",
+  "aux": [
+   "mud_pid"
+  ]
+ },
+ {
+  "id": "c25",
+  "grupo": "Risco",
+  "nome": "Área em zona de alagamento (FEMA)",
+  "metrica": "pct_area_sfha",
+  "unidade_medida": "% da área",
+  "direcao": "menor",
+  "fonte_planejada": "FEMA NFHL",
+  "cobertura": "coletado"
+ },
+ {
+  "id": "c26",
+  "grupo": "Risco",
+  "nome": "Custo médio de seguro",
+  "metrica": "seguro_medio",
+  "unidade_medida": "US$/ano",
+  "direcao": "menor",
+  "fonte_planejada": "Texas Department of Insurance",
+  "cobertura": "pendente"
+ }
+]

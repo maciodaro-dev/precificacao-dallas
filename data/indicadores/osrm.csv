@@ -1,0 +1,1027 @@
+unidade_id,criterio_id,metrica,faixa_id,valor,unidade_medida,fonte_id,url,data_referencia,data_coleta,confianca,obs
+U-4801240-4816230,c19,min_polo_mais_proximo,,12.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 19.9; Legacy (Plano/Frisco) 12.2; Las Colinas (Irving) 20.6; Telecom Corridor (Richardson) 17.5; Aeroporto DFW 30.8"
+U-4801240-4816230,c19,min_downtown_dallas,,19.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4801240-4816230,c19,min_legacy_plano,,12.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4801240-4816230,c19,min_las_colinas,,20.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4801240-4816230,c19,min_telecom_corridor,,17.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4801240-4816230,c19,min_dfw_airport,,30.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4801924-4807890,c19,min_polo_mais_proximo,,13.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 30.9; Legacy (Plano/Frisco) 18.7; Las Colinas (Irving) 36.0; Telecom Corridor (Richardson) 13.2; Aeroporto DFW 44.0"
+U-4801924-4807890,c19,min_downtown_dallas,,30.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4801924-4807890,c19,min_legacy_plano,,18.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4801924-4807890,c19,min_las_colinas,,36.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4801924-4807890,c19,min_telecom_corridor,,13.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4801924-4807890,c19,min_dfw_airport,,44.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4801924-4835100,c19,min_polo_mais_proximo,,20.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 37.8; Legacy (Plano/Frisco) 21.0; Las Colinas (Irving) 42.9; Telecom Corridor (Richardson) 20.1; Aeroporto DFW 46.7"
+U-4801924-4835100,c19,min_downtown_dallas,,37.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4801924-4835100,c19,min_legacy_plano,,21.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4801924-4835100,c19,min_las_colinas,,42.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4801924-4835100,c19,min_telecom_corridor,,20.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4801924-4835100,c19,min_dfw_airport,,46.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4804600-4808910,c19,min_polo_mais_proximo,,36.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 61.3; Legacy (Plano/Frisco) 36.8; Las Colinas (Irving) 54.2; Telecom Corridor (Richardson) 52.9; Aeroporto DFW 54.2"
+U-4804600-4808910,c19,min_downtown_dallas,,61.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4804600-4808910,c19,min_legacy_plano,,36.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4804600-4808910,c19,min_las_colinas,,54.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4804600-4808910,c19,min_telecom_corridor,,52.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4804600-4808910,c19,min_dfw_airport,,54.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4804600-4816740,c19,min_polo_mais_proximo,,25.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 49.9; Legacy (Plano/Frisco) 25.3; Las Colinas (Irving) 50.1; Telecom Corridor (Richardson) 41.5; Aeroporto DFW 50.5"
+U-4804600-4816740,c19,min_downtown_dallas,,49.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4804600-4816740,c19,min_legacy_plano,,25.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4804600-4816740,c19,min_las_colinas,,50.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4804600-4816740,c19,min_telecom_corridor,,41.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4804600-4816740,c19,min_dfw_airport,,50.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4805372-4816230,c19,min_polo_mais_proximo,,18.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 18.5; Legacy (Plano/Frisco) 39.4; Las Colinas (Irving) 32.8; Telecom Corridor (Richardson) 30.9; Aeroporto DFW 45.6"
+U-4805372-4816230,c19,min_downtown_dallas,,18.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4805372-4816230,c19,min_legacy_plano,,39.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4805372-4816230,c19,min_las_colinas,,32.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4805372-4816230,c19,min_telecom_corridor,,30.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4805372-4816230,c19,min_dfw_airport,,45.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4805372-4830390,c19,min_polo_mais_proximo,,21.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 21.8; Legacy (Plano/Frisco) 37.7; Las Colinas (Irving) 36.1; Telecom Corridor (Richardson) 29.1; Aeroporto DFW 48.9"
+U-4805372-4830390,c19,min_downtown_dallas,,21.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4805372-4830390,c19,min_legacy_plano,,37.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4805372-4830390,c19,min_las_colinas,,36.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4805372-4830390,c19,min_telecom_corridor,,29.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4805372-4830390,c19,min_dfw_airport,,48.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4813024-4813050,c19,min_polo_mais_proximo,,15.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 24.9; Legacy (Plano/Frisco) 15.8; Las Colinas (Irving) 17.5; Telecom Corridor (Richardson) 21.1; Aeroporto DFW 25.6"
+U-4813024-4813050,c19,min_downtown_dallas,,24.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4813024-4813050,c19,min_legacy_plano,,15.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4813024-4813050,c19,min_las_colinas,,17.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4813024-4813050,c19,min_telecom_corridor,,21.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4813024-4813050,c19,min_dfw_airport,,25.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4813024-4816230,c19,min_polo_mais_proximo,,14.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 23.5; Legacy (Plano/Frisco) 14.0; Las Colinas (Irving) 22.5; Telecom Corridor (Richardson) 19.8; Aeroporto DFW 30.5"
+U-4813024-4816230,c19,min_downtown_dallas,,23.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4813024-4816230,c19,min_legacy_plano,,14.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4813024-4816230,c19,min_las_colinas,,22.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4813024-4816230,c19,min_telecom_corridor,,19.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4813024-4816230,c19,min_dfw_airport,,30.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4813024-4827300,c19,min_polo_mais_proximo,,14.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 33.4; Legacy (Plano/Frisco) 14.1; Las Colinas (Irving) 23.8; Telecom Corridor (Richardson) 25.4; Aeroporto DFW 24.1"
+U-4813024-4827300,c19,min_downtown_dallas,,33.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4813024-4827300,c19,min_legacy_plano,,14.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4813024-4827300,c19,min_las_colinas,,23.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4813024-4827300,c19,min_telecom_corridor,,25.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4813024-4827300,c19,min_dfw_airport,,24.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4813684-4813290,c19,min_polo_mais_proximo,,29.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 54.3; Legacy (Plano/Frisco) 29.8; Las Colinas (Irving) 55.0; Telecom Corridor (Richardson) 45.9; Aeroporto DFW 57.2"
+U-4813684-4813290,c19,min_downtown_dallas,,54.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4813684-4813290,c19,min_legacy_plano,,29.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4813684-4813290,c19,min_las_colinas,,55.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4813684-4813290,c19,min_telecom_corridor,,45.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4813684-4813290,c19,min_dfw_airport,,57.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4813684-4836000,c19,min_polo_mais_proximo,,29.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 53.7; Legacy (Plano/Frisco) 29.2; Las Colinas (Irving) 54.5; Telecom Corridor (Richardson) 37.4; Aeroporto DFW 55.1"
+U-4813684-4836000,c19,min_downtown_dallas,,53.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4813684-4836000,c19,min_legacy_plano,,29.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4813684-4836000,c19,min_las_colinas,,54.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4813684-4836000,c19,min_telecom_corridor,,37.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4813684-4836000,c19,min_dfw_airport,,55.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4815796-4816230,c19,min_polo_mais_proximo,,13.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 13.2; Legacy (Plano/Frisco) 35.7; Las Colinas (Irving) 17.6; Telecom Corridor (Richardson) 31.7; Aeroporto DFW 30.0"
+U-4815796-4816230,c19,min_downtown_dallas,,13.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4815796-4816230,c19,min_legacy_plano,,35.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4815796-4816230,c19,min_las_colinas,,17.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4815796-4816230,c19,min_telecom_corridor,,31.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4815796-4816230,c19,min_dfw_airport,,30.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4816612-4813050,c19,min_polo_mais_proximo,,15.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 25.7; Legacy (Plano/Frisco) 20.4; Las Colinas (Irving) 15.6; Telecom Corridor (Richardson) 25.7; Aeroporto DFW 21.7"
+U-4816612-4813050,c19,min_downtown_dallas,,25.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4816612-4813050,c19,min_legacy_plano,,20.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4816612-4813050,c19,min_las_colinas,,15.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4816612-4813050,c19,min_telecom_corridor,,25.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4816612-4813050,c19,min_dfw_airport,,21.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4816612-4815210,c19,min_polo_mais_proximo,,14.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 26.7; Legacy (Plano/Frisco) 23.8; Las Colinas (Irving) 14.5; Telecom Corridor (Richardson) 29.5; Aeroporto DFW 16.4"
+U-4816612-4815210,c19,min_downtown_dallas,,26.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4816612-4815210,c19,min_legacy_plano,,23.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4816612-4815210,c19,min_las_colinas,,14.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4816612-4815210,c19,min_telecom_corridor,,29.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4816612-4815210,c19,min_dfw_airport,,16.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4816696-4816740,c19,min_polo_mais_proximo,,34.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 44.0; Legacy (Plano/Frisco) 34.0; Las Colinas (Irving) 35.2; Telecom Corridor (Richardson) 40.2; Aeroporto DFW 35.2"
+U-4816696-4816740,c19,min_downtown_dallas,,44.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4816696-4816740,c19,min_legacy_plano,,34.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4816696-4816740,c19,min_las_colinas,,35.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4816696-4816740,c19,min_telecom_corridor,,40.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4816696-4816740,c19,min_dfw_airport,,35.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4816696-4826430,c19,min_polo_mais_proximo,,30.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 40.3; Legacy (Plano/Frisco) 30.3; Las Colinas (Irving) 31.5; Telecom Corridor (Richardson) 36.5; Aeroporto DFW 31.5"
+U-4816696-4826430,c19,min_downtown_dallas,,40.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4816696-4826430,c19,min_legacy_plano,,30.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4816696-4826430,c19,min_las_colinas,,31.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4816696-4826430,c19,min_telecom_corridor,,36.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4816696-4826430,c19,min_dfw_airport,,31.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4817504-4815510,c19,min_polo_mais_proximo,,30.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 30.8; Legacy (Plano/Frisco) 52.9; Las Colinas (Irving) 45.1; Telecom Corridor (Richardson) 44.4; Aeroporto DFW 57.9"
+U-4817504-4815510,c19,min_downtown_dallas,,30.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4817504-4815510,c19,min_legacy_plano,,52.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4817504-4815510,c19,min_las_colinas,,45.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4817504-4815510,c19,min_telecom_corridor,,44.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4817504-4815510,c19,min_dfw_airport,,57.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4817852-4808910,c19,min_polo_mais_proximo,,34.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 58.5; Legacy (Plano/Frisco) 34.0; Las Colinas (Irving) 50.3; Telecom Corridor (Richardson) 50.2; Aeroporto DFW 50.3"
+U-4817852-4808910,c19,min_downtown_dallas,,58.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4817852-4808910,c19,min_legacy_plano,,34.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4817852-4808910,c19,min_las_colinas,,50.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4817852-4808910,c19,min_telecom_corridor,,50.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4817852-4808910,c19,min_dfw_airport,,50.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4817852-4816740,c19,min_polo_mais_proximo,,29.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 54.3; Legacy (Plano/Frisco) 29.8; Las Colinas (Irving) 46.6; Telecom Corridor (Richardson) 45.9; Aeroporto DFW 46.6"
+U-4817852-4816740,c19,min_downtown_dallas,,54.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4817852-4816740,c19,min_legacy_plano,,29.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4817852-4816740,c19,min_las_colinas,,46.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4817852-4816740,c19,min_telecom_corridor,,45.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4817852-4816740,c19,min_dfw_airport,,46.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4819000-4813050,c19,min_polo_mais_proximo,,10.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 24.9; Legacy (Plano/Frisco) 10.6; Las Colinas (Irving) 20.1; Telecom Corridor (Richardson) 15.9; Aeroporto DFW 27.0"
+U-4819000-4813050,c19,min_downtown_dallas,,24.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4819000-4813050,c19,min_legacy_plano,,10.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4819000-4813050,c19,min_las_colinas,,20.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4819000-4813050,c19,min_telecom_corridor,,15.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4819000-4813050,c19,min_dfw_airport,,27.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4819000-4815210,c19,min_polo_mais_proximo,,12.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 24.5; Legacy (Plano/Frisco) 25.0; Las Colinas (Irving) 12.2; Telecom Corridor (Richardson) 27.2; Aeroporto DFW 16.8"
+U-4819000-4815210,c19,min_downtown_dallas,,24.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4819000-4815210,c19,min_legacy_plano,,25.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4819000-4815210,c19,min_las_colinas,,12.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4819000-4815210,c19,min_telecom_corridor,,27.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4819000-4815210,c19,min_dfw_airport,,16.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4819000-4816230,c19,min_polo_mais_proximo,,7.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 7.2; Legacy (Plano/Frisco) 30.0; Las Colinas (Irving) 20.4; Telecom Corridor (Richardson) 20.3; Aeroporto DFW 33.2"
+U-4819000-4816230,c19,min_downtown_dallas,,7.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4819000-4816230,c19,min_legacy_plano,,30.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4819000-4816230,c19,min_las_colinas,,20.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4819000-4816230,c19,min_telecom_corridor,,20.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4819000-4816230,c19,min_dfw_airport,,33.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4819000-4817640,c19,min_polo_mais_proximo,,20.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 20.8; Legacy (Plano/Frisco) 39.6; Las Colinas (Irving) 21.5; Telecom Corridor (Richardson) 37.5; Aeroporto DFW 32.7"
+U-4819000-4817640,c19,min_downtown_dallas,,20.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4819000-4817640,c19,min_legacy_plano,,39.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4819000-4817640,c19,min_las_colinas,,21.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4819000-4817640,c19,min_telecom_corridor,,37.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4819000-4817640,c19,min_dfw_airport,,32.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4819000-4819560,c19,min_polo_mais_proximo,,29.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 29.0; Legacy (Plano/Frisco) 45.1; Las Colinas (Irving) 43.6; Telecom Corridor (Richardson) 36.6; Aeroporto DFW 56.4"
+U-4819000-4819560,c19,min_downtown_dallas,,29.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4819000-4819560,c19,min_legacy_plano,,45.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4819000-4819560,c19,min_las_colinas,,43.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4819000-4819560,c19,min_telecom_corridor,,36.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4819000-4819560,c19,min_dfw_airport,,56.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4819000-4821420,c19,min_polo_mais_proximo,,26.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 26.2; Legacy (Plano/Frisco) 47.1; Las Colinas (Irving) 29.0; Telecom Corridor (Richardson) 44.8; Aeroporto DFW 32.4"
+U-4819000-4821420,c19,min_downtown_dallas,,26.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4819000-4821420,c19,min_legacy_plano,,47.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4819000-4821420,c19,min_las_colinas,,29.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4819000-4821420,c19,min_telecom_corridor,,44.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4819000-4821420,c19,min_dfw_airport,,32.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4819000-4824420,c19,min_polo_mais_proximo,,11.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 11.6; Legacy (Plano/Frisco) 29.5; Las Colinas (Irving) 11.4; Telecom Corridor (Richardson) 27.5; Aeroporto DFW 23.8"
+U-4819000-4824420,c19,min_downtown_dallas,,11.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4819000-4824420,c19,min_legacy_plano,,29.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4819000-4824420,c19,min_las_colinas,,11.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4819000-4824420,c19,min_telecom_corridor,,27.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4819000-4824420,c19,min_dfw_airport,,23.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4819000-4830390,c19,min_polo_mais_proximo,,25.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 25.2; Legacy (Plano/Frisco) 45.3; Las Colinas (Irving) 39.5; Telecom Corridor (Richardson) 36.7; Aeroporto DFW 52.3"
+U-4819000-4830390,c19,min_downtown_dallas,,25.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4819000-4830390,c19,min_legacy_plano,,45.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4819000-4830390,c19,min_las_colinas,,39.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4819000-4830390,c19,min_telecom_corridor,,36.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4819000-4830390,c19,min_dfw_airport,,52.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4819000-4835100,c19,min_polo_mais_proximo,,10.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 24.8; Legacy (Plano/Frisco) 10.8; Las Colinas (Irving) 25.6; Telecom Corridor (Richardson) 14.1; Aeroporto DFW 34.3"
+U-4819000-4835100,c19,min_downtown_dallas,,24.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4819000-4835100,c19,min_legacy_plano,,10.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4819000-4835100,c19,min_las_colinas,,25.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4819000-4835100,c19,min_telecom_corridor,,14.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4819000-4835100,c19,min_dfw_airport,,34.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4819000-4837020,c19,min_polo_mais_proximo,,15.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 19.1; Legacy (Plano/Frisco) 16.7; Las Colinas (Irving) 19.0; Telecom Corridor (Richardson) 15.1; Aeroporto DFW 29.2"
+U-4819000-4837020,c19,min_downtown_dallas,,19.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4819000-4837020,c19,min_legacy_plano,,16.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4819000-4837020,c19,min_las_colinas,,19.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4819000-4837020,c19,min_telecom_corridor,,15.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4819000-4837020,c19,min_dfw_airport,,29.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4820092-4816230,c19,min_polo_mais_proximo,,18.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 18.6; Legacy (Plano/Frisco) 41.9; Las Colinas (Irving) 29.3; Telecom Corridor (Richardson) 37.3; Aeroporto DFW 39.4"
+U-4820092-4816230,c19,min_downtown_dallas,,18.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4820092-4816230,c19,min_legacy_plano,,41.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4820092-4816230,c19,min_las_colinas,,29.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4820092-4816230,c19,min_telecom_corridor,,37.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4820092-4816230,c19,min_dfw_airport,,39.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4820092-4816860,c19,min_polo_mais_proximo,,24.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 24.5; Legacy (Plano/Frisco) 47.7; Las Colinas (Irving) 36.1; Telecom Corridor (Richardson) 43.1; Aeroporto DFW 46.5"
+U-4820092-4816860,c19,min_downtown_dallas,,24.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4820092-4816860,c19,min_legacy_plano,,47.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4820092-4816860,c19,min_las_colinas,,36.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4820092-4816860,c19,min_telecom_corridor,,43.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4820092-4816860,c19,min_dfw_airport,,46.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4820092-4817640,c19,min_polo_mais_proximo,,20.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 20.5; Legacy (Plano/Frisco) 43.8; Las Colinas (Irving) 31.3; Telecom Corridor (Richardson) 39.2; Aeroporto DFW 41.8"
+U-4820092-4817640,c19,min_downtown_dallas,,20.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4820092-4817640,c19,min_legacy_plano,,43.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4820092-4817640,c19,min_las_colinas,,31.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4820092-4817640,c19,min_telecom_corridor,,39.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4820092-4817640,c19,min_dfw_airport,,41.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4821628-4817640,c19,min_polo_mais_proximo,,19.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 19.9; Legacy (Plano/Frisco) 43.2; Las Colinas (Irving) 25.9; Telecom Corridor (Richardson) 38.6; Aeroporto DFW 36.5"
+U-4821628-4817640,c19,min_downtown_dallas,,19.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4821628-4817640,c19,min_legacy_plano,,43.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4821628-4817640,c19,min_las_colinas,,25.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4821628-4817640,c19,min_telecom_corridor,,38.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4821628-4817640,c19,min_dfw_airport,,36.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4824768-4821660,c19,min_polo_mais_proximo,,10.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 26.1; Legacy (Plano/Frisco) 33.2; Las Colinas (Irving) 16.8; Telecom Corridor (Richardson) 33.3; Aeroporto DFW 10.3"
+U-4824768-4821660,c19,min_downtown_dallas,,26.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4824768-4821660,c19,min_legacy_plano,,33.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4824768-4821660,c19,min_las_colinas,,16.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4824768-4821660,c19,min_telecom_corridor,,33.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4824768-4821660,c19,min_dfw_airport,,10.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4824768-4824060,c19,min_polo_mais_proximo,,14.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 22.8; Legacy (Plano/Frisco) 33.5; Las Colinas (Irving) 16.6; Telecom Corridor (Richardson) 33.1; Aeroporto DFW 14.6"
+U-4824768-4824060,c19,min_downtown_dallas,,22.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4824768-4824060,c19,min_legacy_plano,,33.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4824768-4824060,c19,min_las_colinas,,16.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4824768-4824060,c19,min_telecom_corridor,,33.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4824768-4824060,c19,min_dfw_airport,,14.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4825224-4828380,c19,min_polo_mais_proximo,,21.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 39.3; Legacy (Plano/Frisco) 23.9; Las Colinas (Irving) 44.4; Telecom Corridor (Richardson) 21.6; Aeroporto DFW 49.2"
+U-4825224-4828380,c19,min_downtown_dallas,,39.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4825224-4828380,c19,min_legacy_plano,,23.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4825224-4828380,c19,min_las_colinas,,44.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4825224-4828380,c19,min_telecom_corridor,,21.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4825224-4828380,c19,min_dfw_airport,,49.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4825224-4829850,c19,min_polo_mais_proximo,,18.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 35.9; Legacy (Plano/Frisco) 21.5; Las Colinas (Irving) 41.0; Telecom Corridor (Richardson) 18.3; Aeroporto DFW 46.8"
+U-4825224-4829850,c19,min_downtown_dallas,,35.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4825224-4829850,c19,min_legacy_plano,,21.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4825224-4829850,c19,min_las_colinas,,41.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4825224-4829850,c19,min_telecom_corridor,,18.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4825224-4829850,c19,min_dfw_airport,,46.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4825452-4813050,c19,min_polo_mais_proximo,,13.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 19.9; Legacy (Plano/Frisco) 21.5; Las Colinas (Irving) 13.0; Telecom Corridor (Richardson) 20.8; Aeroporto DFW 23.2"
+U-4825452-4813050,c19,min_downtown_dallas,,19.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4825452-4813050,c19,min_legacy_plano,,21.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4825452-4813050,c19,min_las_colinas,,13.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4825452-4813050,c19,min_telecom_corridor,,20.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4825452-4813050,c19,min_dfw_airport,,23.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4825452-4816230,c19,min_polo_mais_proximo,,14.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 19.0; Legacy (Plano/Frisco) 17.7; Las Colinas (Irving) 14.9; Telecom Corridor (Richardson) 15.6; Aeroporto DFW 25.3"
+U-4825452-4816230,c19,min_downtown_dallas,,19.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4825452-4816230,c19,min_legacy_plano,,17.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4825452-4816230,c19,min_las_colinas,,14.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4825452-4816230,c19,min_telecom_corridor,,15.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4825452-4816230,c19,min_dfw_airport,,25.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4825572-4837650,c19,min_polo_mais_proximo,,37.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 37.6; Legacy (Plano/Frisco) 47.3; Las Colinas (Irving) 52.3; Telecom Corridor (Richardson) 37.4; Aeroporto DFW 64.0"
+U-4825572-4837650,c19,min_downtown_dallas,,37.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4825572-4837650,c19,min_legacy_plano,,47.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4825572-4837650,c19,min_las_colinas,,52.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4825572-4837650,c19,min_telecom_corridor,,37.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4825572-4837650,c19,min_dfw_airport,,64.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4825572-4838220,c19,min_polo_mais_proximo,,36.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 36.2; Legacy (Plano/Frisco) 47.3; Las Colinas (Irving) 50.8; Telecom Corridor (Richardson) 37.3; Aeroporto DFW 62.5"
+U-4825572-4838220,c19,min_downtown_dallas,,36.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4825572-4838220,c19,min_legacy_plano,,47.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4825572-4838220,c19,min_las_colinas,,50.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4825572-4838220,c19,min_telecom_corridor,,37.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4825572-4838220,c19,min_dfw_airport,,62.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4825752-4819170,c19,min_polo_mais_proximo,,27.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 27.4; Legacy (Plano/Frisco) 52.5; Las Colinas (Irving) 41.7; Telecom Corridor (Richardson) 43.1; Aeroporto DFW 54.5"
+U-4825752-4819170,c19,min_downtown_dallas,,27.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4825752-4819170,c19,min_legacy_plano,,52.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4825752-4819170,c19,min_las_colinas,,41.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4825752-4819170,c19,min_telecom_corridor,,43.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4825752-4819170,c19,min_dfw_airport,,54.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4826604-4819560,c19,min_polo_mais_proximo,,27.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 27.6; Legacy (Plano/Frisco) 43.8; Las Colinas (Irving) 42.3; Telecom Corridor (Richardson) 35.2; Aeroporto DFW 55.1"
+U-4826604-4819560,c19,min_downtown_dallas,,27.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4826604-4819560,c19,min_legacy_plano,,43.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4826604-4819560,c19,min_las_colinas,,42.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4826604-4819560,c19,min_telecom_corridor,,35.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4826604-4819560,c19,min_dfw_airport,,55.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4827684-4820010,c19,min_polo_mais_proximo,,12.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 36.6; Legacy (Plano/Frisco) 12.1; Las Colinas (Irving) 37.4; Telecom Corridor (Richardson) 28.3; Aeroporto DFW 39.5"
+U-4827684-4820010,c19,min_downtown_dallas,,36.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4827684-4820010,c19,min_legacy_plano,,12.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4827684-4820010,c19,min_las_colinas,,37.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4827684-4820010,c19,min_telecom_corridor,,28.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4827684-4820010,c19,min_dfw_airport,,39.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4827684-4827300,c19,min_polo_mais_proximo,,8.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 34.2; Legacy (Plano/Frisco) 8.9; Las Colinas (Irving) 33.1; Telecom Corridor (Richardson) 25.8; Aeroporto DFW 33.5"
+U-4827684-4827300,c19,min_downtown_dallas,,34.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4827684-4827300,c19,min_legacy_plano,,8.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4827684-4827300,c19,min_las_colinas,,33.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4827684-4827300,c19,min_telecom_corridor,,25.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4827684-4827300,c19,min_dfw_airport,,33.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4827684-4827720,c19,min_polo_mais_proximo,,18.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 42.5; Legacy (Plano/Frisco) 18.0; Las Colinas (Irving) 37.2; Telecom Corridor (Richardson) 34.2; Aeroporto DFW 37.5"
+U-4827684-4827720,c19,min_downtown_dallas,,42.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4827684-4827720,c19,min_legacy_plano,,18.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4827684-4827720,c19,min_las_colinas,,37.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4827684-4827720,c19,min_telecom_corridor,,34.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4827684-4827720,c19,min_dfw_airport,,37.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4827684-4836000,c19,min_polo_mais_proximo,,14.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 39.0; Legacy (Plano/Frisco) 14.5; Las Colinas (Irving) 39.8; Telecom Corridor (Richardson) 30.6; Aeroporto DFW 41.9"
+U-4827684-4836000,c19,min_downtown_dallas,,39.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4827684-4836000,c19,min_legacy_plano,,14.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4827684-4836000,c19,min_las_colinas,,39.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4827684-4836000,c19,min_telecom_corridor,,30.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4827684-4836000,c19,min_dfw_airport,,41.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4829000-4820340,c19,min_polo_mais_proximo,,18.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 26.7; Legacy (Plano/Frisco) 29.9; Las Colinas (Irving) 32.6; Telecom Corridor (Richardson) 18.0; Aeroporto DFW 42.8"
+U-4829000-4820340,c19,min_downtown_dallas,,26.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4829000-4820340,c19,min_legacy_plano,,29.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4829000-4820340,c19,min_las_colinas,,32.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4829000-4820340,c19,min_telecom_corridor,,18.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4829000-4820340,c19,min_dfw_airport,,42.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4829000-4837020,c19,min_polo_mais_proximo,,6.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 25.1; Legacy (Plano/Frisco) 21.7; Las Colinas (Irving) 30.2; Telecom Corridor (Richardson) 6.5; Aeroporto DFW 40.4"
+U-4829000-4837020,c19,min_downtown_dallas,,25.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4829000-4837020,c19,min_legacy_plano,,21.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4829000-4837020,c19,min_las_colinas,,30.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4829000-4837020,c19,min_telecom_corridor,,6.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4829000-4837020,c19,min_dfw_airport,,40.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4829840-4816860,c19,min_polo_mais_proximo,,24.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 24.1; Legacy (Plano/Frisco) 47.4; Las Colinas (Irving) 35.7; Telecom Corridor (Richardson) 42.8; Aeroporto DFW 48.5"
+U-4829840-4816860,c19,min_downtown_dallas,,24.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4829840-4816860,c19,min_legacy_plano,,47.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4829840-4816860,c19,min_las_colinas,,35.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4829840-4816860,c19,min_telecom_corridor,,42.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4829840-4816860,c19,min_dfw_airport,,48.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4829840-4836660,c19,min_polo_mais_proximo,,26.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 26.5; Legacy (Plano/Frisco) 49.8; Las Colinas (Irving) 38.1; Telecom Corridor (Richardson) 45.2; Aeroporto DFW 50.9"
+U-4829840-4836660,c19,min_downtown_dallas,,26.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4829840-4836660,c19,min_legacy_plano,,49.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4829840-4836660,c19,min_las_colinas,,38.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4829840-4836660,c19,min_telecom_corridor,,45.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4829840-4836660,c19,min_dfw_airport,,50.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4830464-4808700,c19,min_polo_mais_proximo,,24.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 24.7; Legacy (Plano/Frisco) 40.6; Las Colinas (Irving) 24.2; Telecom Corridor (Richardson) 40.7; Aeroporto DFW 25.1"
+U-4830464-4808700,c19,min_downtown_dallas,,24.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4830464-4808700,c19,min_legacy_plano,,40.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4830464-4808700,c19,min_las_colinas,,24.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4830464-4808700,c19,min_telecom_corridor,,40.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4830464-4808700,c19,min_dfw_airport,,25.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4830464-4813230,c19,min_polo_mais_proximo,,31.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 31.9; Legacy (Plano/Frisco) 55.1; Las Colinas (Irving) 41.5; Telecom Corridor (Richardson) 50.5; Aeroporto DFW 45.3"
+U-4830464-4813230,c19,min_downtown_dallas,,31.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4830464-4813230,c19,min_legacy_plano,,55.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4830464-4813230,c19,min_las_colinas,,41.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4830464-4813230,c19,min_telecom_corridor,,50.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4830464-4813230,c19,min_dfw_airport,,45.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4830464-4821420,c19,min_polo_mais_proximo,,22.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 22.6; Legacy (Plano/Frisco) 39.1; Las Colinas (Irving) 22.7; Telecom Corridor (Richardson) 39.2; Aeroporto DFW 24.1"
+U-4830464-4821420,c19,min_downtown_dallas,,22.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4830464-4821420,c19,min_legacy_plano,,39.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4830464-4821420,c19,min_las_colinas,,22.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4830464-4821420,c19,min_telecom_corridor,,39.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4830464-4821420,c19,min_dfw_airport,,24.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4830464-4824420,c19,min_polo_mais_proximo,,15.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 22.1; Legacy (Plano/Frisco) 33.1; Las Colinas (Irving) 15.7; Telecom Corridor (Richardson) 32.3; Aeroporto DFW 17.9"
+U-4830464-4824420,c19,min_downtown_dallas,,22.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4830464-4824420,c19,min_legacy_plano,,33.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4830464-4824420,c19,min_las_colinas,,15.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4830464-4824420,c19,min_telecom_corridor,,32.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4830464-4824420,c19,min_dfw_airport,,17.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4830464-4828920,c19,min_polo_mais_proximo,,33.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 33.2; Legacy (Plano/Frisco) 53.9; Las Colinas (Irving) 37.5; Telecom Corridor (Richardson) 51.9; Aeroporto DFW 38.5"
+U-4830464-4828920,c19,min_downtown_dallas,,33.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4830464-4828920,c19,min_legacy_plano,,53.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4830464-4828920,c19,min_las_colinas,,37.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4830464-4828920,c19,min_telecom_corridor,,51.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4830464-4828920,c19,min_dfw_airport,,38.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4830464-4830600,c19,min_polo_mais_proximo,,33.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 33.5; Legacy (Plano/Frisco) 56.8; Las Colinas (Irving) 42.6; Telecom Corridor (Richardson) 52.2; Aeroporto DFW 41.8"
+U-4830464-4830600,c19,min_downtown_dallas,,33.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4830464-4830600,c19,min_legacy_plano,,56.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4830464-4830600,c19,min_las_colinas,,42.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4830464-4830600,c19,min_telecom_corridor,,52.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4830464-4830600,c19,min_dfw_airport,,41.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4831715-4827720,c19,min_polo_mais_proximo,,18.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 42.8; Legacy (Plano/Frisco) 18.2; Las Colinas (Irving) 40.0; Telecom Corridor (Richardson) 34.4; Aeroporto DFW 40.4"
+U-4831715-4827720,c19,min_downtown_dallas,,42.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4831715-4827720,c19,min_legacy_plano,,18.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4831715-4827720,c19,min_las_colinas,,40.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4831715-4827720,c19,min_telecom_corridor,,34.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4831715-4827720,c19,min_dfw_airport,,40.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4832984-4837650,c19,min_polo_mais_proximo,,33.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 33.7; Legacy (Plano/Frisco) 46.6; Las Colinas (Irving) 48.4; Telecom Corridor (Richardson) 36.7; Aeroporto DFW 60.8"
+U-4832984-4837650,c19,min_downtown_dallas,,33.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4832984-4837650,c19,min_legacy_plano,,46.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4832984-4837650,c19,min_las_colinas,,48.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4832984-4837650,c19,min_telecom_corridor,,36.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4832984-4837650,c19,min_dfw_airport,,60.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4833476-4826430,c19,min_polo_mais_proximo,,32.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 42.1; Legacy (Plano/Frisco) 32.1; Las Colinas (Irving) 33.4; Telecom Corridor (Richardson) 38.3; Aeroporto DFW 33.3"
+U-4833476-4826430,c19,min_downtown_dallas,,42.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4833476-4826430,c19,min_legacy_plano,,32.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4833476-4826430,c19,min_las_colinas,,33.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4833476-4826430,c19,min_telecom_corridor,,38.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4833476-4826430,c19,min_dfw_airport,,33.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4833476-4827300,c19,min_polo_mais_proximo,,35.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 45.3; Legacy (Plano/Frisco) 35.3; Las Colinas (Irving) 36.5; Telecom Corridor (Richardson) 41.5; Aeroporto DFW 36.5"
+U-4833476-4827300,c19,min_downtown_dallas,,45.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4833476-4827300,c19,min_legacy_plano,,35.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4833476-4827300,c19,min_las_colinas,,36.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4833476-4827300,c19,min_telecom_corridor,,41.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4833476-4827300,c19,min_dfw_airport,,36.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4833824-4816230,c19,min_polo_mais_proximo,,8.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 8.5; Legacy (Plano/Frisco) 22.8; Las Colinas (Irving) 16.9; Telecom Corridor (Richardson) 21.8; Aeroporto DFW 29.7"
+U-4833824-4816230,c19,min_downtown_dallas,,8.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4833824-4816230,c19,min_legacy_plano,,22.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4833824-4816230,c19,min_las_colinas,,16.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4833824-4816230,c19,min_telecom_corridor,,21.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4833824-4816230,c19,min_dfw_airport,,29.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4833824-4823250,c19,min_polo_mais_proximo,,10.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 10.8; Legacy (Plano/Frisco) 23.6; Las Colinas (Irving) 19.3; Telecom Corridor (Richardson) 18.7; Aeroporto DFW 32.1"
+U-4833824-4823250,c19,min_downtown_dallas,,10.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4833824-4823250,c19,min_legacy_plano,,23.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4833824-4823250,c19,min_las_colinas,,19.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4833824-4823250,c19,min_telecom_corridor,,18.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4833824-4823250,c19,min_dfw_airport,,32.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4833848-4827300,c19,min_polo_mais_proximo,,27.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 38.0; Legacy (Plano/Frisco) 27.9; Las Colinas (Irving) 29.2; Telecom Corridor (Richardson) 34.2; Aeroporto DFW 29.2"
+U-4833848-4827300,c19,min_downtown_dallas,,38.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4833848-4827300,c19,min_legacy_plano,,27.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4833848-4827300,c19,min_las_colinas,,29.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4833848-4827300,c19,min_telecom_corridor,,34.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4833848-4827300,c19,min_dfw_airport,,29.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4835612-4816230,c19,min_polo_mais_proximo,,16.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 16.8; Legacy (Plano/Frisco) 41.8; Las Colinas (Irving) 31.1; Telecom Corridor (Richardson) 32.4; Aeroporto DFW 43.9"
+U-4835612-4816230,c19,min_downtown_dallas,,16.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4835612-4816230,c19,min_legacy_plano,,41.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4835612-4816230,c19,min_las_colinas,,31.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4835612-4816230,c19,min_telecom_corridor,,32.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4835612-4816230,c19,min_dfw_airport,,43.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4835612-4826670,c19,min_polo_mais_proximo,,22.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 22.4; Legacy (Plano/Frisco) 47.5; Las Colinas (Irving) 36.7; Telecom Corridor (Richardson) 38.1; Aeroporto DFW 49.5"
+U-4835612-4826670,c19,min_downtown_dallas,,22.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4835612-4826670,c19,min_legacy_plano,,47.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4835612-4826670,c19,min_las_colinas,,36.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4835612-4826670,c19,min_telecom_corridor,,38.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4835612-4826670,c19,min_dfw_airport,,49.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4837000-4813050,c19,min_polo_mais_proximo,,8.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 21.3; Legacy (Plano/Frisco) 22.5; Las Colinas (Irving) 8.9; Telecom Corridor (Richardson) 22.3; Aeroporto DFW 17.6"
+U-4837000-4813050,c19,min_downtown_dallas,,21.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4837000-4813050,c19,min_legacy_plano,,22.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4837000-4813050,c19,min_las_colinas,,8.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4837000-4813050,c19,min_telecom_corridor,,22.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4837000-4813050,c19,min_dfw_airport,,17.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4837000-4815210,c19,min_polo_mais_proximo,,8.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 20.7; Legacy (Plano/Frisco) 26.9; Las Colinas (Irving) 8.4; Telecom Corridor (Richardson) 26.8; Aeroporto DFW 13.0"
+U-4837000-4815210,c19,min_downtown_dallas,,20.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4837000-4815210,c19,min_legacy_plano,,26.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4837000-4815210,c19,min_las_colinas,,8.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4837000-4815210,c19,min_telecom_corridor,,26.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4837000-4815210,c19,min_dfw_airport,,13.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4837000-4824420,c19,min_polo_mais_proximo,,9.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 16.6; Legacy (Plano/Frisco) 28.9; Las Colinas (Irving) 9.0; Telecom Corridor (Richardson) 26.9; Aeroporto DFW 16.1"
+U-4837000-4824420,c19,min_downtown_dallas,,16.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4837000-4824420,c19,min_legacy_plano,,28.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4837000-4824420,c19,min_las_colinas,,9.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4837000-4824420,c19,min_telecom_corridor,,26.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4837000-4824420,c19,min_dfw_airport,,16.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4838068-4814850,c19,min_polo_mais_proximo,,45.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 53.1; Legacy (Plano/Frisco) 55.5; Las Colinas (Irving) 67.7; Telecom Corridor (Richardson) 45.4; Aeroporto DFW 77.6"
+U-4838068-4814850,c19,min_downtown_dallas,,53.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4838068-4814850,c19,min_legacy_plano,,55.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4838068-4814850,c19,min_las_colinas,,67.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4838068-4814850,c19,min_telecom_corridor,,45.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4838068-4814850,c19,min_dfw_airport,,77.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4839916-4808910,c19,min_polo_mais_proximo,,36.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 60.8; Legacy (Plano/Frisco) 36.3; Las Colinas (Irving) 53.8; Telecom Corridor (Richardson) 52.5; Aeroporto DFW 53.7"
+U-4839916-4808910,c19,min_downtown_dallas,,60.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4839916-4808910,c19,min_legacy_plano,,36.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4839916-4808910,c19,min_las_colinas,,53.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4839916-4808910,c19,min_telecom_corridor,,52.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4839916-4808910,c19,min_dfw_airport,,53.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4840516-4826430,c19,min_polo_mais_proximo,,29.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 39.7; Legacy (Plano/Frisco) 29.7; Las Colinas (Irving) 30.9; Telecom Corridor (Richardson) 35.9; Aeroporto DFW 30.9"
+U-4840516-4826430,c19,min_downtown_dallas,,39.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4840516-4826430,c19,min_legacy_plano,,29.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4840516-4826430,c19,min_las_colinas,,30.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4840516-4826430,c19,min_telecom_corridor,,35.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4840516-4826430,c19,min_dfw_airport,,30.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4841050-4827720,c19,min_polo_mais_proximo,,29.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 46.4; Legacy (Plano/Frisco) 29.0; Las Colinas (Irving) 37.6; Telecom Corridor (Richardson) 42.6; Aeroporto DFW 37.6"
+U-4841050-4827720,c19,min_downtown_dallas,,46.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4841050-4827720,c19,min_legacy_plano,,29.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4841050-4827720,c19,min_las_colinas,,37.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4841050-4827720,c19,min_telecom_corridor,,42.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4841050-4827720,c19,min_dfw_airport,,37.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4841212-4816230,c19,min_polo_mais_proximo,,21.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 21.8; Legacy (Plano/Frisco) 45.1; Las Colinas (Irving) 33.4; Telecom Corridor (Richardson) 38.2; Aeroporto DFW 45.9"
+U-4841212-4816230,c19,min_downtown_dallas,,21.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4841212-4816230,c19,min_legacy_plano,,45.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4841212-4816230,c19,min_las_colinas,,33.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4841212-4816230,c19,min_telecom_corridor,,38.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4841212-4816230,c19,min_dfw_airport,,45.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4841212-4826670,c19,min_polo_mais_proximo,,24.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 24.5; Legacy (Plano/Frisco) 47.7; Las Colinas (Irving) 36.1; Telecom Corridor (Richardson) 41.7; Aeroporto DFW 48.9"
+U-4841212-4826670,c19,min_downtown_dallas,,24.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4841212-4826670,c19,min_legacy_plano,,47.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4841212-4826670,c19,min_las_colinas,,36.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4841212-4826670,c19,min_telecom_corridor,,41.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4841212-4826670,c19,min_dfw_airport,,48.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4841800-4814850,c19,min_polo_mais_proximo,,31.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 43.6; Legacy (Plano/Frisco) 41.2; Las Colinas (Irving) 54.0; Telecom Corridor (Richardson) 31.1; Aeroporto DFW 63.3"
+U-4841800-4814850,c19,min_downtown_dallas,,43.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4841800-4814850,c19,min_legacy_plano,,41.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4841800-4814850,c19,min_las_colinas,,54.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4841800-4814850,c19,min_telecom_corridor,,31.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4841800-4814850,c19,min_dfw_airport,,63.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4842508-4827300,c19,min_polo_mais_proximo,,19.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 32.0; Legacy (Plano/Frisco) 19.6; Las Colinas (Irving) 23.2; Telecom Corridor (Richardson) 28.2; Aeroporto DFW 23.2"
+U-4842508-4827300,c19,min_downtown_dallas,,32.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4842508-4827300,c19,min_legacy_plano,,19.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4842508-4827300,c19,min_las_colinas,,23.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4842508-4827300,c19,min_telecom_corridor,,28.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4842508-4827300,c19,min_dfw_airport,,23.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4843012-4816740,c19,min_polo_mais_proximo,,28.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 52.8; Legacy (Plano/Frisco) 28.3; Las Colinas (Irving) 45.9; Telecom Corridor (Richardson) 44.5; Aeroporto DFW 45.9"
+U-4843012-4816740,c19,min_downtown_dallas,,52.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4843012-4816740,c19,min_legacy_plano,,28.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4843012-4816740,c19,min_las_colinas,,45.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4843012-4816740,c19,min_telecom_corridor,,44.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4843012-4816740,c19,min_dfw_airport,,45.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4843012-4820010,c19,min_polo_mais_proximo,,15.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 39.8; Legacy (Plano/Frisco) 15.3; Las Colinas (Irving) 37.0; Telecom Corridor (Richardson) 31.4; Aeroporto DFW 37.3"
+U-4843012-4820010,c19,min_downtown_dallas,,39.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4843012-4820010,c19,min_legacy_plano,,15.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4843012-4820010,c19,min_las_colinas,,37.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4843012-4820010,c19,min_telecom_corridor,,31.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4843012-4820010,c19,min_dfw_airport,,37.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4843012-4827720,c19,min_polo_mais_proximo,,19.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 43.7; Legacy (Plano/Frisco) 19.2; Las Colinas (Irving) 40.9; Telecom Corridor (Richardson) 35.3; Aeroporto DFW 41.3"
+U-4843012-4827720,c19,min_downtown_dallas,,43.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4843012-4827720,c19,min_legacy_plano,,19.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4843012-4827720,c19,min_las_colinas,,40.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4843012-4827720,c19,min_telecom_corridor,,35.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4843012-4827720,c19,min_dfw_airport,,41.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4844308-4829850,c19,min_polo_mais_proximo,,31.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 49.5; Legacy (Plano/Frisco) 31.0; Las Colinas (Irving) 54.6; Telecom Corridor (Richardson) 31.9; Aeroporto DFW 56.2"
+U-4844308-4829850,c19,min_downtown_dallas,,49.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4844308-4829850,c19,min_legacy_plano,,31.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4844308-4829850,c19,min_las_colinas,,54.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4844308-4829850,c19,min_telecom_corridor,,31.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4844308-4829850,c19,min_dfw_airport,,56.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4844308-4835850,c19,min_polo_mais_proximo,,31.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 50.3; Legacy (Plano/Frisco) 31.7; Las Colinas (Irving) 55.4; Telecom Corridor (Richardson) 32.6; Aeroporto DFW 56.9"
+U-4844308-4835850,c19,min_downtown_dallas,,50.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4844308-4835850,c19,min_legacy_plano,,31.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4844308-4835850,c19,min_las_colinas,,55.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4844308-4835850,c19,min_telecom_corridor,,32.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4844308-4835850,c19,min_dfw_airport,,56.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4845012-4807890,c19,min_polo_mais_proximo,,20.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 38.2; Legacy (Plano/Frisco) 27.1; Las Colinas (Irving) 43.3; Telecom Corridor (Richardson) 20.5; Aeroporto DFW 52.3"
+U-4845012-4807890,c19,min_downtown_dallas,,38.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4845012-4807890,c19,min_legacy_plano,,27.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4845012-4807890,c19,min_las_colinas,,43.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4845012-4807890,c19,min_telecom_corridor,,20.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4845012-4807890,c19,min_dfw_airport,,52.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4845012-4828380,c19,min_polo_mais_proximo,,29.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 47.3; Legacy (Plano/Frisco) 36.2; Las Colinas (Irving) 52.4; Telecom Corridor (Richardson) 29.7; Aeroporto DFW 61.4"
+U-4845012-4828380,c19,min_downtown_dallas,,47.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4845012-4828380,c19,min_legacy_plano,,36.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4845012-4828380,c19,min_las_colinas,,52.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4845012-4828380,c19,min_telecom_corridor,,29.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4845012-4828380,c19,min_dfw_airport,,61.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4845012-4829850,c19,min_polo_mais_proximo,,29.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 46.6; Legacy (Plano/Frisco) 32.3; Las Colinas (Irving) 51.7; Telecom Corridor (Richardson) 29.0; Aeroporto DFW 57.5"
+U-4845012-4829850,c19,min_downtown_dallas,,46.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4845012-4829850,c19,min_legacy_plano,,32.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4845012-4829850,c19,min_las_colinas,,51.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4845012-4829850,c19,min_telecom_corridor,,29.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4845012-4829850,c19,min_dfw_airport,,57.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4845012-4835100,c19,min_polo_mais_proximo,,22.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 40.2; Legacy (Plano/Frisco) 30.8; Las Colinas (Irving) 45.3; Telecom Corridor (Richardson) 22.6; Aeroporto DFW 55.5"
+U-4845012-4835100,c19,min_downtown_dallas,,40.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4845012-4835100,c19,min_legacy_plano,,30.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4845012-4835100,c19,min_las_colinas,,45.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4845012-4835100,c19,min_telecom_corridor,,22.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4845012-4835100,c19,min_dfw_airport,,55.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4845012-4846530,c19,min_polo_mais_proximo,,24.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 42.0; Legacy (Plano/Frisco) 32.5; Las Colinas (Irving) 47.1; Telecom Corridor (Richardson) 24.4; Aeroporto DFW 57.3"
+U-4845012-4846530,c19,min_downtown_dallas,,42.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4845012-4846530,c19,min_legacy_plano,,32.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4845012-4846530,c19,min_las_colinas,,47.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4845012-4846530,c19,min_telecom_corridor,,24.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4845012-4846530,c19,min_dfw_airport,,57.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4845744-4807890,c19,min_polo_mais_proximo,,15.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 37.4; Legacy (Plano/Frisco) 15.5; Las Colinas (Irving) 40.4; Telecom Corridor (Richardson) 19.7; Aeroporto DFW 40.8"
+U-4845744-4807890,c19,min_downtown_dallas,,37.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4845744-4807890,c19,min_legacy_plano,,15.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4845744-4807890,c19,min_las_colinas,,40.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4845744-4807890,c19,min_telecom_corridor,,19.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4845744-4807890,c19,min_dfw_airport,,40.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4845744-4820010,c19,min_polo_mais_proximo,,15.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 38.7; Legacy (Plano/Frisco) 15.1; Las Colinas (Irving) 39.9; Telecom Corridor (Richardson) 21.0; Aeroporto DFW 40.3"
+U-4845744-4820010,c19,min_downtown_dallas,,38.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4845744-4820010,c19,min_legacy_plano,,15.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4845744-4820010,c19,min_las_colinas,,39.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4845744-4820010,c19,min_telecom_corridor,,21.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4845744-4820010,c19,min_dfw_airport,,40.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4845744-4829850,c19,min_polo_mais_proximo,,24.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 42.0; Legacy (Plano/Frisco) 25.2; Las Colinas (Irving) 47.1; Telecom Corridor (Richardson) 24.3; Aeroporto DFW 50.4"
+U-4845744-4829850,c19,min_downtown_dallas,,42.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4845744-4829850,c19,min_legacy_plano,,25.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4845744-4829850,c19,min_las_colinas,,47.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4845744-4829850,c19,min_telecom_corridor,,24.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4845744-4829850,c19,min_dfw_airport,,50.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4845744-4836000,c19,min_polo_mais_proximo,,26.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 48.6; Legacy (Plano/Frisco) 26.0; Las Colinas (Irving) 51.3; Telecom Corridor (Richardson) 30.9; Aeroporto DFW 51.7"
+U-4845744-4836000,c19,min_downtown_dallas,,48.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4845744-4836000,c19,min_legacy_plano,,26.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4845744-4836000,c19,min_las_colinas,,51.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4845744-4836000,c19,min_telecom_corridor,,30.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4845744-4836000,c19,min_dfw_airport,,51.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4845804-4837650,c19,min_polo_mais_proximo,,38.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 38.5; Legacy (Plano/Frisco) 50.6; Las Colinas (Irving) 53.1; Telecom Corridor (Richardson) 40.7; Aeroporto DFW 64.8"
+U-4845804-4837650,c19,min_downtown_dallas,,38.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4845804-4837650,c19,min_legacy_plano,,50.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4845804-4837650,c19,min_las_colinas,,53.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4845804-4837650,c19,min_telecom_corridor,,40.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4845804-4837650,c19,min_dfw_airport,,64.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4847496-4830120,c19,min_polo_mais_proximo,,29.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 47.3; Legacy (Plano/Frisco) 30.4; Las Colinas (Irving) 52.4; Telecom Corridor (Richardson) 29.6; Aeroporto DFW 55.7"
+U-4847496-4830120,c19,min_downtown_dallas,,47.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4847496-4830120,c19,min_legacy_plano,,30.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4847496-4830120,c19,min_las_colinas,,52.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4847496-4830120,c19,min_telecom_corridor,,29.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4847496-4830120,c19,min_dfw_airport,,55.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4847892-4819560,c19,min_polo_mais_proximo,,28.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 28.0; Legacy (Plano/Frisco) 48.0; Las Colinas (Irving) 42.3; Telecom Corridor (Richardson) 39.5; Aeroporto DFW 55.1"
+U-4847892-4819560,c19,min_downtown_dallas,,28.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4847892-4819560,c19,min_legacy_plano,,48.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4847892-4819560,c19,min_las_colinas,,42.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4847892-4819560,c19,min_telecom_corridor,,39.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4847892-4819560,c19,min_dfw_airport,,55.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4847892-4830390,c19,min_polo_mais_proximo,,19.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 19.5; Legacy (Plano/Frisco) 34.5; Las Colinas (Irving) 34.2; Telecom Corridor (Richardson) 26.0; Aeroporto DFW 47.0"
+U-4847892-4830390,c19,min_downtown_dallas,,19.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4847892-4830390,c19,min_legacy_plano,,34.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4847892-4830390,c19,min_las_colinas,,34.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4847892-4830390,c19,min_telecom_corridor,,26.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4847892-4830390,c19,min_dfw_airport,,47.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4850100-4835100,c19,min_polo_mais_proximo,,15.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 33.5; Legacy (Plano/Frisco) 25.8; Las Colinas (Irving) 38.6; Telecom Corridor (Richardson) 15.6; Aeroporto DFW 47.8"
+U-4850100-4835100,c19,min_downtown_dallas,,33.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4850100-4835100,c19,min_legacy_plano,,25.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4850100-4835100,c19,min_las_colinas,,38.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4850100-4835100,c19,min_telecom_corridor,,15.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4850100-4835100,c19,min_dfw_airport,,47.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4850100-4846530,c19,min_polo_mais_proximo,,19.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 37.6; Legacy (Plano/Frisco) 29.8; Las Colinas (Irving) 42.7; Telecom Corridor (Richardson) 19.7; Aeroporto DFW 51.9"
+U-4850100-4846530,c19,min_downtown_dallas,,37.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4850100-4846530,c19,min_legacy_plano,,29.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4850100-4846530,c19,min_las_colinas,,42.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4850100-4846530,c19,min_telecom_corridor,,19.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4850100-4846530,c19,min_dfw_airport,,51.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4850760-4814850,c19,min_polo_mais_proximo,,41.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 52.2; Legacy (Plano/Frisco) 51.6; Las Colinas (Irving) 64.4; Telecom Corridor (Richardson) 41.5; Aeroporto DFW 73.7"
+U-4850760-4814850,c19,min_downtown_dallas,,52.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4850760-4814850,c19,min_legacy_plano,,51.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4850760-4814850,c19,min_las_colinas,,64.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4850760-4814850,c19,min_telecom_corridor,,41.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4850760-4814850,c19,min_dfw_airport,,73.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4853115-4836660,c19,min_polo_mais_proximo,,29.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 29.8; Legacy (Plano/Frisco) 53.1; Las Colinas (Irving) 41.4; Telecom Corridor (Richardson) 48.5; Aeroporto DFW 54.2"
+U-4853115-4836660,c19,min_downtown_dallas,,29.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4853115-4836660,c19,min_legacy_plano,,53.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4853115-4836660,c19,min_las_colinas,,41.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4853115-4836660,c19,min_telecom_corridor,,48.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4853115-4836660,c19,min_dfw_airport,,54.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4853130-4816740,c19,min_polo_mais_proximo,,32.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 54.5; Legacy (Plano/Frisco) 32.2; Las Colinas (Irving) 45.7; Telecom Corridor (Richardson) 48.4; Aeroporto DFW 45.7"
+U-4853130-4816740,c19,min_downtown_dallas,,54.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4853130-4816740,c19,min_legacy_plano,,32.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4853130-4816740,c19,min_las_colinas,,45.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4853130-4816740,c19,min_telecom_corridor,,48.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4853130-4816740,c19,min_dfw_airport,,45.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4853130-4827720,c19,min_polo_mais_proximo,,32.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 55.2; Legacy (Plano/Frisco) 32.9; Las Colinas (Irving) 46.5; Telecom Corridor (Richardson) 49.1; Aeroporto DFW 46.4"
+U-4853130-4827720,c19,min_downtown_dallas,,55.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4853130-4827720,c19,min_legacy_plano,,32.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4853130-4827720,c19,min_las_colinas,,46.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4853130-4827720,c19,min_telecom_corridor,,49.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4853130-4827720,c19,min_dfw_airport,,46.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4854444-4816860,c19,min_polo_mais_proximo,,26.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 26.7; Legacy (Plano/Frisco) 50.0; Las Colinas (Irving) 37.5; Telecom Corridor (Richardson) 45.4; Aeroporto DFW 47.7"
+U-4854444-4816860,c19,min_downtown_dallas,,26.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4854444-4816860,c19,min_legacy_plano,,50.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4854444-4816860,c19,min_las_colinas,,37.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4854444-4816860,c19,min_telecom_corridor,,45.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4854444-4816860,c19,min_dfw_airport,,47.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4854444-4830600,c19,min_polo_mais_proximo,,31.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 31.8; Legacy (Plano/Frisco) 55.0; Las Colinas (Irving) 43.4; Telecom Corridor (Richardson) 50.4; Aeroporto DFW 54.7"
+U-4854444-4830600,c19,min_downtown_dallas,,31.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4854444-4830600,c19,min_legacy_plano,,55.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4854444-4830600,c19,min_las_colinas,,43.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4854444-4830600,c19,min_telecom_corridor,,50.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4854444-4830600,c19,min_dfw_airport,,54.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4854444-4836660,c19,min_polo_mais_proximo,,28.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 28.6; Legacy (Plano/Frisco) 51.9; Las Colinas (Irving) 40.2; Telecom Corridor (Richardson) 47.3; Aeroporto DFW 53.0"
+U-4854444-4836660,c19,min_downtown_dallas,,28.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4854444-4836660,c19,min_legacy_plano,,51.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4854444-4836660,c19,min_las_colinas,,40.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4854444-4836660,c19,min_telecom_corridor,,47.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4854444-4836660,c19,min_dfw_airport,,53.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4855152-4807890,c19,min_polo_mais_proximo,,18.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 35.7; Legacy (Plano/Frisco) 25.7; Las Colinas (Irving) 40.8; Telecom Corridor (Richardson) 18.0; Aeroporto DFW 51.0"
+U-4855152-4807890,c19,min_downtown_dallas,,35.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4855152-4807890,c19,min_legacy_plano,,25.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4855152-4807890,c19,min_las_colinas,,40.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4855152-4807890,c19,min_telecom_corridor,,18.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4855152-4807890,c19,min_dfw_airport,,51.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4855152-4835100,c19,min_polo_mais_proximo,,23.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 41.2; Legacy (Plano/Frisco) 31.7; Las Colinas (Irving) 46.3; Telecom Corridor (Richardson) 23.5; Aeroporto DFW 56.2"
+U-4855152-4835100,c19,min_downtown_dallas,,41.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4855152-4835100,c19,min_legacy_plano,,31.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4855152-4835100,c19,min_las_colinas,,46.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4855152-4835100,c19,min_telecom_corridor,,23.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4855152-4835100,c19,min_dfw_airport,,56.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4856485-4836660,c19,min_polo_mais_proximo,,36.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 36.7; Legacy (Plano/Frisco) 60.0; Las Colinas (Irving) 48.3; Telecom Corridor (Richardson) 55.4; Aeroporto DFW 61.1"
+U-4856485-4836660,c19,min_downtown_dallas,,36.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4856485-4836660,c19,min_legacy_plano,,60.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4856485-4836660,c19,min_las_colinas,,48.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4856485-4836660,c19,min_telecom_corridor,,55.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4856485-4836660,c19,min_dfw_airport,,61.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4856485-4844730,c19,min_polo_mais_proximo,,38.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 38.6; Legacy (Plano/Frisco) 61.9; Las Colinas (Irving) 50.2; Telecom Corridor (Richardson) 57.3; Aeroporto DFW 63.0"
+U-4856485-4844730,c19,min_downtown_dallas,,38.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4856485-4844730,c19,min_legacy_plano,,61.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4856485-4844730,c19,min_las_colinas,,50.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4856485-4844730,c19,min_telecom_corridor,,57.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4856485-4844730,c19,min_dfw_airport,,63.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4857476-4813290,c19,min_polo_mais_proximo,,31.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 55.5; Legacy (Plano/Frisco) 31.0; Las Colinas (Irving) 55.8; Telecom Corridor (Richardson) 47.2; Aeroporto DFW 56.2"
+U-4857476-4813290,c19,min_downtown_dallas,,55.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4857476-4813290,c19,min_legacy_plano,,31.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4857476-4813290,c19,min_las_colinas,,55.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4857476-4813290,c19,min_telecom_corridor,,47.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4857476-4813290,c19,min_dfw_airport,,56.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4857476-4834920,c19,min_polo_mais_proximo,,43.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 67.9; Legacy (Plano/Frisco) 43.4; Las Colinas (Irving) 63.9; Telecom Corridor (Richardson) 59.5; Aeroporto DFW 63.8"
+U-4857476-4834920,c19,min_downtown_dallas,,67.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4857476-4834920,c19,min_legacy_plano,,43.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4857476-4834920,c19,min_las_colinas,,63.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4857476-4834920,c19,min_telecom_corridor,,59.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4857476-4834920,c19,min_dfw_airport,,63.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4858016-4820010,c19,min_polo_mais_proximo,,11.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 36.1; Legacy (Plano/Frisco) 11.5; Las Colinas (Irving) 36.4; Telecom Corridor (Richardson) 21.6; Aeroporto DFW 36.8"
+U-4858016-4820010,c19,min_downtown_dallas,,36.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4858016-4820010,c19,min_legacy_plano,,11.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4858016-4820010,c19,min_las_colinas,,36.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4858016-4820010,c19,min_telecom_corridor,,21.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4858016-4820010,c19,min_dfw_airport,,36.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4858016-4827300,c19,min_polo_mais_proximo,,5.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 27.6; Legacy (Plano/Frisco) 5.2; Las Colinas (Irving) 28.4; Telecom Corridor (Richardson) 19.3; Aeroporto DFW 32.6"
+U-4858016-4827300,c19,min_downtown_dallas,,27.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4858016-4827300,c19,min_legacy_plano,,5.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4858016-4827300,c19,min_las_colinas,,28.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4858016-4827300,c19,min_telecom_corridor,,19.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4858016-4827300,c19,min_dfw_airport,,32.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4858016-4835100,c19,min_polo_mais_proximo,,12.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 30.7; Legacy (Plano/Frisco) 12.6; Las Colinas (Irving) 35.8; Telecom Corridor (Richardson) 13.0; Aeroporto DFW 42.9"
+U-4858016-4835100,c19,min_downtown_dallas,,30.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4858016-4835100,c19,min_legacy_plano,,12.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4858016-4835100,c19,min_las_colinas,,35.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4858016-4835100,c19,min_telecom_corridor,,13.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4858016-4835100,c19,min_dfw_airport,,42.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4859576-4829850,c19,min_polo_mais_proximo,,39.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 57.7; Legacy (Plano/Frisco) 39.1; Las Colinas (Irving) 62.8; Telecom Corridor (Richardson) 40.0; Aeroporto DFW 64.4"
+U-4859576-4829850,c19,min_downtown_dallas,,57.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4859576-4829850,c19,min_legacy_plano,,39.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4859576-4829850,c19,min_las_colinas,,62.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4859576-4829850,c19,min_telecom_corridor,,40.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4859576-4829850,c19,min_dfw_airport,,64.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4859576-4835850,c19,min_polo_mais_proximo,,32.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 51.5; Legacy (Plano/Frisco) 32.9; Las Colinas (Irving) 56.6; Telecom Corridor (Richardson) 33.8; Aeroporto DFW 58.2"
+U-4859576-4835850,c19,min_downtown_dallas,,51.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4859576-4835850,c19,min_legacy_plano,,32.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4859576-4835850,c19,min_las_colinas,,56.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4859576-4835850,c19,min_telecom_corridor,,33.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4859576-4835850,c19,min_dfw_airport,,58.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4859696-4816740,c19,min_polo_mais_proximo,,26.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 51.5; Legacy (Plano/Frisco) 26.9; Las Colinas (Irving) 52.2; Telecom Corridor (Richardson) 43.1; Aeroporto DFW 54.0"
+U-4859696-4816740,c19,min_downtown_dallas,,51.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4859696-4816740,c19,min_legacy_plano,,26.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4859696-4816740,c19,min_las_colinas,,52.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4859696-4816740,c19,min_telecom_corridor,,43.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4859696-4816740,c19,min_dfw_airport,,54.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4859696-4836000,c19,min_polo_mais_proximo,,19.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 44.0; Legacy (Plano/Frisco) 19.4; Las Colinas (Irving) 44.7; Telecom Corridor (Richardson) 35.6; Aeroporto DFW 46.8"
+U-4859696-4836000,c19,min_downtown_dallas,,44.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4859696-4836000,c19,min_legacy_plano,,19.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4859696-4836000,c19,min_las_colinas,,44.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4859696-4836000,c19,min_telecom_corridor,,35.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4859696-4836000,c19,min_dfw_airport,,46.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4859748-4808910,c19,min_polo_mais_proximo,,32.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 57.0; Legacy (Plano/Frisco) 32.5; Las Colinas (Irving) 52.1; Telecom Corridor (Richardson) 48.7; Aeroporto DFW 52.1"
+U-4859748-4808910,c19,min_downtown_dallas,,57.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4859748-4808910,c19,min_legacy_plano,,32.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4859748-4808910,c19,min_las_colinas,,52.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4859748-4808910,c19,min_telecom_corridor,,48.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4859748-4808910,c19,min_dfw_airport,,52.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4859748-4816740,c19,min_polo_mais_proximo,,28.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 53.1; Legacy (Plano/Frisco) 28.6; Las Colinas (Irving) 48.9; Telecom Corridor (Richardson) 44.7; Aeroporto DFW 48.9"
+U-4859748-4816740,c19,min_downtown_dallas,,53.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4859748-4816740,c19,min_legacy_plano,,28.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4859748-4816740,c19,min_las_colinas,,48.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4859748-4816740,c19,min_telecom_corridor,,44.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4859748-4816740,c19,min_dfw_airport,,48.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4861196-4819170,c19,min_polo_mais_proximo,,32.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 32.6; Legacy (Plano/Frisco) 55.8; Las Colinas (Irving) 44.2; Telecom Corridor (Richardson) 48.7; Aeroporto DFW 57.0"
+U-4861196-4819170,c19,min_downtown_dallas,,32.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4861196-4819170,c19,min_legacy_plano,,55.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4861196-4819170,c19,min_las_colinas,,44.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4861196-4819170,c19,min_telecom_corridor,,48.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4861196-4819170,c19,min_dfw_airport,,57.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4861196-4836660,c19,min_polo_mais_proximo,,25.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 25.2; Legacy (Plano/Frisco) 48.5; Las Colinas (Irving) 36.8; Telecom Corridor (Richardson) 43.9; Aeroporto DFW 49.6"
+U-4861196-4836660,c19,min_downtown_dallas,,25.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4861196-4836660,c19,min_legacy_plano,,48.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4861196-4836660,c19,min_las_colinas,,36.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4861196-4836660,c19,min_telecom_corridor,,43.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4861196-4836660,c19,min_dfw_airport,,49.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4861796-4835100,c19,min_polo_mais_proximo,,6.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 25.7; Legacy (Plano/Frisco) 18.4; Las Colinas (Irving) 30.8; Telecom Corridor (Richardson) 6.6; Aeroporto DFW 40.5"
+U-4861796-4835100,c19,min_downtown_dallas,,25.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4861796-4835100,c19,min_legacy_plano,,18.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4861796-4835100,c19,min_las_colinas,,30.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4861796-4835100,c19,min_telecom_corridor,,6.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4861796-4835100,c19,min_dfw_airport,,40.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4861796-4837020,c19,min_polo_mais_proximo,,6.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 20.3; Legacy (Plano/Frisco) 21.3; Las Colinas (Irving) 25.5; Telecom Corridor (Richardson) 6.3; Aeroporto DFW 35.7"
+U-4861796-4837020,c19,min_downtown_dallas,,20.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4861796-4837020,c19,min_legacy_plano,,21.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4861796-4837020,c19,min_las_colinas,,25.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4861796-4837020,c19,min_telecom_corridor,,6.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4861796-4837020,c19,min_dfw_airport,,35.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4862828-4837650,c19,min_polo_mais_proximo,,31.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 31.9; Legacy (Plano/Frisco) 42.5; Las Colinas (Irving) 46.5; Telecom Corridor (Richardson) 32.6; Aeroporto DFW 58.2"
+U-4862828-4837650,c19,min_downtown_dallas,,31.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4862828-4837650,c19,min_legacy_plano,,42.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4862828-4837650,c19,min_las_colinas,,46.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4862828-4837650,c19,min_telecom_corridor,,32.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4862828-4837650,c19,min_dfw_airport,,58.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4863572-4820340,c19,min_polo_mais_proximo,,20.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 26.5; Legacy (Plano/Frisco) 30.6; Las Colinas (Irving) 41.1; Telecom Corridor (Richardson) 20.7; Aeroporto DFW 52.6"
+U-4863572-4820340,c19,min_downtown_dallas,,26.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4863572-4820340,c19,min_legacy_plano,,30.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4863572-4820340,c19,min_las_colinas,,41.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4863572-4820340,c19,min_telecom_corridor,,20.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4863572-4820340,c19,min_dfw_airport,,52.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4863572-4837650,c19,min_polo_mais_proximo,,25.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 30.9; Legacy (Plano/Frisco) 35.6; Las Colinas (Irving) 45.6; Telecom Corridor (Richardson) 25.6; Aeroporto DFW 57.2"
+U-4863572-4837650,c19,min_downtown_dallas,,30.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4863572-4837650,c19,min_legacy_plano,,35.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4863572-4837650,c19,min_las_colinas,,45.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4863572-4837650,c19,min_telecom_corridor,,25.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4863572-4837650,c19,min_dfw_airport,,57.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4863668-4838220,c19,min_polo_mais_proximo,,40.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 40.9; Legacy (Plano/Frisco) 53.0; Las Colinas (Irving) 55.5; Telecom Corridor (Richardson) 43.1; Aeroporto DFW 67.2"
+U-4863668-4838220,c19,min_downtown_dallas,,40.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4863668-4838220,c19,min_legacy_plano,,53.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4863668-4838220,c19,min_las_colinas,,55.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4863668-4838220,c19,min_telecom_corridor,,43.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4863668-4838220,c19,min_dfw_airport,,67.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4864064-4820340,c19,min_polo_mais_proximo,,17.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 34.0; Legacy (Plano/Frisco) 27.4; Las Colinas (Irving) 40.2; Telecom Corridor (Richardson) 17.4; Aeroporto DFW 49.5"
+U-4864064-4820340,c19,min_downtown_dallas,,34.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4864064-4820340,c19,min_legacy_plano,,27.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4864064-4820340,c19,min_las_colinas,,40.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4864064-4820340,c19,min_telecom_corridor,,17.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4864064-4820340,c19,min_dfw_airport,,49.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4864064-4846530,c19,min_polo_mais_proximo,,20.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 38.5; Legacy (Plano/Frisco) 30.8; Las Colinas (Irving) 43.6; Telecom Corridor (Richardson) 20.7; Aeroporto DFW 52.9"
+U-4864064-4846530,c19,min_downtown_dallas,,38.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4864064-4846530,c19,min_legacy_plano,,30.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4864064-4846530,c19,min_las_colinas,,43.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4864064-4846530,c19,min_telecom_corridor,,20.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4864064-4846530,c19,min_dfw_airport,,52.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4866428-4815510,c19,min_polo_mais_proximo,,27.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 27.6; Legacy (Plano/Frisco) 49.7; Las Colinas (Irving) 41.9; Telecom Corridor (Richardson) 41.1; Aeroporto DFW 54.7"
+U-4866428-4815510,c19,min_downtown_dallas,,27.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4866428-4815510,c19,min_legacy_plano,,49.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4866428-4815510,c19,min_las_colinas,,41.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4866428-4815510,c19,min_telecom_corridor,,41.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4866428-4815510,c19,min_dfw_airport,,54.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4866428-4816230,c19,min_polo_mais_proximo,,24.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 24.3; Legacy (Plano/Frisco) 46.4; Las Colinas (Irving) 38.6; Telecom Corridor (Richardson) 37.9; Aeroporto DFW 51.4"
+U-4866428-4816230,c19,min_downtown_dallas,,24.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4866428-4816230,c19,min_legacy_plano,,46.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4866428-4816230,c19,min_las_colinas,,38.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4866428-4816230,c19,min_telecom_corridor,,37.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4866428-4816230,c19,min_dfw_airport,,51.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4866428-4830390,c19,min_polo_mais_proximo,,27.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 27.1; Legacy (Plano/Frisco) 47.7; Las Colinas (Irving) 41.4; Telecom Corridor (Richardson) 39.2; Aeroporto DFW 54.2"
+U-4866428-4830390,c19,min_downtown_dallas,,27.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4866428-4830390,c19,min_legacy_plano,,47.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4866428-4830390,c19,min_las_colinas,,41.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4866428-4830390,c19,min_telecom_corridor,,39.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4866428-4830390,c19,min_dfw_airport,,54.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4867100-4816740,c19,min_polo_mais_proximo,,36.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 46.2; Legacy (Plano/Frisco) 36.1; Las Colinas (Irving) 37.4; Telecom Corridor (Richardson) 42.4; Aeroporto DFW 37.4"
+U-4867100-4816740,c19,min_downtown_dallas,,46.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4867100-4816740,c19,min_legacy_plano,,36.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4867100-4816740,c19,min_las_colinas,,37.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4867100-4816740,c19,min_telecom_corridor,,42.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4867100-4816740,c19,min_dfw_airport,,37.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4867100-4826430,c19,min_polo_mais_proximo,,31.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 41.9; Legacy (Plano/Frisco) 31.8; Las Colinas (Irving) 33.1; Telecom Corridor (Richardson) 38.1; Aeroporto DFW 33.0"
+U-4867100-4826430,c19,min_downtown_dallas,,41.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4867100-4826430,c19,min_legacy_plano,,31.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4867100-4826430,c19,min_las_colinas,,33.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4867100-4826430,c19,min_telecom_corridor,,38.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4867100-4826430,c19,min_dfw_airport,,33.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4864220-4846530,c19,min_polo_mais_proximo,,26.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 43.8; Legacy (Plano/Frisco) 34.3; Las Colinas (Irving) 48.9; Telecom Corridor (Richardson) 26.1; Aeroporto DFW 59.1"
+U-4864220-4846530,c19,min_downtown_dallas,,43.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4864220-4846530,c19,min_legacy_plano,,34.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4864220-4846530,c19,min_las_colinas,,48.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4864220-4846530,c19,min_telecom_corridor,,26.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4864220-4846530,c19,min_dfw_airport,,59.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4871156-4841880,c19,min_polo_mais_proximo,,23.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 23.6; Legacy (Plano/Frisco) 39.8; Las Colinas (Irving) 38.3; Telecom Corridor (Richardson) 31.3; Aeroporto DFW 51.1"
+U-4871156-4841880,c19,min_downtown_dallas,,23.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4871156-4841880,c19,min_legacy_plano,,39.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4871156-4841880,c19,min_las_colinas,,38.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4871156-4841880,c19,min_telecom_corridor,,31.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4871156-4841880,c19,min_dfw_airport,,51.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4871756-4819560,c19,min_polo_mais_proximo,,34.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 34.6; Legacy (Plano/Frisco) 53.6; Las Colinas (Irving) 48.9; Telecom Corridor (Richardson) 45.0; Aeroporto DFW 61.7"
+U-4871756-4819560,c19,min_downtown_dallas,,34.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4871756-4819560,c19,min_legacy_plano,,53.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4871756-4819560,c19,min_las_colinas,,48.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4871756-4819560,c19,min_telecom_corridor,,45.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4871756-4819560,c19,min_dfw_airport,,61.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4872530-4827300,c19,min_polo_mais_proximo,,9.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 33.9; Legacy (Plano/Frisco) 9.3; Las Colinas (Irving) 27.4; Telecom Corridor (Richardson) 25.5; Aeroporto DFW 27.7"
+U-4872530-4827300,c19,min_downtown_dallas,,33.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4872530-4827300,c19,min_legacy_plano,,9.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4872530-4827300,c19,min_las_colinas,,27.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4872530-4827300,c19,min_telecom_corridor,,25.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4872530-4827300,c19,min_dfw_airport,,27.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4872530-4827720,c19,min_polo_mais_proximo,,18.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 43.2; Legacy (Plano/Frisco) 18.7; Las Colinas (Irving) 37.4; Telecom Corridor (Richardson) 34.8; Aeroporto DFW 37.7"
+U-4872530-4827720,c19,min_downtown_dallas,,43.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4872530-4827720,c19,min_legacy_plano,,18.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4872530-4827720,c19,min_las_colinas,,37.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4872530-4827720,c19,min_telecom_corridor,,34.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4872530-4827720,c19,min_dfw_airport,,37.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4874492-4823250,c19,min_polo_mais_proximo,,12.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 12.0; Legacy (Plano/Frisco) 23.0; Las Colinas (Irving) 20.4; Telecom Corridor (Richardson) 16.5; Aeroporto DFW 33.2"
+U-4874492-4823250,c19,min_downtown_dallas,,12.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4874492-4823250,c19,min_legacy_plano,,23.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4874492-4823250,c19,min_las_colinas,,20.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4874492-4823250,c19,min_telecom_corridor,,16.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4874492-4823250,c19,min_dfw_airport,,33.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4879576-4816230,c19,min_polo_mais_proximo,,22.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 22.1; Legacy (Plano/Frisco) 47.2; Las Colinas (Irving) 36.4; Telecom Corridor (Richardson) 37.7; Aeroporto DFW 49.2"
+U-4879576-4816230,c19,min_downtown_dallas,,22.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4879576-4816230,c19,min_legacy_plano,,47.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4879576-4816230,c19,min_las_colinas,,36.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4879576-4816230,c19,min_telecom_corridor,,37.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4879576-4816230,c19,min_dfw_airport,,49.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4880356-4814850,c19,min_polo_mais_proximo,,37.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 50.3; Legacy (Plano/Frisco) 47.8; Las Colinas (Irving) 60.7; Telecom Corridor (Richardson) 37.7; Aeroporto DFW 69.9"
+U-4880356-4814850,c19,min_downtown_dallas,,50.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4880356-4814850,c19,min_legacy_plano,,47.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4880356-4814850,c19,min_las_colinas,,60.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4880356-4814850,c19,min_telecom_corridor,,37.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4880356-4814850,c19,min_dfw_airport,,69.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-4880356-4846530,c19,min_polo_mais_proximo,,24.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 42.0; Legacy (Plano/Frisco) 34.5; Las Colinas (Irving) 47.3; Telecom Corridor (Richardson) 24.4; Aeroporto DFW 56.6"
+U-4880356-4846530,c19,min_downtown_dallas,,42.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-4880356-4846530,c19,min_legacy_plano,,34.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-4880356-4846530,c19,min_las_colinas,,47.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-4880356-4846530,c19,min_telecom_corridor,,24.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-4880356-4846530,c19,min_dfw_airport,,56.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48085-4813290,c19,min_polo_mais_proximo,,37.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 62.3; Legacy (Plano/Frisco) 37.8; Las Colinas (Irving) 63.1; Telecom Corridor (Richardson) 44.7; Aeroporto DFW 63.7"
+U-ETJ-48085-4813290,c19,min_downtown_dallas,,62.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48085-4813290,c19,min_legacy_plano,,37.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48085-4813290,c19,min_las_colinas,,63.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48085-4813290,c19,min_telecom_corridor,,44.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48085-4813290,c19,min_dfw_airport,,63.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48085-4814850,c19,min_polo_mais_proximo,,48.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 53.2; Legacy (Plano/Frisco) 58.1; Las Colinas (Irving) 67.9; Telecom Corridor (Richardson) 48.0; Aeroporto DFW 79.6"
+U-ETJ-48085-4814850,c19,min_downtown_dallas,,53.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48085-4814850,c19,min_legacy_plano,,58.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48085-4814850,c19,min_las_colinas,,67.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48085-4814850,c19,min_telecom_corridor,,48.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48085-4814850,c19,min_dfw_airport,,79.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48085-4829850,c19,min_polo_mais_proximo,,33.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 52.4; Legacy (Plano/Frisco) 33.9; Las Colinas (Irving) 57.5; Telecom Corridor (Richardson) 34.8; Aeroporto DFW 59.1"
+U-ETJ-48085-4829850,c19,min_downtown_dallas,,52.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48085-4829850,c19,min_legacy_plano,,33.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48085-4829850,c19,min_las_colinas,,57.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48085-4829850,c19,min_telecom_corridor,,34.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48085-4829850,c19,min_dfw_airport,,59.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48085-4830120,c19,min_polo_mais_proximo,,35.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 52.9; Legacy (Plano/Frisco) 36.1; Las Colinas (Irving) 58.0; Telecom Corridor (Richardson) 35.3; Aeroporto DFW 61.3"
+U-ETJ-48085-4830120,c19,min_downtown_dallas,,52.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48085-4830120,c19,min_legacy_plano,,36.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48085-4830120,c19,min_las_colinas,,58.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48085-4830120,c19,min_telecom_corridor,,35.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48085-4830120,c19,min_dfw_airport,,61.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48085-4835850,c19,min_polo_mais_proximo,,40.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 59.1; Legacy (Plano/Frisco) 40.6; Las Colinas (Irving) 64.2; Telecom Corridor (Richardson) 41.5; Aeroporto DFW 65.8"
+U-ETJ-48085-4835850,c19,min_downtown_dallas,,59.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48085-4835850,c19,min_legacy_plano,,40.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48085-4835850,c19,min_las_colinas,,64.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48085-4835850,c19,min_telecom_corridor,,41.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48085-4835850,c19,min_dfw_airport,,65.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48085-4836000,c19,min_polo_mais_proximo,,19.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 44.0; Legacy (Plano/Frisco) 19.5; Las Colinas (Irving) 44.8; Telecom Corridor (Richardson) 34.4; Aeroporto DFW 46.9"
+U-ETJ-48085-4836000,c19,min_downtown_dallas,,44.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48085-4836000,c19,min_legacy_plano,,19.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48085-4836000,c19,min_las_colinas,,44.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48085-4836000,c19,min_telecom_corridor,,34.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48085-4836000,c19,min_dfw_airport,,46.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48085-4838220,c19,min_polo_mais_proximo,,45.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 45.3; Legacy (Plano/Frisco) 56.4; Las Colinas (Irving) 60.0; Telecom Corridor (Richardson) 46.5; Aeroporto DFW 71.7"
+U-ETJ-48085-4838220,c19,min_downtown_dallas,,45.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48085-4838220,c19,min_legacy_plano,,56.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48085-4838220,c19,min_las_colinas,,60.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48085-4838220,c19,min_telecom_corridor,,46.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48085-4838220,c19,min_dfw_airport,,71.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48085-4846530,c19,min_polo_mais_proximo,,24.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 42.5; Legacy (Plano/Frisco) 33.1; Las Colinas (Irving) 47.6; Telecom Corridor (Richardson) 24.9; Aeroporto DFW 57.8"
+U-ETJ-48085-4846530,c19,min_downtown_dallas,,42.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48085-4846530,c19,min_legacy_plano,,33.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48085-4846530,c19,min_las_colinas,,47.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48085-4846530,c19,min_telecom_corridor,,24.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48085-4846530,c19,min_dfw_airport,,57.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48113-4816230,c19,min_polo_mais_proximo,,34.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 34.6; Legacy (Plano/Frisco) 59.7; Las Colinas (Irving) 48.9; Telecom Corridor (Richardson) 50.2; Aeroporto DFW 61.7"
+U-ETJ-48113-4816230,c19,min_downtown_dallas,,34.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48113-4816230,c19,min_legacy_plano,,59.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48113-4816230,c19,min_las_colinas,,48.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48113-4816230,c19,min_telecom_corridor,,50.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48113-4816230,c19,min_dfw_airport,,61.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48113-4819170,c19,min_polo_mais_proximo,,23.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 23.2; Legacy (Plano/Frisco) 48.3; Las Colinas (Irving) 37.5; Telecom Corridor (Richardson) 38.8; Aeroporto DFW 50.3"
+U-ETJ-48113-4819170,c19,min_downtown_dallas,,23.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48113-4819170,c19,min_legacy_plano,,48.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48113-4819170,c19,min_las_colinas,,37.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48113-4819170,c19,min_telecom_corridor,,38.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48113-4819170,c19,min_dfw_airport,,50.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48113-4820340,c19,min_polo_mais_proximo,,24.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 38.8; Legacy (Plano/Frisco) 34.8; Las Colinas (Irving) 47.7; Telecom Corridor (Richardson) 24.9; Aeroporto DFW 56.9"
+U-ETJ-48113-4820340,c19,min_downtown_dallas,,38.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48113-4820340,c19,min_legacy_plano,,34.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48113-4820340,c19,min_las_colinas,,47.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48113-4820340,c19,min_telecom_corridor,,24.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48113-4820340,c19,min_dfw_airport,,56.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48113-4826670,c19,min_polo_mais_proximo,,30.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 30.4; Legacy (Plano/Frisco) 53.7; Las Colinas (Irving) 42.0; Telecom Corridor (Richardson) 46.5; Aeroporto DFW 54.8"
+U-ETJ-48113-4826670,c19,min_downtown_dallas,,30.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48113-4826670,c19,min_legacy_plano,,53.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48113-4826670,c19,min_las_colinas,,42.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48113-4826670,c19,min_telecom_corridor,,46.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48113-4826670,c19,min_dfw_airport,,54.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48113-4830390,c19,min_polo_mais_proximo,,21.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 21.5; Legacy (Plano/Frisco) 37.7; Las Colinas (Irving) 36.2; Telecom Corridor (Richardson) 29.1; Aeroporto DFW 49.0"
+U-ETJ-48113-4830390,c19,min_downtown_dallas,,21.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48113-4830390,c19,min_legacy_plano,,37.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48113-4830390,c19,min_las_colinas,,36.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48113-4830390,c19,min_telecom_corridor,,29.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48113-4830390,c19,min_dfw_airport,,49.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48121-4808910,c19,min_polo_mais_proximo,,35.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 59.8; Legacy (Plano/Frisco) 35.3; Las Colinas (Irving) 58.0; Telecom Corridor (Richardson) 51.5; Aeroporto DFW 58.0"
+U-ETJ-48121-4808910,c19,min_downtown_dallas,,59.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48121-4808910,c19,min_legacy_plano,,35.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48121-4808910,c19,min_las_colinas,,58.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48121-4808910,c19,min_telecom_corridor,,51.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48121-4808910,c19,min_dfw_airport,,58.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48121-4813290,c19,min_polo_mais_proximo,,31.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 56.4; Legacy (Plano/Frisco) 31.9; Las Colinas (Irving) 57.1; Telecom Corridor (Richardson) 48.0; Aeroporto DFW 59.2"
+U-ETJ-48121-4813290,c19,min_downtown_dallas,,56.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48121-4813290,c19,min_legacy_plano,,31.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48121-4813290,c19,min_las_colinas,,57.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48121-4813290,c19,min_telecom_corridor,,48.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48121-4813290,c19,min_dfw_airport,,59.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48121-4816740,c19,min_polo_mais_proximo,,51.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 61.8; Legacy (Plano/Frisco) 51.0; Las Colinas (Irving) 53.0; Telecom Corridor (Richardson) 58.0; Aeroporto DFW 53.0"
+U-ETJ-48121-4816740,c19,min_downtown_dallas,,61.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48121-4816740,c19,min_legacy_plano,,51.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48121-4816740,c19,min_las_colinas,,53.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48121-4816740,c19,min_telecom_corridor,,58.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48121-4816740,c19,min_dfw_airport,,53.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48121-4827720,c19,min_polo_mais_proximo,,21.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 46.0; Legacy (Plano/Frisco) 21.5; Las Colinas (Irving) 41.9; Telecom Corridor (Richardson) 37.6; Aeroporto DFW 42.3"
+U-ETJ-48121-4827720,c19,min_downtown_dallas,,46.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48121-4827720,c19,min_legacy_plano,,21.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48121-4827720,c19,min_las_colinas,,41.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48121-4827720,c19,min_telecom_corridor,,37.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48121-4827720,c19,min_dfw_airport,,42.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48121-4834920,c19,min_polo_mais_proximo,,37.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 62.0; Legacy (Plano/Frisco) 37.5; Las Colinas (Irving) 62.3; Telecom Corridor (Richardson) 53.7; Aeroporto DFW 62.7"
+U-ETJ-48121-4834920,c19,min_downtown_dallas,,62.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48121-4834920,c19,min_legacy_plano,,37.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48121-4834920,c19,min_las_colinas,,62.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48121-4834920,c19,min_telecom_corridor,,53.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48121-4834920,c19,min_dfw_airport,,62.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48121-4836000,c19,min_polo_mais_proximo,,20.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 45.2; Legacy (Plano/Frisco) 20.7; Las Colinas (Irving) 46.0; Telecom Corridor (Richardson) 36.9; Aeroporto DFW 48.1"
+U-ETJ-48121-4836000,c19,min_downtown_dallas,,45.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48121-4836000,c19,min_legacy_plano,,20.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48121-4836000,c19,min_las_colinas,,46.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48121-4836000,c19,min_telecom_corridor,,36.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48121-4836000,c19,min_dfw_airport,,48.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48139-4819170,c19,min_polo_mais_proximo,,29.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 29.1; Legacy (Plano/Frisco) 54.2; Las Colinas (Irving) 43.5; Telecom Corridor (Richardson) 44.8; Aeroporto DFW 56.2"
+U-ETJ-48139-4819170,c19,min_downtown_dallas,,29.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48139-4819170,c19,min_legacy_plano,,54.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48139-4819170,c19,min_las_colinas,,43.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48139-4819170,c19,min_telecom_corridor,,44.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48139-4819170,c19,min_dfw_airport,,56.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48139-4830600,c19,min_polo_mais_proximo,,42.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 42.3; Legacy (Plano/Frisco) 65.6; Las Colinas (Irving) 53.9; Telecom Corridor (Richardson) 61.0; Aeroporto DFW 56.5"
+U-ETJ-48139-4830600,c19,min_downtown_dallas,,42.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48139-4830600,c19,min_legacy_plano,,65.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48139-4830600,c19,min_las_colinas,,53.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48139-4830600,c19,min_telecom_corridor,,61.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48139-4830600,c19,min_dfw_airport,,56.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48139-4836660,c19,min_polo_mais_proximo,,29.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 29.7; Legacy (Plano/Frisco) 53.0; Las Colinas (Irving) 41.3; Telecom Corridor (Richardson) 48.4; Aeroporto DFW 54.1"
+U-ETJ-48139-4836660,c19,min_downtown_dallas,,29.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48139-4836660,c19,min_legacy_plano,,53.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48139-4836660,c19,min_las_colinas,,41.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48139-4836660,c19,min_telecom_corridor,,48.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48139-4836660,c19,min_dfw_airport,,54.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48139-4844730,c19,min_polo_mais_proximo,,48.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 48.0; Legacy (Plano/Frisco) 71.3; Las Colinas (Irving) 59.6; Telecom Corridor (Richardson) 66.7; Aeroporto DFW 72.4"
+U-ETJ-48139-4844730,c19,min_downtown_dallas,,48.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48139-4844730,c19,min_legacy_plano,,71.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48139-4844730,c19,min_las_colinas,,59.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48139-4844730,c19,min_telecom_corridor,,66.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48139-4844730,c19,min_dfw_airport,,72.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48257-4815510,c19,min_polo_mais_proximo,,38.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 38.3; Legacy (Plano/Frisco) 60.4; Las Colinas (Irving) 52.6; Telecom Corridor (Richardson) 51.8; Aeroporto DFW 65.4"
+U-ETJ-48257-4815510,c19,min_downtown_dallas,,38.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48257-4815510,c19,min_legacy_plano,,60.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48257-4815510,c19,min_las_colinas,,52.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48257-4815510,c19,min_telecom_corridor,,51.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48257-4815510,c19,min_dfw_airport,,65.4,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48257-4819560,c19,min_polo_mais_proximo,,32.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 32.7; Legacy (Plano/Frisco) 51.5; Las Colinas (Irving) 47.0; Telecom Corridor (Richardson) 42.9; Aeroporto DFW 59.8"
+U-ETJ-48257-4819560,c19,min_downtown_dallas,,32.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48257-4819560,c19,min_legacy_plano,,51.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48257-4819560,c19,min_las_colinas,,47.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48257-4819560,c19,min_telecom_corridor,,42.9,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48257-4819560,c19,min_dfw_airport,,59.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48397-4837650,c19,min_polo_mais_proximo,,41.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 41.0; Legacy (Plano/Frisco) 53.1; Las Colinas (Irving) 55.7; Telecom Corridor (Richardson) 43.2; Aeroporto DFW 67.3"
+U-ETJ-48397-4837650,c19,min_downtown_dallas,,41.0,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48397-4837650,c19,min_legacy_plano,,53.1,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48397-4837650,c19,min_las_colinas,,55.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48397-4837650,c19,min_telecom_corridor,,43.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48397-4837650,c19,min_dfw_airport,,67.3,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW
+U-ETJ-48397-4838220,c19,min_polo_mais_proximo,,44.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,"fluxo livre, a partir de um ponto interno da unidade. Downtown Dallas 44.5; Legacy (Plano/Frisco) 56.6; Las Colinas (Irving) 59.2; Telecom Corridor (Richardson) 46.7; Aeroporto DFW 70.8"
+U-ETJ-48397-4838220,c19,min_downtown_dallas,,44.5,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Downtown Dallas
+U-ETJ-48397-4838220,c19,min_legacy_plano,,56.6,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Legacy (Plano/Frisco)
+U-ETJ-48397-4838220,c19,min_las_colinas,,59.2,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Las Colinas (Irving)
+U-ETJ-48397-4838220,c19,min_telecom_corridor,,46.7,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Telecom Corridor (Richardson)
+U-ETJ-48397-4838220,c19,min_dfw_airport,,70.8,min,osrm,https://router.project-osrm.org,2026-11-23,2026-11-23,media,fluxo livre até Aeroporto DFW

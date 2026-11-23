@@ -1,0 +1,152 @@
+[
+ {
+  "id": "tiger",
+  "nome": "TIGER/Line 2025",
+  "orgao": "U.S. Census Bureau",
+  "url": "https://www2.census.gov/geo/tiger/TIGER2025/",
+  "script": "scripts/fontes/tiger.py",
+  "periodicidade": "anual",
+  "situacao": "ok",
+  "obs": ""
+ },
+ {
+  "id": "census_acs",
+  "nome": "ACS 5 anos 2020–2024",
+  "orgao": "U.S. Census Bureau",
+  "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/",
+  "script": "scripts/fontes/census_acs.py",
+  "periodicidade": "anual (dezembro)",
+  "situacao": "ok",
+  "obs": ""
+ },
+ {
+  "id": "census_bps",
+  "nome": "Building Permits Survey",
+  "orgao": "U.S. Census Bureau",
+  "url": "https://www2.census.gov/econ/bps/Place/",
+  "script": "scripts/fontes/census_bps.py",
+  "periodicidade": "anual / mensal",
+  "situacao": "ok",
+  "obs": ""
+ },
+ {
+  "id": "tea",
+  "nome": "Accountability Ratings 2026",
+  "orgao": "Texas Education Agency",
+  "url": "https://tea.texas.gov/texas-schools/accountability/academic-accountability/performance-reporting",
+  "script": "scripts/fontes/tea.py",
+  "periodicidade": "anual (agosto)",
+  "situacao": "ok",
+  "obs": ""
+ },
+ {
+  "id": "zillow",
+  "nome": "ZHVI por cidade",
+  "orgao": "Zillow Research",
+  "url": "https://www.zillow.com/research/data/",
+  "script": "scripts/fontes/zillow.py",
+  "periodicidade": "mensal",
+  "situacao": "ok",
+  "obs": ""
+ },
+ {
+  "id": "fema_nfhl",
+  "nome": "National Flood Hazard Layer",
+  "orgao": "FEMA",
+  "url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/28",
+  "script": "scripts/fontes/fema_nfhl.py",
+  "periodicidade": "contínua",
+  "situacao": "ok",
+  "obs": ""
+ },
+ {
+  "id": "osrm",
+  "nome": "Roteamento OSRM / OpenStreetMap",
+  "orgao": "Projeto OSRM",
+  "url": "https://router.project-osrm.org",
+  "script": "scripts/fontes/osrm.py",
+  "periodicidade": "sob demanda",
+  "situacao": "ok",
+  "obs": "sem trânsito"
+ },
+ {
+  "id": "leis_tx",
+  "nome": "SB 15 e HB 2559 (89ª legislatura) + população 2020",
+  "orgao": "Texas Legislature / Census",
+  "url": "https://capitol.texas.gov",
+  "script": "scripts/fontes/leis_tx.py",
+  "periodicidade": "a cada sessão legislativa",
+  "situacao": "ok",
+  "obs": ""
+ },
+ {
+  "id": "redfin",
+  "nome": "Redfin Data Center",
+  "orgao": "Redfin",
+  "url": "https://www.redfin.com/news/data-center/",
+  "script": "(a escrever)",
+  "periodicidade": "mensal",
+  "situacao": "bloqueado",
+  "obs": "o arquivo público respondeu 'Access Denied' em 2026-11-23; exige download manual pelo site"
+ },
+ {
+  "id": "comptroller",
+  "nome": "Tax Rates and Levies",
+  "orgao": "Texas Comptroller",
+  "url": "https://comptroller.texas.gov/taxes/property-tax/rates/",
+  "script": "(a escrever)",
+  "periodicidade": "anual",
+  "situacao": "bloqueado",
+  "obs": "o site recusa acesso automático (erro 403); exige download manual das planilhas"
+ },
+ {
+  "id": "dps_fbi",
+  "nome": "UCR / Crime Data Explorer",
+  "orgao": "Texas DPS / FBI",
+  "url": "https://cde.ucr.cjis.gov",
+  "script": "(a escrever)",
+  "periodicidade": "anual",
+  "situacao": "pendente",
+  "obs": "a API do FBI exige chave gratuita (api.data.gov)"
+ },
+ {
+  "id": "tceq",
+  "nome": "Water Districts Database",
+  "orgao": "TCEQ",
+  "url": "https://www14.tceq.texas.gov/iwud/",
+  "script": "(a escrever)",
+  "periodicidade": "contínua",
+  "situacao": "pendente",
+  "obs": "consulta por formulário; sem arquivo único para download"
+ },
+ {
+  "id": "tdi",
+  "nome": "Dados de seguro residencial",
+  "orgao": "Texas Department of Insurance",
+  "url": "https://www.tdi.texas.gov/reports/",
+  "script": "(a escrever)",
+  "periodicidade": "anual",
+  "situacao": "pendente",
+  "obs": ""
+ },
+ {
+  "id": "manual",
+  "nome": "Leitura manual de documentos municipais",
+  "orgao": "Prefeituras",
+  "url": "",
+  "script": "data/manual/",
+  "periodicidade": "sob demanda",
+  "situacao": "pendente",
+  "obs": ""
+ },
+ {
+  "id": "usuario",
+  "nome": "Edição manual do usuário",
+  "orgao": "—",
+  "url": "",
+  "script": "",
+  "periodicidade": "—",
+  "situacao": "ok",
+  "obs": ""
+ }
+]
