@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Base, Criterio, Edicao, Projeto } from "../tipos";
 import { chave, desatualizado, indicador, type Linha } from "../ranking";
 import { CONF, cor, fmt } from "../formato";
@@ -8,6 +8,8 @@ interface P { base: Base; projeto: Projeto; edicoes: Record<string, Edicao>; lin
 
 export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar, eleger, irParaEtapa2, emComparacao, alternar }: P) {
   const u = linha.u; const [ed, setEd] = useState<string | null>(null); const [txt, setTxt] = useState("");
+  const caixa = useRef<HTMLElement>(null);
+  useEffect(() => { caixa.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }, []);
   const salvar = (k: string) => { const t = txt.trim().replace(",", "."); editar(u.unidade_id, k, t === "" ? null : isNaN(Number(t)) ? txt.trim() : Number(t)); setEd(null); };
   const linhaDado = (c: Criterio | null, k: string, rotulo: string, principal: boolean) => {
     const i = indicador(base, edicoes, u.unidade_id, k); const n = c && principal ? linha.porCriterio[c.id] : undefined; const velho = i?.v != null && desatualizado(i.ref);
@@ -31,7 +33,7 @@ export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar,
   const grupos = [...new Set(base.criterios.map((c) => c.grupo))];
   const eleita = projeto.unidade_eleita_id === u.unidade_id;
   return (
-    <section className="detalhe">
+    <section className="detalhe" ref={caixa}>
       <div className="cab">
         <div><h2>{u.nome}</h2><p>{u.tipo === "cidade_isd" ? "Cidade × ISD" : "Área não incorporada"} · {u.condados_pct} · {fmt(u.acres_terra)} acres de terra{u.pct_cidade != null && ` (${fmt(u.pct_cidade)}% da cidade)`} · ID {u.unidade_id}</p></div>
         <div className="acoes">
@@ -50,7 +52,7 @@ export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar,
               .map((m) => linhaDado(c, `${c.id}|${m}`, "↳ " + m.replace(/_/g, " "), false))])}
         </tbody>)}
         <tbody><tr className="grupo"><td colSpan={8}>Contexto (não entra na nota)</td></tr>
-          {["populacao", "crescimento_pop_2020_2025"].map((m) => linhaDado(null, `ctx|${m}`, m.replace(/_/g, " "), false))}</tbody>
+          {["populacao", "crescimento_pop_2020_2025", "idade_casas"].map((m) => linhaDado(null, `ctx|${m}`, m.replace(/_/g, " "), false))}</tbody>
       </table></div>
     </section>
   );

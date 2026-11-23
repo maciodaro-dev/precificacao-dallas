@@ -19,7 +19,9 @@ export default function App() {
   const [msg, setMsg] = useState("");
 
   useEffect(() => {
-    Promise.all([fetch("./base.json").then((r) => r.json()), fetch("./unidades.geojson").then((r) => r.json())])
+    const emb = (id: string) => { const el = document.getElementById(id); return el?.textContent ? Promise.resolve(JSON.parse(el.textContent)) : null; };
+    // Página única (pré-visualização): os dados vêm embutidos no HTML; no site normal, são lidos dos arquivos.
+    Promise.all([emb("dados-base") ?? fetch("./base.json").then((r) => r.json()), emb("dados-geo") ?? fetch("./unidades.geojson").then((r) => r.json())])
       .then(([b, g]) => { setBase(b); setGeo(g); }).catch((e) => setErro(String(e)));
   }, []);
   useEffect(() => {
@@ -73,9 +75,16 @@ export default function App() {
         <button className={tela === "dados" ? "ativo" : ""} onClick={() => setTela("dados")}>Base de dados</button>
         <span className="eleita">{eleita ? <>Unidade eleita: <b>{eleita.nome}</b></> : "Nenhuma unidade eleita"}</span>
       </nav>
-      {tela === 1 && <Etapa1 base={base} geo={geo} projeto={projeto} projetos={projetos} edicoes={edicoes} alterar={alterar} editar={editar} irParaEtapa2={() => setTela(2)} />}
+      {tela === 1 && <Etapa1 key={projeto.projeto_id} base={base} geo={geo} projeto={projeto} projetos={projetos} edicoes={edicoes} alterar={alterar} editar={editar} irParaEtapa2={() => setTela(2)} />}
       {typeof tela === "number" && tela > 1 && <EtapaVazia n={tela} base={base} projeto={projeto} edicoes={edicoes} />}
       {tela === "dados" && <Dados base={base} edicoes={edicoes} editar={editar} />}
+      {typeof tela === "number" && (
+        <footer className="passos">
+          <button disabled={tela === 1} onClick={() => { setTela(tela - 1); window.scrollTo(0, 0); }}>← Etapa anterior{tela > 1 && `: ${ETAPAS[tela - 2].nome}`}</button>
+          <span className="onde">Etapa {tela} de 8 · {ETAPAS[tela - 1].nome}{tela === 1 && !eleita && " · eleja uma unidade no resultado para seguir"}</span>
+          <button className="primario" disabled={tela === 8 || (tela === 1 && !eleita)} onClick={() => { setTela(tela + 1); window.scrollTo(0, 0); }}>
+            {tela < 8 ? `Próxima etapa: ${ETAPAS[tela].nome} →` : "Última etapa"}</button>
+        </footer>)}
     </div>
   );
 }

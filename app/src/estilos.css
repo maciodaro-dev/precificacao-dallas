@@ -17,7 +17,7 @@ header { display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; 
 .projeto { display:flex; flex-wrap:wrap; gap:6px; align-items:center; } .projeto label { display:flex; gap:6px; align-items:center; }
 nav { display:flex; flex-wrap:wrap; gap:4px; padding:8px 16px; background:var(--papel); border-bottom:1px solid var(--linha); align-items:center; }
 nav button { border-color:transparent; } nav b { display:inline-block; width:18px; height:18px; line-height:18px; border-radius:9px; background:var(--linha); color:var(--tinta); font-size:11px; text-align:center; margin-right:3px; }
-nav .eleita { margin-left:auto; color:var(--suave); font-size:13px; }
+nav .eleita { flex:1 1 260px; text-align:right; color:var(--suave); font-size:13px; }
 .etapa1 { display:grid; grid-template-columns:320px minmax(0,1fr); min-height:calc(100vh - 100px); }
 aside { background:var(--papel); border-right:1px solid var(--linha); padding:14px; overflow-y:auto; max-height:calc(100vh - 100px); position:sticky; top:0; }
 aside section { padding-bottom:14px; margin-bottom:14px; border-bottom:1px solid var(--linha); } aside section:last-child { border:0; }
@@ -55,3 +55,22 @@ button.valor { border:1px dashed transparent; padding:1px 4px; background:none; 
 @media (max-width: 860px) { .etapa1 { grid-template-columns:1fr; } aside { position:static; max-height:none; border-right:0; border-bottom:1px solid var(--linha); } .duas { grid-template-columns:1fr; } nav .eleita { margin-left:0; width:100%; } }
 
 .renomear { display:flex; gap:4px; } button.perigo { background:#b3402e; color:#fff; border-color:#b3402e; }
+
+.guia { list-style:none; display:flex; flex-wrap:wrap; gap:6px; padding:0; margin:0 0 12px; }
+.guia li { display:flex; align-items:center; gap:6px; padding:5px 10px; border:1px solid var(--linha); border-radius:6px; background:var(--papel); color:var(--suave); font-size:13px; }
+.guia li b { display:inline-block; width:18px; height:18px; line-height:18px; border-radius:9px; background:var(--linha); color:var(--tinta); font-size:11px; text-align:center; }
+.guia li.agora { border-color:var(--acento); color:var(--tinta); } .guia li.agora b { background:var(--acento); color:#fff; } .guia li.feito b { background:#2f8f5b; color:#fff; }
+.ver-ranking { display:none; width:100%; margin-bottom:12px; }
+footer.passos { position:sticky; bottom:0; display:flex; flex-wrap:wrap; gap:8px; justify-content:space-between; align-items:center; padding:8px 16px; background:var(--papel); border-top:1px solid var(--linha); z-index:500; }
+footer.passos .onde { color:var(--suave); font-size:13px; }
+@media (max-width: 860px) { .ver-ranking { display:block; } }
+.escolher { display:flex; gap:6px; align-items:center; font-size:13px; } .escolher select { max-width:240px; }
+
+/* Etapa 1 em dois passos: critérios primeiro, resultado depois */
+.etapa1 { display:block; padding:16px; min-height:0; } .etapa1 main { padding:0; }
+.etapa1 .guia button.link { padding:0; font-size:13px; }
+.cab-passo { display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:flex-end; margin-bottom:12px; } .cab-passo h1 { margin:0 0 2px; } .cab-passo p { margin:0; color:var(--suave); }
+button.grande { font-size:15px; padding:9px 18px; } .fim-passo { display:flex; justify-content:flex-end; margin-top:12px; }
+.etapa1 aside { position:static; max-height:none; overflow:visible; border:1px solid var(--linha); border-radius:8px; columns:3 300px; column-gap:28px; }
+.etapa1 aside section { break-inside:avoid; } .etapa1 aside .grupo { break-inside:avoid; }
+.etapa1 aside section:has(.grupo) { break-inside:auto; }

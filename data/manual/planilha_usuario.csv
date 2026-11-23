@@ -1,0 +1,43 @@
+cidade_planilha,condado,taxa_combinada,isd_texto,escolas_texto,idade_casas,seguranca,mobilidade
+Allen,Collin,0.017,Allen ISD (leste/Fairview: Lovejoy ISD),A — Excelente,Recente (1995–2015),Muito segura,Boa: US-75 e SH-121
+Anna,Collin,0.0205,Anna ISD,C — Média,Nova (mais acessível),Segura,US-75 é a única saída; longe dos empregos
+Argyle,Denton,0.018,Argyle ISD (partes: Northwest/Denton ISD),A — Excelente,"Recente, lotes grandes",Muito segura,I-35W e US-377. Semi-rural
+Arlington,Tarrant,0.0205,Arlington ISD (partes: Mansfield/HEB/Kennedale ISD),C — Média,Antiga/estabelecida,Moderada,"I-30, I-20, SH-360. Muito congestionado (estádios)"
+Best Southwest: Cedar Hill/DeSoto/Duncanville,Dallas,0.0215,Cedar Hill / DeSoto / Duncanville ISD,C — Média,Estabelecida,Moderada,"US-67, I-20, I-35E. Ok"
+Carrollton,Denton/Dallas,0.019,"Carrollton-Farmers Branch, Lewisville e Denton ISD",B/C — Boa a média,Estabelecida/antiga,Segura,"I-35E, PGBT, SH-121. Central e bem servida"
+Celina,Collin/Denton,0.0202,Celina ISD (parte Prosper ISD),B — Muito boa,Nova (boom recente),Muito segura,"Extensão da DNT e US-380. Ainda semi-rural, em obras"
+Colleyville,Tarrant,0.0185,Grapevine-Colleyville ISD,B — Muito boa (escolas fortes),"Estabelecida, afluente",Muito segura,SH-26 e SH-121. Boa
+Coppell,Dallas,0.0185,Coppell ISD (partes: Lewisville/Carrollton-FB ISD),A — Excelente,Estabelecida/recente,Muito segura,"Ótima: SH-121, I-635, ao lado do DFW Airport"
+Denton,Denton,0.02,Denton ISD,B — Muito boa,"Mista (centro antigo, cidade da UNT)",Moderada,Ponto do 'Y' I-35E/I-35W; trânsito universitário
+Fairview,Collin,0.017,Lovejoy ISD e McKinney ISD,A — Excelente,"Recente, lotes grandes",Muito segura,US-75. Boa
+Flower Mound,Denton/Tarrant,0.0175,Lewisville ISD (partes: Northwest/Argyle ISD),B — Muito boa (escolas fortes),Estabelecida (1990–2010),Muito segura,"SH-121, FM-2499, I-35E perto. Boa"
+Fort Worth,Tarrant,0.02,Fort Worth ISD (+ Keller/Northwest/Crowley/EMS ISD),C distrito (varia MUITO por zona),Antiga a nova (cidade enorme),Varia: oeste muito segura; algumas zonas centrais/leste/sul exigem atenção,"I-30, I-35W, I-820. Grande e congestionada"
+Frisco,Collin/Denton,0.0168,Frisco ISD (bordas: Prosper/Little Elm/Lewisville ISD),A — Excelente,Nova (maioria pós-2005),Muito segura,"Ótima: DNT/Tollway, US-380, SH-121. US-380 vive congestionada"
+Garland,Dallas,0.0205,Garland ISD (parte Richardson ISD),B — Muito boa,Antiga/estabelecida,Moderada,"I-635, PGBT, US-75. Razoável"
+Grand Prairie,Dallas/Tarrant,0.021,Grand Prairie ISD (+ Arlington/Mansfield/Cedar Hill ISD),C — Média,Estabelecida/mista,Moderada,"I-30, SH-161/PGBT, I-20. Central"
+Grapevine,Tarrant,0.019,Grapevine-Colleyville ISD,B — Muito boa,Estabelecida,Segura,"SH-121/114, colado no DFW Airport. Turístico"
+HEB: Bedford/Euless/Hurst,Tarrant,0.02,HEB ISD,B — Muito boa,Antiga/estabelecida,Segura/moderada,"SH-121/183, I-820. Central mas congestionado"
+Highland Park/University Park,Dallas,0.015,Highland Park ISD,A — Excelente (top do estado),Antiga/histórica (luxo),Muito segura,"US-75, colado ao centro de Dallas. Localização premium"
+Highland Village,Denton,0.017,Lewisville ISD,B — Muito boa,"Estabelecida, afluente",Muito segura,FM-407 e I-35E. Boa
+Irving,Dallas,0.0195,Irving ISD (Valley Ranch: Coppell ISD),C (Coppell ISD nas partes = A),Antiga a moderna (Las Colinas),Segura/moderada (varia),"Central: SH-114, I-635, I-35E, DART. Localização excelente"
+Keller,Tarrant,0.02,Keller ISD,B — Muito boa (escolas fortes),Recente/estabelecida,Muito segura,US-377 e SH-170. Razoável
+Lewisville,Denton,0.019,Lewisville ISD,B — Muito boa,Estabelecida/mista,Segura,I-35E e SH-121. I-35E congestionada
+Little Elm,Denton/Collin,0.019,"Little Elm ISD, Denton ISD (The Tribute: Frisco ISD)",B/C — Boa a média,Recente (2005–2018),Segura,"US-380 e FM-423, ambas congestionadas"
+Lucas,Collin,0.016,Lovejoy ISD,A — Excelente,"Recente, lotes grandes/rural",Muito segura,Semi-rural; depende da US-75
+Mansfield,Tarrant,0.0205,Mansfield ISD,B — Muito boa,Recente/mista,Segura,US-287 e SH-360. US-287 é o gargalo
+McKinney,Collin,0.0175,McKinney ISD (partes: Prosper/Melissa/Lovejoy),B — Muito boa,Recente a mista,Segura,Boa: US-75 e US-380. US-380 é o gargalo
+Melissa,Collin,0.02,Melissa ISD,B — Muito boa,Nova,Muito segura,US-75 e US-121. Em crescimento
+Mesquite,Dallas,0.021,Mesquite ISD,B — Muito boa,Antiga/estabelecida,Moderada,"I-635, I-30, US-80. Razoável"
+Midlothian,Ellis,0.0201,Midlothian ISD (bordas: Waxahachie/Maypearl ISD),B — Muito boa,Mista: centro antigo + MUITA construção nova (pós-2015),Muito segura,"US-287 e US-67; I-20/I-35E via Cedar Hill. Sul do metroplex: longe dos empregos do norte, perto de Fort Worth e Dallas (~40 min)"
+Murphy,Collin,0.0175,Plano ISD e Wylie ISD,A/C (depende do ISD),Recente (2000–2015),Muito segura,Pequena e tranquila. SH-190/PGBT perto
+North Richland Hills,Tarrant,0.02,Birdville ISD (parte Keller ISD),B/C — Boa a média,Estabelecida/antiga,Segura,I-820 e SH-26. Ok
+Plano,Collin,0.0171,Plano ISD (norte: Frisco ISD),C distrito (oeste é forte),"Mista (leste 1980s, oeste 2000s)",Muito segura,"Excelente: US-75, DNT, SH-121, PGBT. Muito bem conectada"
+Princeton,Collin,0.02,Princeton ISD,C/D — Abaixo da média,Nova (mais barata),Moderada,US-380 muito congestionada; opção econômica
+Prosper,Collin/Denton,0.0195,Prosper ISD,A — Excelente,Nova (boom recente),Muito segura,DNT e US-380. Acesso em expansão; 380 congestionada
+Richardson,Dallas/Collin,0.0195,Richardson ISD (norte: Plano ISD),C distrito (norte é forte),Estabelecida/antiga,Segura,US-75 e PGBT. Excelente (perto de tudo)
+Rockwall,Rockwall,0.019,Rockwall ISD,B — Muito boa,Recente (2000–2018),Muito segura,"I-30 (único acesso, gargalo). Junto ao lago"
+Rowlett,Dallas,0.02,Garland ISD (parte Rockwall ISD),B — Muito boa,Recente/estabelecida,Segura,PGBT/190 e I-30. Ok (perto do lago)
+Southlake,Tarrant,0.0185,Carroll ISD,A — Excelente (top do estado),Estabelecida/recente (luxo),Muito segura,"SH-114. Ótima, mas 114 lota no pico"
+The Colony,Denton,0.0185,Lewisville ISD (parte Little Elm ISD),B — Muito boa,Recente/mista,Segura,SH-121 e DNT. Boa
+Trophy Club/Roanoke,Denton,0.018,Northwest ISD,B — Muito boa,Nova/recente,Muito segura,SH-114 e I-35W. Boa (corredor 114)
+Wylie,Collin,0.0195,Wylie ISD (partes: Plano/Community ISD),A — Excelente,Recente (2000–2015),Segura,SH-78 e PGBT/190. SH-78 é lenta no pico

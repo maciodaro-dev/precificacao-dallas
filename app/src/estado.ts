@@ -8,9 +8,10 @@ const id = () => "PRJ-" + Date.now().toString(36) + Math.random().toString(36).s
 
 export const FILTROS_PADRAO: Filtros = { isd_min: "", sem_moratoria: false, com_esgoto: false, sfha_max: null, tipo: "todas", cobertura_min: 0, eliminar_sem_dado: false };
 
-export function novoProjeto(base: Base, nome = "Novo projeto", perfilId = "maior_margem"): Projeto {
-  const perfil = base.perfis.find((p) => p.id === perfilId) ?? base.perfis[0];
-  return { projeto_id: id(), nome, criado_em: hoje(), alterado_em: hoje(), faixa_id: "F2", perfil_origem: perfil.id, pesos: { ...perfil.pesos },
+export function novoProjeto(base: Base, nome = "Novo projeto"): Projeto {
+  // Começa só com os critérios que já têm dado, em pesos iguais, para o primeiro ranking já fazer sentido.
+  const pesos = Object.fromEntries(base.criterios.filter((c) => c.cobertura === "coletado").map((c) => [c.id, 10]));
+  return { projeto_id: id(), nome, criado_em: hoje(), alterado_em: hoje(), faixa_id: "F2", perfil_origem: "so_com_dado", pesos,
     tamanho: { modo: "maior", min: 0.25, max: 2 }, filtros: { ...FILTROS_PADRAO }, unidade_eleita_id: null, eleita_em: null, margem_alvo_pct: null, juros_aa_pct: null,
     terrenos: [], casas: [], linhas_custo: [], cronograma: [] };
 }
