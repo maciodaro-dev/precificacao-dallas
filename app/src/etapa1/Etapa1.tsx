@@ -45,6 +45,11 @@ export default function Etapa1(p: Props) {
             {([["ranking", "Ranking"], ["mapa", "Mapa"], ["unidades", `Comparar unidades (${comparar.length}/4)`], ["projetos", "Comparar projetos"]] as const).map(([k, n]) =>
               <button key={k} className={aba === k ? "ativo" : ""} onClick={() => setAba(k)}>{n}</button>)}
           </div>
+          <label className="escolher">Ver perfil de
+            <select id="escolher-unidade" value={sel ?? ""} onChange={(e) => { setSel(e.target.value || null); if (aba === "unidades" || aba === "projetos") setAba("ranking"); }}>
+              <option value="">escolha a cidade…</option>
+              {[...base.unidades].sort((x, y) => x.nome.localeCompare(y.nome)).map((u) => <option key={u.unidade_id} value={u.unidade_id}>{u.nome}</option>)}
+            </select></label>
           <span className="resumo">{vivas.length} unidades no ranking · {linhas.length - vivas.length} eliminadas</span>
           <div className="exportar">
             <button onClick={() => exportarXlsx(base, projeto, linhas, edicoes)}>Exportar .xlsx</button>

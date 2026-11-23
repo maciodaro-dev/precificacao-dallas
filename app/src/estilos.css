@@ -64,3 +64,4 @@ button.valor { border:1px dashed transparent; padding:1px 4px; background:none; 
 footer.passos { position:sticky; bottom:0; display:flex; flex-wrap:wrap; gap:8px; justify-content:space-between; align-items:center; padding:8px 16px; background:var(--papel); border-top:1px solid var(--linha); z-index:500; }
 footer.passos .onde { color:var(--suave); font-size:13px; }
 @media (max-width: 860px) { .ver-ranking { display:block; } }
+.escolher { display:flex; gap:6px; align-items:center; font-size:13px; } .escolher select { max-width:240px; }

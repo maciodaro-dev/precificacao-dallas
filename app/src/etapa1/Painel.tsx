@@ -18,7 +18,7 @@ export default function Painel({ base, projeto, alterar }: Props) {
         <h3>Estratégia</h3>
         <div className="perfis">{base.perfis.map((x) => <button key={x.id} className={projeto.perfil_origem === x.id ? "ativo" : ""} onClick={() => alterar({ pesos: { ...x.pesos }, perfil_origem: x.id })}>{x.nome}</button>)}
           <button className={projeto.perfil_origem === "so_com_dado" ? "ativo" : ""} onClick={() => alterar({ pesos: Object.fromEntries(base.criterios.filter((c) => c.cobertura === "coletado").map((c) => [c.id, 10])), perfil_origem: "so_com_dado" })}>Só critérios com dado</button></div>
-        <p className="nota">As cinco estratégias prontas dependem de critérios ainda sem dado. "Só critérios com dado" usa os 7 já coletados, com pesos iguais.</p>
+        <p className="nota">As cinco estratégias prontas dependem de critérios ainda sem dado. "Só critérios com dado" usa os {base.criterios.filter((c) => c.cobertura === "coletado").length} que já têm dado, com pesos iguais.</p>
       </section>
       <section>
         <h3>Pesos <button className="link" onClick={() => alterar({ pesos: {}, perfil_origem: "personalizado" })}>zerar</button></h3>

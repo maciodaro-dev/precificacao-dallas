@@ -228,7 +228,8 @@
    "min_legacy_plano",
    "min_las_colinas",
    "min_telecom_corridor",
-   "min_dfw_airport"
+   "min_dfw_airport",
+   "mobilidade_texto"
   ]
  },
  {
@@ -264,7 +265,10 @@
   "direcao": "menor",
   "fonte_planejada": "Texas DPS UCR / FBI Crime Data Explorer",
   "cobertura": "pendente",
-  "correlacionado": true
+  "correlacionado": true,
+  "aux": [
+   "seguranca_texto"
+  ]
  },
  {
   "id": "c23",
@@ -288,8 +292,8 @@
   "metrica": "aliquota_total",
   "unidade_medida": "% do valor",
   "direcao": "menor",
-  "fonte_planejada": "Texas Comptroller / appraisal districts; TCEQ para MUD",
-  "cobertura": "bloqueado",
+  "fonte_planejada": "Provisório: planilha do usuário (aproximado). Definitivo: Texas Comptroller / appraisal districts; TCEQ para MUD",
+  "cobertura": "coletado",
   "aux": [
    "mud_pid"
   ]

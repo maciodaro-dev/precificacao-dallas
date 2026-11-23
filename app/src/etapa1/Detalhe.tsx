@@ -52,7 +52,7 @@ export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar,
               .map((m) => linhaDado(c, `${c.id}|${m}`, "↳ " + m.replace(/_/g, " "), false))])}
         </tbody>)}
         <tbody><tr className="grupo"><td colSpan={8}>Contexto (não entra na nota)</td></tr>
-          {["populacao", "crescimento_pop_2020_2025"].map((m) => linhaDado(null, `ctx|${m}`, m.replace(/_/g, " "), false))}</tbody>
+          {["populacao", "crescimento_pop_2020_2025", "idade_casas"].map((m) => linhaDado(null, `ctx|${m}`, m.replace(/_/g, " "), false))}</tbody>
       </table></div>
     </section>
   );

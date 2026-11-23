@@ -130,6 +130,16 @@
   "obs": ""
  },
  {
+  "id": "planilha_usuario",
+  "nome": "Planilha Calculadora de Custos de Casa DFW",
+  "orgao": "Usuário",
+  "url": "",
+  "script": "scripts/fontes/planilha_usuario.py",
+  "periodicidade": "sob demanda",
+  "situacao": "ok",
+  "obs": "valores aproximados do usuário; confiança baixa"
+ },
+ {
   "id": "manual",
   "nome": "Leitura manual de documentos municipais",
   "orgao": "Prefeituras",
