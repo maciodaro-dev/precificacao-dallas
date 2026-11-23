@@ -4,12 +4,12 @@ import { chave, desatualizado, indicador, type Linha } from "../ranking";
 import { CONF, cor, fmt } from "../formato";
 
 interface P { base: Base; projeto: Projeto; edicoes: Record<string, Edicao>; linha: Linha; editar: (u: string, k: string, v: number | string | null | undefined) => void;
-  fechar: () => void; eleger: (id: string) => void; irParaEtapa2: () => void; emComparacao: boolean; alternar: (id: string) => void }
+  fechar: () => void; eleger: (id: string) => void; irParaEtapa2: () => void; emComparacao: boolean; alternar: (id: string) => void; semRolagem?: boolean }
 
-export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar, eleger, irParaEtapa2, emComparacao, alternar }: P) {
+export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar, eleger, irParaEtapa2, emComparacao, alternar, semRolagem }: P) {
   const u = linha.u; const [ed, setEd] = useState<string | null>(null); const [txt, setTxt] = useState("");
   const caixa = useRef<HTMLElement>(null);
-  useEffect(() => { caixa.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }, []);
+  useEffect(() => { if (!semRolagem) caixa.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }, [semRolagem]);
   const salvar = (k: string) => { const t = txt.trim().replace(",", "."); editar(u.unidade_id, k, t === "" ? null : isNaN(Number(t)) ? txt.trim() : Number(t)); setEd(null); };
   const linhaDado = (c: Criterio | null, k: string, rotulo: string, principal: boolean) => {
     const i = indicador(base, edicoes, u.unidade_id, k); const n = c && principal ? linha.porCriterio[c.id] : undefined; const velho = i?.v != null && desatualizado(i.ref);
@@ -38,9 +38,9 @@ export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar,
         <div><h2>{u.nome}</h2><p>{u.tipo === "cidade_isd" ? "Cidade × ISD" : "Área não incorporada"} · {u.condados_pct} · {fmt(u.acres_terra)} acres de terra{u.pct_cidade != null && ` (${fmt(u.pct_cidade)}% da cidade)`} · ID {u.unidade_id}</p></div>
         <div className="acoes">
           <span className="nota-final g" style={{ background: cor(linha.eliminada.length ? null : linha.nota) }}>{linha.nota === null ? "–" : linha.nota.toFixed(0)}</span>
-          <button onClick={() => alternar(u.unidade_id)}>{emComparacao ? "Tirar da comparação" : "Comparar"}</button>
+          {!semRolagem && <button onClick={() => alternar(u.unidade_id)}>{emComparacao ? "Tirar da comparação" : "Comparar"}</button>}
           {eleita ? <button className="primario" onClick={irParaEtapa2}>Ir para a etapa 2</button> : <button className="primario" onClick={() => eleger(u.unidade_id)}>Eleger unidade</button>}
-          <button onClick={fechar}>Fechar</button>
+          {!semRolagem && <button onClick={fechar}>Fechar</button>}
         </div>
       </div>
       {u.tipo === "cidade_isd" && <p className="nota">Dados do Census, Zillow e permits valem para a cidade inteira, não para a fatia deste ISD. Nota do ISD e alagamento são específicos da unidade.</p>}

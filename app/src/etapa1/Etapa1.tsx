@@ -6,6 +6,7 @@ import Painel from "./Painel";
 import Tabela from "./Tabela";
 import Detalhe from "./Detalhe";
 import Mapa from "./Mapa";
+import Cidade from "./Cidade";
 import { CompararUnidades, CompararProjetos } from "./Comparar";
 
 export interface Props {
@@ -14,10 +15,13 @@ export interface Props {
 }
 export default function Etapa1(p: Props) {
   const { base, projeto, edicoes } = p;
-  const [passo, setPasso] = useState<"criterios" | "resultado">(p.projeto.unidade_eleita_id ? "resultado" : "criterios");
-  const verResultado = () => { setPasso("resultado"); window.scrollTo(0, 0); };
+  type Passo = "inicio" | "cidade" | "criterios" | "resultado";
+  const [passo, setPassoLocal] = useState<Passo>(!projeto.caminho ? "inicio" : projeto.caminho === "cidade" ? "cidade" : projeto.unidade_eleita_id ? "resultado" : "criterios");
+  const setPasso = (x: Passo) => { setPassoLocal(x); window.scrollTo(0, 0); };
+  const escolherCaminho = (c: "cidade" | "criterios") => { p.alterar({ caminho: c }); setPasso(c); };
+  const verResultado = () => setPasso("resultado");
   const [aba, setAba] = useState<"ranking" | "mapa" | "unidades" | "projetos">("ranking");
-  const [sel, setSel] = useState<string | null>(null);
+  const [sel, setSel] = useState<string | null>(projeto.caminho === "cidade" ? projeto.unidade_eleita_id : null);
   const [comparar, setComparar] = useState<string[]>([]);
   const linhas = useMemo(() => calcular(base, projeto, edicoes), [base, projeto, edicoes]);
   const pesos = normalizar(projeto.pesos);
@@ -31,12 +35,23 @@ export default function Etapa1(p: Props) {
 
   return (
     <div className={"etapa1 " + passo}>
-      <ol className="guia">
-        <li className={passo === "criterios" ? "agora" : "feito"}><b>1</b> <button className="link" onClick={() => setPasso("criterios")}>Critérios</button>: o que pesa na escolha</li>
-        <li className={passo === "resultado" && !projeto.unidade_eleita_id ? "agora" : passo === "resultado" ? "feito" : ""}><b>2</b> Resultado: onde procurar</li>
-        <li className={projeto.unidade_eleita_id ? "feito" : ""}><b>3</b> Eleger a unidade</li>
-        <li className={projeto.unidade_eleita_id ? "agora" : ""}><b>4</b> {projeto.unidade_eleita_id ? <button className="primario" onClick={p.irParaEtapa2}>Seguir para a etapa 2 →</button> : "Etapa 2"}</li>
-      </ol>
+      {passo === "inicio" && <div className="inicio">
+        <h1>Como você quer definir o lugar?</h1>
+        <p>São dois caminhos. Eles levam a resultados financeiros diferentes, e você pode trocar de caminho quando quiser.</p>
+        <div className="caminhos">
+          <button onClick={() => escolherCaminho("cidade")}><b>Já sei onde quero construir</b><span>Escolho a cidade e vejo tudo o que isso significa: imposto, taxas, prazo de aprovação, ISD, preço de venda e risco.</span><i>Escolher a cidade →</i></button>
+          <button onClick={() => escolherCaminho("criterios")}><b>Quero descobrir onde construir</b><span>Defino os critérios (investimento no terreno, tamanho, lote pronto, escola e outros) e a ferramenta indica os lugares que atendem.</span><i>Definir os critérios →</i></button>
+        </div>
+      </div>}
+      {passo !== "inicio" && <ol className="guia">
+        <li className="feito"><b>✓</b> <button className="link" onClick={() => setPasso("inicio")}>{passo === "cidade" ? "Caminho: já sei a cidade" : "Caminho: descobrir pelos critérios"}</button> (trocar)</li>
+        {passo === "cidade" ? <li className={projeto.unidade_eleita_id ? "feito" : "agora"}><b>1</b> Escolher a cidade e ver o que ela significa</li> : <>
+          <li className={passo === "criterios" ? "agora" : "feito"}><b>1</b> <button className="link" onClick={() => setPasso("criterios")}>Critérios</button></li>
+          <li className={passo === "resultado" && !projeto.unidade_eleita_id ? "agora" : passo === "resultado" ? "feito" : ""}><b>2</b> Resultado: onde procurar</li></>}
+        <li className={projeto.unidade_eleita_id ? "feito" : ""}><b>{passo === "cidade" ? 2 : 3}</b> Eleger a unidade</li>
+        <li className={projeto.unidade_eleita_id ? "agora" : ""}><b>{passo === "cidade" ? 3 : 4}</b> {projeto.unidade_eleita_id ? <button className="primario" onClick={p.irParaEtapa2}>Seguir para a etapa 2 →</button> : "Etapa 2"}</li>
+      </ol>}
+      {passo === "cidade" && <Cidade base={base} projeto={projeto} edicoes={edicoes} linhas={linhas} sel={sel} setSel={setSel} editar={p.editar} eleger={eleger} irParaEtapa2={p.irParaEtapa2} />}
       {passo === "criterios" && <>
         <div className="cab-passo"><div><h1>Critérios</h1><p>Defina a faixa de investimento, a estratégia, os pesos e os filtros. O resultado mostra onde procurar.</p></div>
           <button className="primario grande" disabled={semPeso} onClick={verResultado}>Ver resultado →</button></div>
