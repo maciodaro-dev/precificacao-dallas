@@ -30,7 +30,13 @@ export default function Etapa1(p: Props) {
   return (
     <div className="etapa1">
       <Painel {...p} />
-      <main>
+      <main id="resultado">
+        <ol className="guia">
+          <li className="feito"><b>1</b> Escolha a faixa, a estratégia e os pesos no painel</li>
+          <li className={linhaSel || projeto.unidade_eleita_id ? "feito" : "agora"}><b>2</b> Veja o ranking abaixo e clique numa unidade para abrir o detalhe</li>
+          <li className={projeto.unidade_eleita_id ? "feito" : linhaSel ? "agora" : ""}><b>3</b> Clique em "Eleger unidade"</li>
+          <li className={projeto.unidade_eleita_id ? "agora" : ""}><b>4</b> {projeto.unidade_eleita_id ? <button className="primario" onClick={p.irParaEtapa2}>Seguir para a etapa 2 →</button> : "Siga para a etapa 2"}</li>
+        </ol>
         {corr > 0.4 && <p className="aviso">ISD, segurança e renda somam {Math.round(corr * 100)}% do peso. Esses critérios andam juntos: o ranking pode estar contando a mesma coisa três vezes.</p>}
         {semPeso && <p className="aviso erro">Todos os pesos estão em zero. Dê peso a pelo menos um critério.</p>}
         {!semPeso && cobMedia < 0.5 && <p className="aviso">Em média, só {Math.round(cobMedia * 100)}% do peso deste projeto está em critérios que já têm dado. A nota é calculada apenas com o que existe; veja a coluna "Cobertura" e a tela "Base de dados".</p>}
@@ -51,7 +57,7 @@ export default function Etapa1(p: Props) {
         {aba === "unidades" && <CompararUnidades base={base} projeto={projeto} edicoes={edicoes} linhas={linhas.filter((l) => comparar.includes(l.u.unidade_id))} remover={alternar} />}
         {aba === "projetos" && <CompararProjetos base={base} projetos={p.projetos} edicoes={edicoes} />}
         {linhaSel && aba !== "unidades" && aba !== "projetos" &&
-          <Detalhe base={base} projeto={projeto} edicoes={edicoes} linha={linhaSel} editar={p.editar} fechar={() => setSel(null)} eleger={eleger} irParaEtapa2={p.irParaEtapa2}
+          <Detalhe key={linhaSel.u.unidade_id} base={base} projeto={projeto} edicoes={edicoes} linha={linhaSel} editar={p.editar} fechar={() => setSel(null)} eleger={eleger} irParaEtapa2={p.irParaEtapa2}
             emComparacao={comparar.includes(linhaSel.u.unidade_id)} alternar={alternar} />}
       </main>
     </div>

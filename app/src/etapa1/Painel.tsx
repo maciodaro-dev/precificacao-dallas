@@ -8,6 +8,7 @@ export default function Painel({ base, projeto, alterar }: Props) {
   const filtro = (m: Partial<typeof f>) => alterar({ filtros: { ...f, ...m } });
   return (
     <aside>
+      <button className="primario ver-ranking" onClick={() => document.getElementById("resultado")?.scrollIntoView({ behavior: "smooth" })}>Ver ranking ↓</button>
       <section>
         <h3>Faixa de investimento no terreno</h3>
         <div className="faixas">{base.faixas.map((x) => <button key={x.id} className={projeto.faixa_id === x.id ? "ativo" : ""} onClick={() => alterar({ faixa_id: x.id })}>{x.nome}</button>)}</div>
@@ -15,8 +16,9 @@ export default function Painel({ base, projeto, alterar }: Props) {
       </section>
       <section>
         <h3>Estratégia</h3>
-        <div className="perfis">{base.perfis.map((x) => <button key={x.id} className={projeto.perfil_origem === x.id ? "ativo" : ""} onClick={() => alterar({ pesos: { ...x.pesos }, perfil_origem: x.id })}>{x.nome}</button>)}</div>
-        <button className="link" onClick={() => alterar({ pesos: Object.fromEntries(base.criterios.filter((c) => c.cobertura === "coletado").map((c) => [c.id, 10])), perfil_origem: "so_com_dado" })}>Usar só critérios que já têm dado</button>
+        <div className="perfis">{base.perfis.map((x) => <button key={x.id} className={projeto.perfil_origem === x.id ? "ativo" : ""} onClick={() => alterar({ pesos: { ...x.pesos }, perfil_origem: x.id })}>{x.nome}</button>)}
+          <button className={projeto.perfil_origem === "so_com_dado" ? "ativo" : ""} onClick={() => alterar({ pesos: Object.fromEntries(base.criterios.filter((c) => c.cobertura === "coletado").map((c) => [c.id, 10])), perfil_origem: "so_com_dado" })}>Só critérios com dado</button></div>
+        <p className="nota">As cinco estratégias prontas dependem de critérios ainda sem dado. "Só critérios com dado" usa os 7 já coletados, com pesos iguais.</p>
       </section>
       <section>
         <h3>Pesos <button className="link" onClick={() => alterar({ pesos: {}, perfil_origem: "personalizado" })}>zerar</button></h3>
@@ -51,6 +53,7 @@ export default function Painel({ base, projeto, alterar }: Props) {
         <label className="linha">Cobertura mínima <input type="number" min={0} max={100} step={10} value={f.cobertura_min} onChange={(e) => filtro({ cobertura_min: Number(e.target.value) })} /> % do peso</label>
         <label className="linha"><input type="checkbox" checked={f.eliminar_sem_dado} onChange={(e) => filtro({ eliminar_sem_dado: e.target.checked })} /> Eliminar unidade sem dado no filtro</label>
       </section>
+      <button className="primario ver-ranking" onClick={() => document.getElementById("resultado")?.scrollIntoView({ behavior: "smooth" })}>Ver ranking ↓</button>
     </aside>
   );
 }

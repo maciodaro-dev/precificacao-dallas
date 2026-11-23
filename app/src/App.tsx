@@ -78,6 +78,13 @@ export default function App() {
       {tela === 1 && <Etapa1 base={base} geo={geo} projeto={projeto} projetos={projetos} edicoes={edicoes} alterar={alterar} editar={editar} irParaEtapa2={() => setTela(2)} />}
       {typeof tela === "number" && tela > 1 && <EtapaVazia n={tela} base={base} projeto={projeto} edicoes={edicoes} />}
       {tela === "dados" && <Dados base={base} edicoes={edicoes} editar={editar} />}
+      {typeof tela === "number" && (
+        <footer className="passos">
+          <button disabled={tela === 1} onClick={() => { setTela(tela - 1); window.scrollTo(0, 0); }}>← Etapa anterior{tela > 1 && `: ${ETAPAS[tela - 2].nome}`}</button>
+          <span className="onde">Etapa {tela} de 8 · {ETAPAS[tela - 1].nome}{tela === 1 && !eleita && " · eleja uma unidade no ranking para seguir"}</span>
+          <button className="primario" disabled={tela === 8 || (tela === 1 && !eleita)} onClick={() => { setTela(tela + 1); window.scrollTo(0, 0); }}>
+            {tela < 8 ? `Próxima etapa: ${ETAPAS[tela].nome} →` : "Última etapa"}</button>
+        </footer>)}
     </div>
   );
 }
