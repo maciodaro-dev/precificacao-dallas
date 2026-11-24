@@ -112,7 +112,7 @@ export function recortar(base: Base, edicoes: Record<string, Edicao>, u: Unidade
   const ok = ps.filter((pt) => !pt.pequena && nota(isdP, alvo, u, indicador(base, edicoes, pt.parte_id, isdP.chave!)) === 1);
   if (!ok.length || ok.length === ps.length) return undefined;
   const soma = (f: (p: ParteInfo) => number | null) => (ok.some((p) => f(p) === null) ? null : Math.round(ok.reduce((s, p) => s + f(p)!, 0) * 10) / 10);
-  const pa = soma((p) => p.pct_area), pd = soma((p) => p.pct_domicilios); const onde = u.tipo === "cidade_isd" ? "da cidade" : "da área";
+  const pa = soma((p) => p.pct_area), pd = soma((p) => p.pct_domicilios); const onde = u.tipo === "cidade_isd" ? "da cidade" : "fora de cidade";
   return { partes: ok, pct_area: pa, pct_domicilios: pd, texto: `só a parte no ${ok.map((p) => p.isd_nome).join(" e no ")}${pa !== null ? ` (${pa.toLocaleString("pt-BR")}% da área ${onde})` : ""}` };
 }
 const SO_CIDADE = ["census_acs", "census_bps", "zillow", "derivado"];
