@@ -32,18 +32,6 @@ export default function EtapaVazia({ n, base, projeto, edicoes, situacao }: { n:
         {lancados.length === 0 ? <p>Nada foi lançado como já realizado nesta etapa.</p> : <table className="simples"><thead><tr><th>Item</th><th>Realizado</th><th>Data</th><th>Fonte</th></tr></thead><tbody>
           {lancados.map((l) => <tr key={l.linha_id}><td>{l.categoria}</td><td className={l.realizado == null ? "semdado" : ""}>{l.realizado == null ? "valor não informado" : "$" + l.realizado.toLocaleString("pt-BR")}</td><td>{l.data}</td><td>{l.fonte}</td></tr>)}</tbody></table>}
         <p className="nota">Estas respostas vêm do ponto de partida e podem ser alteradas lá, em "Início", sem perder o que foi lançado.</p></section>}
-      <section>
-        <h2>Herdado da região do projeto</h2>
-        {!u ? <p>Nenhuma região escolhida neste projeto. Escolha uma na etapa 1 ou informe o seu terreno em "Início".</p> : (
-          <>
-            <p><b>{u.nome}</b> · {u.condados_pct} · ID {u.unidade_id}</p>
-            <table className="simples"><thead><tr><th>Dado</th><th>Valor</th><th>Fonte</th><th>Data</th></tr></thead><tbody>
-              {HERDA.map(([nome, k]) => { const i = indicador(base, edicoes, u.unidade_id, k); return (
-                <tr key={k}><td>{nome}</td><td className={i?.v == null ? "semdado" : ""}>{i?.v == null ? "sem dado" : fmt(i.v, i.um)}</td><td>{i?.v == null ? "" : i.f}</td><td>{i?.v == null ? "" : i.ref}</td></tr>); })}
-            </tbody></table>
-            <p className="nota">Estes valores são lidos da base pelo ID da unidade; nenhuma etapa guarda cópia.</p>
-          </>)}
-      </section>
     </main>
   );
 }

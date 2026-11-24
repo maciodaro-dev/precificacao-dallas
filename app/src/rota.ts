@@ -23,6 +23,8 @@ export function telaAnterior(rota: string, p: Projeto): string | null {
   const t2 = /^(etapa-2-terreno-T-[a-z0-9]+)(?:-p(\d+))?$/i.exec(rota);
   if (t2) return t2[2] !== undefined && Number(t2[2]) > 0 ? `${t2[1]}-p${Number(t2[2]) - 1}` : "etapa-2";
   if (rota === "etapa-2-comparar" || rota === "etapa-2-resumo") return "etapa-2";
+  // "Região escolhida": volta para o resultado da etapa 1, de onde a região foi escolhida
+  if (rota === "regiao-escolhida") return p.ponto_partida?.tem_terreno ? "retrato" : p.caminho === "cidade" ? "cidade" : p.modo === "expert" ? "especialista-resultado" : p.modo === "leigo" ? "guiado-resultado" : "onde-construir";
   const e = /^etapa-(\d)$/.exec(rota);
   if (e) { const n = Number(e[1]); if (n > 2) return `etapa-${n - 1}`;
     return p.ponto_partida?.tem_terreno ? "retrato" : p.caminho === "cidade" ? "cidade" : p.modo === "expert" ? "especialista-resultado" : p.modo === "leigo" ? "guiado-resultado" : "onde-construir"; }

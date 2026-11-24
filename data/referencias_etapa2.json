@@ -1,1 +1,1186 @@
-[]
+[
+ {
+  "id": "survey",
+  "nome": "Survey de lote residencial",
+  "min": 450,
+  "provavel": 840,
+  "max": 1800,
+  "unidade": "US$",
+  "confianca": "baixa",
+  "geografia": "DFW / Texas",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "mediana de 4 fontes",
+  "provisorio": true,
+  "obs": "valor de referência para lote comum; em área maior tende a ser mais alto; número visto em resultado de busca, página original não lida",
+  "fontes": [
+   {
+    "nome": "FindLandSurveyor, Dallas County",
+    "url": "https://findlandsurveyor.com/guides/land-survey-cost-dallas-county-tx",
+    "min": 500,
+    "max": 2000,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "FindLandSurveyor, Tarrant County",
+    "url": "https://findlandsurveyor.com/guides/land-survey-cost-tarrant-county-tx",
+    "min": 450,
+    "max": 1800,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "mesmo editor da fonte anterior",
+    "lida": false
+   },
+   {
+    "nome": "LRG Realty, Property Surveys in Texas",
+    "url": "https://lrgrealty.com/lrg-blog/property-survey-texas-buyers-guide/",
+    "min": 400,
+    "max": 700,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "HomeAdvisor, Fort Worth",
+    "url": "https://homeadvisor.com/tloc/Haltom-City-TX/Land-Surveyor",
+    "min": 300,
+    "max": 572,
+    "tipico": 420,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   }
+  ]
+ },
+ {
+  "id": "laudo_solo",
+  "nome": "Laudo de solo (geotécnico)",
+  "min": 1000,
+  "provavel": 2700,
+  "max": 4500,
+  "unidade": "US$",
+  "confianca": "baixa",
+  "geografia": "nacional",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "mediana de 3 fontes",
+  "provisorio": true,
+  "obs": "valor de referência para lote comum; em área maior tende a ser mais alto; 2 de 3 fontes conferidas na página original",
+  "fontes": [
+   {
+    "nome": "Angi, geotechnical report cost",
+    "url": "https://www.angi.com/articles/geotechnical-report-cost.htm",
+    "min": 1000,
+    "max": 5000,
+    "tipico": 2700,
+    "data": "2026-11-24",
+    "obs": "site recusou a conexão; os mesmos números aparecem na página do CostToBuildHouse",
+    "lida": false
+   },
+   {
+    "nome": "CostToBuildHouse, geotechnical report",
+    "url": "https://www.costtobuildhouse.com/geotechnical-report-cost",
+    "min": 2000,
+    "max": 3500,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": true
+   },
+   {
+    "nome": "CostToBuildHouse, Dallas",
+    "url": "https://www.costtobuildhouse.com/dallas-tx",
+    "min": 800,
+    "max": 1200,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "contradiz a página nacional do mesmo site",
+    "lida": true
+   }
+  ]
+ },
+ {
+  "id": "fossa_avaliacao",
+  "nome": "Avaliação do terreno para fossa",
+  "min": 300,
+  "provavel": 550,
+  "max": 800,
+  "unidade": "US$",
+  "confianca": "baixa",
+  "geografia": "Texas",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "fonte única: valor central da fonte",
+  "provisorio": true,
+  "obs": "fonte única; número visto em resultado de busca, página original não lida",
+  "fontes": [
+   {
+    "nome": "SepticAndWell, Texas septic permit guide",
+    "url": "https://septicandwell.com/articles/texas-septic-permit",
+    "min": 300,
+    "max": 800,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   }
+  ]
+ },
+ {
+  "id": "fechamento_escrow",
+  "nome": "Taxa de fechamento da title company (parte do comprador)",
+  "min": 300,
+  "provavel": 510,
+  "max": 1000,
+  "unidade": "US$",
+  "confianca": "baixa",
+  "geografia": "Texas",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "mediana de 4 fontes",
+  "provisorio": true,
+  "obs": "taxa não tabelada pelo estado; nenhuma tabela de title company de DFW encontrada; número visto em resultado de busca, página original não lida",
+  "fontes": [
+   {
+    "nome": "Neuhaus RE, closing costs guide",
+    "url": "https://www.neuhausre.com/guides/closing-costs-guide-texas/",
+    "min": 300,
+    "max": 600,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "LRG Realty, closing costs for cash buyers",
+    "url": "https://lrgrealty.com/lrg-blog/closing-costs-cash-buyers-texas/",
+    "min": 500,
+    "max": 1200,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Herring Bank, typical closing costs in Texas",
+    "url": "https://herringbank.com/learn/typical-closing-costs-in-texas-for-buyers-and-sellers",
+    "min": 250,
+    "max": 750,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Texas National Title, seller's estimated charges",
+    "url": "https://www.texasnationaltitle.com/wp-content/uploads/2023/03/SellersEstimatedCharges.pdf",
+    "min": null,
+    "max": null,
+    "tipico": 525,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   }
+  ]
+ },
+ {
+  "id": "registro_escritura",
+  "nome": "Registro da escritura",
+  "min": 28,
+  "provavel": 35,
+  "max": 41,
+  "unidade": "US$",
+  "confianca": "baixa",
+  "geografia": "DFW",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "mediana de 4 fontes",
+  "provisorio": true,
+  "obs": "conta feita para escritura de 3 a 4 páginas; número visto em resultado de busca, página original não lida",
+  "fontes": [
+   {
+    "nome": "Dallas County Clerk",
+    "url": "https://www.dallascounty.org/government/county-clerk/recording/fees-payment.php",
+    "min": 33,
+    "max": 37,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "US$ 25 a primeira página + US$ 4 por página adicional",
+    "lida": false
+   },
+   {
+    "nome": "Collin County Clerk",
+    "url": "https://www.collincountytx.gov/docs/default-source/county-clerk/documents/land-recording-fees.pdf",
+    "min": 33,
+    "max": 37,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "US$ 25 + US$ 4 por página",
+    "lida": false
+   },
+   {
+    "nome": "Denton County Clerk",
+    "url": "https://www.dentoncounty.gov/322/Real-Property-Recording-Fee-Schedule",
+    "min": 37,
+    "max": 41,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "US$ 25 + US$ 4 por página + US$ 4 da página de informação",
+    "lida": false
+   },
+   {
+    "nome": "Tarrant County Clerk",
+    "url": "https://www.tarrantcountytx.gov/en/county-clerk/real-estate-records/fee-schedules.html",
+    "min": 28,
+    "max": 32,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "US$ 20 + US$ 4 por página",
+    "lida": false
+   }
+  ]
+ },
+ {
+  "id": "financiamento_contratacao",
+  "nome": "Financiamento: taxa de originação do banco",
+  "min": 0.5,
+  "provavel": 0.9,
+  "max": 1.5,
+  "unidade": "% do valor financiado",
+  "confianca": "baixa",
+  "geografia": "nacional / Texas",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "ponto médio entre as duas fontes",
+  "provisorio": true,
+  "obs": "inclui só a taxa de originação, análise e processamento do banco; NÃO inclui a avaliação do lote (linha própria), o seguro de título nem a taxa da title company; número visto em resultado de busca, página original não lida",
+  "fontes": [
+   {
+    "nome": "FBN Finance, land loan upfront and closing costs",
+    "url": "https://www.fbn.com/community/blog/land-loan-average-upfront-and-closing-costs",
+    "min": 0.5,
+    "max": 1.5,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "LRG Realty, buyer closing costs in Texas",
+    "url": "https://lrgrealty.com/lrg-blog/buyer-closing-costs-texas/",
+    "min": 0.5,
+    "max": 1.0,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "número de financiamento de casa",
+    "lida": false
+   }
+  ]
+ },
+ {
+  "id": "avaliacao_banco",
+  "nome": "Financiamento: avaliação do lote pelo banco",
+  "min": 400,
+  "provavel": 1500,
+  "max": 2000,
+  "unidade": "US$",
+  "confianca": "baixa",
+  "geografia": "nacional",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "mediana de 3 fontes",
+  "provisorio": true,
+  "obs": "valor de referência para lote comum; em área maior tende a ser mais alto; número visto em resultado de busca, página original não lida",
+  "fontes": [
+   {
+    "nome": "CostHelper, property appraisers",
+    "url": "https://personalfinance.costhelper.com/property-appraisers.html",
+    "min": 300,
+    "max": 500,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Angi, land appraisal cost (até 1 acre)",
+    "url": "https://www.angi.com/articles/land-appraisal-cost.htm",
+    "min": 1000,
+    "max": 2000,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "FBN Finance (fazendas)",
+    "url": "https://www.fbn.com/community/blog/land-loan-average-upfront-and-closing-costs",
+    "min": 1500,
+    "max": 3000,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   }
+  ]
+ },
+ {
+  "id": "juros_terreno",
+  "nome": "Juros de financiamento de terreno",
+  "min": 6.5,
+  "provavel": 7.8,
+  "max": 10.0,
+  "unidade": "% ao ano",
+  "confianca": "baixa",
+  "geografia": "Texas",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "mediana de 4 fontes",
+  "provisorio": true,
+  "obs": "só preenchimento inicial do campo; confirme com o seu banco; 2 de 4 fontes conferidas na página original",
+  "fontes": [
+   {
+    "nome": "Texas GLO, Veterans Land Board",
+    "url": "https://www.glo.texas.gov/veterans/land-sale/land-loans",
+    "min": null,
+    "max": null,
+    "tipico": 7.25,
+    "data": "2026-11-24",
+    "obs": "só veteranos; lote de 1 acre ou mais",
+    "lida": true
+   },
+   {
+    "nome": "Members Choice Credit Union",
+    "url": "https://www.mccu.com/access/mortgage-rates",
+    "min": 7.74,
+    "max": 8.24,
+    "tipico": 7.99,
+    "data": "2026-11-24",
+    "obs": "terreno residencial sem benfeitoria, 10 a 20 anos; taxas de 2026-09-21",
+    "lida": true
+   },
+   {
+    "nome": "Dallas Fed Agricultural Survey, via Ag Proud",
+    "url": "https://www.agproud.com/articles/64188-interest-rates-largely-unchanged-in-q2-reports",
+    "min": null,
+    "max": null,
+    "tipico": 7.7,
+    "data": "2026-11-24",
+    "obs": "taxas agrícolas, não de lote",
+    "lida": false
+   },
+   {
+    "nome": "Mossy Oak Properties, how to finance land",
+    "url": "https://www.mossyoakproperties.com/how-finance-land-best-loan-options-tips/",
+    "min": 6.5,
+    "max": 10.0,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   }
+  ]
+ },
+ {
+  "id": "entrada_pct",
+  "nome": "Entrada no financiamento de terreno",
+  "min": 15,
+  "provavel": 20,
+  "max": 35,
+  "unidade": "% do preço",
+  "confianca": "baixa",
+  "geografia": "Texas",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "mediana de 3 fontes",
+  "provisorio": true,
+  "obs": "só preenchimento inicial do campo; confirme com o seu banco; 3 de 3 fontes conferidas na página original",
+  "fontes": [
+   {
+    "nome": "Texas Farm Credit, first-time land buyer",
+    "url": "https://texasfarmcredit.com/resources/first-time-land-buyer-1/",
+    "min": null,
+    "max": null,
+    "tipico": 20,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": true
+   },
+   {
+    "nome": "Herring Bank, Texas land loans",
+    "url": "https://www.herringbank.com/?p=10322",
+    "min": 20,
+    "max": 35,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "lote com infraestrutura 20 a 25%; lote sem infraestrutura 25 a 35%; terra bruta 35 a 50%",
+    "lida": true
+   },
+   {
+    "nome": "Texas GLO, Veterans Land Board",
+    "url": "https://www.glo.texas.gov/veterans/land-sale/land-loans",
+    "min": null,
+    "max": null,
+    "tipico": 5,
+    "data": "2026-11-24",
+    "obs": "só veteranos",
+    "lida": true
+   }
+  ]
+ },
+ {
+  "id": "prazo_financiamento_anos",
+  "nome": "Prazo do financiamento de terreno",
+  "min": 5,
+  "provavel": 17.5,
+  "max": 30,
+  "unidade": "anos",
+  "confianca": "baixa",
+  "geografia": "Texas",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "mediana de 3 fontes",
+  "provisorio": true,
+  "obs": "só preenchimento inicial do campo; confirme com o seu banco; 2 de 3 fontes conferidas na página original",
+  "fontes": [
+   {
+    "nome": "Capital Farm Credit, land loans",
+    "url": "https://www.capitalfarmcredit.com/loans/land-loans/",
+    "min": 5,
+    "max": 30,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Members Choice Credit Union",
+    "url": "https://www.mccu.com/access/mortgage-rates",
+    "min": 10,
+    "max": 20,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": true
+   },
+   {
+    "nome": "Texas GLO, Veterans Land Board",
+    "url": "https://www.glo.texas.gov/veterans/land-sale/land-loans",
+    "min": null,
+    "max": null,
+    "tipico": 30,
+    "data": "2026-11-24",
+    "obs": "só veteranos",
+    "lida": true
+   }
+  ]
+ },
+ {
+  "id": "sinal_pct",
+  "nome": "Sinal (earnest money)",
+  "min": 1,
+  "provavel": 1.0,
+  "max": 3,
+  "unidade": "% do preço",
+  "confianca": "baixa",
+  "geografia": "Texas",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "ponto médio entre as duas fontes",
+  "provisorio": true,
+  "obs": "normas de contrato de casa; número visto em resultado de busca, página original não lida",
+  "fontes": [
+   {
+    "nome": "Redfin, earnest money in Texas",
+    "url": "https://www.redfin.com/blog/how-much-is-earnest-money-in-texas/",
+    "min": 1,
+    "max": 3,
+    "tipico": 1,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "LRG Realty, earnest money in Texas",
+    "url": "https://lrgrealty.com/lrg-blog/earnest-money-texas-how-much/",
+    "min": null,
+    "max": null,
+    "tipico": 1,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   }
+  ]
+ },
+ {
+  "id": "taxa_opcao",
+  "nome": "Taxa de opção",
+  "min": 100,
+  "provavel": 300,
+  "max": 500,
+  "unidade": "US$",
+  "confianca": "baixa",
+  "geografia": "Texas",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "mediana de 3 fontes",
+  "provisorio": true,
+  "obs": "normas de contrato de casa; número visto em resultado de busca, página original não lida",
+  "fontes": [
+   {
+    "nome": "Wikipedia, Option fee (Texas)",
+    "url": "https://en.wikipedia.org/wiki/Option_fee",
+    "min": 100,
+    "max": 200,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "sem citação na página",
+    "lida": false
+   },
+   {
+    "nome": "Guias do Texas (faixa geral)",
+    "url": "https://lrgrealty.com/lrg-blog/texas-option-period-explained/",
+    "min": 100,
+    "max": 500,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Guia de Houston",
+    "url": "https://lrgrealty.com/lrg-blog/texas-option-period-explained/",
+    "min": 250,
+    "max": 1000,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "atribuição incerta",
+    "lida": false
+   }
+  ]
+ },
+ {
+  "id": "prazo_doc_title_commitment",
+  "nome": "Prazo para receber o title commitment",
+  "min": 9,
+  "provavel": 20,
+  "max": 20,
+  "unidade": "dias",
+  "confianca": "baixa",
+  "geografia": "Texas",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "mediana de 4 fontes",
+  "provisorio": true,
+  "obs": "20 dias é o prazo máximo do contrato, não a média real; 3 de 4 fontes conferidas na página original",
+  "fontes": [
+   {
+    "nome": "Old Republic Title, Texas",
+    "url": "https://www.oldrepublictitle.com/media/6108/flyer_tx-commitment-a_d.pdf",
+    "min": null,
+    "max": null,
+    "tipico": 20,
+    "data": "2026-11-24",
+    "obs": "prazo do contrato: até 20 dias depois de a title company receber o contrato",
+    "lida": true
+   },
+   {
+    "nome": "CandysDirt (Dallas)",
+    "url": "https://candysdirt.com/2019/06/25/clocks-ticking-countdown-to-closing/",
+    "min": null,
+    "max": null,
+    "tipico": 20,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": true
+   },
+   {
+    "nome": "Neuhaus Realty",
+    "url": "https://neuhausre.com/how-long-does-closing-take-texas-timeline/",
+    "min": null,
+    "max": null,
+    "tipico": 20,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": true
+   },
+   {
+    "nome": "LRG Realty, closing timeline guide",
+    "url": "https://lrgrealty.com/lrg-blog/?p=1938",
+    "min": 9,
+    "max": 14,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "a fonte diz 7 a 10 dias úteis",
+    "lida": false
+   }
+  ]
+ },
+ {
+  "id": "prazo_doc_survey",
+  "nome": "Prazo para receber o survey",
+  "min": 7,
+  "provavel": 15,
+  "max": 42,
+  "unidade": "dias",
+  "confianca": "baixa",
+  "geografia": "Texas / DFW",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "mediana de 4 fontes",
+  "provisorio": true,
+  "obs": "4 de 4 fontes conferidas na página original",
+  "fontes": [
+   {
+    "nome": "Surveyors.io, Texas",
+    "url": "https://surveyors.io/land-surveyors/texas",
+    "min": 7,
+    "max": 14,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "5 a 10 dias úteis; até 3 semanas na alta",
+    "lida": true
+   },
+   {
+    "nome": "Lonestar Land Surveying (Joshua, TX)",
+    "url": "https://lonestarlandsurveying.com/",
+    "min": 10,
+    "max": 14,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "7 a 10 dias úteis depois do trabalho de campo",
+    "lida": true
+   },
+   {
+    "nome": "FinHome Contracting",
+    "url": "https://finhomecontracting.com/blog/home-building/custom-home-building-timeline-phase-by-phase-2026/",
+    "min": 14,
+    "max": 21,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": true
+   },
+   {
+    "nome": "TX Roots Global RE",
+    "url": "https://txrootsglobalre.com/blog/how-does-buying-land-or-a-ranch-in-north-texas-actually-work",
+    "min": 14,
+    "max": 42,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "2 a 6 semanas conforme o tamanho da área",
+    "lida": true
+   }
+  ]
+ },
+ {
+  "id": "prazo_doc_solo",
+  "nome": "Prazo para receber o laudo de solo",
+  "min": 7,
+  "provavel": 16,
+  "max": 56,
+  "unidade": "dias",
+  "confianca": "baixa",
+  "geografia": "DFW / Texas",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "mediana de 4 fontes",
+  "provisorio": true,
+  "obs": "4 de 4 fontes conferidas na página original",
+  "fontes": [
+   {
+    "nome": "Dallas Geotech",
+    "url": "https://dallasgeotech.com/soil-borings/",
+    "min": 10,
+    "max": 14,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "7 a 10 dias úteis depois do trabalho de campo",
+    "lida": true
+   },
+   {
+    "nome": "BuildEng",
+    "url": "https://buildgeotech.com/geotechnical-engineering-services",
+    "min": 7,
+    "max": 14,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "5 a 10 dias úteis depois do campo",
+    "lida": true
+   },
+   {
+    "nome": "FinHome Contracting",
+    "url": "https://finhomecontracting.com/blog/home-building/custom-home-building-timeline-phase-by-phase-2026/",
+    "min": 14,
+    "max": 28,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": true
+   },
+   {
+    "nome": "CostToBuildHouse (nacional)",
+    "url": "https://www.costtobuildhouse.com/geotechnical-report-cost",
+    "min": 14,
+    "max": 56,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": true
+   }
+  ]
+ },
+ {
+  "id": "prazo_doc_zoneamento_carta",
+  "nome": "Prazo para receber a carta de zoneamento",
+  "min": 3,
+  "provavel": 8,
+  "max": 14,
+  "unidade": "dias",
+  "confianca": "baixa",
+  "geografia": "DFW",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "mediana de 4 fontes",
+  "provisorio": true,
+  "obs": "4 de 4 fontes conferidas na página original",
+  "fontes": [
+   {
+    "nome": "City of Dallas, Permit Center",
+    "url": "https://dallascityhall.com/departments/sustainabledevelopment/strategic_business_unit/Pages/permit-center.aspx",
+    "min": 3,
+    "max": 4,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": true
+   },
+   {
+    "nome": "City of Fort Worth",
+    "url": "https://www.fortworthtexas.gov/files/assets/public/development-services/documents/zoning/2021-zvl.pdf",
+    "min": 4,
+    "max": 14,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "até 10 dias úteis; 3 dias úteis com taxa maior",
+    "lida": true
+   },
+   {
+    "nome": "City of Arlington",
+    "url": "https://www.arlingtontx.gov/files/assets/city/v/3/planning-and-development-services/documents/zoning-unified-development-code/zoning-verification-letter-application.pdf",
+    "min": null,
+    "max": null,
+    "tipico": 7,
+    "data": "2026-11-24",
+    "obs": "5 dias úteis",
+    "lida": true
+   },
+   {
+    "nome": "City of Grand Prairie",
+    "url": "https://www.gptx.org/Departments/Planning-and-Development/Planning-Division/Development-Process/Development-Applications/Zoning-Verification",
+    "min": null,
+    "max": null,
+    "tipico": 14,
+    "data": "2026-11-24",
+    "obs": "10 dias úteis",
+    "lida": true
+   }
+  ]
+ },
+ {
+  "id": "prazo_doc_fossa_avaliacao",
+  "nome": "Prazo da avaliação do terreno para fossa",
+  "min": 3,
+  "provavel": 5,
+  "max": 7,
+  "unidade": "dias",
+  "confianca": "baixa",
+  "geografia": "Texas",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "regra": "fonte única: valor central da fonte",
+  "provisorio": true,
+  "obs": "fonte única; a análise do condado leva mais 2 a 4 semanas; 1 de 1 fontes conferidas na página original",
+  "fontes": [
+   {
+    "nome": "Texas Septic Guide",
+    "url": "https://www.texassepticguide.com/learn/perc-test-texas",
+    "min": 3,
+    "max": 7,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": true
+   }
+  ]
+ },
+ {
+  "id": "poco",
+  "nome": "Poço completo",
+  "min": 10000,
+  "provavel": 17250,
+  "max": 25000,
+  "unidade": "US$",
+  "confianca": "baixa",
+  "geografia": "Norte do Texas",
+  "data": "2026-11-24",
+  "etapa": 4,
+  "regra": "ponto médio entre as duas fontes",
+  "provisorio": true,
+  "obs": "poço de 400 a 900 pés no aquífero Trinity; 1 de 2 fontes conferidas na página original",
+  "fontes": [
+   {
+    "nome": "SepticAndWell, Texas well drilling cost",
+    "url": "https://septicandwell.com/articles/well-drilling-cost-texas",
+    "min": 14000,
+    "max": 25000,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": true
+   },
+   {
+    "nome": "Fort Worth Weekly",
+    "url": "https://www.fwweekly.com/?p=362940",
+    "min": 10000,
+    "max": 20000,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   }
+  ]
+ },
+ {
+  "id": "fossa_convencional",
+  "nome": "Fossa convencional instalada",
+  "min": 5000,
+  "provavel": 6250,
+  "max": 10000,
+  "unidade": "US$",
+  "confianca": "baixa",
+  "geografia": "DFW",
+  "data": "2026-11-24",
+  "etapa": 4,
+  "regra": "mediana de 4 fontes",
+  "provisorio": true,
+  "obs": "número visto em resultado de busca, página original não lida",
+  "fontes": [
+   {
+    "nome": "Angi, Dallas",
+    "url": "https://www.angi.com/articles/what-does-it-cost-install-septic-system/tx/dallas",
+    "min": 5312,
+    "max": 8675,
+    "tipico": 6720,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Wholesale Septic Supply, North Texas",
+    "url": "https://www.wholesalesepticsupply.com/blogs/guides/the-cost-of-an-aerobic-septic-system",
+    "min": 5000,
+    "max": 8000,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Angi, nacional",
+    "url": "https://angi.com/articles/what-does-it-cost-install-septic-system.htm",
+    "min": 3000,
+    "max": 8000,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "HomeGuide, nacional",
+    "url": "https://homeguide.com/costs/septic-tank-system-cost",
+    "min": 3500,
+    "max": 8500,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   }
+  ]
+ },
+ {
+  "id": "fossa_aerobica",
+  "nome": "Fossa aeróbica instalada",
+  "min": 10000,
+  "provavel": 16000,
+  "max": 25000,
+  "unidade": "US$",
+  "confianca": "baixa",
+  "geografia": "Texas / nacional",
+  "data": "2026-11-24",
+  "etapa": 4,
+  "regra": "mediana de 3 fontes",
+  "provisorio": true,
+  "obs": "1 de 3 fontes conferidas na página original",
+  "fontes": [
+   {
+    "nome": "Angi, aerobic septic system",
+    "url": "https://www.angi.com/articles/aerobic-septic-system.htm",
+    "min": 10000,
+    "max": 20000,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "LatestCost, Texas",
+    "url": "https://latestcost.com/aerobic-septic-system-cost-texas/",
+    "min": 11000,
+    "max": 28000,
+    "tipico": 16000,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": true
+   },
+   {
+    "nome": "HomeGuide",
+    "url": "https://homeguide.com/costs/septic-tank-system-cost",
+    "min": 20000,
+    "max": 40000,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "fora da curva",
+    "lida": false
+   }
+  ]
+ },
+ {
+  "id": "licenca_fossa",
+  "nome": "Licença de fossa do condado",
+  "min": 277,
+  "provavel": 400,
+  "max": 480,
+  "unidade": "US$",
+  "confianca": "baixa",
+  "geografia": "DFW",
+  "data": "2026-11-24",
+  "etapa": 4,
+  "regra": "mediana de 5 fontes",
+  "provisorio": true,
+  "obs": "valor varia por condado; Denton não confirmado; Ellis e Kaufman sem valor encontrado; número visto em resultado de busca, página original não lida",
+  "fontes": [
+   {
+    "nome": "Tarrant County",
+    "url": "https://www.tarrantcountytx.gov/en/engineering-services/fee-schedule.html",
+    "min": null,
+    "max": null,
+    "tipico": 277,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Collin County",
+    "url": "https://www.collincountytx.gov/Services/Engineering/Development-Services/Documents/permitfees.pdf",
+    "min": 310,
+    "max": 335,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Johnson County",
+    "url": "https://www.johnsoncountytx.org/departments/development-services/permit-fees",
+    "min": 375,
+    "max": 475,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Parker County",
+    "url": "https://parkercountytx.gov/DocumentCenter/View/12318/Permitting-Requirements-2025-updated-61325",
+    "min": null,
+    "max": null,
+    "tipico": 480,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Tarrant Regional Water District",
+    "url": "https://www.trwd.com/wp-content/uploads/2026/02/TRWD-Permit-Fees.pdf",
+    "min": null,
+    "max": null,
+    "tipico": 400,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   }
+  ]
+ },
+ {
+  "id": "tri_agua_esgoto",
+  "nome": "Poço, fossa e licença, se não houver rede",
+  "min": 15277,
+  "provavel": 23900,
+  "max": 50480,
+  "unidade": "US$",
+  "confianca": "baixa",
+  "geografia": "DFW / Norte do Texas",
+  "data": "2026-11-24",
+  "etapa": 2,
+  "provisorio": true,
+  "regra": "soma das estimativas de poço, fossa e licença guardadas para a etapa 4; mínimo e provável com fossa convencional, máximo com fossa aeróbica",
+  "obs": "na etapa 2 entra só no custo da falta; a obra é custo da etapa 4",
+  "fontes": [
+   {
+    "nome": "SepticAndWell, Texas well drilling cost",
+    "url": "https://septicandwell.com/articles/well-drilling-cost-texas",
+    "min": 14000,
+    "max": 25000,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": true
+   },
+   {
+    "nome": "Fort Worth Weekly",
+    "url": "https://www.fwweekly.com/?p=362940",
+    "min": 10000,
+    "max": 20000,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Angi, Dallas",
+    "url": "https://www.angi.com/articles/what-does-it-cost-install-septic-system/tx/dallas",
+    "min": 5312,
+    "max": 8675,
+    "tipico": 6720,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Wholesale Septic Supply, North Texas",
+    "url": "https://www.wholesalesepticsupply.com/blogs/guides/the-cost-of-an-aerobic-septic-system",
+    "min": 5000,
+    "max": 8000,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Angi, nacional",
+    "url": "https://angi.com/articles/what-does-it-cost-install-septic-system.htm",
+    "min": 3000,
+    "max": 8000,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "HomeGuide, nacional",
+    "url": "https://homeguide.com/costs/septic-tank-system-cost",
+    "min": 3500,
+    "max": 8500,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Angi, aerobic septic system",
+    "url": "https://www.angi.com/articles/aerobic-septic-system.htm",
+    "min": 10000,
+    "max": 20000,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "LatestCost, Texas",
+    "url": "https://latestcost.com/aerobic-septic-system-cost-texas/",
+    "min": 11000,
+    "max": 28000,
+    "tipico": 16000,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": true
+   },
+   {
+    "nome": "HomeGuide",
+    "url": "https://homeguide.com/costs/septic-tank-system-cost",
+    "min": 20000,
+    "max": 40000,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "fora da curva",
+    "lida": false
+   },
+   {
+    "nome": "Tarrant County",
+    "url": "https://www.tarrantcountytx.gov/en/engineering-services/fee-schedule.html",
+    "min": null,
+    "max": null,
+    "tipico": 277,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Collin County",
+    "url": "https://www.collincountytx.gov/Services/Engineering/Development-Services/Documents/permitfees.pdf",
+    "min": 310,
+    "max": 335,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Johnson County",
+    "url": "https://www.johnsoncountytx.org/departments/development-services/permit-fees",
+    "min": 375,
+    "max": 475,
+    "tipico": null,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Parker County",
+    "url": "https://parkercountytx.gov/DocumentCenter/View/12318/Permitting-Requirements-2025-updated-61325",
+    "min": null,
+    "max": null,
+    "tipico": 480,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   },
+   {
+    "nome": "Tarrant Regional Water District",
+    "url": "https://www.trwd.com/wp-content/uploads/2026/02/TRWD-Permit-Fees.pdf",
+    "min": null,
+    "max": null,
+    "tipico": 400,
+    "data": "2026-11-24",
+    "obs": "",
+    "lida": false
+   }
+  ]
+ }
+]

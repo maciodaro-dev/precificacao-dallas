@@ -27,7 +27,7 @@ export interface Fonte { id: string; nome: string; orgao: string; url: string; s
   licenca?: string; uso_comercial?: string; redistribuicao?: string; termos_url?: string; verificacao?: string; criterios?: string; alternativa?: string }
 export interface Premissa { premissa_id: string; descricao: string; valor: string; unidade: string; autor: string; data: string; justificativa: string; usada_em: string }
 /** Estimativa de referência de um custo sem fonte oficial: faixa publicada por guias do setor, empresas ou associações. Nunca é valor oficial. */
-export interface Referencia { id: string; nome: string; min: number | null; provavel: number | null; max: number | null; unidade: string; confianca: "baixa" | "media"; geografia: string; data: string; fontes: { nome: string; url: string; data: string }[]; obs?: string }
+export interface Referencia { id: string; nome: string; min: number | null; provavel: number | null; max: number | null; unidade: string; confianca: "baixa" | "media"; geografia: string; data: string; fontes: { nome: string; url: string; data: string; min?: number | null; max?: number | null; tipico?: number | null; obs?: string }[]; obs?: string; /** como o "provável" foi obtido */ regra?: string; /** etapa a que o custo pertence */ etapa?: number; provisorio?: boolean }
 export interface Base { /** estimativas de referência da etapa 2 (data/referencias_etapa2.json) */ referencias?: Referencia[];
   gerado_em: string; unidades: Unidade[]; /** partes (cidade × ISD) de cada região; usadas no mapa, na pergunta da escola e no fluxo "já tenho o terreno" */ partes?: Unidade[]; criterios: Criterio[]; indicadores: Record<string, Record<string, Indicador>>;
   faixas: Faixa[]; fontes: Fonte[]; premissas: Premissa[];
@@ -104,11 +104,21 @@ export interface RespTriagem { resposta: RespostaTriagem | null; origem?: "base"
 export interface ValorInformado extends Faixa3 { realizado?: number | null; data: string; fonte?: string }
 export interface Pagamento { forma: "a_vista" | "financiado"; /** informa-se a entrada ou o valor financiado; o outro é calculado */ entrada?: number | null; financiado?: number | null; juros_aa_pct?: number | null; parcelas?: number | null }
 /** Dados da etapa 2 de um terreno candidato. Tudo aqui é dado privado do projeto. */
+export type SituacaoDoc = "nao_pedido" | "pedido" | "recebido_ok" | "recebido_problema" | "nao_se_aplica";
+/** Situação de um documento do checklist. "problemas" lista os itens de risco (zoneamento, acesso…) em que o documento mostrou problema. */
+export interface DocResp { situacao: SituacaoDoc; data?: string; nota?: string; problemas?: string[] }
+export type QuemPaga = "a_negociar" | "comprador" | "vendedor" | "dividido";
+export type SituacaoNeg = "em_analise" | "oferta_enviada" | "contraproposta" | "sob_contrato" | "fechado" | "desistencia";
+export interface Lance { id: string; data: string; tipo: "oferta" | "contraproposta"; valor: number | null; obs?: string }
+/** Negociação do terreno: histórico, termos e prazos do contrato. */
+export interface Negociacao { situacao?: SituacaoNeg; historico?: Lance[]; periodo_opcao_dias?: number | null; fim_opcao?: string | null; data_fechamento?: string | null;
+  condicoes?: string[]; condicoes_texto?: string; paga_titulo?: QuemPaga; paga_survey?: QuemPaga }
 export interface DadosEtapa2 {
   condado?: string; tamanho_sqft?: number | null; valor_cadastro?: number | null; dentro_cidade?: boolean | null; isd_nome?: string; loteamento?: string; zoneamento?: string;
   agua_esgoto?: "rede" | "poco_fossa" | "nao_sei" | null; /** campos que o usuário preencheu ou corrigiu: "informado por mim" */ informado?: string[];
   link_anuncio?: string; observacoes?: string; oferta?: number | null; preco_fechado?: number | null; sinal?: number | null; taxa_opcao?: number | null;
   pagamento?: Pagamento; triagem?: Record<string, RespTriagem>; /** lote inteiramente em floodway: entra na marca "pode inviabilizar" */ floodway_total?: boolean;
+  /** checklist de documentos: substitui a triagem */ documentos?: Record<string, DocResp>; negociacao?: Negociacao; /** comprador é empresa: pede os documentos da pessoa jurídica */ comprador_pj?: boolean;
   custos?: Record<string, ValorInformado>; prazos?: Record<string, Faixa3>; descarte?: { motivo: string; texto: string; data: string }; /** terreno de exemplo, para testar o fluxo */ exemplo?: boolean;
 }
 export interface Casa {
