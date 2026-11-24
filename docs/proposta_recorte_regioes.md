@@ -70,3 +70,79 @@ Amostra de 20:
 | Denton | 730825 | ROBSON DENTON DEV LP | ROBSON RANCH UNIT 17-3 BLK B LOT 2X | EX-XV | 50 | 14.867 |
 | Denton | 525896 | SUNSET POINTE I. LTD | SUNSET POINTE PH EIGHTEEN BLK 59 LOT 30X (COMM | EX-XV | 50 | 418 |
 | Denton | 988232 | LENNON CREEK RESIDENTIAL COMMUNITY | LENNON CREEK ADDITION BLK C LOT 1X | EX-XV | 50 | 12.632 |
+
+# Versão 2 do recorte (2026-11-24): setor censitário cortado por cidade e ISD
+
+Atende às quatro condições do usuário. Exploratório; nada aplicado. Script: `scripts/estudos/lotes_vagos_recorte_v2.py`. Mapa: `docs/recorte_regioes_exemplo_v2.png`.
+
+Regras usadas no exemplo (todas são propostas, a confirmar):
+1. Região = setor censitário ∩ cidade ∩ ISD.
+2. Pedaço com menos de 80 acres, ou com menos de 10% da parte do setor que fica na cidade, é unido ao vizinho da mesma cidade e do mesmo ISD com quem tem a maior divisa.
+3. Franja: região com mais de 2.500 acres é cortada em células de 1,5 milha de lado.
+4. Nome: cidade + loteamento mais frequente entre os terrenos vagos da região (com 5 ou mais lotes); sem isso, cidade + posição (norte, sudeste, centro…).
+5. Renda por setor: fica com confiança baixa quando a margem de erro do Census passar de 20% do valor, e média nos demais (a implementar com a tabela de margens de erro).
+
+Limitações vistas:
+- O nome pelo loteamento dos terrenos vagos repete (ex.: "Lexington Parks (2)") e às vezes pega nome ruim ("Mansfield City Of"). Melhor usar o loteamento mais frequente entre TODOS os lotes da região, ou a via principal; exige baixar o cadastro completo da cidade.
+- A grade de 1,5 milha corta loteamentos ao meio. Alternativa: cortar pelas vias principais.
+- A parte de Mansfield no condado de Johnson continua sem lotes neste exemplo.
+
+### Frisco
+
+- Setor × cidade × ISD: 65 pedaços. Unidos ao vizinho por serem pequenos: 18. Regiões depois da união: 47. Dessas. 4 tinham mais de 2.500 acres e foram cortadas em células de 1.5 milha.
+- **Regiões finais: 73** (mediana de 492 acres; 22 com 10 ou mais terrenos vagos; 34 sem nenhum).
+
+| Região | ISD | Acres | Terrenos vagos | Franja subdividida |
+|---|---|--:|--:|:-:|
+| Frisco · Brookside North | Frisco ISD | 950 | 361 | sim |
+| Frisco · Grove Frisco | Frisco ISD | 828 | 323 | sim |
+| Frisco · Hazelwood | Frisco ISD | 1.378 | 183 | sim |
+| Frisco · Lexington Parks (3) | Frisco ISD | 446 | 111 | sim |
+| Frisco · Villages Of Creekwood | Little Elm ISD | 340 | 88 |  |
+| Frisco · East Village | Frisco ISD | 2.098 | 75 |  |
+| Frisco · Prestwick Grove | Prosper ISD | 1.020 | 74 | sim |
+| Frisco · Lexington Parks | Frisco ISD | 392 | 68 | sim |
+| Frisco · sudoeste | Lewisville ISD | 511 | 64 |  |
+| Frisco · Brookside | Frisco ISD | 661 | 56 | sim |
+| Frisco · Tapestry | Frisco ISD | 593 | 50 | sim |
+| Frisco · Lexington Parks (2) | Frisco ISD | 1.009 | 34 | sim |
+
+### Mansfield
+
+- Setor × cidade × ISD: 26 pedaços. Unidos ao vizinho por serem pequenos: 8. Regiões depois da união: 18. Dessas. 3 tinham mais de 2.500 acres e foram cortadas em células de 1.5 milha.
+- **Regiões finais: 34** (mediana de 637 acres; 18 com 10 ou mais terrenos vagos; 8 sem nenhum).
+
+| Região | ISD | Acres | Terrenos vagos | Franja subdividida |
+|---|---|--:|--:|:-:|
+| Mansfield · Hamman Terrace | Mansfield ISD | 758 | 113 | sim |
+| Mansfield · Rolling Acres | Mansfield ISD | 1.797 | 84 |  |
+| Mansfield · Hillcrest | Mansfield ISD | 1.033 | 80 |  |
+| Mansfield · Arbors Of Creekwood | Mansfield ISD | 2.359 | 69 |  |
+| Mansfield · Hamman Terrace (2) | Mansfield ISD | 1.244 | 58 | sim |
+| Mansfield · Mansfield City Of (2) | Mansfield ISD | 424 | 42 | sim |
+| Mansfield · Mansfield Retail Center | Mansfield ISD | 1.148 | 39 | sim |
+| Mansfield · Garden Heights | Mansfield ISD | 1.263 | 39 |  |
+| Mansfield · Golden Acres | Mansfield ISD | 849 | 37 |  |
+| Mansfield · Mansfield City Of | Mansfield ISD | 690 | 35 |  |
+| Mansfield · Ridge Trace Mansfield | Mansfield ISD | 1.098 | 28 |  |
+| Mansfield · noroeste | Mansfield ISD | 809 | 28 |  |
+# Glebas acima de 5 acres, por código (contagem, sem limpeza)
+
+| Condado | Código | O que é | 5 a 20 acres | Mais de 20 |
+|---|---|---|--:|--:|
+| Dallas | C11 | vago residencial | 500 | 125 |
+| Dallas | C14 | rural vago | 36 | 5 |
+| Dallas | D10 | terra agrícola qualificada | 776 | 599 |
+| Dallas | C12 | vago comercial (não entra) | 2.357 | 931 |
+| Collin | C1 | vago (residencial) | 512 | 143 |
+| Collin | D1 | terra agrícola qualificada | 2.407 | 1.829 |
+| Collin | D2 | benfeitorias em terra agrícola | 458 | 351 |
+| Collin | E | rural não qualificada (inclui terra com casa) | 3.050 | 975 |
+| Tarrant | C1 | vago residencial | 2.570 | 845 |
+| Tarrant | D1 | terra agrícola qualificada | 1.103 | 773 |
+| Tarrant | E / EC | rural não agrícola | 387 | 198 |
+| Denton | C1 | vago residencial | 588 | 94 |
+| Denton | D1 | terra agrícola qualificada | 1.970 | 1.779 |
+| Denton | E4 | rural não qualificada, vaga | 926 | 521 |
+
+Faltam Johnson, Kaufman, Rockwall, Hunt (rol em arquivo) e Ellis, Parker, Wise (sem código confiável).
