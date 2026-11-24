@@ -171,3 +171,76 @@ Leitura: em Tarrant o código C1 recebe toda terra vaga não comercial e não ag
 | E | mais de 20 | 975 | 110 |
 
 A regra resolve a mistura: o "rural" de Collin cai de 4.025 para 445, e o D2 praticamente desaparece (é, por definição, terra com benfeitoria).
+
+# Versão 3 do recorte (2026-11-24): regras aprovadas, com vias principais e nomes pelo cadastro completo
+
+Exploratório; nada aplicado. Script: `scripts/estudos/lotes_vagos_recorte_v3.py`. Mapa: `docs/recorte_regioes_exemplo_v3.png`.
+Cadastro completo das duas cidades baixado e guardado em `cache/cadastro/` (Collin 67.659 lotes, Denton 58.177, Tarrant 32.389, Johnson 6.825), sem nome de proprietário.
+
+## O que funcionou
+- Pedaço pequeno: regra de 80 acres, e 10% só abaixo de 320 acres. Sem vizinho da mesma cidade e ISD, vira "fatia pequena" (1 em Frisco, 0 em Mansfield).
+- Nomes pelo loteamento mais comum entre todos os lotes: 60 de 67 regiões em Frisco e 17 de 30 em Mansfield. Repetidos são desempatados por posição.
+- Renda por setor com margem de erro: 14 regiões de Frisco e 16 de Mansfield ficam com confiança baixa (margem acima de 20%).
+- Mansfield agora inclui a parte no condado de Johnson (terrenos vagos sem limpeza).
+
+## O que NÃO funcionou: o corte de franja por vias
+- A camada de vias usada (Census TIGER, vias primárias e secundárias) só traz rodovias: US 287, SH 121, Dallas North Tollway, SH 289 e poucas mais. Faltam as avenidas arteriais e as FM roads menores.
+- Resultado: só 1 região em cada cidade foi cortada por via; 3 em Frisco e 2 em Mansfield caíram na grade, que o usuário não quer. O corte dividiu 18 loteamentos em Frisco e 6 em Mansfield.
+- Para cumprir a regra ("nunca por grade, nunca dividindo loteamento") é preciso outra fonte de vias: OpenStreetMap (vias primárias, secundárias e terciárias, e cursos d'água), que tem licença aberta com atribuição,
+  e uma etapa que mantenha cada loteamento inteiro de um lado do corte.
+
+## Outros defeitos vistos
+- Setor com renda no teto de divulgação do Census (US$ 250.001) aparece com margem absurda: deve ser mostrado como "US$ 250 mil ou mais", confiança baixa.
+- Onde o nome vem da via, várias regiões recebem o mesmo nome (três "US Hwy 287" em Mansfield); com as arteriais do OpenStreetMap isso melhora.
+
+### Frisco
+
+- Pedaços (setor × cidade × ISD): 65. Unidos ao vizinho: 18. Fatias pequenas sem vizinho da mesma cidade e ISD (ocultas por padrão): 1.
+- Regiões antes do corte de franja: 47. Cortadas por vias principais e ferrovias: 1. Cortadas por grade, por não haver via que sirva: 3.
+- **Regiões finais: 67** (21 com 10 ou mais terrenos vagos; 31 sem nenhum). Acres: mediana 518. máximo 2.106.
+- Loteamentos divididos entre duas regiões pelo corte: 18.
+- Nome: {'loteamento': np.int64(60), 'via principal': np.int64(5), 'posição': np.int64(2)}.
+- Renda: 14 regiões com confiança baixa (margem de erro acima de 20%); 0 sem renda publicada para o setor; 40 são pedaço de um setor e mostram "renda do setor inteiro".
+
+| Região | ISD | Acres | Terrenos vagos | Nome veio de | Corte | Renda do setor (± margem) |
+|---|---|--:|--:|---|---|---|
+| Frisco · Brookside | Frisco ISD | 950 | 361 | loteamento | grade (sem via que sirva) | $206.484 ± 10% (setor inteiro) |
+| Frisco · Grove Frisco. norte | Frisco ISD | 828 | 323 | loteamento | grade (sem via que sirva) | $220.292 ± 4% (setor inteiro) |
+| Frisco · Grayhawk. centro | Frisco ISD | 1.378 | 183 | loteamento | grade (sem via que sirva) | $206.484 ± 10% (setor inteiro) |
+| Frisco · Lexington Parks. leste | Frisco ISD | 446 | 111 | loteamento | grade (sem via que sirva) | $220.292 ± 4% (setor inteiro) |
+| Frisco · Miramonte | Prosper ISD | 2.106 | 105 | loteamento | vias | $170.357 ± 13% (setor inteiro) |
+| Frisco · Frisco Lakes By Del Webb. norte | Little Elm ISD | 340 | 88 | loteamento |  | $120.815 ± 36% (setor inteiro) |
+| Frisco · Frisco Springs | Frisco ISD | 2.098 | 75 | loteamento |  | $170.357 ± 13% (setor inteiro) |
+| Frisco · Lexington Parks. noroeste | Frisco ISD | 392 | 68 | loteamento | grade (sem via que sirva) | $220.292 ± 4% (setor inteiro) |
+| Frisco · The Hills Of Kingswood | Lewisville ISD | 511 | 64 | loteamento |  | $150.824 ± 16% (setor inteiro) |
+| Frisco · Newman Village | Frisco ISD | 661 | 56 | loteamento | grade (sem via que sirva) | $206.484 ± 10% (setor inteiro) |
+| Frisco · Grove Frisco. sul | Frisco ISD | 593 | 50 | loteamento | grade (sem via que sirva) | $204.167 ± 16% (setor inteiro) |
+| Frisco · Lexington | Frisco ISD | 1.009 | 34 | loteamento | grade (sem via que sirva) | $220.292 ± 4% (setor inteiro) |
+| Frisco · Hunters Creek | Frisco ISD | 695 | 30 | loteamento |  | $250.001 (teto de divulgação: US$ 250 mil ou mais) |
+| Frisco · Stonebriar | Lewisville ISD | 1.015 | 29 | loteamento |  | $177.083 ± 27% |
+
+### Mansfield
+
+- Pedaços (setor × cidade × ISD): 26. Unidos ao vizinho: 8. Fatias pequenas sem vizinho da mesma cidade e ISD (ocultas por padrão): 0.
+- Regiões antes do corte de franja: 18. Cortadas por vias principais e ferrovias: 1. Cortadas por grade, por não haver via que sirva: 2.
+- **Regiões finais: 30** (21 com 10 ou mais terrenos vagos; 2 sem nenhum). Acres: mediana 796. máximo 2.359.
+- Loteamentos divididos entre duas regiões pelo corte: 6.
+- Nome: {'loteamento': np.int64(17), 'via principal': np.int64(9), 'posição': np.int64(4)}.
+- Renda: 16 regiões com confiança baixa (margem de erro acima de 20%); 0 sem renda publicada para o setor; 20 são pedaço de um setor e mostram "renda do setor inteiro".
+
+| Região | ISD | Acres | Terrenos vagos | Nome veio de | Corte | Renda do setor (± margem) |
+|---|---|--:|--:|---|---|---|
+| Mansfield · US Hwy 287. leste | Mansfield ISD | 1.386 | 254 | via principal |  | $184.911 ± 23% |
+| Mansfield · US Hwy 287P Bus | Mansfield ISD | 783 | 210 | via principal | grade (sem via que sirva) | $121.146 ± 33% (setor inteiro) |
+| Mansfield · US Hwy 287. oeste | Mansfield ISD | 1.862 | 208 | via principal | vias | $81.222 ± 32% (setor inteiro) |
+| Mansfield · sul | Mansfield ISD | 1.002 | 188 | posição | grade (sem via que sirva) | $121.146 ± 33% (setor inteiro) |
+| Mansfield · Woodland Estates | Mansfield ISD | 1.797 | 84 | loteamento |  | $137.955 ± 16% |
+| Mansfield · Hillcrest. centro | Mansfield ISD | 1.033 | 83 | loteamento |  | $78.580 ± 17% |
+| Mansfield · Arbors Of Creekwood | Mansfield ISD | 2.359 | 69 | loteamento |  | $127.765 ± 24% |
+| Mansfield · US Hwy 287. sudeste (perto de US Hwy 287) | Mansfield ISD | 262 | 46 | via principal | grade (sem via que sirva) | $121.146 ± 33% (setor inteiro) |
+| Mansfield · Twin Creeks | Mansfield ISD | 1.065 | 44 | loteamento | vias | $81.222 ± 32% (setor inteiro) |
+| Mansfield · Villages At Spring Lake | Mansfield ISD | 1.263 | 39 | loteamento |  | $162.250 ± 21% |
+| Mansfield · Reserve Townhomes At Mansfield. centro | Mansfield ISD | 1.148 | 39 | loteamento | grade (sem via que sirva) | $172.188 ± 18% (setor inteiro) |
+| Mansfield · North Ridge Sub | Mansfield ISD | 849 | 37 | loteamento |  | $65.527 ± 14% |
+| Mansfield · Hillcrest. norte | Mansfield ISD | 690 | 35 | loteamento |  | $79.659 ± 38% |
+| Mansfield · Country Meadows | Mansfield ISD | 809 | 28 | loteamento |  | $111.677 ± 10% (setor inteiro) |
