@@ -62,7 +62,7 @@ export default function App() {
   return (
     <div className="app">
       <header>
-        <div className="marca"><img src="./marca/mark.png" alt="" onError={(e) => { e.currentTarget.style.display = "none"; }} />CSD TOOLS <span>Formação de preço · Dallas–Fort Worth</span></div>
+        <div className="marca"><img src="./marca/mark.png" alt="" onError={(e) => { e.currentTarget.style.display = "none"; }} /><b className="csd">CSD</b><i className="tools">Tools</i> <span>Formação de preço · Dallas–Fort Worth</span></div>
         <div className="projeto">
           <label>Projeto
             <select value={projeto.projeto_id} onChange={(e) => trocarProjeto(e.target.value)}>

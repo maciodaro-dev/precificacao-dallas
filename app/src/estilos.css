@@ -233,3 +233,7 @@ table.ranking.enxuta tbody tr { cursor:pointer; } table.ranking.enxuta tbody tr:
 /* o cabeçalho navy é só o da página; o topo de cada cartão não herda essas cores */
 .cartao header { background:none; color:inherit; border:0; padding:0; } .cartao header h3 { font-family:var(--serifa); font-weight:500; font-size:18px; letter-spacing:0; text-transform:none; color:var(--navy); display:block; margin:0; flex:1; }
 .cartao header .pos { font-family:var(--mono); color:var(--copper); }
+
+/* Marca no cabeçalho: "CSD" em caixa alta e "Tools" manuscrito (Caveat), em vermelho */
+:root { --tools-vermelho:#E8606C; }
+.marca .csd { font-weight:600; letter-spacing:.14em; } .marca .tools { font-family:"Caveat", cursive; font-weight:700; font-style:normal; font-size:27px; line-height:1; letter-spacing:0; color:var(--tools-vermelho); margin-left:-4px; transform:translateY(1px); }
