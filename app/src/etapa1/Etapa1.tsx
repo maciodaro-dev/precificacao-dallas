@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import type { Base, Edicao, Projeto } from "../tipos";
-import { avaliar, ativas, descreve } from "../definicoes";
+import { avaliar, ativas, descreve, lotePronto } from "../definicoes";
 import { exportarCsv, exportarXlsx } from "../exportar";
 import Criterios from "./Criterios";
 import Tabela from "./Tabela";
@@ -52,17 +52,17 @@ export default function Etapa1(p: Props) {
       </ol>}
       {passo === "cidade" && <Cidade base={base} projeto={projeto} edicoes={edicoes} linhas={linhas} sel={sel} setSel={setSel} editar={p.editar} eleger={eleger} irParaEtapa2={p.irParaEtapa2} />}
       {passo === "criterios" && <>
-        <div className="cab-passo"><div><h1>Critérios</h1><p>Responda só o que importa para você: sim ou não, ou um número. O que ficar em branco não é considerado. O resultado mostra onde procurar.</p></div>
+        <div className="cab-passo"><div><h1>Critérios</h1><p>Clique nos critérios que importam para você. Os que pedem um número abrem um campo para digitar. O que ficar desligado não é considerado.</p></div>
           <button className="primario grande" onClick={verResultado}>Ver resultado →</button></div>
         <Criterios {...p} />
         <div className="fim-passo"><button className="primario grande" onClick={verResultado}>Ver resultado →</button></div>
       </>}
       {passo === "resultado" && <main id="resultado">
         <div className="cab-passo"><div><h1>Resultado: onde procurar</h1>
-          <p>Investimento no terreno: {base.faixas.find((f) => f.id === projeto.faixa_id)?.nome}{resp.lote_pronto?.v && ` · lote pronto: ${resp.lote_pronto.v === "sim" ? "sim" : "não"}`} · {defs.length} {defs.length === 1 ? "critério definido" : "critérios definidos"}</p></div>
+          <p>Investimento no terreno: {base.faixas.find((f) => f.id === projeto.faixa_id)?.nome}{` · lote pronto: ${lotePronto(resp) ? "sim" : "não"}`} · {defs.length} {defs.length === 1 ? "critério definido" : "critérios definidos"}</p></div>
           <button onClick={() => setPasso("criterios")}>← Ajustar critérios</button></div>
         {semCriterio && <p className="aviso">Nenhum critério que avalia a cidade foi definido, então todas aparecem sem nota. Volte em "Ajustar critérios" e responda ao menos um.</p>}
-        {!semCriterio && <div className="chips">{defs.map((d) => <span key={d.id} className={resp[d.id]?.obrigatorio ? "chip obrig" : "chip"}>{d.pergunta.replace(/, no (máximo|mínimo)$/, "")}: <b>{descreve(d, resp[d.id])}</b> · peso {resp[d.id]?.peso ?? 1}{resp[d.id]?.obrigatorio && " · obrigatório"}</span>)}</div>}
+        {!semCriterio && <div className="chips">{defs.map((d) => <span key={d.id} className={resp[d.id]?.obrigatorio ? "chip obrig" : "chip"}>{d.rotulo}{["max", "min", "intervalo", "letra"].includes(d.tipo) && <>: <b>{descreve(d, resp[d.id])}</b></>} · peso {resp[d.id]?.peso ?? 1}{resp[d.id]?.obrigatorio && " · obrigatório"}</span>)}</div>}
         {!semCriterio && cobMedia < 0.5 && <p className="aviso">Em média, só {Math.round(cobMedia * 100)}% dos seus critérios têm dado nas cidades. Onde falta dado aparece "sem dado", e a cidade não é julgada por esse critério.</p>}
         <div className="barra">
           <div className="abas">

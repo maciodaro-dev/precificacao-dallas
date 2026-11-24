@@ -24,7 +24,7 @@ export default function Tabela({ defs, projeto, linhas, sel, setSel, comparar, a
           <th title="Marque até 4 unidades para comparar">Comp.</th><Th col="pos">#</Th><Th col="nome">Unidade</Th><Th col="condado">Condado</Th><Th col="nota" title="Percentual do peso dos seus critérios que a cidade atende, entre os que têm dado">Nota</Th>
           <Th col="at" title="Quantos dos seus critérios a cidade atende, entre os que têm dado">Atende</Th>
           <Th col="cob" title="Quantos dos seus critérios têm dado para esta cidade">Com dado</Th>
-          {defs.map((d) => <Th key={d.id} col={d.id} title={d.pergunta}>{d.pergunta.replace(/, no (máximo|mínimo)$/, "")}<small>peso {projeto.respostas?.[d.id]?.peso ?? 1}</small></Th>)}
+          {defs.map((d) => <Th key={d.id} col={d.id} title={d.pergunta}>{d.rotulo}<small>peso {projeto.respostas?.[d.id]?.peso ?? 1}</small></Th>)}
         </tr></thead>
         <tbody>
           {ordenadas.map((l) => (

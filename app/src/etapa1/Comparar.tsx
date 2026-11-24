@@ -1,6 +1,6 @@
 import type { Base, Edicao, Projeto } from "../tipos";
 import { chave, indicador, type Linha } from "../ranking";
-import { avaliar, ativas, descreve, DEFS } from "../definicoes";
+import { avaliar, ativas, descreve, lotePronto, DEFS } from "../definicoes";
 import { cor, fmt } from "../formato";
 
 export function CompararUnidades({ base, projeto, edicoes, linhas, remover }: { base: Base; projeto: Projeto; edicoes: Record<string, Edicao>; linhas: Linha[]; remover: (id: string) => void }) {
@@ -29,8 +29,8 @@ export function CompararProjetos({ base, projetos, edicoes }: { base: Base; proj
       <thead><tr><th></th>{res.map((r) => <th key={r.p.projeto_id}>{r.p.nome}</th>)}</tr></thead>
       <tbody>
         <tr><td>Faixa</td>{res.map((r) => <td key={r.p.projeto_id}>{base.faixas.find((f) => f.id === r.p.faixa_id)?.nome}</td>)}</tr>
-        <tr><td>Lote pronto</td>{res.map((r) => <td key={r.p.projeto_id}>{r.p.respostas?.lote_pronto?.v === "sim" ? "sim" : r.p.respostas?.lote_pronto?.v === "nao" ? "não" : "não definido"}</td>)}</tr>
-        <tr><td>Critérios definidos</td>{res.map((r) => <td key={r.p.projeto_id}>{r.defs.map((d) => `${d.pergunta.replace(/, no (máximo|mínimo)$/, "")}: ${descreve(d, r.p.respostas![d.id])}${r.p.respostas![d.id].obrigatorio ? " (obrigatório)" : ""}`).join(" · ") || "nenhum"}</td>)}</tr>
+        <tr><td>Lote pronto</td>{res.map((r) => <td key={r.p.projeto_id}>{lotePronto(r.p.respostas ?? {}) ? "sim" : "não"}</td>)}</tr>
+        <tr><td>Critérios definidos</td>{res.map((r) => <td key={r.p.projeto_id}>{r.defs.map((d) => `${d.rotulo}: ${descreve(d, r.p.respostas![d.id])}${r.p.respostas![d.id].obrigatorio ? " (obrigatório)" : ""}`).join(" · ") || "nenhum"}</td>)}</tr>
         <tr><td>Unidades no ranking</td>{res.map((r) => <td key={r.p.projeto_id}>{r.linhas.length}</td>)}</tr>
         <tr><td>Unidade eleita</td>{res.map((r) => <td key={r.p.projeto_id}>{base.unidades.find((u) => u.unidade_id === r.p.unidade_eleita_id)?.nome ?? "—"}</td>)}</tr>
         {Array.from({ length: 15 }, (_, i) => <tr key={i}><td>{i + 1}º</td>{res.map((r) => { const l = r.linhas[i]; return <td key={r.p.projeto_id}>{l ? <><span className="nota-final p" style={{ background: cor(l.nota) }}>{l.atendidos}/{l.avaliados}</span> {l.u.nome}</> : ""}</td>; })}</tr>)}

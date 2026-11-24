@@ -29,7 +29,7 @@ export function tabelas(base: Base, p: Projeto, linhas: Linha[], edicoes: Record
   const projeto: L[] = [
     { campo: "projeto", valor: p.nome }, { campo: "faixa de investimento", valor: base.faixas.find((f) => f.id === p.faixa_id)?.nome ?? p.faixa_id },
     { campo: "caminho", valor: p.caminho ?? "" }, { campo: "unidade eleita", valor: p.unidade_eleita_id },
-    ...DEFS.filter((d) => resp[d.id]).map((d) => { const r = resp[d.id]; const cen = d.tipo.startsWith("cenario");
+    ...DEFS.filter((d) => resp[d.id]?.ativo).map((d) => { const r = resp[d.id]; const cen = d.tipo.startsWith("cenario");
       return { campo: d.pergunta, valor: (cen || d.tipo === "exige" || d.tipo === "nao_aceita" || d.tipo === "so_cidade" ? String(r.v ?? "") : defs.includes(d) ? descreve(d, r) : "") + (cen ? "" : ` · peso ${r.peso ?? 1}`) + (r.obrigatorio ? " (obrigatório)" : "") + (r.data ? ` · definido em ${r.data}` : "") }; }),
     { campo: "base gerada em", valor: base.gerado_em },
   ];

@@ -11,7 +11,7 @@ const base: Base = { gerado_em: "", faixas: [], perfis: [], fontes: [], premissa
     c: { "c21|nota_isd_letra": ind("B") } } };
 const proj = (respostas: Record<string, Resposta>): Projeto => ({ projeto_id: "p", nome: "p", criado_em: "", alterado_em: "", faixa_id: "F2", perfil_origem: "", pesos: {}, tamanho: { modo: "maior", min: 0, max: 1 },
   filtros: { isd_min: "", sem_moratoria: false, com_esgoto: false, sfha_max: null, tipo: "todas", cobertura_min: 0, eliminar_sem_dado: false },
-  unidade_eleita_id: null, eleita_em: null, margem_alvo_pct: null, juros_aa_pct: null, terrenos: [], casas: [], linhas_custo: [], cronograma: [], respostas });
+  unidade_eleita_id: null, eleita_em: null, margem_alvo_pct: null, juros_aa_pct: null, terrenos: [], casas: [], linhas_custo: [], cronograma: [], respostas: Object.fromEntries(Object.entries(respostas).map(([k, v]) => [k, { ativo: true, ...v }])) });
 const de = (ls: ReturnType<typeof avaliar>, id: string) => ls.find((l) => l.u.unidade_id === id)!;
 
 describe("critérios definidos", () => {
@@ -40,6 +40,9 @@ describe("critérios definidos", () => {
     const r = avaliar(base, proj({ alagamento: { v: 10, peso: 3 }, isd: { v: "B", peso: 1 } }), {});
     expect(de(r, "b").nota).toBe(75); expect(de(r, "a").nota).toBe(25); expect(r[0].u.unidade_id).toBe("b");
     expect(r.findIndex((l) => l.u.unidade_id === "b")).toBeLessThan(r.findIndex((l) => l.u.unidade_id === "a"));
+  });
+  it("botão desligado não conta, mesmo com valor preenchido", () => {
+    expect(ativas(proj({ imposto: { v: 2, ativo: false }, isd: { v: "B" } })).map((d) => d.id)).toEqual(["isd"]);
   });
   it("prazo em meses é comparado com dias", () => {
     const b2 = { ...base, indicadores: { ...base.indicadores, a: { ...base.indicadores.a, "c08|prazo_aprovacao_dias": ind(100) } } };
