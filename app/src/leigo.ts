@@ -6,7 +6,7 @@ import regras from "./config/regrasLeigo.json";
 export interface Pergunta { id: string; n: number; texto: string; ajuda: string; opcoes: { rotulo: string; valor: string; apoio?: string }[]; padrao: string; obrigatoria?: boolean; so_se?: (r: RespostasLeigo) => boolean }
 export const PERGUNTAS: Pergunta[] = [
   { id: "faixa", n: 1, texto: "Quanto vai investir no terreno?", ajuda: "É o valor total do terreno. Ele define onde faz sentido procurar.", obrigatoria: true, padrao: "",
-    opcoes: [{ rotulo: "$50 a 100 mil", valor: "F1" }, { rotulo: "$100 a 500 mil", valor: "F2" }, { rotulo: "$500 mil a 1 milhão", valor: "F3" }, { rotulo: "$1 a 2 milhões", valor: "F4" }] },
+    opcoes: [{ rotulo: "$50 a 100 mil", valor: "F1" }, { rotulo: "$100 a 500 mil", valor: "F2" }, { rotulo: "$500 mil a 1 milhão", valor: "F3" }, { rotulo: "$1 a 2 milhões", valor: "F4" }, { rotulo: "mais de $2 milhões", valor: "F5" }] },
   { id: "casas", n: 2, texto: "Quantas casas quer construir?", ajuda: "Com mais casas, o terreno precisa ser maior e a prefeitura pede mais aprovações.", padrao: "1",
     opcoes: [{ rotulo: "1", valor: "1" }, { rotulo: "2 a 4", valor: "2a4" }, { rotulo: "5 a 10", valor: "5a10" }, { rotulo: "mais de 10", valor: "mais10" }] },
   { id: "construcao", n: 2, texto: "Todas ao mesmo tempo ou uma de cada vez?", ajuda: "Uma de cada vez exige menos dinheiro de uma só vez, mas parte do terreno fica parada esperando.", padrao: "simultaneo", so_se: (r) => !!r.casas && r.casas !== "1",

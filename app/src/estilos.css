@@ -241,3 +241,4 @@ table.ranking.enxuta tbody tr { cursor:pointer; } table.ranking.enxuta tbody tr:
 @media (max-width: 1250px) { .lema { display:none; } }
 .marca .tools { font-weight:400; font-size:21px; }
 header .idioma { display:inline-flex; align-items:center; gap:4px; } header .idioma select { padding:4px 6px; }
+.marca .tools { margin-left:-14px; }
