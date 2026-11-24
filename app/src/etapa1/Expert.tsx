@@ -3,18 +3,21 @@ import type { Base, ParamResp, PerfilSalvo, Peso, Projeto } from "../tipos";
 import { GRUPOS_P, PARAMS, PRECOS, descreveAlvo, emUso, pesoPadrao, pesoTerreno, type Param } from "../parametros";
 import { deduzir, mesclar, perguntaDe } from "../leigo";
 import { DONO_LOCAL, carregarPerfis, hoje, salvarPerfis } from "../estado";
+import type { Linha } from "../ranking";
+import Mapa from "./Mapa";
 
 const igual = (a: unknown, b: unknown) => JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
 const origemTexto = (r: ParamResp | undefined) => !r ? "" : r.ajustado ? "ajustado manualmente" : r.origem === "sempre" ? "regra fixa do modo guiado" : r.origem === "padrao" ? "padrão inicial" : r.origem.startsWith("perfil:") ? `do perfil "${r.origem.slice(7)}"` :
   perguntaDe(r.origem) ? `da pergunta ${perguntaDe(r.origem)!.n}: ${perguntaDe(r.origem)!.texto}` : r.origem;
 
 /** Painel do modo especialista. Grava no mesmo conjunto de parâmetros que o modo guiado; o que é alterado aqui fica marcado como ajuste manual. */
-export default function Expert({ base, projeto, alterar, verResultado, irPerguntas, voltar }: { base: Base; projeto: Projeto; alterar: (m: Partial<Projeto>) => void; verResultado: () => void; irPerguntas: () => void; voltar: () => void }) {
+export default function Expert({ base, projeto, alterar, verResultado, irPerguntas, voltar, geo, linhas }: { geo: GeoJSON.FeatureCollection; linhas: Linha[]; base: Base; projeto: Projeto; alterar: (m: Partial<Projeto>) => void; verResultado: () => void; irPerguntas: () => void; voltar: () => void }) {
   const ps = projeto.parametros ?? {}; const [perfis, setPerfis] = useState<PerfilSalvo[]>(carregarPerfis); const [nome, setNome] = useState("");
   const mudar = (id: string, m: Partial<ParamResp>) => alterar({ modo: "expert", parametros: { ...ps, [id]: { ...(ps[id] ?? { alvo: null, peso: pesoPadrao(id) }), ...m, origem: "manual", ajustado: true } } });
   const conflitos = projeto.leigo ? mesclar(deduzir(projeto.leigo), ps).conflitos : [];
   const desfazer = (id: string) => alterar({ parametros: { ...ps, [id]: deduzir(projeto.leigo ?? {})[id] } });
-  const pt = pesoTerreno(base, projeto);
+  const pt = pesoTerreno(base, projeto); const [sel, setSel] = useState<string | null>(null);
+  const tudo = linhas.filter((l) => l.avaliados > 0 && l.falhas.length === 0); const escolhida = linhas.find((l) => l.u.unidade_id === sel);
   const salvarPerfil = () => { if (!nome.trim()) return; const n: PerfilSalvo = { perfil_id: "PF-" + Date.now().toString(36), dono_id: DONO_LOCAL, nome: nome.trim(), criado_em: hoje(), parametros: ps, n_casas: projeto.n_casas ?? 1, construcao: projeto.construcao ?? "simultaneo", preco_venda: projeto.preco_venda ?? null, faixa_id: projeto.faixa_id };
     const l = [...perfis, n]; setPerfis(l); salvarPerfis(l); setNome(""); };
   const aplicar = (pf: PerfilSalvo) => alterar({ modo: "expert", faixa_id: pf.faixa_id, n_casas: pf.n_casas, construcao: pf.construcao, preco_venda: pf.preco_venda, parametros: Object.fromEntries(Object.entries(pf.parametros).map(([k, v]) => [k, { ...v, origem: "perfil:" + pf.nome, ajustado: true }])) });
@@ -45,6 +48,7 @@ export default function Expert({ base, projeto, alterar, verResultado, irPergunt
         <div className="acoes"><button onClick={irPerguntas}>Responder as perguntas do modo guiado</button><button className="primario grande" onClick={verResultado}>Ver resultado →</button></div></div>
       {conflitos.length > 0 && <div className="aviso"><b>Ajustes manuais diferentes das respostas do modo guiado</b> (o ajuste manual é mantido e não é sobrescrito):
         <ul>{conflitos.map((c) => { const p = PARAMS.find((x) => x.id === c.id)!; return <li key={c.id}>{p.nome}: você definiu <b>{descreveAlvo(p, c.manual.alvo, projeto, base)}, peso {c.manual.peso}</b>; as respostas do modo guiado dariam {descreveAlvo(p, c.deduzido.alvo, projeto, base)}, peso {c.deduzido.peso}. <button className="link" onClick={() => desfazer(c.id)}>usar o das perguntas</button></li>; })}</ul></div>}
+      <div className="painel-com-mapa">
       <div className="form-criterios sequencial">
         <section className="bloco"><h3>Entradas de cálculo</h3>
           <div className="subcrit definido"><h4>Faixa de investimento no terreno</h4><div className="botoes">{base.faixas.map((x) => <button key={x.id} className={projeto.faixa_id === x.id ? "ativo" : ""} onClick={() => alterar({ faixa_id: x.id })}>{x.nome}</button>)}</div></div>
@@ -62,6 +66,14 @@ export default function Expert({ base, projeto, alterar, verResultado, irPergunt
           <form className="extras" onSubmit={(e) => { e.preventDefault(); salvarPerfil(); }}><input id="nome-perfil" placeholder="nome do perfil" value={nome} onChange={(e) => setNome(e.target.value)} /><button disabled={!nome.trim()}>Salvar perfil</button></form>
           {perfis.length === 0 ? <p className="nota">Nenhum perfil salvo.</p> : perfis.map((pf) => <div key={pf.perfil_id} className="extras perfil"><b>{pf.nome}</b><small>{pf.criado_em}</small><button onClick={() => aplicar(pf)}>Aplicar neste projeto</button><button className="link" onClick={() => excluir(pf.perfil_id)}>excluir</button></div>)}
         </section>
+      </div>
+      <aside className="mapa-vivo">
+        <h3>O que as suas escolhas fazem no mapa</h3>
+        <p className="nota"><b>{tudo.length} de {linhas.length} regiões</b> atendem tudo o que você escolheu, entre os dados que existem. As outras vão ficando transparentes conforme deixam de atender.</p>
+        <Mapa geo={geo} linhas={linhas} sel={sel} setSel={setSel} eleita={null} vivo />
+        {escolhida ? <p className="nota"><b>{escolhida.u.nome}</b> · nota {escolhida.nota?.toFixed(0) ?? "–"}. {escolhida.falhas.length ? "Não atende: " + escolhida.falhas.map((f) => f.nome).join("; ") + "." : "Atende tudo o que tem dado."}</p> : <p className="nota">Clique numa região do mapa para ver o que ela não atende.</p>}
+        <p className="nota">Parâmetros marcados "sem dado ainda" não mudam o mapa.</p>
+      </aside>
       </div>
       <div className="fim-passo"><button className="primario grande" onClick={verResultado}>Ver resultado →</button></div>
     </div>
