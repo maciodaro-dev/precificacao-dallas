@@ -65,7 +65,7 @@ export default function Etapa1(p: Props) {
         {linhaSel && <Detalhe key={linhaSel.u.unidade_id} base={base} projeto={projeto} edicoes={edicoes} linha={linhaSel} editar={p.editar} fechar={() => setSel(null)} eleger={eleger} irParaEtapa2={irEtapa2} emComparacao={false} alternar={() => {}} />}
       </>}
       {passo === "cidade" && <><Voltar /><Cidade base={base} projeto={projeto} edicoes={edicoes} linhas={todas} sel={sel} setSel={setSel} editar={p.editar} eleger={eleger} irParaEtapa2={irEtapa2} /></>}
-      {passo === "expert" && <Expert geo={p.geo} linhas={todas} base={base} projeto={projeto} alterar={p.alterar} verResultado={() => ir("especialista-resultado")} irPerguntas={() => ir("guiado-1")} voltar={voltar} />}
+      {passo === "expert" && <Expert geo={p.geo} linhas={todas} base={base} projeto={projeto} alterar={p.alterar} verResultado={() => ir("especialista-resultado")} voltar={voltar} />}
       {passo === "ranking" && <main id="resultado">
         <Voltar />
         <div className="cab-passo"><div><h1>Resultado: ranking de todas as regiões</h1>
