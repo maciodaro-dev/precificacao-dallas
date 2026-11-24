@@ -41,8 +41,11 @@ export default function Mapa({ geo, linhas, sel, setSel, eleita, camada = "nota"
     }).addTo(m);
   }, [geo, linhas, sel, eleita, setSel, camada, nomeCamada, vivo, apagadas]);
   // ao trocar o recorte, enquadra o que está sendo mostrado
-  const n = linhas.length;
-  useEffect(() => { const b = camadaRef.current?.getBounds(); if (mapa.current && b?.isValid()) mapa.current.fitBounds(b, { padding: [10, 10], animate: false }); }, [n]);
+  // ao trocar o recorte ou o nível de exigência, aproxima o mapa das regiões exibidas (as que estão em cinza claro não contam)
+  const exibidas = linhas.filter((l) => !apagadas?.has(l.u.unidade_id)).map((l) => l.u.unidade_id).join(",");
+  useEffect(() => { const m = mapa.current, c = camadaRef.current; if (!m || !c) return; const ids = new Set(exibidas.split(",")); let b: L.LatLngBounds | null = null;
+    c.eachLayer((ly) => { const f = (ly as L.Polygon & { feature?: GeoJSON.Feature }).feature; if (f && ids.has(f.properties?.unidade_id)) { const x = (ly as L.Polygon).getBounds(); b = b ? b.extend(x) : L.latLngBounds(x.getSouthWest(), x.getNorthEast()); } });
+    const alvo = b ?? c.getBounds(); if (alvo.isValid()) m.fitBounds(alvo, { padding: [16, 16], animate: false, maxZoom: 12 }); }, [exibidas]);
   return (
     <div className="mapa-caixa">
       <div ref={div} className="mapa" />
