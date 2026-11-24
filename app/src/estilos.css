@@ -240,6 +240,7 @@ table.ranking.enxuta tbody tr { cursor:pointer; } table.ranking.enxuta tbody tr:
 .lema { flex:1 1 auto; margin:0; text-align:center; font-family:"Caveat", cursive; font-weight:700; font-size:24px; line-height:1; color:var(--on-dark); white-space:nowrap; }
 @media (max-width: 1250px) { .lema { display:none; } }
 .marca .tools { font-weight:400; font-size:21px; }
+header .idioma { display:inline-flex; align-items:center; gap:4px; } header .idioma select { padding:4px 6px; }
 .marca .tools { margin-left:-14px; }
 
 /* ajustes do resultado e da ficha */
@@ -259,3 +260,6 @@ table.ranking.enxuta tbody tr { cursor:pointer; } table.ranking.enxuta tbody tr:
 .lema-inicio { color:var(--ink-soft); font-size:15.5px; margin:-6px 0 16px; } .assinatura-pagina { text-align:right; }
 @media (max-width: 640px) { .marca .assinatura { margin-left:0; padding-left:0; border-left:0; flex-basis:100%; } }
 @media (max-width: 1700px) { .lema { display:none; } }
+/* Hindi: as fontes da marca não têm o alfabeto devanágari; usa Noto Sans Devanagari no texto e nos títulos */
+:root:lang(hi) { --texto:"Hanken Grotesk", "Noto Sans Devanagari", system-ui, sans-serif; --serifa:"Fraunces", "Noto Sans Devanagari", Georgia, serif; --mono:"IBM Plex Mono", "Noto Sans Devanagari", ui-monospace, monospace; }
+:lang(hi) h3, :lang(hi) .passo-n, :lang(hi) table thead th, :lang(hi) .legenda { letter-spacing:0; }

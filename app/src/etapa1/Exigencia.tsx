@@ -14,5 +14,8 @@ export function Exigencia({ projeto, alterar, corte }: { projeto: Projeto; alter
 /** Linha abaixo do ranking: quantas regiões ficaram ocultas pelo nível de exigência, com link para mostrá-las. */
 export function LinhaOcultas({ corte, mostrar, setMostrar }: { corte: Corte; mostrar: boolean; setMostrar: (b: boolean) => void }) {
   if (!corte.ocultas.length) return null; const n = corte.ocultas.length;
-  return <p className="nota ocultas" id="ocultas">{n} {n === 1 ? "região oculta" : "regiões ocultas"} por {corte.nivel >= 100 ? `não ${n === 1 ? "atender" : "atenderem"} tudo o que você pediu` : `${n === 1 ? "atender" : "atenderem"} menos de ${corte.nivel}% do que você pediu`}. <button className="link" id="mostrar-ocultas" onClick={() => setMostrar(!mostrar)}>{mostrar ? "Ocultar de novo" : "Mostrar"}</button></p>;
+  // a frase é montada inteira (e não em pedaços) para poder ser traduzida com a ordem certa das palavras em cada idioma
+  const frase = corte.nivel >= 100 ? (n === 1 ? `${n} região oculta por não atender tudo o que você pediu.` : `${n} regiões ocultas por não atenderem tudo o que você pediu.`)
+    : n === 1 ? `${n} região oculta por atender menos de ${corte.nivel}% do que você pediu.` : `${n} regiões ocultas por atenderem menos de ${corte.nivel}% do que você pediu.`;
+  return <p className="nota ocultas" id="ocultas">{frase}{" "}<button className="link" id="mostrar-ocultas" onClick={() => setMostrar(!mostrar)}>{mostrar ? "Ocultar de novo" : "Mostrar"}</button></p>;
 }
