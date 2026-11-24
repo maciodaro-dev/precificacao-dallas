@@ -105,6 +105,46 @@ Entra depois da limpeza aprovada, para conferir o dono atual e tirar o lote que 
 - Renda por setor tem margem de erro alta: marcar a confiança.
 - Continua valendo: mostrar o exemplo em duas cidades antes de aplicar.
 
+## 3b. Decisões do usuário (2026-11-24, segunda rodada)
+
+### Recorte das regiões
+a) Pedaço pequeno: menos de 80 acres. A regra dos 10% só vale quando o pedaço também tiver menos de 320 acres. Sem vizinho da mesma cidade e ISD, o pedaço
+   não é unido a ninguém: fica como região própria marcada "fatia pequena", oculta por padrão.
+b) Franja: limite de 2.500 acres, cortando por vias principais (rodovias, tollways, FM roads) e barreiras naturais (rios, lagos, ferrovias), nunca por grade e
+   nunca dividindo um loteamento. Alvo de 640 a 2.500 acres por região. Não cortar região com menos de 50 terrenos vagos. Grade só onde não houver via que
+   sirva, com a região marcada.
+c) Renda: confiança baixa quando a margem de erro passar de 20%. Região que é pedaço de um setor mostra "renda do setor inteiro". Informar quantas regiões
+   ficam com confiança baixa.
+d) Regiões sem terreno vago vão para a lista separada.
+Refazer o exemplo das duas cidades com essas regras e mostrar o mapa antes de aplicar no restante.
+
+### Nome das regiões
+- Pode baixar o cadastro completo; guardá-lo (servirá depois para valor de casas construídas).
+- Cidade + loteamento mais comum entre TODOS os lotes da região; sem loteamento claro, cidade + via principal; por último, cidade + posição.
+- Nome repetido na mesma cidade é desempatado por posição ("norte", "sul"), nunca por "(2)".
+- Descartar nomes de proprietário ou genéricos ("City Of", "Unplatted", "Abstract").
+- **Nome de proprietário nunca aparece em tela nem em exportação.**
+
+### Passo d) — forma e tamanho
+Corte: área menor que 3.000 sqft, ou largura menor que 25 pés. Lotes entre 3.000 e 4.000 sqft ficam, marcados "lote pequeno".
+
+### Passo e) — valor
+Corte em valor de terra de até US$ 1.000, desde que na amostra de 20 pelo menos 18 sejam claramente não construíveis. Se não, não aplicar e mostrar os que parecem terreno de verdade.
+
+### Dono concentrado
+- "Grand Prairie Strata": não classificar como construtora ainda. Marcar "dono concentrado": conta separado e fica fora do custo de referência, como o estoque de construtora.
+  Mostrar tamanho e valor típicos, loteamento, desde quando o dono é o mesmo e onde ficam no mapa.
+- Regra geral: qualquer dono com mais de 50 lotes vagos no mesmo condado recebe a marca e entra numa lista para revisão do usuário.
+
+### Glebas acima de 5 acres
+Entram em três categorias separadas, nunca somadas aos lotes: "gleba residencial vaga", "gleba agrícola" (D1/D10) e "gleba rural" (E/E4).
+- Só entra parcela com valor de benfeitoria zero (mostrar quanto o número cai em Collin).
+- Mesma limpeza de dono, isenção e descrição.
+- Gleba agrícola: sempre valor de mercado, nunca o de produtividade; marcar e mostrar o aviso de rollback tax.
+- Contam só nas faixas de 5 acres para cima e só aparecem quando o projeto pede esse tamanho. Custo de referência à parte, por categoria e por faixa.
+- Conferir Tarrant (2.570 vagos residenciais de 5 a 20 acres): mostrar 20 exemplos e o que o código inclui lá.
+- Completar a contagem em Johnson, Kaufman, Rockwall, Hunt, Ellis, Parker e Wise.
+
 ## 4. Pontos em aberto
 
 - O arquivo estadual do TxGIO (inclusive o de 2025) devolve HTTP 403 a partir deste ambiente: precisa ser baixado pelo usuário ou liberado de outra forma.
