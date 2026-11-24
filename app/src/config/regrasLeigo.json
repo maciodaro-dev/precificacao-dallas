@@ -7,7 +7,7 @@
   "casas_representativo": { "1": 1, "2a4": 3, "5a10": 7, "mais10": 15 },
   "padroes": {
     "lote_minimo": { "max": 5000 }, "taxas": { "max": 20000 }, "custo_lotear": { "max": 50000 }, "prazo": { "max": 6 },
-    "dom": { "max": 60 }, "casas_novas": { "min": 150 }, "builders": { "max": 50 }, "liquidez_terreno": { "max": 180 },
+    "dom": { "max": 60 }, "casas_novas": { "min": 200 }, "builders": { "max": 50 }, "liquidez_terreno": { "max": 180 },
     "valorizacao": { "min": 10 }, "emprego": { "max": 25 }, "obra": { "valor": "sim" }, "seguranca": { "max": 20 }
   },
   "sempre": {
