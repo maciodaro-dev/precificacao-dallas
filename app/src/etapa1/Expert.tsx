@@ -23,7 +23,7 @@ export default function Expert({ base, projeto, alterar, verResultado, voltar, g
     if (!emUso(p, projeto.parametros?.[p.id])) return { nome: p.nome, marcar: false, texto: "Ficou como indiferente: este parâmetro deixou de restringir as regiões." };
     let sim = 0, parte = 0, nao = 0, sem = 0; for (const l of linhas) { const n = l.porCriterio[p.id]?.nota; if (n == null) sem++; else if (n === 100) sim++; else if (n === 0) nao++; else parte++; }
     if (sim + parte + nao === 0) return { nome: p.nome, marcar: false, texto: "Ainda não há dado deste parâmetro para nenhuma região, por isso o mapa não muda. A escolha fica guardada e passa a valer quando o dado entrar." };
-    return { nome: p.nome, marcar: true, texto: `${sim} regiões atendem, ${parte} atendem em parte, ${nao} não atendem${sem ? ` e ${sem} não têm dado` : ""}. No mapa, as que não atendem esta escolha por inteiro estão contornadas em vermelho.` }; }, [ultimo, linhas, projeto.parametros]);
+    return { nome: p.nome, marcar: true, texto: `${sim} regiões atendem, ${parte} atendem em parte, ${nao} não atendem${sem ? ` e ${sem} não têm dado` : ""}.` }; }, [ultimo, linhas, projeto.parametros]);
   const tudo = linhas.filter((l) => l.avaliados > 0 && l.falhas.length === 0 && !l.poucosDados); const escolhida = linhas.find((l) => l.u.unidade_id === sel);
   const salvarPerfil = () => { if (!nome.trim()) return; const n: PerfilSalvo = { perfil_id: "PF-" + Date.now().toString(36), dono_id: DONO_LOCAL, nome: nome.trim(), criado_em: hoje(), parametros: ps, n_casas: projeto.n_casas ?? 1, construcao: projeto.construcao ?? "simultaneo", preco_venda: projeto.preco_venda ?? null, faixa_id: projeto.faixa_id };
     const l = [...perfis, n]; setPerfis(l); salvarPerfis(l); setNome(""); };
@@ -77,9 +77,9 @@ export default function Expert({ base, projeto, alterar, verResultado, voltar, g
       </div>
       <aside className="mapa-vivo">
         <h3>O que as suas escolhas fazem no mapa</h3>
-        <p className="nota"><b>{tudo.length} de {linhas.length} regiões</b> atendem tudo o que você escolheu, entre os dados que existem. As que atendem em parte ficam em verde mais claro; as que atendem pouco, em cinza.</p>
+        <p className="nota"><b>{tudo.length} de {linhas.length} regiões</b> atendem tudo o que você escolheu, entre os dados que existem. A cor de cada região mostra quantas das suas escolhas ela não atende: quanto mais escolhas você faz, mais regiões saem do verde.</p>
         {efeito && <p className="efeito" id="efeito-escolha"><b>Sua última escolha: {efeito.nome}.</b> {efeito.texto}</p>}
-        <Mapa geo={geo} linhas={linhas} sel={sel} setSel={setSel} eleita={null} vivo destaque={efeito?.marcar ? ultimo : null} />
+        <Mapa geo={geo} linhas={linhas} sel={sel} setSel={setSel} eleita={null} vivo />
         {escolhida ? <p className="nota"><b>{escolhida.u.nome}</b>{escolhida.recorte && ` (${escolhida.recorte.texto})`} · nota {escolhida.nota?.toFixed(0) ?? "–"} · com dado {textoCobertura(escolhida)}. {escolhida.falhas.length ? "Não atende: " + escolhida.falhas.map((f) => f.nome).join("; ") + "." : "Atende tudo o que tem dado."}</p> : <p className="nota">Clique numa região do mapa para ver o que ela não atende.</p>}
         <p className="nota">Parâmetros marcados "sem dado ainda" não mudam o mapa.</p>
       </aside>
