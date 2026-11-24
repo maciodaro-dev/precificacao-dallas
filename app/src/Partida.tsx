@@ -65,6 +65,7 @@ export default function Partida({ base, edicoes, projeto, alterar, passo, ir, vo
     <main className="pergunta">
       <p className="passo-n">Ponto de partida</p>
       <h1>Você já tem o terreno?</h1>
+      <p className="lema-inicio">Do terreno à entrega das chaves: o preço da casa, etapa por etapa.</p>
       <div className="opcoes">
         <button id="pp-nao" className={pp.tem_terreno === false ? "ativo" : ""} aria-pressed={pp.tem_terreno === false} onClick={() => { gravarPP({ tem_terreno: false }); ir("onde-construir"); }}><b>Não</b><span>Vou descobrir onde vale a pena procurar.</span></button>
         <button id="pp-sim" className={pp.tem_terreno === true ? "ativo" : ""} aria-pressed={pp.tem_terreno === true} onClick={() => { gravarPP({ tem_terreno: true }); ir("inicio-onde"); }}><b>Sim</b><span>Já comprei ou já é meu. Quero formar o preço a partir dele.</span></button>
