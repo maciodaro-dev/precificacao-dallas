@@ -39,9 +39,20 @@ A faixa de investimento volta a entrar na nota, comparada a um custo de referên
   zoneamento, moratória), com data e fonte. Região com evento registrado depois da última atualização aparece com o aviso
   "valor pode estar desatualizado".
 
-## 3. Pontos em aberto (a confirmar com o usuário)
+## 3. Respostas do usuário (2026-11-24)
 
-- Tamanho alvo: hoje o projeto guarda uma faixa de tamanho, não um número. Proposta: usar o ponto médio da faixa escolhida, editável.
-- Vários lotes: com mais de uma casa, comparar com a faixa de investimento o custo de um lote ou o custo de todos os lotes do projeto.
+### Tamanho alvo
+- Ponto médio da faixa de tamanho escolhida, com campo para o usuário trocar.
+- Faixa "mais de 20 acres": não tem ponto médio; o campo é obrigatório.
+- Valor digitado fora da faixa marcada: avisar e perguntar se quer trocar a faixa. Não aceitar em silêncio.
+- Mostrar ao lado do custo de referência qual tamanho foi usado na conta.
+
+### Mais de uma casa
+- A faixa de investimento é comparada com o custo total de terra do projeto. O total depende de como a terra é comprada.
+- Lote pronto = sim: total = custo de referência de um lote (na faixa de tamanho do… — **a mensagem do usuário chegou cortada neste ponto; falta o resto desta regra e o caso "lote pronto = não".**
+
+## 4. Pontos em aberto
+
+- Completar a regra do custo total com mais de uma casa (mensagem cortada).
 - Fonte: o arquivo estadual (TxGIO) recusou download automático; o campo de valor da terra dele não distingue mercado de produtividade.
   Os cadastros dos condados costumam trazer os dois; depende do levantamento por condado.
