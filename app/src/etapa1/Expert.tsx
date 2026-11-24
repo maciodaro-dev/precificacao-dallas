@@ -45,7 +45,7 @@ export default function Expert({ base, projeto, alterar, verResultado, irPergunt
         <div className="acoes"><button onClick={irPerguntas}>Responder as perguntas do modo guiado</button><button className="primario grande" onClick={verResultado}>Ver resultado →</button></div></div>
       {conflitos.length > 0 && <div className="aviso"><b>Ajustes manuais diferentes das respostas do modo guiado</b> (o ajuste manual é mantido e não é sobrescrito):
         <ul>{conflitos.map((c) => { const p = PARAMS.find((x) => x.id === c.id)!; return <li key={c.id}>{p.nome}: você definiu <b>{descreveAlvo(p, c.manual.alvo, projeto, base)}, peso {c.manual.peso}</b>; as respostas do modo guiado dariam {descreveAlvo(p, c.deduzido.alvo, projeto, base)}, peso {c.deduzido.peso}. <button className="link" onClick={() => desfazer(c.id)}>usar o das perguntas</button></li>; })}</ul></div>}
-      <div className="form-criterios">
+      <div className="form-criterios sequencial">
         <section className="bloco"><h3>Entradas de cálculo</h3>
           <div className="subcrit definido"><h4>Faixa de investimento no terreno</h4><div className="botoes">{base.faixas.map((x) => <button key={x.id} className={projeto.faixa_id === x.id ? "ativo" : ""} onClick={() => alterar({ faixa_id: x.id })}>{x.nome}</button>)}</div></div>
           <div className="subcrit definido"><h4>Número de casas</h4><div className="extras"><input id="n-casas" type="number" min={1} step={1} value={projeto.n_casas ?? 1} onChange={(e) => alterar({ n_casas: Math.max(1, Math.round(Number(e.target.value) || 1)) })} />

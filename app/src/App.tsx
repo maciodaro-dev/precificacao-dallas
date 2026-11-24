@@ -60,7 +60,7 @@ export default function App() {
   return (
     <div className="app">
       <header>
-        <div className="marca">Formação de preço <span>Região de Dallas, TX</span></div>
+        <div className="marca">Formação de preço <span>Dallas–Fort Worth, TX</span></div>
         <div className="projeto">
           <label>Projeto
             <select value={projeto.projeto_id} onChange={(e) => trocarProjeto(e.target.value)}>
