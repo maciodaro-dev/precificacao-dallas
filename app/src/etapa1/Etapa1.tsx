@@ -5,6 +5,7 @@ import { deduzir, mesclar } from "../leigo";
 import { exportarCsv, exportarXlsx } from "../exportar";
 import Tabela from "./Tabela";
 import Detalhe from "./Detalhe";
+import Ficha from "./Ficha";
 import Mapa from "./Mapa";
 import Cidade from "./Cidade";
 import Expert from "./Expert";
@@ -25,7 +26,7 @@ export default function Etapa1(p: Props) {
   const { base, projeto, edicoes, rota, ir, voltar } = p;
   const nPergunta = /^guiado-(\d+)$/.exec(rota)?.[1];
   const passo = rota === "onde-construir" ? "inicio" : nPergunta ? "perguntas" : rota === "guiado-resultado" ? "leigo" : rota === "especialista" ? "expert" : rota === "especialista-resultado" ? "ranking" : rota === "cidade" ? "cidade" : "inicio";
-  const [aba, setAba] = useState<"ranking" | "mapa" | "unidades" | "projetos">("ranking");
+  const [aba, setAba] = useState<"ranking" | "unidades" | "projetos">("ranking");
   const [sel, setSel] = useState<string | null>(projeto.caminho === "cidade" ? projeto.unidade_eleita_id : null);
   const [comparar, setComparar] = useState<string[]>([]); const [camada, setCamada] = useState("nota");
   const todas = useMemo(() => avaliar(base, projeto, edicoes), [base, projeto, edicoes]);
@@ -48,7 +49,8 @@ export default function Etapa1(p: Props) {
   // nível de exigência: só aparecem as regiões que atendem o percentual escolhido dos critérios com dado; a ordem continua pela nota
   const corte = useMemo(() => cortar(principais, projeto.exigencia ?? NIVEL_PADRAO), [principais, projeto.exigencia]);
   const [verOcultas, setVerOcultas] = useState(false); const [exportarOcultas, setExportarOcultas] = useState(false);
-  const noMapa = useMemo(() => (verOcultas ? [...corte.visiveis, ...corte.ocultas] : corte.visiveis), [corte, verOcultas]);
+  // no mapa aparecem todas as regiões com dados suficientes; as que ficam abaixo do nível de exigência vão em cinza claro
+  const noMapa = useMemo(() => [...corte.visiveis, ...corte.ocultas], [corte]); const apagadas = useMemo(() => new Set(corte.ocultas.map((l) => l.u.unidade_id)), [corte]);
   const paraExportar = exportarOcultas ? [...corte.visiveis, ...corte.ocultas] : corte.visiveis;
   const linhaSel = todas.find((l) => l.u.unidade_id === sel) ?? null;
   const irEtapa2 = () => ir("etapa-2");
@@ -75,23 +77,22 @@ export default function Etapa1(p: Props) {
       </div>}
       {passo === "perguntas" && <Perguntas base={base} projeto={projeto} alterar={p.alterar} indice={Number(nPergunta) - 1} ir={ir} voltar={voltar} />}
       {passo === "leigo" && <>
-        <ResultadoLeigo seletor={seletor} total={todas.length} insuficientes={insuficientes.length} base={base} geo={p.geo} projeto={projeto} edicoes={edicoes} linhas={principais} alterar={p.alterar} conflitos={conflitos} eleger={eleger} irParaEtapa2={irEtapa2} voltar={voltar} abrirExpert={abrirExpert} detalhar={setSel} />
-        {linhaSel && <Detalhe key={linhaSel.u.unidade_id} base={base} projeto={projeto} edicoes={edicoes} linha={linhaSel} editar={p.editar} fechar={() => setSel(null)} eleger={eleger} irParaEtapa2={irEtapa2} emComparacao={false} alternar={() => {}} />}
+        <ResultadoLeigo seletor={seletor} total={todas.length} insuficientes={insuficientes.length} base={base} geo={p.geo} projeto={projeto} edicoes={edicoes} linhas={principais} alterar={p.alterar} conflitos={conflitos} eleger={eleger} irParaEtapa2={irEtapa2} voltar={voltar} abrirExpert={abrirExpert} detalhar={setSel} sel={sel} />
+        {linhaSel && <Ficha fechar={() => setSel(null)}><Detalhe key={linhaSel.u.unidade_id} semRolagem base={base} projeto={projeto} edicoes={edicoes} linha={linhaSel} editar={p.editar} fechar={() => setSel(null)} eleger={eleger} irParaEtapa2={irEtapa2} emComparacao={false} alternar={() => {}} /></Ficha>}
       </>}
       {passo === "cidade" && <><Voltar /><Cidade base={base} projeto={projeto} edicoes={edicoes} linhas={todas} sel={sel} setSel={setSel} editar={p.editar} eleger={eleger} irParaEtapa2={irEtapa2} /></>}
       {passo === "expert" && <Expert geo={p.geo} linhas={visiveis} base={base} projeto={projeto} alterar={p.alterar} verResultado={() => ir("especialista-resultado")} voltar={voltar} />}
       {passo === "ranking" && <main id="resultado">
         <Voltar />
         <div className="cab-passo"><div><h1>Resultado: ranking de todas as regiões</h1>
-          <p>Investimento no terreno: {base.faixas.find((f) => f.id === projeto.faixa_id)?.nome ?? "faixa não escolhida"} · {projeto.n_casas ?? 1} {(projeto.n_casas ?? 1) === 1 ? "casa" : `casas, ${projeto.construcao === "sequencia" ? "em sequência" : "ao mesmo tempo"}`} · {ps.length} parâmetros em uso · nenhuma unidade é eliminada</p></div>
+          <p className="linha-resumo">Investimento no terreno: {base.faixas.find((f) => f.id === projeto.faixa_id)?.nome ?? "faixa não escolhida"} · {projeto.n_casas ?? 1} {(projeto.n_casas ?? 1) === 1 ? "casa" : `casas, ${projeto.construcao === "sequencia" ? "em sequência" : "ao mesmo tempo"}`} · {ps.length} parâmetros em uso · nenhuma região é eliminada</p></div>
           {projeto.unidade_eleita_id && <button className="primario" onClick={irEtapa2}>Seguir para a etapa 2 →</button>}</div>
         <Exigencia projeto={projeto} alterar={p.alterar} corte={corte} />
         <div className="barra">
           <div className="abas">
-            {([["ranking", "Ranking"], ["mapa", "Mapa"], ["unidades", `Comparar unidades (${comparar.length}/4)`], ["projetos", "Comparar projetos"]] as const).map(([k, n]) =>
+            {([["ranking", "Ranking"], ["unidades", `Comparar regiões (${comparar.length}/4)`], ["projetos", "Comparar projetos"]] as const).map(([k, n]) =>
               <button key={k} className={aba === k ? "ativo" : ""} onClick={() => setAba(k)}>{n}</button>)}
           </div>
-          {aba === "mapa" && <label className="escolher">Camada <select id="camada" value={camada} onChange={(e) => setCamada(e.target.value)}><option value="nota">Nota final</option>{ps.map((d) => <option key={d.id} value={d.id}>{d.nome}</option>)}</select></label>}
           {seletor}<span className="resumo">{corte.visiveis.length} regiões no ranking · {corte.ocultas.length} ocultas pelo nível de exigência · {insuficientes.length} com dados insuficientes</span>
           <div className="exportar">
             <button onClick={() => exportarXlsx(base, projeto, paraExportar, edicoes)}>Exportar .xlsx</button>
@@ -100,21 +101,27 @@ export default function Etapa1(p: Props) {
             {corte.ocultas.length > 0 && <label className="escolher"><input id="exportar-ocultas" type="checkbox" checked={exportarOcultas} onChange={(e) => setExportarOcultas(e.target.checked)} /> incluir as ocultas</label>}
           </div>
         </div>
-        {aba === "ranking" && <Tabela params={[...ps].sort((x, y) => (todas[0]?.porCriterio[y.id]?.peso ? 1 : 0) - (todas[0]?.porCriterio[x.id]?.peso ? 1 : 0))} projeto={projeto} linhas={corte.visiveis} sel={sel} setSel={setSel} comparar={comparar} alternar={alternar} />}
-        {aba === "ranking" && <LinhaOcultas corte={corte} mostrar={verOcultas} setMostrar={setVerOcultas} />}
-        {aba === "ranking" && verOcultas && corte.ocultas.length > 0 && <Tabela params={[...ps].sort((x, y) => (todas[0]?.porCriterio[y.id]?.peso ? 1 : 0) - (todas[0]?.porCriterio[x.id]?.peso ? 1 : 0))} projeto={projeto} linhas={corte.ocultas} sel={sel} setSel={setSel} comparar={comparar} alternar={alternar} />}
-        {aba === "ranking" && insuficientes.length > 0 && <details className="insuficientes" id="insuficientes"><summary>Dados insuficientes para comparar ({insuficientes.length} regiões)</summary>
-          <p className="nota">Estas regiões têm dado em menos de {Math.round(COBERTURA_MINIMA * 100)}% do peso dos parâmetros que já têm dado em alguma região. Não foram eliminadas: ficam separadas porque a nota é parcial. Cada linha diz o que falta.</p>
-          <Tabela params={[...ps].sort((x, y) => (todas[0]?.porCriterio[y.id]?.peso ? 1 : 0) - (todas[0]?.porCriterio[x.id]?.peso ? 1 : 0))} projeto={projeto} linhas={insuficientes} sel={sel} setSel={setSel} comparar={comparar} alternar={alternar} /></details>}
-        {aba === "mapa" && <Mapa geo={p.geo} linhas={noMapa} sel={sel} setSel={setSel} eleita={projeto.unidade_eleita_id} camada={camada} nomeCamada={PARAMS.find((x) => x.id === camada)?.nome} />}
+        {aba === "ranking" && <div className="resultado-duas">
+          <div className="lista">
+            <Tabela id="ranking" base={base} edicoes={edicoes} linhas={corte.visiveis} sel={sel} setSel={setSel} comparar={comparar} alternar={alternar} eleita={projeto.unidade_eleita_id} />
+            <LinhaOcultas corte={corte} mostrar={verOcultas} setMostrar={setVerOcultas} />
+            {verOcultas && corte.ocultas.length > 0 && <Tabela id="ranking-ocultas" base={base} edicoes={edicoes} linhas={corte.ocultas} sel={sel} setSel={setSel} comparar={comparar} alternar={alternar} eleita={projeto.unidade_eleita_id} />}
+            {insuficientes.length > 0 && <details className="insuficientes" id="insuficientes"><summary>Dados insuficientes para comparar ({insuficientes.length} regiões)</summary>
+              <p className="nota">Estas regiões têm dado em menos de {Math.round(COBERTURA_MINIMA * 100)}% do peso dos parâmetros que já têm dado em alguma região. Não foram eliminadas: ficam separadas porque a nota é parcial. A ficha de cada uma diz o que falta.</p>
+              <Tabela id="ranking-insuficientes" base={base} edicoes={edicoes} linhas={insuficientes} sel={sel} setSel={setSel} comparar={comparar} alternar={alternar} eleita={projeto.unidade_eleita_id} /></details>}
+          </div>
+          <aside className="mapa-resultado">
+            <Mapa geo={p.geo} linhas={noMapa} sel={sel} setSel={setSel} eleita={projeto.unidade_eleita_id} vivo apagadas={apagadas} />
+            <p className="nota">Clique numa região do mapa ou numa linha da lista para abrir a ficha.</p>
+          </aside>
+        </div>}
         {aba === "unidades" && <CompararUnidades base={base} projeto={projeto} edicoes={edicoes} linhas={todas.filter((l) => comparar.includes(l.u.unidade_id))} remover={alternar} />}
         {aba === "projetos" && <CompararProjetos base={base} projetos={p.projetos} edicoes={edicoes} />}
         <FontesUsadas base={base} edicoes={edicoes} unidades={base.unidades.map((u) => u.unidade_id)} chaves={ps.map((d) => d.chave).filter((k): k is string => !!k)} />
         <details className="criterios-usados" id="criterios-usados"><summary>Critérios usados neste ranking ({ps.length})</summary><div className="chips">{ps.map((d) => <span key={d.id} className="chip">{d.nome}: <b>{descreveAlvo(d, projeto.parametros?.[d.id]?.alvo, projeto, base)}</b> · peso {pesoDe(projeto, d.id) === "medio" ? "médio" : pesoDe(projeto, d.id)}{todas[0]?.porCriterio[d.id]?.peso === 0 && " · sem dado"}</span>)}</div></details>
         <AvisoCobertura base={base} projeto={projeto} edicoes={edicoes} />
-        {linhaSel && aba !== "unidades" && aba !== "projetos" &&
-          <Detalhe key={linhaSel.u.unidade_id} base={base} projeto={projeto} edicoes={edicoes} linha={linhaSel} editar={p.editar} fechar={() => setSel(null)} eleger={eleger} irParaEtapa2={irEtapa2}
-            emComparacao={comparar.includes(linhaSel.u.unidade_id)} alternar={alternar} />}
+        {linhaSel && aba === "ranking" && <Ficha fechar={() => setSel(null)}>
+          <Detalhe key={linhaSel.u.unidade_id} semRolagem base={base} projeto={projeto} edicoes={edicoes} linha={linhaSel} editar={p.editar} fechar={() => setSel(null)} eleger={eleger} irParaEtapa2={irEtapa2} emComparacao={comparar.includes(linhaSel.u.unidade_id)} alternar={alternar} /></Ficha>}
       </main>}
     </div>
   );
