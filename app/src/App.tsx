@@ -4,6 +4,7 @@ import type { Base, Edicao, Projeto } from "./tipos";
 import { carregarAtivo, carregarEdicoes, carregarProjetos, duplicar, hoje, novoProjeto, DONO_LOCAL, salvarAtivo, salvarEdicoes, salvarProjetos } from "./estado";
 import Etapa1 from "./etapa1/Etapa1";
 import EtapaVazia, { ETAPAS } from "./EtapaVazia";
+import Etapa2 from "./etapa2/Etapa2";
 import Dados from "./Dados";
 import Partida, { rotuloSituacao, situacaoEtapas } from "./Partida";
 import { baixar } from "./exportar";
@@ -21,7 +22,7 @@ export default function App() {
   const [edicoes, setEdicoes] = useState<Record<string, Edicao>>(carregarEdicoes);
   const { rota, ir, voltar, substituir } = useRota(() => telaInicial(carregarProjetos().find((x) => x.projeto_id === carregarAtivo())));
   // A tela vem do endereço: "inicio…" = ponto de partida; "etapa-N" = etapas 2 a 8; o resto pertence à etapa 1.
-  const tela: number | "dados" = rota === "base-de-dados" ? "dados" : rota.startsWith("inicio") ? 0 : /^etapa-[2-8]$/.test(rota) ? Number(rota.slice(6)) : 1;
+  const tela: number | "dados" = rota === "base-de-dados" ? "dados" : rota.startsWith("inicio") ? 0 : /^etapa-[2-8]($|-)/.test(rota) ? Number(rota[6]) : 1;
   const [novoNome, setNovoNome] = useState<string | null>(null);
   const [confirmaExcluir, setConfirmaExcluir] = useState(false);
   const [msg, setMsg] = useState("");
@@ -96,7 +97,8 @@ export default function App() {
       </nav>
       {(tela === 0 || rota === "retrato") && <Partida key={projeto.projeto_id} base={base} edicoes={edicoes} projeto={projeto} alterar={alterar} passo={rota} ir={ir} voltar={() => voltar(anterior)} />}
       {tela === 1 && rota !== "retrato" && <Etapa1 key={projeto.projeto_id} base={base} geo={geo} projeto={projeto} projetos={projetos} edicoes={edicoes} alterar={alterar} editar={editar} rota={rota} ir={ir} voltar={() => voltar(anterior)} />}
-      {typeof tela === "number" && tela > 1 && <><button className="voltar solto" onClick={() => voltar(anterior)}>← Voltar</button><EtapaVazia n={tela} base={base} projeto={projeto} edicoes={edicoes} situacao={temTerreno && tela <= 4 ? rotuloSituacao(sit[tela]) : null} /></>}
+      {tela === 2 && <Etapa2 key={projeto.projeto_id} base={base} projeto={projeto} alterar={alterar} rota={rota} ir={ir} voltar={() => voltar(anterior)} />}
+      {typeof tela === "number" && tela > 2 && <><button className="voltar solto" onClick={() => voltar(anterior)}>← Voltar</button><EtapaVazia n={tela} base={base} projeto={projeto} edicoes={edicoes} situacao={temTerreno && tela <= 4 ? rotuloSituacao(sit[tela]) : null} /></>}
       {tela === "dados" && <><button className="voltar solto" onClick={() => voltar(anterior)}>← Voltar</button><Dados base={base} edicoes={edicoes} editar={editar} /></>}
       <p className="aviso-legal">Esta ferramenta é apoio à decisão. Não é recomendação de investimento nem avaliação de imóvel. Confira os dados na fonte antes de decidir.<span>Groundwork, by CSD Tools. CSD Tools é a linha de ferramentas da CSD Strategy. CSD Strategy is a d/b/a of Green to suit LLC.</span></p>
       {typeof tela === "number" && tela >= 1 && (

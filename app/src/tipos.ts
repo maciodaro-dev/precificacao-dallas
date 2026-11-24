@@ -26,7 +26,9 @@ export interface Faixa { id: string; nome: string; min: number; /** null = faixa
 export interface Fonte { id: string; nome: string; orgao: string; url: string; script: string; periodicidade: string; situacao: string; obs: string;
   licenca?: string; uso_comercial?: string; redistribuicao?: string; termos_url?: string; verificacao?: string; criterios?: string; alternativa?: string }
 export interface Premissa { premissa_id: string; descricao: string; valor: string; unidade: string; autor: string; data: string; justificativa: string; usada_em: string }
-export interface Base {
+/** Estimativa de referência de um custo sem fonte oficial: faixa publicada por guias do setor, empresas ou associações. Nunca é valor oficial. */
+export interface Referencia { id: string; nome: string; min: number | null; provavel: number | null; max: number | null; unidade: string; confianca: "baixa" | "media"; geografia: string; data: string; fontes: { nome: string; url: string; data: string }[]; obs?: string }
+export interface Base { /** estimativas de referência da etapa 2 (data/referencias_etapa2.json) */ referencias?: Referencia[];
   gerado_em: string; unidades: Unidade[]; /** partes (cidade × ISD) de cada região; usadas no mapa, na pergunta da escola e no fluxo "já tenho o terreno" */ partes?: Unidade[]; criterios: Criterio[]; indicadores: Record<string, Record<string, Indicador>>;
   faixas: Faixa[]; fontes: Fonte[]; premissas: Premissa[];
 }
@@ -64,6 +66,7 @@ export interface Projeto {
   caminho?: "cidade" | null;
   /** Modo de entrada usado por último. Os dois gravam no mesmo conjunto de parâmetros abaixo. */
   modo?: "leigo" | "expert" | null;
+  /** etapa 2: modo de entrada e terrenos marcados para comparar lado a lado (até 4) */ modo_e2?: "leigo" | "expert"; e2_comparar?: string[];
   /** Parâmetros lidos pelo motor (src/parametros.ts). */
   parametros?: Record<string, ParamResp>;
   /** Entradas de cálculo, usadas também nas etapas 3, 5, 6 e 8. "sequencia" faz a etapa 6 calcular a terra parada entre uma casa e outra. */
@@ -88,10 +91,26 @@ export interface Terreno {
   terreno_id: string; unidade_id: string; endereco: string; parcel_id: string; acres: number | null; preco_pedido: number | null;
   isd_id_proprio: string | null; mud_pid: string | null; isencao_agricola: boolean; status: "candidato" | "eleito" | "descartado";
   /** Terreno que o usuário já possui: a etapa 8 mostra a margem sobre o preço pago e sobre o valor atual; o tempo desde a compra não entra no carregamento. */
-  ja_possuido?: boolean; preco_pago?: number | null; data_compra?: string | null; valor_atual?: number | null; valor_atual_origem?: "informado" | "estimado" | null;
+  /** dados da etapa 2 (candidato, triagem, custos, pagamento) */ e2?: DadosEtapa2; ja_possuido?: boolean; preco_pago?: number | null; data_compra?: string | null; valor_atual?: number | null; valor_atual_origem?: "informado" | "estimado" | null;
   due_diligence?: ItemDiligencia[];
 }
 /** Etapas 3 e 5. Um projeto pode ter uma ou várias casas. */
+/** Etapa 2 — faixa de valor: mínimo, provável e máximo. */
+export interface Faixa3 { min: number | null; provavel: number | null; max: number | null }
+export type RespostaTriagem = "ok" | "problema" | "nao_sei";
+/** Resposta de um item da triagem do terreno. O custo e o prazo de resolver só são gravados quando o usuário informa; senão valem os da referência da ferramenta. */
+export interface RespTriagem { resposta: RespostaTriagem | null; origem?: "base" | "usuario"; fonte?: string; data?: string; custo?: Faixa3; prazo_dias?: Faixa3; obs?: string }
+/** Valor de uma linha de custo informado pelo usuário: vale só para este projeto, marcado "informado por mim". */
+export interface ValorInformado extends Faixa3 { realizado?: number | null; data: string; fonte?: string }
+export interface Pagamento { forma: "a_vista" | "financiado"; /** informa-se a entrada ou o valor financiado; o outro é calculado */ entrada?: number | null; financiado?: number | null; juros_aa_pct?: number | null; parcelas?: number | null }
+/** Dados da etapa 2 de um terreno candidato. Tudo aqui é dado privado do projeto. */
+export interface DadosEtapa2 {
+  condado?: string; tamanho_sqft?: number | null; valor_cadastro?: number | null; dentro_cidade?: boolean | null; isd_nome?: string; loteamento?: string; zoneamento?: string;
+  agua_esgoto?: "rede" | "poco_fossa" | "nao_sei" | null; /** campos que o usuário preencheu ou corrigiu: "informado por mim" */ informado?: string[];
+  link_anuncio?: string; observacoes?: string; oferta?: number | null; preco_fechado?: number | null; sinal?: number | null; taxa_opcao?: number | null;
+  pagamento?: Pagamento; triagem?: Record<string, RespTriagem>; /** lote inteiramente em floodway: entra na marca "pode inviabilizar" */ floodway_total?: boolean;
+  custos?: Record<string, ValorInformado>; prazos?: Record<string, Faixa3>; descarte?: { motivo: string; texto: string; data: string }; /** terreno de exemplo, para testar o fluxo */ exemplo?: boolean;
+}
 export interface Casa {
   casa_id: string; terreno_id: string; sqft: number | null; padrao: "economico" | "medio" | "alto" | "luxo" | null;
   quartos: number | null; banheiros: number | null; fundacao: "slab" | "pier_beam" | "post_tension" | null;

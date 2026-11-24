@@ -77,7 +77,7 @@ export default function Etapa1(p: Props) {
           <button id="modo-expert" onClick={abrirExpert}><b>Modo especialista</b><span>Você define cada parâmetro e o peso de cada um. A ferramenta mostra o ranking de todas as regiões, com nota por parâmetro, valor, fonte e data de cada dado.</span>
             <em>Indicado para quem já conhece o mercado e quer controlar os detalhes.</em><i>Abrir o painel →</i></button>
         </div>
-        <p className="nota">Já tem uma cidade em mente? <button id="link-cidade" className="link" onClick={() => { p.alterar({ caminho: "cidade" }); ir("cidade"); }}>Ver o que ela significa para o seu projeto</button></p>
+        <p className="chamada-cidade"><b>Já tem uma cidade em mente?</b> <button id="link-cidade" className="primario" onClick={() => { p.alterar({ caminho: "cidade" }); ir("cidade"); }}>Ver o que ela significa para o seu projeto</button></p>
       </div>}
       {passo === "perguntas" && <Perguntas base={base} projeto={projeto} alterar={p.alterar} indice={Number(nPergunta) - 1} ir={ir} voltar={voltar} />}
       {passo === "leigo" && <>

@@ -19,6 +19,10 @@ export function telaAnterior(rota: string, p: Projeto): string | null {
   if (rota in fixas) return fixas[rota];
   if (rota === "guiado-resultado") return `guiado-${perguntasVisiveis(p.leigo).length}`;
   const g = /^guiado-(\d+)$/.exec(rota); if (g) return Number(g[1]) > 1 ? `guiado-${Number(g[1]) - 1}` : "onde-construir";
+  // etapa 2: lista → terreno (no modo guiado, um passo por tela) → comparar / resumo
+  const t2 = /^(etapa-2-terreno-T-[a-z0-9]+)(?:-p(\d+))?$/i.exec(rota);
+  if (t2) return t2[2] !== undefined && Number(t2[2]) > 0 ? `${t2[1]}-p${Number(t2[2]) - 1}` : "etapa-2";
+  if (rota === "etapa-2-comparar" || rota === "etapa-2-resumo") return "etapa-2";
   const e = /^etapa-(\d)$/.exec(rota);
   if (e) { const n = Number(e[1]); if (n > 2) return `etapa-${n - 1}`;
     return p.ponto_partida?.tem_terreno ? "retrato" : p.caminho === "cidade" ? "cidade" : p.modo === "expert" ? "especialista-resultado" : p.modo === "leigo" ? "guiado-resultado" : "onde-construir"; }
