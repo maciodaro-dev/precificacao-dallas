@@ -41,3 +41,32 @@ Usar o **setor censitário** como região dentro da cidade:
 - setor com menos de 10 terrenos vagos na faixa de tamanho fica "sem dado" no custo de referência, como já definido.
 
 Dentro de cada setor, a ficha da região pode listar os loteamentos com mais terrenos vagos (informação que o agrupamento por proximidade mostra bem), sem que isso vire a unidade do ranking.
+
+## Lotes isentos em nome de construtora ou loteadora (Collin e Denton)
+
+Tipo de isenção no cadastro: `EX-XV`, que no Texas é a isenção total genérica ("other exemptions", Código Tributário, seção 11.11 e seguintes: em geral propriedade pública ou destinada a uso público). Em nome de empresa, costuma ser lote já destinado a área comum, drenagem ou rua que ainda não foi transferido para a associação ou para a prefeitura. São 1215 lotes nos dois condados ({'Denton': 1200, 'Collin': 15}).
+
+Amostra de 20:
+
+| Condado | Conta | Dono | Descrição | Isenção | Valor da terra (US$) | Área (sqft) |
+|---|---|---|---|---|--:|--:|
+| Denton | 272430 | ASHTON DALLAS RESIDENTIAL LLC | LEXINGTON PARK PH 2 BLK F LOT 48X(OPEN SPACE) | EX-XV | 50 | 9.252 |
+| Denton | 280883 | OPELA PARTNERS. LP | BELLE CREEK VILLAGE BLK D LOT 11X (COMMON AREA | EX-XV | 50 | 5.650 |
+| Denton | 330815 | CPI VILLAGE LAKES LP | VILLAGE LAKES PH 2B BLK H LOT 33(OPEN SPACE) | EX-XV | 50 | 13.068 |
+| Denton | 750762 | 23 PROPERTIES LLC | THE HILLS OF KINGSWOOD PH 1 BLK C LOT C-2 (COM | EX-XV | 50 | 4.661 |
+| Denton | 684521 | D R HORTON -- TEXAS LTD | TEASLEY TRAILS PHASE I BLK D LOT 25 | EX-XV | 50 | 2.396 |
+| Denton | 331010 | CHATEAU GROUP II LTD | CHATEAU DU LAC PH II BLK C LOT 7X (COMMON AREA | EX-XV | 50 | 31.363 |
+| Denton | 161610 | IGLESIA JESUCRISTO REY DE REYES IN | T & P BLK 34 LOT 2 | EX-XV | 17.250 | 2.875 |
+| Denton | 983272 | LINDEN HILLS RESIDENTIAL COMMUNITY | LINDEN HILLS PHASE 1 BLK B LOT 1X(OPEN SPACE) | EX-XV | 50 | 1.525 |
+| Denton | 499871 | ROBSON DENTON DEV LP | ROBSON RANCH 7 PH 1 BLK A LOT 1-A-X PT OF STRE | EX-XV | 50 | 73.616 |
+| Denton | 536563 | HIGH TROPHY DEVELOPMENT LLC | THE HIGHLANDS AT TROPHY CLUB NEIGHBORHOOD 6 PH | EX-XV | 50 | 1.712 |
+| Denton | 292281 | ROBSON DENTON DEV LP | ROBSON RANCH 9 PH 1 BLK D LOT 1X (PRIVATE STRE | EX-XV | 50 | 158.558 |
+| Denton | 164855 | WATER ASN OF NORTH LAKE SUB INC | NORTH LAKE COMPANY ADDN LOT RESERVED AREA(S PT | EX-XV | 50 | 10.302 |
+| Denton | 269378 | ROBSON DENTON DEV LP | ROBSON RANCH 16 BLK A LOT 41(PRIVATE RD) | EX-XV | 50 | 212.007 |
+| Denton | 330814 | CPI VILLAGE LAKES LP | VILLAGE LAKES PH 2B BLK A LOT 15(OPEN SPACE) | EX-XV | 50 | 6.534 |
+| Denton | 675284 | LAER TRAMS - THE RIVERWALK FLOWER  | THE PINNACLE AT RIVER WALK BLK D LOT 10X | EX-XV | 50 | 7.971 |
+| Denton | 766401 | BELMONT 407 LLC | A1063A PATRICK ROCK. TR 76E(3). 0.07 ACRES | EX-XV | 50 | 3.049 |
+| Denton | 287850 | WENTWORTH VILLAS LP | WENTWORTH VILLAS BLK A LOT 21X (OPEN SPACE) | EX-XV | 50 | 4.657 |
+| Denton | 730825 | ROBSON DENTON DEV LP | ROBSON RANCH UNIT 17-3 BLK B LOT 2X | EX-XV | 50 | 14.867 |
+| Denton | 525896 | SUNSET POINTE I. LTD | SUNSET POINTE PH EIGHTEEN BLK 59 LOT 30X (COMM | EX-XV | 50 | 418 |
+| Denton | 988232 | LENNON CREEK RESIDENTIAL COMMUNITY | LENNON CREEK ADDITION BLK C LOT 1X | EX-XV | 50 | 12.632 |
