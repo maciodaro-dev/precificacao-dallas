@@ -108,3 +108,8 @@ a.botao { text-decoration:none; color:inherit; display:inline-block; } .det td.n
 .crit-botao { border-radius:18px; padding:6px 13px; white-space:normal; text-align:left; } .crit-botao small { font-size:10px; color:#a26b00; display:inline; } .crit-botao.ativo { background:#2f8f5b; border-color:#2f8f5b; color:#fff; } .crit-botao.ativo small { color:#e6f4ea; }
 .invest { padding-bottom:10px; margin-bottom:6px; border-bottom:1px solid var(--linha); } .rodape-crit { grid-column:1 / -1; }
 .form-criterios .crit:first-of-type { margin-top:8px; }
+
+/* Subcritérios: fileira de botões por critério, como a faixa de investimento */
+.subcrit { padding:10px 0; border-top:1px solid var(--linha); } .subcrit h4 { margin:0 0 2px; font-size:13px; color:var(--tinta); display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+.subcrit h4 i { font-size:11px; color:#a26b00; font-style:normal; font-weight:400; } .subcrit .nota { margin:2px 0 0; } .subcrit .extras { display:flex; gap:14px; align-items:center; margin-top:6px; }
+.subcrit.definido h4::before { content:"●"; color:#2f8f5b; } .subcrit .peso-num input { width:52px; }

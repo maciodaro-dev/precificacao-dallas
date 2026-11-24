@@ -52,7 +52,7 @@ export default function Etapa1(p: Props) {
       </ol>}
       {passo === "cidade" && <Cidade base={base} projeto={projeto} edicoes={edicoes} linhas={linhas} sel={sel} setSel={setSel} editar={p.editar} eleger={eleger} irParaEtapa2={p.irParaEtapa2} />}
       {passo === "criterios" && <>
-        <div className="cab-passo"><div><h1>Critérios</h1><p>Clique nos critérios que importam para você. Os que pedem um número abrem um campo para digitar. O que ficar desligado não é considerado.</p></div>
+        <div className="cab-passo"><div><h1>Critérios</h1><p>Em cada critério, escolha a opção que vale para você. O que ficar sem opção marcada não é considerado. O resultado mostra onde procurar.</p></div>
           <button className="primario grande" onClick={verResultado}>Ver resultado →</button></div>
         <Criterios {...p} />
         <div className="fim-passo"><button className="primario grande" onClick={verResultado}>Ver resultado →</button></div>
@@ -62,7 +62,7 @@ export default function Etapa1(p: Props) {
           <p>Investimento no terreno: {base.faixas.find((f) => f.id === projeto.faixa_id)?.nome}{` · lote pronto: ${lotePronto(resp) ? "sim" : "não"}`} · {defs.length} {defs.length === 1 ? "critério definido" : "critérios definidos"}</p></div>
           <button onClick={() => setPasso("criterios")}>← Ajustar critérios</button></div>
         {semCriterio && <p className="aviso">Nenhum critério que avalia a cidade foi definido, então todas aparecem sem nota. Volte em "Ajustar critérios" e responda ao menos um.</p>}
-        {!semCriterio && <div className="chips">{defs.map((d) => <span key={d.id} className={resp[d.id]?.obrigatorio ? "chip obrig" : "chip"}>{d.rotulo}{["max", "min", "intervalo", "letra"].includes(d.tipo) && <>: <b>{descreve(d, resp[d.id])}</b></>} · peso {resp[d.id]?.peso ?? 1}{resp[d.id]?.obrigatorio && " · obrigatório"}</span>)}</div>}
+        {!semCriterio && <div className="chips">{defs.map((d) => <span key={d.id} className={resp[d.id]?.obrigatorio ? "chip obrig" : "chip"}>{d.rotulo}: <b>{descreve(d, resp[d.id])}</b> · peso {resp[d.id]?.peso ?? 1}{resp[d.id]?.obrigatorio && " · obrigatório"}</span>)}</div>}
         {!semCriterio && cobMedia < 0.5 && <p className="aviso">Em média, só {Math.round(cobMedia * 100)}% dos seus critérios têm dado nas cidades. Onde falta dado aparece "sem dado", e a cidade não é julgada por esse critério.</p>}
         <div className="barra">
           <div className="abas">
