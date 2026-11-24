@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import type { Base, Criterio, Edicao, Projeto } from "../tipos";
 import { chave, desatualizado, indicador, type Linha } from "../ranking";
 import { CONF, cor, fmt } from "../formato";
-import { PARAMS } from "../parametros";
+import { PARAMS, textoCobertura } from "../parametros";
 
 interface P { base: Base; projeto: Projeto; edicoes: Record<string, Edicao>; linha: Linha; editar: (u: string, k: string, v: number | string | null | undefined) => void;
   fechar: () => void; eleger: (id: string) => void; irParaEtapa2: () => void; emComparacao: boolean; alternar: (id: string) => void; semRolagem?: boolean }
@@ -29,7 +29,7 @@ export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar,
         <td>{i?.v != null && (i.url ? <a href={i.url} target="_blank" rel="noreferrer">{i.f}</a> : i.f)}</td>
         <td>{i?.v != null && <>{i.ref}{velho && <span className="selo velho" title="Data de referência há mais de 6 meses">desatualizado</span>}</>}</td>
         <td><span className={"conf " + (i?.conf ?? "sem_dado")}>{CONF[i?.conf ?? "sem_dado"]}</span></td>
-        <td className="obs">{i?.obs || (i?.v == null && c ? c.fonte_planejada : "")}</td>
+        <td className="obs">{i?.v != null && i.esc === "cidade" && <span className="selo velho">dado da cidade inteira</span>}{i?.obs || (i?.v == null && c ? c.fonte_planejada : "")}</td>
       </tr>);
   };
   const grupos = [...new Set(base.criterios.map((c) => c.grupo))];
@@ -37,9 +37,9 @@ export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar,
   return (
     <section className="detalhe" ref={caixa}>
       <div className="cab">
-        <div><h2>{u.nome}</h2><p>{u.tipo === "cidade_isd" ? "Cidade × ISD" : "Área não incorporada"} · {u.condados_pct} · {fmt(u.acres_terra)} acres de terra{u.pct_cidade != null && ` (${fmt(u.pct_cidade)}% da cidade)`} · ID {u.unidade_id}</p></div>
+        <div><h2>{u.nome}</h2><p>{u.tipo === "cidade_isd" ? "Cidade × ISD" : "Área não incorporada"} · {u.condados_pct} · {fmt(u.acres_terra)} acres de terra{u.pct_cidade != null && ` (${fmt(u.pct_cidade)}% da área da cidade${u.pct_domicilios != null ? `, ${fmt(u.pct_domicilios)}% dos domicílios` : ""})`} · ID {u.unidade_id}</p></div>
         <div className="acoes">
-          <span className="nota-final g" style={{ background: cor(linha.nota) }}>{linha.nota === null ? "–" : linha.nota.toFixed(0)}</span>
+          <span className="nota-final g" style={{ background: cor(linha.nota) }}>{linha.nota === null ? "–" : linha.nota.toFixed(0)}</span><span className="com-dado">com dado {textoCobertura(linha)}</span>
           {!semRolagem && <button onClick={() => alternar(u.unidade_id)}>{emComparacao ? "Tirar da comparação" : "Comparar"}</button>}
           {u.tipo === "cidade_isd" && <a className="botao" target="_blank" rel="noreferrer" href={`https://www.homes.com/${u.cidade.toLowerCase().replace(/\./g, "").replace(/[^a-z0-9]+/g, "-")}-tx/land-for-sale/`}>Ver terrenos no Homes.com ↗</a>}
           {eleita ? <button className="primario" onClick={irParaEtapa2}>Ir para a etapa 2</button> : <button className="primario" onClick={() => eleger(u.unidade_id)}>Eleger unidade</button>}
@@ -47,7 +47,7 @@ export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar,
         </div>
       </div>
       <p className="nota">Para registrar o que você viu no Homes.com (preço da terra, tamanho típico, quantos anúncios na sua faixa, dias anunciado), clique em "sem dado" nos critérios 1, 2, 3 e 5 abaixo e digite o valor. Fica gravado com a data.</p>
-      {u.tipo === "cidade_isd" && <p className="nota">Dados do Census, Zillow e permits valem para a cidade inteira, não para a fatia deste ISD. Nota do ISD e alagamento são específicos da unidade.</p>}
+      {u.tipo === "cidade_isd" && <p className="nota">Cada dado abaixo diz se é desta fatia ou da cidade inteira. Onde aparece "dado da cidade inteira", o valor não representa bem esta fatia e a confiança é baixa.</p>}
       <p className={linha.falhas?.length ? "naoatende" : "nota"}><b>Não atende:</b> {linha.falhas?.length ? linha.falhas.map((f) => `${f.nome} (${f.valor}; alvo ${f.alvo})`).join("; ") + "." : "nada, entre os parâmetros que têm dado."}</p>
       <div className="rolagem"><table className="simples det">
         <thead><tr><th>Critério</th><th>Valor bruto</th><th>Sua resposta</th><th>Fonte</th><th>Data de referência</th><th>Confiança</th><th>Observação</th></tr></thead>

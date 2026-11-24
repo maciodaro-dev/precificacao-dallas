@@ -23,8 +23,8 @@ export default function Tabela({ params, projeto, linhas, sel, setSel, comparar,
       <table className="ranking">
         <thead><tr>
           <th title="Marque até 4 unidades para comparar">Comp.</th><Th col="pos">#</Th><Th col="nome">Unidade</Th><Th col="condado">Condado</Th>
-          <Th col="nota" title="Nota de 0 a 100. Parâmetro sem dado na unidade conta como metade.">Nota</Th>
-          <Th col="cob" title="Parte do peso dos parâmetros que tem dado real para esta unidade">Com dado</Th>
+          <Th col="nota" title="Nota de 0 a 100. Parâmetro sem dado na unidade conta como metade; moratória sem dado não entra na conta da unidade. Leia sempre junto com a coluna Com dado.">Nota</Th>
+          <Th col="cob" title="Parâmetros em uso com dado nesta unidade ÷ todos os parâmetros em uso, ponderado pelo peso. Entre parênteses, a contagem simples.">Com dado</Th>
           {params.map((d) => <Th key={d.id} col={d.id} title={d.nome}>{d.nome}<small>peso {pesoDe(projeto, d.id) === "medio" ? "médio" : pesoDe(projeto, d.id)}</small></Th>)}
         </tr></thead>
         <tbody>
@@ -36,9 +36,9 @@ export default function Tabela({ params, projeto, linhas, sel, setSel, comparar,
                 {!!l.falhas?.length && <span className="motivo">Não atende: {l.falhas.map((f) => f.nome).join("; ")}</span>}</td>
               <td>{l.u.condado}</td>
               <td><span className="nota-final" style={{ background: cor(l.nota) }}>{l.nota === null ? "–" : l.nota.toFixed(0)}</span></td>
-              <td className={l.cobertura < 0.5 ? "baixa" : ""}>{Math.round(l.cobertura * 100)}%</td>
+              <td className={l.cobertura < 0.5 ? "baixa" : ""}>{Math.round(l.cobertura * 100)}%<small>{l.avaliados} de {l.emUso}</small></td>
               {params.map((d) => { const x = l.porCriterio[d.id]; const sem = !x || x.nota === null; return (
-                <td key={d.id} className={sem ? "semdado" : x.nota === 100 ? "sim" : x.nota === 0 ? "nao" : "parte"} title={sem ? "sem dado para esta unidade" : `Fonte: ${x.fonte ?? "regra da ferramenta"}${x.ref ? ` · data: ${x.ref}` : ""}${x.conf ? ` · confiança: ${x.conf === "media" ? "média" : x.conf}` : ""}`}>{sem ? "sem dado" : <>{x.texto ?? fmt(x.bruto === null ? null : x.bruto / (d.fator ?? 1), d.um === "casas/ano" ? "" : d.um)}<small>nota {x.nota}</small></>}</td>); })}
+                <td key={d.id} className={sem ? "semdado" : x.nota === 100 ? "sim" : x.nota === 0 ? "nao" : "parte"} title={sem ? "sem dado para esta unidade" : `Fonte: ${x.fonte ?? "regra da ferramenta"}${x.ref ? ` · data: ${x.ref}` : ""}${x.conf ? ` · confiança: ${x.conf === "media" ? "média" : x.conf}` : ""}${x.esc === "cidade" ? " · dado da cidade inteira, não desta fatia" : ""}`}>{sem ? "sem dado" : <>{x.texto ?? fmt(x.bruto === null ? null : x.bruto / (d.fator ?? 1), d.um === "casas/ano" ? "" : d.um)}<small>nota {x.nota}{x.esc === "cidade" && " · cidade inteira"}</small></>}</td>); })}
             </tr>))}
         </tbody>
       </table>
