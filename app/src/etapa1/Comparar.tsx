@@ -30,7 +30,7 @@ export function CompararProjetos({ base, projetos, edicoes }: { base: Base; proj
       <thead><tr><th></th>{res.map((r) => <th key={r.p.projeto_id}>{r.p.nome}</th>)}</tr></thead>
       <tbody>
         <tr><td>Faixa</td>{res.map((r) => <td key={r.p.projeto_id}>{base.faixas.find((f) => f.id === r.p.faixa_id)?.nome}</td>)}</tr>
-        <tr><td>Modo</td>{res.map((r) => <td key={r.p.projeto_id}>{r.p.modo === "leigo" ? "simples" : r.p.modo === "expert" ? "completo" : "—"}</td>)}</tr>
+        <tr><td>Modo</td>{res.map((r) => <td key={r.p.projeto_id}>{r.p.modo === "leigo" ? "guiado" : r.p.modo === "expert" ? "especialista" : "—"}</td>)}</tr>
         <tr><td>Casas</td>{res.map((r) => <td key={r.p.projeto_id}>{r.p.n_casas ?? 1}{(r.p.n_casas ?? 1) > 1 ? (r.p.construcao === "sequencia" ? ", em sequência" : ", ao mesmo tempo") : ""}</td>)}</tr>
         <tr><td>Parâmetros em uso</td>{res.map((r) => <td key={r.p.projeto_id}>{r.defs.map((d) => `${d.nome}: ${descreveAlvo(d, r.p.parametros?.[d.id]?.alvo, r.p, base)}`).join(" · ") || "nenhum"}</td>)}</tr>
         

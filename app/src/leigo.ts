@@ -1,4 +1,4 @@
-// Modo leigo: perguntas simples que são traduzidas em parâmetros do motor pelas regras de src/config/regrasLeigo.json.
+// Modo guiado (no código, "leigo"): perguntas em linguagem do dia a dia que são traduzidas em parâmetros do motor pelas regras de src/config/regrasLeigo.json.
 import type { ParamResp, Peso, Projeto, RespostasLeigo } from "./tipos";
 import { PARAMS, PRECOS, pesoPadrao } from "./parametros";
 import regras from "./config/regrasLeigo.json";

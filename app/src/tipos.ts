@@ -30,7 +30,7 @@ export interface Base {
 export type Peso = "baixo" | "medio" | "alto";
 /** Um parâmetro do motor da etapa 1. alvo null = indiferente / não se aplica. origem = pergunta do modo leigo que o deduziu, "manual" ou "perfil:<nome>". */
 export interface ParamResp { alvo: { valor?: string; min?: number; max?: number } | null; peso: Peso; origem: string; ajustado?: boolean }
-export interface RespostasLeigo { casas?: "1" | "2a4" | "5a10" | "mais10"; construcao?: "simultaneo" | "sequencia"; preco?: number; vender_rapido?: boolean; valorizacao?: boolean; comecar_logo?: boolean; agua_esgoto?: boolean; escola?: boolean }
+export interface RespostasLeigo { /** a faixa de investimento já foi escolhida na pergunta 1 */ faixa_ok?: boolean; casas?: "1" | "2a4" | "5a10" | "mais10"; construcao?: "simultaneo" | "sequencia"; preco?: number; vender_rapido?: boolean; valorizacao?: boolean; comecar_logo?: boolean; agua_esgoto?: boolean; escola?: boolean }
 /** Combinação do modo expert salva com nome, para reutilizar em outros projetos. Dado privado do dono. */
 export interface PerfilSalvo { perfil_id: string; dono_id: string; nome: string; criado_em: string; parametros: Record<string, ParamResp>; n_casas: number; construcao: "simultaneo" | "sequencia"; preco_venda: { min?: number; max?: number } | null; faixa_id: string }
 
@@ -63,7 +63,7 @@ export interface Projeto {
   parametros?: Record<string, ParamResp>;
   /** Entradas de cálculo, usadas também nas etapas 3, 5, 6 e 8. "sequencia" faz a etapa 6 calcular a terra parada entre uma casa e outra. */
   n_casas?: number; construcao?: "simultaneo" | "sequencia"; preco_venda?: { min?: number; max?: number } | null;
-  /** Respostas das perguntas simples, guardadas para refazer a dedução. */
+  /** Respostas das perguntas do modo guiado, gravadas a cada clique. */
   leigo?: RespostasLeigo;
   unidade_eleita_id: string | null; eleita_em: string | null;
   margem_alvo_pct: number | null; juros_aa_pct: number | null;

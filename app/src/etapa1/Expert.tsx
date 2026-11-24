@@ -5,11 +5,11 @@ import { deduzir, mesclar, perguntaDe } from "../leigo";
 import { DONO_LOCAL, carregarPerfis, hoje, salvarPerfis } from "../estado";
 
 const igual = (a: unknown, b: unknown) => JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
-const origemTexto = (r: ParamResp | undefined) => !r ? "" : r.ajustado ? "ajustado manualmente" : r.origem === "sempre" ? "regra fixa das perguntas simples" : r.origem === "padrao" ? "padrão inicial" : r.origem.startsWith("perfil:") ? `do perfil "${r.origem.slice(7)}"` :
+const origemTexto = (r: ParamResp | undefined) => !r ? "" : r.ajustado ? "ajustado manualmente" : r.origem === "sempre" ? "regra fixa do modo guiado" : r.origem === "padrao" ? "padrão inicial" : r.origem.startsWith("perfil:") ? `do perfil "${r.origem.slice(7)}"` :
   perguntaDe(r.origem) ? `da pergunta ${perguntaDe(r.origem)!.n}: ${perguntaDe(r.origem)!.texto}` : r.origem;
 
-/** Painel com todos os parâmetros. Grava no mesmo conjunto que o modo leigo; o que é alterado aqui fica marcado como ajuste manual. */
-export default function Expert({ base, projeto, alterar, verResultado, voltarLeigo }: { base: Base; projeto: Projeto; alterar: (m: Partial<Projeto>) => void; verResultado: () => void; voltarLeigo: () => void }) {
+/** Painel do modo especialista. Grava no mesmo conjunto de parâmetros que o modo guiado; o que é alterado aqui fica marcado como ajuste manual. */
+export default function Expert({ base, projeto, alterar, verResultado, irPerguntas, voltar }: { base: Base; projeto: Projeto; alterar: (m: Partial<Projeto>) => void; verResultado: () => void; irPerguntas: () => void; voltar: () => void }) {
   const ps = projeto.parametros ?? {}; const [perfis, setPerfis] = useState<PerfilSalvo[]>(carregarPerfis); const [nome, setNome] = useState("");
   const mudar = (id: string, m: Partial<ParamResp>) => alterar({ modo: "expert", parametros: { ...ps, [id]: { ...(ps[id] ?? { alvo: null, peso: pesoPadrao(id) }), ...m, origem: "manual", ajustado: true } } });
   const conflitos = projeto.leigo ? mesclar(deduzir(projeto.leigo), ps).conflitos : [];
@@ -33,17 +33,18 @@ export default function Expert({ base, projeto, alterar, verResultado, voltarLei
         <h4 title={p.ajuda}>{p.nome}{base.criterios.find((c) => p.chave?.startsWith(c.id + "|"))?.cobertura !== "coletado" && p.forma !== "so_cidade" && <i>sem dado ainda</i>}</h4>
         {p.forma === "oferta" ? <p className="nota">Segue a faixa de investimento escolhida acima.</p> :
           <div className="botoes">{p.opcoes.map((o, i) => <button key={i} id={`o-${p.id}-${i}`} className={marcada(o) ? "ativo" : ""} aria-pressed={marcada(o)} onClick={() => (p.vizinhas ? clicarVizinha(p, i) : mudar(p.id, { alvo: o.a }))}>{o.rotulo}</button>)}
-            {fora && <button className="ativo" title="Valor deduzido das perguntas simples, fora das opções fixas">{descreveAlvo(p, r!.alvo)}</button>}
+            {fora && <button className="ativo" title="Valor deduzido das respostas do modo guiado, fora das opções fixas">{descreveAlvo(p, r!.alvo)}</button>}
             {on && !p.opcoes.some((o) => o.a === null) && <button onClick={() => mudar(p.id, { alvo: null })}>Indiferente</button>}</div>}
         <div className="extras"><span className="seg" role="group" aria-label="peso">peso {(["baixo", "medio", "alto"] as Peso[]).map((w) => <button key={w} id={`w-${p.id}-${w}`} className={(r?.peso ?? pesoPadrao(p.id)) === w ? "ativo" : ""} disabled={!on} onClick={() => mudar(p.id, { peso: w })}>{w === "medio" ? "médio" : w}</button>)}</span>
           <span className={"origem" + (r?.ajustado ? " manual" : "")}>{origemTexto(r)}</span></div>
       </div>); };
   return (
     <div>
-      <div className="cab-passo"><div><h1>Modo completo</h1><p>Todos os parâmetros. Cada resposta é sim/não ou um valor entre opções fixas e afeta só a nota: nenhuma unidade é eliminada.</p></div>
-        <div className="acoes"><button onClick={voltarLeigo}>Perguntas simples</button><button className="primario grande" onClick={verResultado}>Ver resultado →</button></div></div>
-      {conflitos.length > 0 && <div className="aviso"><b>Ajustes manuais diferentes das respostas simples</b> (o ajuste manual é mantido e não é sobrescrito):
-        <ul>{conflitos.map((c) => { const p = PARAMS.find((x) => x.id === c.id)!; return <li key={c.id}>{p.nome}: você definiu <b>{descreveAlvo(p, c.manual.alvo, projeto, base)}, peso {c.manual.peso}</b>; as perguntas simples dariam {descreveAlvo(p, c.deduzido.alvo, projeto, base)}, peso {c.deduzido.peso}. <button className="link" onClick={() => desfazer(c.id)}>usar o das perguntas</button></li>; })}</ul></div>}
+      <button className="voltar" onClick={voltar}>← Voltar</button>
+      <div className="cab-passo"><div><h1>Modo especialista</h1><p>Todos os parâmetros. Cada resposta é sim/não ou um valor entre opções fixas e afeta só a nota: nenhuma unidade é eliminada.</p></div>
+        <div className="acoes"><button onClick={irPerguntas}>Responder as perguntas do modo guiado</button><button className="primario grande" onClick={verResultado}>Ver resultado →</button></div></div>
+      {conflitos.length > 0 && <div className="aviso"><b>Ajustes manuais diferentes das respostas do modo guiado</b> (o ajuste manual é mantido e não é sobrescrito):
+        <ul>{conflitos.map((c) => { const p = PARAMS.find((x) => x.id === c.id)!; return <li key={c.id}>{p.nome}: você definiu <b>{descreveAlvo(p, c.manual.alvo, projeto, base)}, peso {c.manual.peso}</b>; as respostas do modo guiado dariam {descreveAlvo(p, c.deduzido.alvo, projeto, base)}, peso {c.deduzido.peso}. <button className="link" onClick={() => desfazer(c.id)}>usar o das perguntas</button></li>; })}</ul></div>}
       <div className="form-criterios">
         <section className="bloco"><h3>Entradas de cálculo</h3>
           <div className="subcrit definido"><h4>Faixa de investimento no terreno</h4><div className="botoes">{base.faixas.map((x) => <button key={x.id} className={projeto.faixa_id === x.id ? "ativo" : ""} onClick={() => alterar({ faixa_id: x.id })}>{x.nome}</button>)}</div></div>
