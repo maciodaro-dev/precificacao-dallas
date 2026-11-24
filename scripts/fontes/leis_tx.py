@@ -35,8 +35,11 @@ def main():
             L.append({**b, "criterio_id": "c08", "metrica": "moratoria_ativa", "valor": "nao", "unidade_medida": "sim/nao", "url": "https://statutes.capitol.texas.gov/Docs/LG/htm/LG.212.htm",
                       "data_referencia": HOJE, "confianca": "alta", "obs": "moratória do cap. 212 é instrumento municipal; condado não tem esse poder"})
         elif m:
-            L.append({**b, "criterio_id": "c08", "metrica": "moratoria_ativa", "valor": m["moratoria_ativa"], "unidade_medida": "sim/nao", "url": m["url"],
-                      "data_referencia": m["data_verificacao"], "confianca": m["confianca"], "obs": m["obs"]})
+            # "sem_dado" = a cidade foi pesquisada e não deu para confirmar em fonte oficial: fica sem valor, com o motivo na observação
+            ok = m["moratoria_ativa"] in ("sim", "nao")
+            partes = [f"fonte {m['fonte_tipo']}" if m.get("fonte_tipo") else "", f"vigência: {m['vigencia']}" if m.get("vigencia") else "", f"abrange: {m['abrange']}" if m.get("abrange") else "", m["obs"]]
+            L.append({**b, "criterio_id": "c08", "metrica": "moratoria_ativa", "valor": m["moratoria_ativa"] if ok else None, "unidade_medida": "sim/nao", "url": m["url"],
+                      "data_referencia": m["data_verificacao"], "confianca": m["confianca"] if ok else "sem_dado", "obs": ". ".join(x for x in partes if x)})
         else:
             L.append({**b, "criterio_id": "c08", "metrica": "moratoria_ativa", "valor": None, "unidade_medida": "sim/nao", "obs": "não verificado: exige leitura de atas/ordenanças da prefeitura"})
     gravar("leis_tx", L)

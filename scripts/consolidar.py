@@ -32,7 +32,7 @@ def main():
         fatia = float(u["pct_cidade"] or 100) < FATIA_REPRESENTATIVA
         for k, x in d.items():
             if x["v"] is None: continue
-            if x["f"] in FONTES_CIDADE or (x["f"] == "derivado" and fatia and (d.get("c23|renda_mediana") or {}).get("f") in FONTES_CIDADE):
+            if x["f"] in FONTES_CIDADE or x["f"] == "derivado":
                 x["esc"] = "cidade" if fatia else "fatia"
                 if fatia: x["conf"] = "baixa"; x["obs"] = (f"dado da cidade inteira; esta unidade é {float(u['pct_cidade']):.0f}% da área de {u['cidade']}. " + x["obs"]).strip()
             elif x["f"] in ("census_tract", "tea", "fema_nfhl", "osrm", "comptroller"): x["esc"] = "fatia"
@@ -52,8 +52,8 @@ def main():
         w = csv.DictWriter(f, fieldnames=list(pend[0])); w.writeheader(); w.writerows(pend)
     for u in us:
         for k in ("acres_terra", "pct_cidade", "lat", "lon"): u[k] = num(u[k]) if u[k] != "" else None
-        if u.get("pct_domicilios", "") != "": u["pct_domicilios"] = num(u["pct_domicilios"])
-        else: u.pop("pct_domicilios", None)
+        pdm = (ind.get(u["unidade_id"], {}).get("ctx|pct_domicilios_cidade") or {}).get("v")
+        if pdm is not None: u["pct_domicilios"] = pdm
         # Fatia pequena: oculta por padrão na exibição (premissa P-012). Nunca sai da base.
         u["fatia_pequena"] = bool(u["tipo"] == "cidade_isd" and u["pct_cidade"] is not None and u["pct_cidade"] < FATIA_PEQUENA_PCT and u["acres_terra"] < FATIA_PEQUENA_ACRES)
     base = dict(gerado_em=datetime.date.today().isoformat(), unidades=us, criterios=crit, indicadores=ind,

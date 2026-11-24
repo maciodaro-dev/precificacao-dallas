@@ -34,6 +34,23 @@
   "alternativa": ""
  },
  {
+  "id": "census_tract",
+  "nome": "ACS 5 anos 2020–2024, por setor censitário (renda da fatia)",
+  "orgao": "U.S. Census Bureau",
+  "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/",
+  "script": "scripts/fontes/census_tract.py",
+  "periodicidade": "anual (dezembro)",
+  "situacao": "ok",
+  "obs": "Renda recalculada para fatias de cidade × ISD e áreas não incorporadas: domicílios por classe de renda (B19001) repartidos pela área do setor que cai na unidade; mediana por interpolação. É estimativa, confiança média ou baixa.",
+  "licenca": "Domínio público (governo federal dos EUA)",
+  "uso_comercial": "sim",
+  "redistribuicao": "sim",
+  "termos_url": "https://www.census.gov/about/policies/citation.html",
+  "verificacao": "regra geral de obras federais",
+  "criterios": "c23 renda (fatias e áreas não incorporadas); parcela de domicílios da cidade",
+  "alternativa": ""
+ },
+ {
   "id": "census_bps",
   "nome": "Building Permits Survey",
   "orgao": "U.S. Census Bureau",
