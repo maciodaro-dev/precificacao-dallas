@@ -44,7 +44,8 @@ export default function Etapa1(p: Props) {
     {nFatias > 0 && <label className="escolher" title="Fatias pequenas: pedaços de uma cidade dentro de outro distrito escolar que representam uma parte pequena dela. Ficam ocultas por padrão; nada sai da base."><input id="fatias" type="checkbox" checked={fatias} onChange={(e) => setFatias(e.target.checked)} /> mostrar fatias pequenas ({nFatias})</label>}</>;
   const ps = ativos(projeto); const conflitos = projeto.leigo ? mesclar(deduzir(projeto.leigo), projeto.parametros).conflitos : [];
   const alternar = (id: string) => setComparar((c) => (c.includes(id) ? c.filter((x) => x !== id) : c.length < 4 ? [...c, id] : c));
-  const eleger = (id: string) => p.alterar({ unidade_eleita_id: id, eleita_em: new Date().toISOString().slice(0, 10) });
+  // ao escolher a região, abre a tela de confirmação "Região escolhida", com os dados que as próximas etapas vão usar
+  const eleger = (id: string) => { p.alterar({ unidade_eleita_id: id, eleita_em: new Date().toISOString().slice(0, 10) }); ir("regiao-escolhida"); };
   // lista principal × "dados insuficientes para comparar" (separação, não eliminação)
   const principais = useMemo(() => linhas.filter((l) => !l.poucosDados), [linhas]); const insuficientes = useMemo(() => linhas.filter((l) => l.poucosDados), [linhas]);
   // nível de exigência: só aparecem as regiões que atendem o percentual escolhido dos critérios com dado; a ordem continua pela nota

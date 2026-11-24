@@ -1,3 +1,4 @@
+import { QuadroRegiao } from "../DadosRegiao";
 import { useEffect, useRef, useState } from "react";
 import type { Base, Criterio, Edicao, Projeto } from "../tipos";
 import { chave, desatualizado, indicador, type Linha } from "../ranking";
@@ -68,6 +69,7 @@ export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar,
           {eleita ? <button className="primario" onClick={irParaEtapa2}>Ir para a etapa 2</button> : <button className="primario" id="escolher-regiao" onClick={() => eleger(u.unidade_id)}>Escolher esta região</button>}
           {!semRolagem && <button onClick={fechar}>Fechar</button>}
         </div>
+        <details id="ficha-dados-regiao" className="ficha-regiao"><summary>Dados da região usados nas próximas etapas</summary><QuadroRegiao base={base} edicoes={edicoes} uid={u.unidade_id} /></details>
       </div>
       <PrecoAnunciado base={base} edicoes={edicoes} unidadeId={u.unidade_id} editar={editar} />
       <p className="nota">Tamanho típico, quantidade de anúncios na sua faixa e dias anunciado também podem ser registrados: clique em "sem dado" nos critérios 2, 3 e 5 da tabela abaixo. Ficam gravados com a data, como dado privado do seu projeto.</p>

@@ -1,14 +1,19 @@
-# Etapa 2 — estimativas de referência (proposta, aguardando aprovação)
+# Etapa 2 — estimativas de referência (provisórias)
 
-Situação em 2026-11-24: **nenhum destes valores está em uso na ferramenta.** `data/referencias_etapa2.json` está vazio; as linhas
-correspondentes aparecem como "sem valor" e o resultado diz quais ficaram de fora. Os valores só entram depois de aprovados.
+Situação em 2026-11-24: aprovadas como **provisórias**, todas com confiança "baixa". Os valores em uso estão em
+`data/referencias_etapa2.json`, gerado por `scripts/referencias_etapa2.py` (fontes, regra do "provável" e data ficam lá).
 
-Limite da pesquisa: os números abaixo foram vistos em **resultados de busca**; as páginas não puderam ser abertas daqui (os sites
-recusam a conexão a partir deste ambiente). Datas de página, quando não visíveis, ficam "sem data". Antes de chamar qualquer taxa de
-condado de "oficial", alguém precisa abrir a página do condado e confirmar valor e data de vigência.
+- Regra do "provável": valor central de cada fonte (o típico publicado ou o ponto médio da faixa); uma fonte = o valor dela; duas =
+  ponto médio; três ou mais = mediana.
+- Poço, fossa convencional, fossa aeróbica e licença de fossa estão guardados para a etapa 4. Na etapa 2 só entram no custo da falta
+  do item "água e esgoto".
+- Seguro de título só soma quando "quem paga" = comprador. Juros, entrada e prazo são só preenchimento inicial dos campos.
+- Cada fonte tem a marca `lida` (número conferido na página original). Conferidas em 2026-11-24: laudo de solo (CostToBuildHouse,
+  duas páginas que se contradizem), juros (Texas VLB 7,25%; Members Choice 7,99%), entrada (Texas Farm Credit 20%; Herring Bank 20 a
+  35% para lote; VLB 5%), poço (SepticAndWell), fossa aeróbica (LatestCost). Não abriram: Angi, HomeGuide (bloqueio), Fort Worth
+  Weekly (erro do servidor), Texans Credit Union (página não existe mais; fonte retirada).
 
-Como seriam gravados: mínimo, provável e máximo; fonte, link e data; confiança baixa ou média; rótulo "estimativa de referência".
-O "provável" é escolha minha dentro da faixa das fontes, não um número publicado por uma fonte só. Revisão a cada 6 meses.
+A tabela abaixo é a proposta original, mantida como histórico; os números em uso são os do arquivo de dados.
 
 ## Proposta por linha
 

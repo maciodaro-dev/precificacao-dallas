@@ -5,6 +5,7 @@ import { carregarAtivo, carregarEdicoes, carregarProjetos, duplicar, hoje, novoP
 import Etapa1 from "./etapa1/Etapa1";
 import EtapaVazia, { ETAPAS } from "./EtapaVazia";
 import Etapa2 from "./etapa2/Etapa2";
+import RegiaoEscolhida from "./DadosRegiao";
 import Dados from "./Dados";
 import Partida, { rotuloSituacao, situacaoEtapas } from "./Partida";
 import { baixar } from "./exportar";
@@ -96,7 +97,8 @@ export default function App() {
         <span className="eleita">{eleita ? <>{temTerreno ? "Região do terreno" : "Unidade escolhida"}: <b>{eleita.nome}</b></> : "Nenhuma unidade escolhida"}</span>
       </nav>
       {(tela === 0 || rota === "retrato") && <Partida key={projeto.projeto_id} base={base} edicoes={edicoes} projeto={projeto} alterar={alterar} passo={rota} ir={ir} voltar={() => voltar(anterior)} />}
-      {tela === 1 && rota !== "retrato" && <Etapa1 key={projeto.projeto_id} base={base} geo={geo} projeto={projeto} projetos={projetos} edicoes={edicoes} alterar={alterar} editar={editar} rota={rota} ir={ir} voltar={() => voltar(anterior)} />}
+      {rota === "regiao-escolhida" && <RegiaoEscolhida base={base} edicoes={edicoes} projeto={projeto} ir={ir} voltar={() => voltar(anterior)} />}
+      {tela === 1 && rota !== "retrato" && rota !== "regiao-escolhida" && <Etapa1 key={projeto.projeto_id} base={base} geo={geo} projeto={projeto} projetos={projetos} edicoes={edicoes} alterar={alterar} editar={editar} rota={rota} ir={ir} voltar={() => voltar(anterior)} />}
       {tela === 2 && <Etapa2 key={projeto.projeto_id} base={base} projeto={projeto} alterar={alterar} rota={rota} ir={ir} voltar={() => voltar(anterior)} />}
       {typeof tela === "number" && tela > 2 && <><button className="voltar solto" onClick={() => voltar(anterior)}>← Voltar</button><EtapaVazia n={tela} base={base} projeto={projeto} edicoes={edicoes} situacao={temTerreno && tela <= 4 ? rotuloSituacao(sit[tela]) : null} /></>}
       {tela === "dados" && <><button className="voltar solto" onClick={() => voltar(anterior)}>← Voltar</button><Dados base={base} edicoes={edicoes} editar={editar} /></>}
