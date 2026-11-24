@@ -146,3 +146,28 @@ Limitações vistas:
 | Denton | E4 | rural não qualificada, vaga | 926 | 521 |
 
 Faltam Johnson, Kaufman, Rockwall, Hunt (rol em arquivo) e Ellis, Parker, Wise (sem código confiável).
+
+# Glebas: conferências (2026-11-24, segunda rodada)
+
+## Tarrant — por que há tantos "vagos residenciais" de 5 a 20 acres (2.570)
+Amostra de 400 (os primeiros do cadastro, não ao acaso):
+- 384 são glebas sem loteamento (descrição por "survey/abstract"), só 16 estão em loteamento.
+- 176 estão na área de mercado "Community Facility General" (terra de uso comunitário ou público, como igrejas, escolas e órgãos); 30 em "Vacant Unplatted"; 23 na área do aeroporto DFW.
+- Só 2 têm benfeitoria; exigir benfeitoria zero reduz de 2.570 para 2.555.
+- Valor mediano da terra: cerca de US$ 23.500 por acre, com casos de mais de US$ 100 mil por acre (terra urbana).
+Leitura: em Tarrant o código C1 recebe toda terra vaga não comercial e não agrícola, inclusive pública e institucional. A limpeza por dono e isenção deve cortar boa parte; o número real só sai depois dela.
+
+## Collin — efeito de exigir benfeitoria zero (valores de 2026)
+
+| Código | Faixa | Todos | Com benfeitoria zero |
+|---|---|--:|--:|
+| C1 (vago residencial) | 5 a 20 acres | 512 | 507 |
+| C1 | mais de 20 | 143 | 143 |
+| D1 (agrícola qualificada) | 5 a 20 | 2.407 | 2.405 |
+| D1 | mais de 20 | 1.829 | 1.828 |
+| D2 (benfeitorias em terra agrícola) | 5 a 20 | 458 | 3 |
+| D2 | mais de 20 | 351 | 3 |
+| E (rural não qualificada) | 5 a 20 | 3.050 | 335 |
+| E | mais de 20 | 975 | 110 |
+
+A regra resolve a mistura: o "rural" de Collin cai de 4.025 para 445, e o D2 praticamente desaparece (é, por definição, terra com benfeitoria).

@@ -199,3 +199,33 @@ Mantidos depois de a), b), c), do corte proposto no d), fora os de construtora e
 | 65034305510840000 | LOCHHEAD CAROLE A | WOODFIELD CASTEEL ABST 343 PG 055 TR 84  ACS  0. | MESQUITE | 3.006 | 4.000 | C11 |
 | 12026500000120000 | SA PROPERTIES A LLC | HARDIN LOT 12 81X220 | BALCH SPRINGS | 12.744 | 63.720 | C11 |
 
+
+# Conferências pedidas pelo usuário (2026-11-24, segunda rodada)
+
+## Passo e) — os lotes de até US$ 1.000 depois do corte de 3.000 sqft / 25 pés
+
+- Restam 1.926 (a contagem anterior, 2.039, era antes de excluir pela largura).
+- **1.569 deles não têm área no cadastro**, por isso escaparam do passo d). Quando a área é medida pelo desenho do lote, a maioria é minúscula (ver "Grand Prairie Strata" abaixo).
+- Valores: 1.467 valem exatamente US$ 500; 407 valem menos de US$ 250.
+- Leitura da amostra de 20 (ao acaso): 13 são do loteamento "Lakeside 1 & 2", em Grand Prairie (lotes de 25 × 50 pés, preço fixo de US$ 500); 1 é "common green"; 1 é lote "1X" (padrão de área comum);
+  1 é um triângulo de 0,038 acre; 1 é vaga de parque de casas móveis. Esses 17 são claramente não construíveis.
+  Os outros 3 a 5 são terrenos grandes com valor simbólico (ex.: 1,8 acre por US$ 100; 4,6 acres por US$ 110; 0,59 acre por US$ 100; 0,25 acre rural por US$ 550):
+  provavelmente área alagável ou comum, mas **não é claro só pela descrição**.
+- **Pela regra do usuário (pelo menos 18 de 20 claramente não construíveis), o corte de valor NÃO deve ser aplicado ainda.**
+  Proposta: primeiro medir a área pelo desenho do lote onde o cadastro não informa e refazer o passo d); depois tirar nova amostra dos que sobrarem.
+
+## "Grand Prairie Strata" (dono concentrado)
+
+- 727 lotes em cinco grafias do mesmo dono (Grand Prairie Strata / Strata Holding / Holding Co LP / Holding Co Ltd / Ltd PS).
+- Loteamento: "Lakeside 1 & 2" (679), "Lakeside 2nd Inst" (43), "Lakeside 1st Inst" (3).
+- Tamanho: o cadastro não informa área; a medida típica é 25 × 50 pés (579 lotes). Pelo desenho do lote: mediana de 1.148 sqft (entre 1.117 e 1.201).
+- Valor da terra: US$ 500 em 723 dos 727 lotes, por "preço fixo". Zoneamento no cadastro: "Agriculture".
+- Desde quando o dono é o mesmo (ano da última transferência): 2007 a 2012 em 522 lotes; 2018 e 2019 em 198.
+- Onde ficam: sudoeste de Grand Prairie, em torno de latitude 32,669 e longitude −96,991.
+- Leitura: é um loteamento antigo "de papel", de lotes minúsculos, juntado aos poucos por um só dono. **Não é terreno comprável para construir**; com a área medida pelo desenho, todos saem no passo d).
+
+## Donos com mais de 50 lotes vagos em Dallas County (lista para revisão)
+
+19 donos, 1.946 lotes. Os maiores: Bloomfield Homes LP (228), Grand Prairie Strata nas cinco grafias (cerca de 700), AR & PR LLC (105), Texas SFI Partnership 63 Ltd (96), TSHH LLC (93),
+DR Horton Texas Ltd (90), Solterra Texas 3 LLC (85), Porter P LLC (84), KB Home Lone Star Inc (78), DCP 6104 LBJ Freeway LLC (78), Perry & Associates Inc (74).
+(Nomes de dono ficam só nos arquivos de trabalho; nunca em tela nem em exportação.)
