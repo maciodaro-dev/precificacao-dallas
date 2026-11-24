@@ -87,7 +87,7 @@ export function ResultadoLeigo({ alterar, seletor, total, insuficientes, base, g
   const comp = linhas.filter((l) => dois.includes(l.u.unidade_id));
   return (
     <main className={pagina ? "leigo-res uma-pagina" : "leigo-res"}>
-      <div className="cab-passo"><div>{pagina && <p className="passo-n">CSD Tools — Formação de preço · Dallas–Fort Worth</p>}<h1>{pagina ? "Resumo" : "Onde procurar"}</h1><p className="frase">{frase}</p></div>
+      <div className="cab-passo"><div>{pagina && <p className="passo-n">Groundwork · Dallas–Fort Worth</p>}<h1>{pagina ? "Resumo" : "Onde procurar"}</h1><p className="frase">{frase}</p></div>
         <div className="acoes nao-imprimir"><button className="voltar" onClick={voltar}>← Voltar</button><button onClick={abrirExpert}>Abrir no modo especialista</button>
           <button onClick={() => setPagina(!pagina)}>{pagina ? "Voltar ao resultado" : "Resumo de uma página"}</button>{pagina && <button className="primario" onClick={() => window.print()}>Imprimir</button>}</div></div>
       {conflitos.length > 0 && <p className="aviso nao-imprimir">{conflitos.length === 1 ? "Um parâmetro foi ajustado" : `${conflitos.length} parâmetros foram ajustados`} manualmente no modo especialista e não {conflitos.length === 1 ? "segue" : "seguem"} mais as respostas do modo guiado: {conflitos.map((c) => PARAMS.find((p) => p.id === c.id)?.nome).join(", ")}. O ajuste manual foi mantido; abra o modo especialista para rever.</p>}
@@ -116,6 +116,7 @@ export function ResultadoLeigo({ alterar, seletor, total, insuficientes, base, g
       <FontesUsadas base={base} edicoes={edicoes} unidades={top.map((l) => l.u.unidade_id)} chaves={ps.map((p) => p.chave).filter((k): k is string => !!k)} />
       <details className="criterios-usados"><summary>Critérios usados neste ranking ({ps.length})</summary><div className="chips">{ps.map((d) => <span key={d.id} className="chip">{d.leigo[0].toUpperCase() + d.leigo.slice(1)}</span>)}</div></details>
       <AvisoCobertura base={base} projeto={projeto} edicoes={edicoes} guiado />
+      {pagina && <p className="nota assinatura-pagina">by CSD Tools</p>}
     </main>
   );
 }

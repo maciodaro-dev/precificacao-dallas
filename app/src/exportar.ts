@@ -29,7 +29,7 @@ export function tabelas(base: Base, p: Projeto, linhas: Linha[], edicoes: Record
   const pt = pesoTerreno(base, p);
   const projeto: L[] = [
     { campo: "projeto", valor: p.nome }, { campo: "modo de entrada", valor: p.modo === "leigo" ? "guiado" : p.modo === "expert" ? "especialista" : "" },
-    { campo: "ferramenta", valor: "CSD Tools — Formação de preço" },
+    { campo: "ferramenta", valor: "Groundwork" },
     { campo: "nível de exigência", valor: (p.exigencia ?? 50) >= 100 ? "o máximo possível" : `${p.exigencia ?? 50}% ou mais dos critérios com dado` },
     { campo: "valores informados nas opções abertas", valor: Object.entries(p.valores_abertos ?? {}).map(([k, v]) => `${k}: ${v}`).join("; ") || "nenhum" },
     { campo: "faixa de investimento no terreno", valor: base.faixas.find((f) => f.id === p.faixa_id)?.nome ?? p.faixa_id ?? "não escolhida" },
@@ -41,7 +41,7 @@ export function tabelas(base: Base, p: Projeto, linhas: Linha[], edicoes: Record
   ];
   return { ranking, dados, pend, projeto };
 }
-const nomeArq = (p: Projeto, s: string) => `csd-tools_formacao-de-preco_${p.nome.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\w\-]+/g, "_")}_${s}_${new Date().toISOString().slice(0, 10)}`;
+const nomeArq = (p: Projeto, s: string) => `groundwork_${p.nome.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\w\-]+/g, "_")}_${s}_${new Date().toISOString().slice(0, 10)}`;
 export function exportarXlsx(base: Base, p: Projeto, linhas: Linha[], e: Record<string, Edicao>) {
   const t = tabelas(base, p, linhas, e); const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(t.ranking), "Ranking");
@@ -50,7 +50,7 @@ export function exportarXlsx(base: Base, p: Projeto, linhas: Linha[], e: Record<
   XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(t.projeto), "Projeto");
   XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(base.premissas as unknown as L[]), "Premissas");
   XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(base.fontes.map((f) => ({ fonte: f.nome, orgao: f.orgao, licenca: f.licenca ?? "", uso_comercial: f.uso_comercial ?? "", redistribuicao: f.redistribuicao ?? "", atualizacao: f.periodicidade, criterios: f.criterios ?? "", url: f.url }))), "Fontes e licenças");
-  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet([{ aviso: "CSD Tools — Formação de preço · Dallas–Fort Worth" }, { aviso: (() => { const c = coberturaGeral(base, p, e); return c.faltam.length ? `Este ranking usa ${c.usados} de ${c.total} critérios. Faltam dados de: ${c.faltam.map((x) => x.nome).join("; ")}. A ordem pode mudar quando esses dados entrarem.` : `Este ranking usa todos os ${c.total} critérios.`; })() }, { aviso: "Esta planilha é apoio à decisão. Não é recomendação de investimento nem avaliação de imóvel." }, { aviso: "CSD Tools é um produto da CSD Strategy. CSD Strategy is a d/b/a of Green to suit LLC." }, { aviso: `Base de dados gerada em ${base.gerado_em}. A fonte e a data de referência de cada valor estão na aba "Dados brutos".` }]), "Aviso");
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet([{ aviso: "Groundwork · Dallas–Fort Worth" }, { aviso: (() => { const c = coberturaGeral(base, p, e); return c.faltam.length ? `Este ranking usa ${c.usados} de ${c.total} critérios. Faltam dados de: ${c.faltam.map((x) => x.nome).join("; ")}. A ordem pode mudar quando esses dados entrarem.` : `Este ranking usa todos os ${c.total} critérios.`; })() }, { aviso: "Esta planilha é apoio à decisão. Não é recomendação de investimento nem avaliação de imóvel." }, { aviso: "Groundwork, by CSD Tools. CSD Tools é a linha de ferramentas da CSD Strategy. CSD Strategy is a d/b/a of Green to suit LLC." }, { aviso: `Base de dados gerada em ${base.gerado_em}. A fonte e a data de referência de cada valor estão na aba "Dados brutos".` }]), "Aviso");
   XLSX.writeFile(wb, nomeArq(p, "etapa1") + ".xlsx");
 }
 export function exportarCsv(base: Base, p: Projeto, linhas: Linha[], e: Record<string, Edicao>, qual: "ranking" | "dados") {

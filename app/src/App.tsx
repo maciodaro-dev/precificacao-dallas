@@ -62,7 +62,8 @@ export default function App() {
   return (
     <div className="app">
       <header>
-        <div className="marca"><img src="./marca/mark.png" alt="" onError={(e) => { e.currentTarget.style.display = "none"; }} /><b className="csd">CSD</b><i className="tools">Tools</i> <span>Formação de preço · Dallas–Fort Worth</span></div>
+        <div className="marca"><b className="produto">Groundwork</b><span className="local">Dallas–Fort Worth</span>
+          <span className="assinatura"><img src="./marca/mark.png" alt="" onError={(e) => { e.currentTarget.style.display = "none"; }} />by CSD <i className="tools">Tools</i></span></div>
         <p className="lema">Não é sobre fazer mais. É sobre fazer melhor.</p>
         <div className="projeto">
           <label>Projeto
@@ -92,7 +93,7 @@ export default function App() {
       {tela === 1 && rota !== "retrato" && <Etapa1 key={projeto.projeto_id} base={base} geo={geo} projeto={projeto} projetos={projetos} edicoes={edicoes} alterar={alterar} editar={editar} rota={rota} ir={ir} voltar={() => voltar(anterior)} />}
       {typeof tela === "number" && tela > 1 && <><button className="voltar solto" onClick={() => voltar(anterior)}>← Voltar</button><EtapaVazia n={tela} base={base} projeto={projeto} edicoes={edicoes} situacao={temTerreno && tela <= 4 ? rotuloSituacao(sit[tela]) : null} /></>}
       {tela === "dados" && <><button className="voltar solto" onClick={() => voltar(anterior)}>← Voltar</button><Dados base={base} edicoes={edicoes} editar={editar} /></>}
-      <p className="aviso-legal">Esta ferramenta é apoio à decisão. Não é recomendação de investimento nem avaliação de imóvel. Confira os dados na fonte antes de decidir.<span>CSD Tools é um produto da CSD Strategy. CSD Strategy is a d/b/a of Green to suit LLC.</span></p>
+      <p className="aviso-legal">Esta ferramenta é apoio à decisão. Não é recomendação de investimento nem avaliação de imóvel. Confira os dados na fonte antes de decidir.<span>Groundwork, by CSD Tools. CSD Tools é a linha de ferramentas da CSD Strategy. CSD Strategy is a d/b/a of Green to suit LLC.</span></p>
       {typeof tela === "number" && tela >= 1 && (
         <footer className="passos">
           <button onClick={() => voltar(anterior)}>← Voltar</button>
