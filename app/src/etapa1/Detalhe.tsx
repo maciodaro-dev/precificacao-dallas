@@ -40,9 +40,9 @@ export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar,
         <div><h2>{u.nome}</h2><p>{u.tipo === "cidade_isd" ? "Cidade" : "Área fora de cidade"} · {u.isd_nome} · {u.condados_pct} · {fmt(u.acres_terra)} acres de terra · ID {u.unidade_id}</p></div>
         <div className="acoes">
           <span className="nota-final g" style={estiloNota(linha.nota)}>{linha.nota === null ? "–" : linha.nota.toFixed(0)}</span><span className="com-dado">com dado {textoCobertura(linha)}</span>
-          {!semRolagem && <button onClick={() => alternar(u.unidade_id)}>{emComparacao ? "Tirar da comparação" : "Comparar"}</button>}
+          {<button onClick={() => alternar(u.unidade_id)}>{emComparacao ? "Tirar da comparação" : "Comparar"}</button>}
           {u.tipo === "cidade_isd" && <a className="botao" target="_blank" rel="noreferrer" href={`https://www.homes.com/${u.cidade.toLowerCase().replace(/\./g, "").replace(/[^a-z0-9]+/g, "-")}-tx/land-for-sale/`}>Ver terrenos no Homes.com ↗</a>}
-          {eleita ? <button className="primario" onClick={irParaEtapa2}>Ir para a etapa 2</button> : <button className="primario" onClick={() => eleger(u.unidade_id)}>Eleger unidade</button>}
+          {eleita ? <button className="primario" onClick={irParaEtapa2}>Ir para a etapa 2</button> : <button className="primario" id="escolher-regiao" onClick={() => eleger(u.unidade_id)}>Escolher esta região</button>}
           {!semRolagem && <button onClick={fechar}>Fechar</button>}
         </div>
       </div>
@@ -56,6 +56,7 @@ export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar,
             <td>{String(v("c21|nota_isd_letra")?.v ?? "sem dado")}</td><td>{pt.pct_area == null ? "–" : fmt(pt.pct_area) + "%"}</td><td>{pt.pct_domicilios == null ? "–" : fmt(pt.pct_domicilios) + "%"}</td>
             <td>{v("c24|aliquota_total")?.v == null ? "sem dado" : fmt(v("c24|aliquota_total")!.v, "%")}</td><td>{v("c25|pct_area_sfha")?.v == null ? "sem dado" : fmt(v("c25|pct_area_sfha")!.v, "%")}</td>
             <td>{base.indicadores[pt.parte_id]?.["c23|renda_mediana"]?.v == null ? "–" : fmt(base.indicadores[pt.parte_id]["c23|renda_mediana"].v, "US$/ano")}</td></tr>); })}</tbody></table></div>}
+      <p className="nota"><b>{linha.atendidos} de {linha.avaliados}</b> critérios com dado atendidos.{linha.poucosDados && <> <b>Dados insuficientes para comparar.</b> Falta dado de: {(linha.faltam ?? []).join("; ")}.</>}</p>
       <p className={linha.falhas?.length ? "naoatende" : "nota"}><b>Não atende:</b> {linha.falhas?.length ? linha.falhas.map((f) => `${f.nome} (${f.valor}; alvo ${f.alvo})`).join("; ") + "." : "nada, entre os parâmetros que têm dado."}</p>
       <div className="rolagem"><table className="simples det">
         <thead><tr><th>Critério</th><th>Valor bruto</th><th>Sua resposta</th><th>Fonte</th><th>Data de referência</th><th>Confiança</th><th>Observação</th></tr></thead>
