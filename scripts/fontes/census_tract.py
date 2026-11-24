@@ -57,6 +57,8 @@ def main():
     L = []; url = f"{BASE}/acsdt5y{ANO}-b19001.dat"; ref = f"{ANO-4}-{ANO}"
     for u in us:
         c = classes.get(u["unidade_id"]); n = sum(c) if c else 0
+        if n > 0: L.append(dict(unidade_id=u["unidade_id"], criterio_id="ctx", metrica="domicilios", valor=round(n), unidade_medida="domicílios", url=url, data_referencia=f"{ANO}-12-31", confianca="media",
+                                obs=f"ACS {ref}: domicílios dos setores censitários repartidos pela área que cai na unidade"))
         if u["tipo"] == "cidade_isd" and por_cidade.get(u["place_geoid"]):
             L.append(dict(unidade_id=u["unidade_id"], criterio_id="ctx", metrica="pct_domicilios_cidade", valor=round(100 * n / por_cidade[u["place_geoid"]], 1), unidade_medida="%",
                           url=url, data_referencia=f"{ANO}-12-31", confianca="media", obs=f"ACS {ref}: cerca de {n:.0f} domicílios na unidade, repartidos dos setores censitários pela área"))
