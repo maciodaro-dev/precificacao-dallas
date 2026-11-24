@@ -241,3 +241,12 @@ table.ranking.enxuta tbody tr { cursor:pointer; } table.ranking.enxuta tbody tr:
 @media (max-width: 1250px) { .lema { display:none; } }
 .marca .tools { font-weight:400; font-size:21px; }
 .marca .tools { margin-left:-14px; }
+
+/* ajustes do resultado e da ficha */
+.cob-nota { display:block; margin-top:3px; font-family:var(--mono); font-size:10.5px; color:var(--ink-faint); white-space:nowrap; } .marca-preco { color:var(--copper); font-size:10px; }
+.obs-fatia { border:1px solid var(--hair); border-radius:var(--raio); padding:8px 12px; background:#fff; color:var(--ink); margin:0 0 10px; }
+.preco-anunciado { border:1px solid var(--hair); border-radius:var(--raio); background:#fff; padding:12px 14px; margin:12px 0; } .preco-anunciado h3 { margin:0 0 10px; }
+.lado-a-lado { display:grid; grid-template-columns:1fr 1fr; gap:18px; } @media (max-width: 640px) { .lado-a-lado { grid-template-columns:1fr; } }
+.preco-anunciado .rot { display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:6px; }
+.linha-preco { display:flex; flex-wrap:wrap; align-items:center; gap:6px; } .linha-preco input { width:150px; padding:6px 8px; } .valor-ref { font-weight:600; font-size:17px; margin:0 0 4px; } .valor-ref.semdado { font-weight:400; color:var(--ink-faint); }
+.preco-anunciado .relacao { margin:10px 0 0; } .preco-anunciado .privado { margin:10px 0 0; }

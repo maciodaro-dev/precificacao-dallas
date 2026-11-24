@@ -3,10 +3,33 @@ import type { Base, Criterio, Edicao, Projeto } from "../tipos";
 import { chave, desatualizado, indicador, type Linha } from "../ranking";
 import { CONF, cor, fmt, estiloNota } from "../formato";
 import { PARAMS, textoCobertura } from "../parametros";
+import { CHAVE_PRECO_ANUNCIADO } from "./resumo";
 
 interface P { base: Base; projeto: Projeto; edicoes: Record<string, Edicao>; linha: Linha; editar: (u: string, k: string, v: number | string | null | undefined) => void;
   fechar: () => void; eleger: (id: string) => void; irParaEtapa2: () => void; emComparacao: boolean; alternar: (id: string) => void; semRolagem?: boolean }
 
+/** Preço anunciado (Homes.com), registrado manualmente. Dado privado do projeto: não vai para a base pública nem, por padrão, para as exportações.
+ *  Aparece ao lado do custo de referência do cadastro. Quando o custo de referência existir, a relação entre os dois vira sugestão de fator de ajuste, que só vale se a pessoa confirmar. */
+function PrecoAnunciado({ base, edicoes, unidadeId, editar }: { base: Base; edicoes: Record<string, Edicao>; unidadeId: string; editar: P["editar"] }) {
+  const e = edicoes[`${unidadeId}|${CHAVE_PRECO_ANUNCIADO}`]; const [txt, setTxt] = useState(e?.v != null ? String(e.v) : ""); const velho = !!e && e.v != null && desatualizado(e.data);
+  const ref = indicador(base, {}, unidadeId, "c01|custo_referencia_acre"); const refV = typeof ref?.v === "number" ? ref.v : null; const obs = typeof e?.v === "number" ? e.v : null;
+  const gravar = () => { const n = Number(txt.replace(/[^0-9.,]/g, "").replace(/\./g, "").replace(",", ".")); editar(unidadeId, CHAVE_PRECO_ANUNCIADO, txt.trim() === "" || !isFinite(n) || n <= 0 ? undefined : n); };
+  return (
+    <section className="preco-anunciado" id="preco-anunciado">
+      <h3>Terreno: preço anunciado e custo de referência</h3>
+      <div className="lado-a-lado">
+        <div><span className="rot">Preço anunciado, registrado manualmente</span>
+          <div className="linha-preco"><input id="preco-anunciado-valor" inputMode="decimal" placeholder="US$ por acre" value={txt} onChange={(ev) => setTxt(ev.target.value)} onKeyDown={(ev) => { if (ev.key === "Enter") gravar(); }} /> <small>US$ por acre</small> <button onClick={gravar}>Registrar</button>{e && <button className="link" onClick={() => { setTxt(""); editar(unidadeId, CHAVE_PRECO_ANUNCIADO, undefined); }}>apagar</button>}</div>
+          {obs !== null ? <p className="nota">Registrado em {e!.data} por {e!.dono_id === "local" || !e!.dono_id ? "você" : e!.dono_id}.{velho && <span className="selo velho">desatualizado: mais de 6 meses</span>}</p> : <p className="nota">Nada registrado. Veja os anúncios no Homes.com e anote aqui o preço por acre que encontrou.</p>}</div>
+        <div><span className="rot">Custo de referência do terreno (cadastro)</span>
+          <p className={refV === null ? "valor-ref semdado" : "valor-ref"}>{refV === null ? "sem dado" : fmt(refV, "US$/acre")}</p>
+          <p className="nota">{refV === null ? "O custo de referência depende do cadastro de terrenos vagos, ainda em coleta." : "Valor de cadastro; costuma ficar abaixo do que se paga."}</p></div>
+      </div>
+      {obs !== null && refV !== null && <p className="relacao" id="relacao-preco"><b>Anúncios {(obs / refV).toLocaleString("pt-BR", { maximumFractionDigits: 1 })} vez{obs / refV >= 2 ? "es" : ""} {obs >= refV ? "acima" : "abaixo"} do cadastro.</b> Sugestão: usar {(obs / refV).toLocaleString("pt-BR", { maximumFractionDigits: 2 })} como fator de ajuste do custo de referência desta região. Só vale se você confirmar.</p>}
+      {obs !== null && refV === null && <p className="nota">Quando o custo de referência desta região existir, a ferramenta vai mostrar a relação entre o preço anunciado e o cadastro e sugerir essa relação como fator de ajuste, para você confirmar.</p>}
+      <p className="nota privado">Dado privado do seu projeto: não vai para a base pública e só entra nos arquivos exportados se você marcar essa opção. Preço anunciado não é valor de cadastro nem preço de venda fechado.</p>
+    </section>);
+}
 export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar, eleger, irParaEtapa2, emComparacao, alternar, semRolagem }: P) {
   const u = linha.u; const [ed, setEd] = useState<string | null>(null); const [txt, setTxt] = useState("");
   const caixa = useRef<HTMLElement>(null);
@@ -46,9 +69,10 @@ export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar,
           {!semRolagem && <button onClick={fechar}>Fechar</button>}
         </div>
       </div>
-      <p className="nota">Para registrar o que você viu no Homes.com (preço da terra, tamanho típico, quantos anúncios na sua faixa, dias anunciado), clique em "sem dado" nos critérios 1, 2, 3 e 5 abaixo e digite o valor. Fica gravado com a data.</p>
+      <PrecoAnunciado base={base} edicoes={edicoes} unidadeId={u.unidade_id} editar={editar} />
+      <p className="nota">Tamanho típico, quantidade de anúncios na sua faixa e dias anunciado também podem ser registrados: clique em "sem dado" nos critérios 2, 3 e 5 da tabela abaixo. Ficam gravados com a data, como dado privado do seu projeto.</p>
       {u.tipo === "cidade_isd" && <p className="nota">Cada dado abaixo diz se é desta fatia ou da cidade inteira. Onde aparece "dado da cidade inteira", o valor não representa bem esta fatia e a confiança é baixa.</p>}
-      {linha.recorte && <p className="aviso"><b>Vale {linha.recorte.texto}.</b> O resto {u.tipo === "cidade_isd" ? "da cidade" : "da área"} não tem a nota de escola pedida. Imposto, alagamento, renda e tempo até o emprego usados na nota são os dessa parte; a tabela abaixo mostra os valores da região inteira.</p>}
+      {linha.recorte && <p className="obs-fatia"><b>Vale {linha.recorte.texto}.</b> O resto {u.tipo === "cidade_isd" ? "da cidade" : "da área"} não tem a nota de escola pedida. Imposto, alagamento, renda e tempo até o emprego usados na nota são os dessa parte; a tabela abaixo mostra os valores da região inteira.</p>}
       {u.partes && u.partes.length > 1 && <div className="rolagem"><table className="simples partes">
         <thead><tr><th>Distrito escolar (ISD) nesta região</th><th>Nota do ISD</th><th>% da área</th><th>% dos domicílios</th><th>Imposto total</th><th>Área em zona de alagamento</th><th>Renda (setor censitário)</th></tr></thead>
         <tbody>{u.partes.map((pt) => { const v = (k: string) => base.indicadores[pt.parte_id]?.[k] ?? base.indicadores[u.unidade_id]?.[k]; const vale = !linha.recorte || linha.recorte.partes.some((x) => x.parte_id === pt.parte_id); return (

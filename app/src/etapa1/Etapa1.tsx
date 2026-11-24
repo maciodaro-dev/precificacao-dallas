@@ -14,6 +14,7 @@ import FontesUsadas from "../Fontes";
 import AvisoCobertura from "./AvisoCobertura";
 import { Exigencia, LinhaOcultas } from "./Exigencia";
 import { cortar, NIVEL_PADRAO } from "../exigencia";
+import { ehRegistroPrivado } from "./resumo";
 import { CompararUnidades, CompararProjetos } from "./Comparar";
 
 export interface Props {
@@ -51,6 +52,9 @@ export default function Etapa1(p: Props) {
   const [verOcultas, setVerOcultas] = useState(false); const [exportarOcultas, setExportarOcultas] = useState(false);
   // no mapa aparecem todas as regiões com dados suficientes; as que ficam abaixo do nível de exigência vão em cinza claro
   const noMapa = useMemo(() => [...corte.visiveis, ...corte.ocultas], [corte]); const apagadas = useMemo(() => new Set(corte.ocultas.map((l) => l.u.unidade_id)), [corte]);
+  // preço anunciado e demais registros manuais de anúncios são privados do projeto: só entram na exportação se a pessoa pedir
+  const [exportarPrivados, setExportarPrivados] = useState(false); const temPrivados = Object.keys(edicoes).some(ehRegistroPrivado);
+  const edicoesExport = useMemo(() => (exportarPrivados ? edicoes : Object.fromEntries(Object.entries(edicoes).filter(([k]) => !ehRegistroPrivado(k)))), [edicoes, exportarPrivados]);
   const paraExportar = exportarOcultas ? [...corte.visiveis, ...corte.ocultas] : corte.visiveis;
   const linhaSel = todas.find((l) => l.u.unidade_id === sel) ?? null;
   const irEtapa2 = () => ir("etapa-2");
@@ -84,8 +88,8 @@ export default function Etapa1(p: Props) {
       {passo === "expert" && <Expert geo={p.geo} linhas={visiveis} base={base} projeto={projeto} alterar={p.alterar} verResultado={() => ir("especialista-resultado")} voltar={voltar} />}
       {passo === "ranking" && <main id="resultado">
         <Voltar />
-        <div className="cab-passo"><div><h1>Resultado: ranking de todas as regiões</h1>
-          <p className="linha-resumo">Investimento no terreno: {base.faixas.find((f) => f.id === projeto.faixa_id)?.nome ?? "faixa não escolhida"} · {projeto.n_casas ?? 1} {(projeto.n_casas ?? 1) === 1 ? "casa" : `casas, ${projeto.construcao === "sequencia" ? "em sequência" : "ao mesmo tempo"}`} · {ps.length} parâmetros em uso · nenhuma região é eliminada</p></div>
+        <div className="cab-passo"><div><h1>Resultado: regiões que atendem ao que você pediu</h1>
+          <p className="linha-resumo">Investimento no terreno: {base.faixas.find((f) => f.id === projeto.faixa_id)?.nome ?? "faixa não escolhida"} · {projeto.n_casas ?? 1} {(projeto.n_casas ?? 1) === 1 ? "casa" : `casas, ${projeto.construcao === "sequencia" ? "em sequência" : "ao mesmo tempo"}`}</p></div>
           {projeto.unidade_eleita_id && <button className="primario" onClick={irEtapa2}>Seguir para a etapa 2 →</button>}</div>
         <Exigencia projeto={projeto} alterar={p.alterar} corte={corte} />
         <div className="barra">
@@ -95,10 +99,11 @@ export default function Etapa1(p: Props) {
           </div>
           {seletor}<span className="resumo">{corte.visiveis.length} regiões no ranking · {corte.ocultas.length} ocultas pelo nível de exigência · {insuficientes.length} com dados insuficientes</span>
           <div className="exportar">
-            <button onClick={() => exportarXlsx(base, projeto, paraExportar, edicoes)}>Exportar .xlsx</button>
-            <button onClick={() => exportarCsv(base, projeto, paraExportar, edicoes, "ranking")}>Ranking .csv</button>
-            <button onClick={() => exportarCsv(base, projeto, paraExportar, edicoes, "dados")}>Dados .csv</button>
+            <button onClick={() => exportarXlsx(base, projeto, paraExportar, edicoesExport)}>Exportar .xlsx</button>
+            <button onClick={() => exportarCsv(base, projeto, paraExportar, edicoesExport, "ranking")}>Ranking .csv</button>
+            <button onClick={() => exportarCsv(base, projeto, paraExportar, edicoesExport, "dados")}>Dados .csv</button>
             {corte.ocultas.length > 0 && <label className="escolher"><input id="exportar-ocultas" type="checkbox" checked={exportarOcultas} onChange={(e) => setExportarOcultas(e.target.checked)} /> incluir as ocultas</label>}
+            {temPrivados && <label className="escolher" title="Preço anunciado e outros registros manuais são dados privados do seu projeto. Por padrão não entram nos arquivos exportados."><input id="exportar-privados" type="checkbox" checked={exportarPrivados} onChange={(e) => setExportarPrivados(e.target.checked)} /> incluir meus registros de preço anunciado</label>}
           </div>
         </div>
         {aba === "ranking" && <div className="resultado-duas">
