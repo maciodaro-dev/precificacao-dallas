@@ -23,7 +23,7 @@ export default function Tabela({ params, projeto, linhas, sel, setSel, comparar,
       <table className="ranking">
         <thead><tr>
           <th title="Marque até 4 unidades para comparar">Comp.</th><Th col="pos">#</Th><Th col="nome">Unidade</Th><Th col="condado">Condado</Th>
-          <Th col="nota" title="Nota de 0 a 100. Parâmetro sem dado na unidade conta como metade; moratória sem dado não entra na conta da unidade. Leia sempre junto com a coluna Com dado.">Nota</Th>
+          <Th col="nota" title="Nota de 0 a 100. Parâmetro sem dado na região não pontua: sai da conta só dela. Leia sempre junto com a coluna Com dado.">Nota</Th>
           <Th col="cob" title="Parâmetros em uso com dado nesta unidade ÷ todos os parâmetros em uso, ponderado pelo peso. Entre parênteses, a contagem simples.">Com dado</Th>
           {params.map((d) => <Th key={d.id} col={d.id} title={d.nome}>{d.nome}<small>peso {pesoDe(projeto, d.id) === "medio" ? "médio" : pesoDe(projeto, d.id)}</small></Th>)}
         </tr></thead>
@@ -33,11 +33,12 @@ export default function Tabela({ params, projeto, linhas, sel, setSel, comparar,
               <td onClick={(e) => e.stopPropagation()}><input type="checkbox" checked={comparar.includes(l.u.unidade_id)} disabled={!comparar.includes(l.u.unidade_id) && comparar.length >= 4} onChange={() => alternar(l.u.unidade_id)} /></td>
               <td>{l.posicao ?? "–"}</td>
               <td className="nome">{l.u.nome}{projeto.unidade_eleita_id === l.u.unidade_id && <span className="selo">eleita</span>}
+                {l.poucosDados && <span className="motivo">Nota parcial. Falta dado de: {(l.faltam ?? []).join("; ")}</span>}
                 {l.recorte && <span className="recorte">{l.recorte.texto}</span>}
                 {!!l.falhas?.length && <span className="motivo">Não atende: {l.falhas.map((f) => f.nome).join("; ")}</span>}</td>
               <td>{l.u.condado}</td>
               <td><span className="nota-final" style={{ background: cor(l.nota) }}>{l.nota === null ? "–" : l.nota.toFixed(0)}</span></td>
-              <td className={l.cobertura < 0.5 ? "baixa" : ""}>{Math.round(l.cobertura * 100)}%<small>{l.avaliados} de {l.emUso}</small></td>
+              <td className={l.cobertura < 0.5 ? "baixa" : ""}>{l.avaliados} de {l.emUso}<small>{Math.round(l.cobertura * 100)}% do peso</small></td>
               {params.map((d) => { const x = l.porCriterio[d.id]; const sem = !x || x.nota === null; return (
                 <td key={d.id} className={sem ? "semdado" : x.nota === 100 ? "sim" : x.nota === 0 ? "nao" : "parte"} title={sem ? "sem dado para esta unidade" : `Fonte: ${x.fonte ?? "regra da ferramenta"}${x.ref ? ` · data: ${x.ref}` : ""}${x.conf ? ` · confiança: ${x.conf === "media" ? "média" : x.conf}` : ""}${x.esc === "cidade" ? " · dado da cidade inteira, não desta fatia" : ""}`}>{sem ? "sem dado" : <>{x.texto ?? fmt(x.bruto === null ? null : x.bruto / (d.fator ?? 1), d.um === "casas/ano" ? "" : d.um)}<small>nota {x.nota}{x.esc === "cidade" && " · cidade inteira"}</small></>}</td>); })}
             </tr>))}

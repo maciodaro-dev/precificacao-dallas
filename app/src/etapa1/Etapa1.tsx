@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import type { Base, Edicao, Projeto } from "../tipos";
-import { avaliar, ativos, descreveAlvo, pesoDe, PARAMS } from "../parametros";
+import { avaliar, ativos, COBERTURA_MINIMA, descreveAlvo, pesoDe, PARAMS } from "../parametros";
 import { deduzir, mesclar } from "../leigo";
 import { exportarCsv, exportarXlsx } from "../exportar";
 import Tabela from "./Tabela";
@@ -41,6 +41,8 @@ export default function Etapa1(p: Props) {
   const ps = ativos(projeto); const conflitos = projeto.leigo ? mesclar(deduzir(projeto.leigo), projeto.parametros).conflitos : [];
   const alternar = (id: string) => setComparar((c) => (c.includes(id) ? c.filter((x) => x !== id) : c.length < 4 ? [...c, id] : c));
   const eleger = (id: string) => p.alterar({ unidade_eleita_id: id, eleita_em: new Date().toISOString().slice(0, 10) });
+  // lista principal × "dados insuficientes para comparar" (separação, não eliminação)
+  const principais = useMemo(() => linhas.filter((l) => !l.poucosDados), [linhas]); const insuficientes = useMemo(() => linhas.filter((l) => l.poucosDados), [linhas]);
   const linhaSel = todas.find((l) => l.u.unidade_id === sel) ?? null;
   const irEtapa2 = () => ir("etapa-2");
   /** Abre o painel. Na primeira vez, preenche com os padrões; depois, mantém o que já estava definido. */
@@ -66,7 +68,7 @@ export default function Etapa1(p: Props) {
       </div>}
       {passo === "perguntas" && <Perguntas projeto={projeto} alterar={p.alterar} indice={Number(nPergunta) - 1} ir={ir} voltar={voltar} />}
       {passo === "leigo" && <>
-        <ResultadoLeigo seletor={seletor} total={todas.length} base={base} geo={p.geo} projeto={projeto} edicoes={edicoes} linhas={linhas} conflitos={conflitos} eleger={eleger} irParaEtapa2={irEtapa2} voltar={voltar} abrirExpert={abrirExpert} detalhar={setSel} />
+        <ResultadoLeigo seletor={seletor} total={todas.length} insuficientes={insuficientes.length} base={base} geo={p.geo} projeto={projeto} edicoes={edicoes} linhas={principais} conflitos={conflitos} eleger={eleger} irParaEtapa2={irEtapa2} voltar={voltar} abrirExpert={abrirExpert} detalhar={setSel} />
         {linhaSel && <Detalhe key={linhaSel.u.unidade_id} base={base} projeto={projeto} edicoes={edicoes} linha={linhaSel} editar={p.editar} fechar={() => setSel(null)} eleger={eleger} irParaEtapa2={irEtapa2} emComparacao={false} alternar={() => {}} />}
       </>}
       {passo === "cidade" && <><Voltar /><Cidade base={base} projeto={projeto} edicoes={edicoes} linhas={todas} sel={sel} setSel={setSel} editar={p.editar} eleger={eleger} irParaEtapa2={irEtapa2} /></>}
@@ -84,14 +86,17 @@ export default function Etapa1(p: Props) {
               <button key={k} className={aba === k ? "ativo" : ""} onClick={() => setAba(k)}>{n}</button>)}
           </div>
           {aba === "mapa" && <label className="escolher">Camada <select id="camada" value={camada} onChange={(e) => setCamada(e.target.value)}><option value="nota">Nota final</option>{ps.map((d) => <option key={d.id} value={d.id}>{d.nome}</option>)}</select></label>}
-          {seletor}<span className="resumo">{linhas.length} de {todas.length} unidades</span>
+          {seletor}<span className="resumo">{principais.length} regiões na lista principal · {insuficientes.length} com dados insuficientes</span>
           <div className="exportar">
             <button onClick={() => exportarXlsx(base, projeto, linhas, edicoes)}>Exportar .xlsx</button>
             <button onClick={() => exportarCsv(base, projeto, linhas, edicoes, "ranking")}>Ranking .csv</button>
             <button onClick={() => exportarCsv(base, projeto, linhas, edicoes, "dados")}>Dados .csv</button>
           </div>
         </div>
-        {aba === "ranking" && <Tabela params={[...ps].sort((x, y) => (todas[0]?.porCriterio[y.id]?.peso ? 1 : 0) - (todas[0]?.porCriterio[x.id]?.peso ? 1 : 0))} projeto={projeto} linhas={linhas} sel={sel} setSel={setSel} comparar={comparar} alternar={alternar} />}
+        {aba === "ranking" && <Tabela params={[...ps].sort((x, y) => (todas[0]?.porCriterio[y.id]?.peso ? 1 : 0) - (todas[0]?.porCriterio[x.id]?.peso ? 1 : 0))} projeto={projeto} linhas={principais} sel={sel} setSel={setSel} comparar={comparar} alternar={alternar} />}
+        {aba === "ranking" && insuficientes.length > 0 && <details className="insuficientes" id="insuficientes"><summary>Dados insuficientes para comparar ({insuficientes.length} regiões)</summary>
+          <p className="nota">Estas regiões têm dado em menos de {Math.round(COBERTURA_MINIMA * 100)}% do peso dos parâmetros que já têm dado em alguma região. Não foram eliminadas: ficam separadas porque a nota é parcial. Cada linha diz o que falta.</p>
+          <Tabela params={[...ps].sort((x, y) => (todas[0]?.porCriterio[y.id]?.peso ? 1 : 0) - (todas[0]?.porCriterio[x.id]?.peso ? 1 : 0))} projeto={projeto} linhas={insuficientes} sel={sel} setSel={setSel} comparar={comparar} alternar={alternar} /></details>}
         {aba === "mapa" && <Mapa geo={p.geo} linhas={linhas} sel={sel} setSel={setSel} eleita={projeto.unidade_eleita_id} camada={camada} nomeCamada={PARAMS.find((x) => x.id === camada)?.nome} />}
         {aba === "unidades" && <CompararUnidades base={base} projeto={projeto} edicoes={edicoes} linhas={todas.filter((l) => comparar.includes(l.u.unidade_id))} remover={alternar} />}
         {aba === "projetos" && <CompararProjetos base={base} projetos={p.projetos} edicoes={edicoes} />}

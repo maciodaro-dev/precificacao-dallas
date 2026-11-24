@@ -25,7 +25,7 @@ export default function Mapa({ geo, linhas, sel, setSel, eleita, camada = "nota"
         // quando a nota de escola pedida só existe em parte da região, o resto da região fica transparente
         const fora = !!l?.recorte && !l.recorte.partes.some((pt) => pt.parte_id === f!.properties.parte_id);
         if (fora) return { fillColor: "#8b939c", fillOpacity: 0.05, color: id === sel ? "#111" : "#9aa3ad", weight: id === sel ? 1.5 : 0.3, opacity: 0.5, dashArray: "3" };
-        if (vivo) { const tudo = !!l && l.avaliados > 0 && l.falhas.length === 0; const x = l?.nota == null || pior >= 100 ? 0 : Math.max(0, (l.nota - pior) / (100 - pior));
+        if (vivo) { const tudo = !!l && l.avaliados > 0 && l.falhas.length === 0 && !l.poucosDados; const x = l?.nota == null || l.poucosDados || pior >= 100 ? 0 : Math.max(0, (l.nota - pior) / (100 - pior));
           // três classes bem separadas: verde escuro (atende tudo), verde médio (atende em parte), cinza (atende pouco)
           const parte = !tudo && x >= LIMITE_PARTE; const op = tudo ? 0.88 : parte ? 0.35 + 0.3 * ((x - LIMITE_PARTE) / (1 - LIMITE_PARTE)) : 0.28;
           const nd = destaque && l ? l.porCriterio[destaque]?.nota : null; const falha = nd != null && nd < 100;
@@ -33,7 +33,7 @@ export default function Mapa({ geo, linhas, sel, setSel, eleita, camada = "nota"
         return { fillColor: cor(!l ? null : camada === "nota" ? l.nota : (l.porCriterio[camada]?.nota ?? null)), fillOpacity: 0.7, color: id === sel ? "#111" : id === eleita ? "#1d4ed8" : "#fff", weight: id === sel || id === eleita ? 3 : 0.8 }; },
       onEachFeature: (f, lyr) => { const l = por.get(f.properties.unidade_id);
         const foraT = !!l?.recorte && !l.recorte.partes.some((pt) => pt.parte_id === f.properties.parte_id);
-        lyr.bindTooltip(`<b>${f.properties.nome}</b>${f.properties.parte_nome && f.properties.parte_nome !== f.properties.nome ? ` <small>(${String(f.properties.parte_nome).split(" × ").pop()})</small>` : ""}${foraT ? "<br><i>esta parte não tem a nota de escola pedida</i>" : l?.recorte ? `<br><i>${l.recorte.texto}</i>` : ""}<br>${!l ? "" : `nota ${l.nota?.toFixed(0) ?? "–"} · posição ${l.posicao ?? "–"}<br>com dado: ${Math.round(l.cobertura * 100)}% (${l.avaliados} de ${l.emUso} parâmetros)`}${l && camada !== "nota" ? `<br>${nomeCamada}: ${l.porCriterio[camada]?.nota ?? "sem dado"}` : ""}${l?.falhas?.length ? `<br>Não atende: ${l.falhas.slice(0, 4).map((x) => x.nome).join("; ")}` : ""}`, { sticky: true });
+        lyr.bindTooltip(`<b>${f.properties.nome}</b>${f.properties.parte_nome && f.properties.parte_nome !== f.properties.nome ? ` <small>(${String(f.properties.parte_nome).split(" × ").pop()})</small>` : ""}${foraT ? "<br><i>esta parte não tem a nota de escola pedida</i>" : l?.recorte ? `<br><i>${l.recorte.texto}</i>` : ""}<br>${!l ? "" : `nota ${l.nota?.toFixed(0) ?? "–"} · posição ${l.posicao ?? "–"}<br>com dado: ${Math.round(l.cobertura * 100)}% (${l.avaliados} de ${l.emUso} parâmetros)${l.poucosDados ? " · <b>poucos dados</b>" : ""}`}${l && camada !== "nota" ? `<br>${nomeCamada}: ${l.porCriterio[camada]?.nota ?? "sem dado"}` : ""}${l?.falhas?.length ? `<br>Não atende: ${l.falhas.slice(0, 4).map((x) => x.nome).join("; ")}` : ""}`, { sticky: true });
         lyr.on("click", () => setSel(f.properties.unidade_id)); },
     }).addTo(m);
   }, [geo, linhas, sel, eleita, setSel, camada, nomeCamada, vivo, destaque]);

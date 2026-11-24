@@ -60,9 +60,8 @@ export const PARAMS: Param[] = [
 export const GRUPOS_P = [...new Set(PARAMS.map((p) => p.grupo))];
 export const PRECOS: { rotulo: string; min?: number; max?: number }[] = [{ rotulo: "até $300 mil", max: 300000 }, { rotulo: "$300 a 500 mil", min: 300000, max: 500000 }, { rotulo: "$500 a 750 mil", min: 500000, max: 750000 }, { rotulo: "$750 mil a 1 milhão", min: 750000, max: 1000000 }, { rotulo: "mais de $1 milhão", min: 1000000 }];
 export const PESOS: Record<Peso, number> = regras.pesos;
-export const SEM_DADO = regras.nota_sem_dado;
-/** Parâmetros em que unidade sem dado não recebe nota (o parâmetro sai da conta só daquela unidade). */
-export const NAO_PONTUA: string[] = regras.sem_dado_nao_pontua;
+/** Cobertura mínima (fração do peso dos parâmetros que têm dado em alguma região) para a região não ser marcada "poucos dados". */
+export const COBERTURA_MINIMA = regras.cobertura_minima_pct / 100;
 const fin = (x: unknown): x is number => typeof x === "number" && isFinite(x);
 
 /** Parâmetro em uso = tem alvo. "Indiferente" e "não se aplica" ficam sem alvo. */
@@ -128,7 +127,7 @@ function daParte(base: Base, edicoes: Record<string, Edicao>, u: Unidade, r: Rec
   const letras = com.map((x) => LETRAS.indexOf(String(x.i.v))); const melhor = letras.every((n) => n >= 0) ? com[letras.indexOf(Math.min(...letras))].i : p0;
   return { ...melhor, esc: "fatia", obs };
 }
-/** Ranking: todas as unidades, ordenadas pela nota. Parâmetro sem dado em nenhuma unidade fica fora da conta; unidade sem dado num parâmetro recebe nota neutra, exceto nos de NAO_PONTUA, em que o parâmetro sai da conta daquela unidade. */
+/** Ranking: todas as unidades, ordenadas pela nota. Sem dado não pontua: parâmetro sem dado na região sai da conta só dela. Região com cobertura abaixo do mínimo fica marcada "poucos dados" e vem depois das demais. */
 export function avaliar(base: Base, pr: Projeto, edicoes: Record<string, Edicao>): Linha[] {
   const ps = ativos(pr);
   const isdP = PARAMS.find((p) => p.id === "isd")!; const isdOn = ps.includes(isdP);
@@ -139,23 +138,24 @@ export function avaliar(base: Base, pr: Projeto, edicoes: Record<string, Edicao>
   const total = ps.filter((p) => comDado.has(p.id)).reduce((s, p) => s + PESOS[pesoDe(pr, p.id)], 0);
   const totalUso = ps.reduce((s, p) => s + PESOS[pesoDe(pr, p.id)], 0);
   const linhas: Linha[] = base.unidades.map((u) => {
-    const porCriterio: Linha["porCriterio"] = {}; const falhas: Falha[] = []; let soma = 0, wReal = 0, sim = 0, n = 0, tot = total;
+    const porCriterio: Linha["porCriterio"] = {}; const falhas: Falha[] = []; const faltam: string[] = []; let soma = 0, wReal = 0, sim = 0, n = 0, tot = total;
     for (const p of ps) {
       const r = pr.parametros?.[p.id]; const a = r?.alvo ?? {}; const i = ind(u, p); const s = nota(p, a, u, i); const w = PESOS[pesoDe(pr, p.id)];
       const bruto = p.forma === "so_cidade" ? (u.tipo === "cidade_isd" ? "dentro da cidade" : "fora da cidade") : (i?.v ?? null);
       const texto = typeof bruto === "string" ? (bruto === "sim" ? "Sim" : bruto === "nao" ? "Não" : bruto) : undefined;
       porCriterio[p.id] = { bruto: typeof bruto === "string" ? null : numero(bruto), texto, nota: s === null ? null : Math.round(s * 100), peso: total && comDado.has(p.id) ? w / total : 0, fonte: i?.v != null ? i.f : undefined, ref: i?.v != null ? i.ref : undefined, conf: i?.v != null ? i.conf : undefined, esc: i?.v != null ? i.esc : undefined };
       if (!comDado.has(p.id)) continue;
-      if (s === null && NAO_PONTUA.includes(p.id)) { tot -= w; continue; }
-      soma += w * (s ?? SEM_DADO);
-      if (s !== null) { wReal += w; n++; if (s >= 1) sim++; else falhas.push({ id: p.id, nome: p.nome, leigo: p.falha, s, peso: pesoDe(pr, p.id), alvo: descreveAlvo(p, r?.alvo, pr, base),
+      if (s === null) { tot -= w; faltam.push(p.nome); continue; }   // sem dado não pontua: o parâmetro sai da conta só desta região
+      soma += w * s;
+      { wReal += w; n++; if (s >= 1) sim++; else falhas.push({ id: p.id, nome: p.nome, leigo: p.falha, s, peso: pesoDe(pr, p.id), alvo: descreveAlvo(p, r?.alvo, pr, base),
         valor: texto ?? (numero(bruto) === null ? "" : p.um.startsWith("US$") ? `$${Math.round(numero(bruto)!).toLocaleString("pt-BR")}${p.um === "US$/ano" ? " por ano" : p.um === "US$/lote" ? " por lote" : ""}` : `${(numero(bruto)! / (p.fator ?? 1)).toLocaleString("pt-BR", { maximumFractionDigits: 1 })} ${p.um}`.trim()) }); }
     }
     falhas.sort((x, y) => PESOS[y.peso as Peso] - PESOS[x.peso as Peso] || x.s - y.s);
-    return { u, nota: tot > 0 ? (100 * soma) / tot : null, cobertura: totalUso ? wReal / totalUso : 0, emUso: ps.length, porCriterio, posicao: null, recorte: recortes.get(u.unidade_id), atendidos: sim, avaliados: n, falhas };
+    return { u, nota: tot > 0 ? (100 * soma) / tot : null, poucosDados: total > 0 && tot / total < COBERTURA_MINIMA, faltam, cobertura: totalUso ? wReal / totalUso : 0, emUso: ps.length, porCriterio, posicao: null, recorte: recortes.get(u.unidade_id), atendidos: sim, avaliados: n, falhas };
   });
-  linhas.sort((a, b) => (b.nota ?? -1) - (a.nota ?? -1) || (a.falhas?.length ?? 0) - (b.falhas?.length ?? 0) || b.cobertura - a.cobertura || a.u.nome.localeCompare(b.u.nome));
-  linhas.forEach((l, i) => { l.posicao = l.nota === null ? null : i + 1; });
+  linhas.sort((a, b) => Number(a.poucosDados) - Number(b.poucosDados) || (b.nota ?? -1) - (a.nota ?? -1) || (a.falhas?.length ?? 0) - (b.falhas?.length ?? 0) || b.cobertura - a.cobertura || a.u.nome.localeCompare(b.u.nome));
+  // a posição só existe na lista principal; quem tem dados insuficientes fica numa lista separada, sem posição
+  let pos = 0; linhas.forEach((l) => { l.posicao = l.nota === null || l.poucosDados ? null : ++pos; });
   return linhas;
 }
 /** Quantos parâmetros em uso têm dado em alguma unidade, e quais faltam. Base do aviso no topo do resultado. */
@@ -166,7 +166,7 @@ export function coberturaGeral(base: Base, pr: Projeto, edicoes: Record<string, 
   return { usados: ps.length - faltam.length, total: ps.length, faltam };
 }
 /** Cobertura de uma unidade, por extenso: "45% (9 de 20)". */
-export const textoCobertura = (l: Linha) => `${Math.round(l.cobertura * 100)}% (${l.avaliados} de ${l.emUso})`;
+export const textoCobertura = (l: Linha) => `${l.avaliados} de ${l.emUso} parâmetros, ${Math.round(l.cobertura * 100)}% do peso`;
 
 /** Calculado e apenas exibido. Peso do terreno no preço = investimento no terreno ÷ nº de casas ÷ preço de venda. Mostra o intervalo da faixa (mínimo e máximo), não só o ponto médio. Sem faixa escolhida, não calcula. */
 export function pesoTerreno(base: Base, pr: Projeto): { pct: number | null; min: number | null; max: number | null; alerta: boolean; conta: string; oQueFazer: string; semFaixa: boolean } {

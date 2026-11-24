@@ -1,9 +1,8 @@
 {
   "_leia": "Regras que transformam as respostas do modo guiado em parâmetros do motor. Arquivo editável. Os valores iniciais são premissas a calibrar com dados reais (P-008 em data/premissas.csv). Cada regra define, por parâmetro: alvo (valor sim/nao, ou min/max) e/ou peso (baixo, medio, alto). null = o parâmetro não se aplica. Regra que só traz peso usa o alvo de 'padroes'. As regras são aplicadas na ordem: sempre, casas, sequencia, preco, vender_rapido, valorizacao, comecar_logo, agua_esgoto, escola; a posterior prevalece.",
   "pesos": { "baixo": 1, "medio": 2, "alto": 3 },
-  "nota_sem_dado": 0.5,
-  "sem_dado_nao_pontua": ["moratoria"],
-  "_sem_dado_nao_pontua": "Parâmetros em que a unidade sem dado não recebe nota nenhuma (nem cheia, nem zero, nem metade): o parâmetro sai da conta só daquela unidade. Nos demais, sem dado vale nota_sem_dado.",
+  "cobertura_minima_pct": 60,
+  "_cobertura_minima_pct": "Sem dado não pontua: o parâmetro sai da conta só daquela região (nada de meia nota). Para que uma região com poucos dados não fique no topo por sorte, ela precisa ter dado em pelo menos este percentual do peso dos parâmetros que já têm dado em alguma região. Abaixo disso, sai da lista principal e das 5 melhores do modo guiado e vai para a lista separada 'dados insuficientes para comparar', com a nota parcial e o que falta. Não é eliminação.",
   "preco_renda_divisor": 3.5,
   "alerta_peso_terreno_pct": 25,
   "casas_representativo": { "1": 1, "2a4": 3, "5a10": 7, "mais10": 15 },
