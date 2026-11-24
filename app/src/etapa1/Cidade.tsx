@@ -40,7 +40,7 @@ export default function Cidade({ base, projeto, edicoes, linhas, sel, setSel, ed
         </div>
         <FontesUsadas base={base} edicoes={edicoes} unidades={[atual.unidade_id]} chaves={GRUPOS.flatMap((g) => g[1]).map(([, k]) => k)} />
         {semDado > 0 && <p className="aviso">{semDado} destes dados ainda não existem para esta cidade. Enquanto estiverem vazios, os custos e prazos correspondentes não entram nas contas das próximas etapas; você pode preenchê-los no detalhe abaixo.</p>}
-        {!!linha.avaliados && <p className="nota">Pelos critérios definidos neste projeto, esta escolha atende {linha.atendidos} de {linha.avaliados} (nota {linha.nota?.toFixed(0)}){linha.posicao ? ` e ficaria em ${linha.posicao}º lugar` : ""}.</p>}
+        {linha.nota !== null && <p className="nota">Pelos parâmetros deste projeto, esta escolha tem nota {linha.nota.toFixed(0)} e fica em {linha.posicao}º lugar entre {linhas.length} unidades.</p>}
         <Detalhe key={atual.unidade_id} base={base} projeto={projeto} edicoes={edicoes} linha={linha} editar={editar} fechar={() => setSel(null)} eleger={eleger} irParaEtapa2={irParaEtapa2}
           emComparacao={false} alternar={() => {}} semRolagem />
       </>}
