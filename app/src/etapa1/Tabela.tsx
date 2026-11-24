@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { Projeto } from "../tipos";
 import type { Linha } from "../ranking";
 import { pesoDe, type Param } from "../parametros";
-import { cor, fmt } from "../formato";
+import { cor, fmt, estiloNota } from "../formato";
 
 interface P { params: Param[]; projeto: Projeto; linhas: Linha[]; sel: string | null; setSel: (s: string | null) => void; comparar: string[]; alternar: (id: string) => void }
 /** Ranking completo: todas as unidades, nota final e nota por parâmetro com o valor bruto. Fonte, data e confiança aparecem ao passar o mouse em cada valor e no detalhe (clique na linha). */
@@ -37,7 +37,7 @@ export default function Tabela({ params, projeto, linhas, sel, setSel, comparar,
                 {l.recorte && <span className="recorte">{l.recorte.texto}</span>}
                 {!!l.falhas?.length && <span className="motivo">Não atende: {l.falhas.map((f) => f.nome).join("; ")}</span>}</td>
               <td>{l.u.condado}</td>
-              <td><span className="nota-final" style={{ background: cor(l.nota) }}>{l.nota === null ? "–" : l.nota.toFixed(0)}</span></td>
+              <td><span className="nota-final" style={estiloNota(l.nota)}>{l.nota === null ? "–" : l.nota.toFixed(0)}</span></td>
               <td className={l.cobertura < 0.5 ? "baixa" : ""}>{l.avaliados} de {l.emUso}<small>{Math.round(l.cobertura * 100)}% do peso</small></td>
               {params.map((d) => { const x = l.porCriterio[d.id]; const sem = !x || x.nota === null; return (
                 <td key={d.id} className={sem ? "semdado" : x.nota === 100 ? "sim" : x.nota === 0 ? "nao" : "parte"} title={sem ? "sem dado para esta unidade" : `Fonte: ${x.fonte ?? "regra da ferramenta"}${x.ref ? ` · data: ${x.ref}` : ""}${x.conf ? ` · confiança: ${x.conf === "media" ? "média" : x.conf}` : ""}${x.esc === "cidade" ? " · dado da cidade inteira, não desta fatia" : ""}`}>{sem ? "sem dado" : <>{x.texto ?? fmt(x.bruto === null ? null : x.bruto / (d.fator ?? 1), d.um === "casas/ano" ? "" : d.um)}<small>nota {x.nota}{x.esc === "cidade" && " · cidade inteira"}</small></>}</td>); })}
