@@ -52,3 +52,15 @@ Regras embutidas:
 
 Prazos como custo: `marco_cronograma` das etapas 2–5 + prazo de aprovação herdado (c08) + dias no mercado herdados (c14) = meses de carregamento da etapa 6.
 
+
+
+## Preparação para produto multiusuário (não implementado; só não bloqueado)
+
+A primeira versão é de uso próprio, sem login, cobrança ou hospedagem. A arquitetura já separa o que precisa ser separado:
+
+- **Base pública** (`data/`, publicada em `base.json`): unidades, indicadores de fontes públicas, critérios, fontes. É igual para todos e não tem dono.
+- **Dados privados** (hoje no navegador, amanhã numa conta): projetos, respostas aos critérios, edições manuais de valores, terrenos, casas, linhas de custo, cronograma e, nas próximas etapas, cotações e custos reais de obra. **Todo registro privado carrega `dono_id`.**
+- Hoje existe um único dono, `local`. Quando houver login, `dono_id` passa a ser o ID do usuário e o armazenamento troca de `localStorage` por um banco com regra "cada um só lê e grava o que é seu", sem mudar os tipos nem as telas.
+- Valores digitados pelo usuário (ex.: o que viu no Homes.com) ficam em `edicoes`, que é dado privado: nunca voltam para a base pública nem aparecem para outro dono.
+- Cada fonte registra licença, uso comercial, redistribuição e frequência em `data/fontes.json` (resumo em `docs/fontes_e_licencas.md`).
+- Todo resultado mostra as fontes e datas dos dados usados e o aviso de que é apoio à decisão.

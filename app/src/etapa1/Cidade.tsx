@@ -2,6 +2,7 @@ import type { Base, Edicao, Projeto } from "../tipos";
 import { indicador, type Linha } from "../ranking";
 import { fmt } from "../formato";
 import Detalhe from "./Detalhe";
+import FontesUsadas from "../Fontes";
 
 // Caminho "já sei onde quero construir": escolhe a cidade e vê tudo o que essa escolha significa.
 const GRUPOS: [string, [string, string][]][] = [
@@ -37,8 +38,9 @@ export default function Cidade({ base, projeto, edicoes, linhas, sel, setSel, ed
               <div key={k} className="item"><span>{nome}</span><b className={i?.v == null ? "semdado" : ""}>{i?.v == null ? "sem dado" : fmt(i.v, i.um)}</b></div>); })}
           </section>)}
         </div>
+        <FontesUsadas base={base} edicoes={edicoes} unidades={[atual.unidade_id]} chaves={GRUPOS.flatMap((g) => g[1]).map(([, k]) => k)} />
         {semDado > 0 && <p className="aviso">{semDado} destes dados ainda não existem para esta cidade. Enquanto estiverem vazios, os custos e prazos correspondentes não entram nas contas das próximas etapas; você pode preenchê-los no detalhe abaixo.</p>}
-        {linha.posicao && <p className="nota">Pelos critérios deste projeto, esta escolha ficaria em {linha.posicao}º lugar entre as unidades avaliadas (nota {linha.nota?.toFixed(0)}).</p>}
+        {linha.nota !== null && <p className="nota">Pelos parâmetros deste projeto, esta escolha tem nota {linha.nota.toFixed(0)} e fica em {linha.posicao}º lugar entre {linhas.length} unidades.</p>}
         <Detalhe key={atual.unidade_id} base={base} projeto={projeto} edicoes={edicoes} linha={linha} editar={editar} fechar={() => setSel(null)} eleger={eleger} irParaEtapa2={irParaEtapa2}
           emComparacao={false} alternar={() => {}} semRolagem />
       </>}

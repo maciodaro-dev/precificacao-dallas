@@ -1,14 +1,15 @@
 import * as XLSX from "xlsx";
 import type { Base, Edicao, Projeto } from "./tipos";
-import { chave, indicador, normalizar, type Linha } from "./ranking";
+import { chave, indicador, type Linha } from "./ranking";
+import { ativos, descreveAlvo, pesoDe, pesoTerreno } from "./parametros";
 
 type L = Record<string, string | number | null>;
 export function tabelas(base: Base, p: Projeto, linhas: Linha[], edicoes: Record<string, Edicao>) {
-  const pesos = normalizar(p.pesos); const crits = base.criterios.filter((c) => pesos[c.id] > 0);
+  const defs = ativos(p);
   const ranking: L[] = linhas.map((l) => {
     const r: L = { posicao: l.posicao, unidade_id: l.u.unidade_id, unidade: l.u.nome, tipo: l.u.tipo, condado: l.u.condado, isd: l.u.isd_nome,
-      nota_final: l.nota === null ? null : Math.round(l.nota * 10) / 10, cobertura_pct: Math.round(l.cobertura * 100), eliminada_por: l.eliminada.map((m) => m.filtro).join("; ") };
-    for (const c of crits) { r[`${c.id} ${c.nome} (${c.unidade_medida})`] = l.porCriterio[c.id].bruto; r[`${c.id} nota`] = l.porCriterio[c.id].nota === null ? null : Math.round(l.porCriterio[c.id].nota!); }
+      nota: l.nota === null ? null : Math.round(l.nota * 10) / 10, peso_com_dado_pct: Math.round(l.cobertura * 100), nao_atende: (l.falhas ?? []).map((f) => `${f.nome} (${f.valor}; alvo ${f.alvo})`).join("; ") };
+    for (const d of defs) { const x = l.porCriterio[d.id]; r[`${d.nome} (valor, ${d.um || "sim/não"})`] = x?.texto ?? (x?.bruto == null ? null : x.bruto / (d.fator ?? 1)); r[`${d.nome} (nota)`] = x?.nota ?? "sem dado"; }
     return r;
   });
   const dados: L[] = []; const pend: L[] = [];
@@ -25,11 +26,14 @@ export function tabelas(base: Base, p: Projeto, linhas: Linha[], edicoes: Record
       if (c && metrica === c.metrica && (i?.v ?? null) === null) pend.push({ unidade_id: u.unidade_id, unidade: u.nome, criterio_id: cid, criterio: c.nome, unidade_medida: c.unidade_medida, motivo: i?.obs || c.fonte_planejada, valor: null, fonte: null, data: null });
     }
   }
+  const pt = pesoTerreno(base, p);
   const projeto: L[] = [
-    { campo: "projeto", valor: p.nome }, { campo: "faixa de investimento", valor: base.faixas.find((f) => f.id === p.faixa_id)?.nome ?? p.faixa_id },
-    { campo: "perfil de origem", valor: p.perfil_origem }, { campo: "tamanho do terreno", valor: p.tamanho.modo === "faixa" ? `faixa-alvo ${p.tamanho.min}–${p.tamanho.max} acres` : p.tamanho.modo + " é melhor" },
-    { campo: "filtros", valor: JSON.stringify(p.filtros) }, { campo: "unidade eleita", valor: p.unidade_eleita_id },
-    ...base.criterios.map((c) => ({ campo: `peso ${c.id} ${c.nome}`, valor: Math.round((pesos[c.id] ?? 0) * 1000) / 10 })),
+    { campo: "projeto", valor: p.nome }, { campo: "modo de entrada", valor: p.modo === "leigo" ? "simples" : p.modo === "expert" ? "completo" : "" },
+    { campo: "faixa de investimento no terreno", valor: base.faixas.find((f) => f.id === p.faixa_id)?.nome ?? p.faixa_id },
+    { campo: "número de casas", valor: p.n_casas ?? 1 }, { campo: "construção", valor: p.construcao === "sequencia" ? "em sequência" : "ao mesmo tempo" },
+    { campo: "preço de venda por casa", valor: p.preco_venda ? `${p.preco_venda.min ?? ""} – ${p.preco_venda.max ?? ""}` : "" },
+    { campo: "peso do terreno no preço (%)", valor: pt.pct === null ? null : Math.round(pt.pct) }, { campo: "unidade eleita", valor: p.unidade_eleita_id },
+    ...defs.map((d) => ({ campo: `parâmetro: ${d.nome}`, valor: `${descreveAlvo(d, p.parametros?.[d.id]?.alvo, p, base)} · peso ${pesoDe(p, d.id)} · origem: ${p.parametros?.[d.id]?.ajustado ? "ajustado manualmente" : p.parametros?.[d.id]?.origem ?? ""}` })),
     { campo: "base gerada em", valor: base.gerado_em },
   ];
   return { ranking, dados, pend, projeto };
@@ -42,6 +46,8 @@ export function exportarXlsx(base: Base, p: Projeto, linhas: Linha[], e: Record<
   XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(t.pend), "Pendências");
   XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(t.projeto), "Projeto");
   XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(base.premissas as unknown as L[]), "Premissas");
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(base.fontes.map((f) => ({ fonte: f.nome, orgao: f.orgao, licenca: f.licenca ?? "", uso_comercial: f.uso_comercial ?? "", redistribuicao: f.redistribuicao ?? "", atualizacao: f.periodicidade, criterios: f.criterios ?? "", url: f.url }))), "Fontes e licenças");
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet([{ aviso: "Esta planilha é apoio à decisão. Não é recomendação de investimento nem avaliação de imóvel." }, { aviso: `Base de dados gerada em ${base.gerado_em}. A fonte e a data de referência de cada valor estão na aba "Dados brutos".` }]), "Aviso");
   XLSX.writeFile(wb, nomeArq(p, "etapa1") + ".xlsx");
 }
 export function exportarCsv(base: Base, p: Projeto, linhas: Linha[], e: Record<string, Edicao>, qual: "ranking" | "dados") {

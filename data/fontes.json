@@ -7,7 +7,14 @@
   "script": "scripts/fontes/tiger.py",
   "periodicidade": "anual",
   "situacao": "ok",
-  "obs": ""
+  "obs": "",
+  "licenca": "Domínio público (obra do governo federal dos EUA)",
+  "uso_comercial": "sim",
+  "redistribuicao": "sim",
+  "termos_url": "https://www.census.gov/about/policies/citation.html",
+  "verificacao": "regra geral de obras federais; não reli a página de termos nesta sessão",
+  "criterios": "unidades, mapa",
+  "alternativa": ""
  },
  {
   "id": "census_acs",
@@ -17,7 +24,14 @@
   "script": "scripts/fontes/census_acs.py",
   "periodicidade": "anual (dezembro)",
   "situacao": "ok",
-  "obs": ""
+  "obs": "",
+  "licenca": "Domínio público (governo federal dos EUA)",
+  "uso_comercial": "sim",
+  "redistribuicao": "sim",
+  "termos_url": "https://www.census.gov/about/policies/citation.html",
+  "verificacao": "regra geral de obras federais",
+  "criterios": "c23 renda; população",
+  "alternativa": ""
  },
  {
   "id": "census_bps",
@@ -27,7 +41,14 @@
   "script": "scripts/fontes/census_bps.py",
   "periodicidade": "anual / mensal",
   "situacao": "ok",
-  "obs": ""
+  "obs": "",
+  "licenca": "Domínio público (governo federal dos EUA)",
+  "uso_comercial": "sim",
+  "redistribuicao": "sim",
+  "termos_url": "https://www.census.gov/about/policies/citation.html",
+  "verificacao": "regra geral de obras federais",
+  "criterios": "c15 absorção de casas novas",
+  "alternativa": ""
  },
  {
   "id": "tea",
@@ -37,7 +58,14 @@
   "script": "scripts/fontes/tea.py",
   "periodicidade": "anual (agosto)",
   "situacao": "ok",
-  "obs": ""
+  "obs": "",
+  "licenca": "Informação pública do Estado do Texas; o site do TEA declara direitos autorais sobre o conteúdo e pede permissão por escrito fora das exceções",
+  "uso_comercial": "a confirmar",
+  "redistribuicao": "a confirmar",
+  "termos_url": "https://tea.texas.gov/About_TEA/Welcome_and_Overview/Site_Policies",
+  "verificacao": "busca em 2026-11-24: a política do site fala de 'conteúdo' em geral; não achei regra específica para os dados de accountability",
+  "criterios": "c21 nota do ISD",
+  "alternativa": "Pedir permissão por escrito ao TEA; ou exibir só a letra A–F com link para TXschools.gov (fato público), sem redistribuir a planilha"
  },
  {
   "id": "zillow",
@@ -47,7 +75,14 @@
   "script": "scripts/fontes/zillow.py",
   "periodicidade": "mensal",
   "situacao": "ok",
-  "obs": ""
+  "obs": "",
+  "licenca": "Zillow Research: uso público gratuito com atribuição obrigatória à Zillow, sujeito aos Termos de Uso",
+  "uso_comercial": "com restrição",
+  "redistribuicao": "com restrição",
+  "termos_url": "https://www.zillow.com/research/data/",
+  "verificacao": "busca em 2026-11-24: a página de dados diz 'free for public use by consumers, media, analysts, academics and policymakers' com atribuição; não menciona uso comercial nem redistribuição",
+  "criterios": "c16 valor típico da casa; c18 valorização em 5 anos; preço/renda (derivado)",
+  "alternativa": "FHFA House Price Index (domínio público, por ZIP e condado) para a valorização; ACS B25077 (domínio público) para valor de imóvel; ou licença comercial com a Zillow"
  },
  {
   "id": "fema_nfhl",
@@ -57,7 +92,14 @@
   "script": "scripts/fontes/fema_nfhl.py",
   "periodicidade": "contínua",
   "situacao": "ok",
-  "obs": ""
+  "obs": "",
+  "licenca": "Domínio público (governo federal dos EUA)",
+  "uso_comercial": "sim",
+  "redistribuicao": "sim",
+  "termos_url": "https://www.fema.gov/flood-maps/national-flood-hazard-layer",
+  "verificacao": "regra geral de obras federais",
+  "criterios": "c25 área em zona de alagamento",
+  "alternativa": ""
  },
  {
   "id": "osrm",
@@ -67,7 +109,14 @@
   "script": "scripts/fontes/osrm.py",
   "periodicidade": "sob demanda",
   "situacao": "ok",
-  "obs": "sem trânsito"
+  "obs": "sem trânsito",
+  "licenca": "Dados OpenStreetMap sob ODbL (atribuição e compartilhamento pela mesma licença para bases derivadas); o servidor público de demonstração não é para produção",
+  "uso_comercial": "com restrição",
+  "redistribuicao": "com restrição",
+  "termos_url": "https://github.com/Project-OSRM/osrm-backend/wiki/API%20Usage%20Policy",
+  "verificacao": "busca em 2026-11-24: a política do servidor de demonstração proíbe vender acesso, exige atribuição e pode cortar o acesso sem aviso; regras da ODbL citadas de memória",
+  "criterios": "c19 tempo até polo de emprego",
+  "alternativa": "Rodar um servidor OSRM próprio (software livre) com extrato do OpenStreetMap, mantendo a atribuição; ou um serviço pago de rotas"
  },
  {
   "id": "leis_tx",
@@ -77,7 +126,14 @@
   "script": "scripts/fontes/leis_tx.py",
   "periodicidade": "a cada sessão legislativa",
   "situacao": "ok",
-  "obs": ""
+  "obs": "",
+  "licenca": "Textos de lei do Texas (públicos) e Census Population Estimates (domínio público)",
+  "uso_comercial": "sim",
+  "redistribuicao": "sim",
+  "termos_url": "https://capitol.texas.gov",
+  "verificacao": "leis são de livre reprodução; não reli avisos do site",
+  "criterios": "c06 cobertura pela SB 15; c08 regras de moratória",
+  "alternativa": ""
  },
  {
   "id": "redfin",
@@ -87,7 +143,14 @@
   "script": "(a escrever)",
   "periodicidade": "mensal",
   "situacao": "bloqueado",
-  "obs": "o arquivo público respondeu 'Access Denied' em 2026-11-23; exige download manual pelo site"
+  "obs": "o arquivo público respondeu 'Access Denied' em 2026-11-23; exige download manual pelo site",
+  "licenca": "Redfin Data Center: download gratuito, com citação à Redfin; termos de uso do site proíbem acesso automatizado sem permissão",
+  "uso_comercial": "a confirmar",
+  "redistribuicao": "a confirmar",
+  "termos_url": "https://www.redfin.com/news/data-center/",
+  "verificacao": "busca em 2026-11-24: não localizei a licença do Data Center; resumo de terceiros diz que os termos de 2025 proíbem coleta automatizada",
+  "criterios": "c14 dias no mercado e meses de estoque; c16 preço por sqft",
+  "alternativa": "Texas A&M Real Estate Research Center (estatísticas de MLS por mercado); MLS/NTREIS via corretor; ou licença com a Redfin"
  },
  {
   "id": "comptroller",
@@ -97,7 +160,14 @@
   "script": "(a escrever)",
   "periodicidade": "anual",
   "situacao": "bloqueado",
-  "obs": "o site recusa acesso automático (erro 403); exige download manual das planilhas"
+  "obs": "o site recusa acesso automático (erro 403); exige download manual das planilhas",
+  "licenca": "Informação pública do Estado do Texas",
+  "uso_comercial": "a confirmar",
+  "redistribuicao": "a confirmar",
+  "termos_url": "https://comptroller.texas.gov/taxes/property-tax/rates/",
+  "verificacao": "não verificado: o site recusou acesso automático",
+  "criterios": "c24 property tax",
+  "alternativa": "Appraisal districts de cada condado (informação pública)"
  },
  {
   "id": "dps_fbi",
@@ -107,7 +177,14 @@
   "script": "(a escrever)",
   "periodicidade": "anual",
   "situacao": "pendente",
-  "obs": "a API do FBI exige chave gratuita (api.data.gov)"
+  "obs": "a API do FBI exige chave gratuita (api.data.gov)",
+  "licenca": "FBI Crime Data Explorer: domínio público (governo federal); Texas DPS: informação pública estadual",
+  "uso_comercial": "sim",
+  "redistribuicao": "sim",
+  "termos_url": "https://cde.ucr.cjis.gov",
+  "verificacao": "regra geral de obras federais; DPS não verificado",
+  "criterios": "c22 segurança",
+  "alternativa": ""
  },
  {
   "id": "tceq",
@@ -117,7 +194,14 @@
   "script": "(a escrever)",
   "periodicidade": "contínua",
   "situacao": "pendente",
-  "obs": "consulta por formulário; sem arquivo único para download"
+  "obs": "consulta por formulário; sem arquivo único para download",
+  "licenca": "Informação pública do Estado do Texas",
+  "uso_comercial": "a confirmar",
+  "redistribuicao": "a confirmar",
+  "termos_url": "https://www14.tceq.texas.gov/iwud/",
+  "verificacao": "não verificado",
+  "criterios": "c09 água e esgoto; c24 MUD/PID",
+  "alternativa": "PUC do Texas (mapas de CCN)"
  },
  {
   "id": "tdi",
@@ -127,7 +211,14 @@
   "script": "(a escrever)",
   "periodicidade": "anual",
   "situacao": "pendente",
-  "obs": ""
+  "obs": "",
+  "licenca": "Informação pública do Estado do Texas",
+  "uso_comercial": "a confirmar",
+  "redistribuicao": "a confirmar",
+  "termos_url": "https://www.tdi.texas.gov/reports/",
+  "verificacao": "não verificado",
+  "criterios": "c26 seguro",
+  "alternativa": ""
  },
  {
   "id": "planilha_usuario",
@@ -137,7 +228,14 @@
   "script": "scripts/fontes/planilha_usuario.py",
   "periodicidade": "sob demanda",
   "situacao": "ok",
-  "obs": "valores aproximados do usuário; confiança baixa"
+  "obs": "valores aproximados do usuário; confiança baixa",
+  "licenca": "Dado privado do usuário",
+  "uso_comercial": "decisão do dono",
+  "redistribuicao": "não (privado)",
+  "termos_url": "",
+  "verificacao": "—",
+  "criterios": "c24 property tax (provisório); segurança e mobilidade em texto",
+  "alternativa": "Substituir pela alíquota oficial; num produto, fica só na conta do dono"
  },
  {
   "id": "manual",
@@ -147,7 +245,48 @@
   "script": "data/manual/",
   "periodicidade": "sob demanda",
   "situacao": "pendente",
-  "obs": ""
+  "obs": "",
+  "licenca": "Documentos públicos municipais (códigos de zoneamento, tabelas de taxas); textos de códigos hospedados em Municode/eCode têm termos próprios",
+  "uso_comercial": "sim para os fatos; a confirmar para cópia de texto",
+  "redistribuicao": "a confirmar",
+  "termos_url": "",
+  "verificacao": "não verificado caso a caso",
+  "criterios": "c06, c07, c08, c09, c11, c17, c20",
+  "alternativa": "Guardar só o número e o link para o documento oficial, sem copiar o texto"
+ },
+ {
+  "id": "homes_com",
+  "nome": "Homes.com (anúncios de terrenos)",
+  "orgao": "CoStar",
+  "url": "https://www.homes.com",
+  "script": "(nenhum: consulta manual)",
+  "periodicidade": "contínua",
+  "situacao": "manual",
+  "obs": "sem coleta automática; o usuário consulta e digita",
+  "licenca": "Proprietária. Os termos da CoStar proíbem robôs, raspagem e extração de dados, e restringem expor os dados a terceiros",
+  "uso_comercial": "não",
+  "redistribuicao": "não",
+  "termos_url": "https://www.costar.com/about/termsofuse",
+  "verificacao": "busca em 2026-11-23: termos da CoStar (dona do Homes.com); não li a página de termos do próprio Homes.com",
+  "criterios": "c01 preço da terra; c02 tamanho; c03 oferta na faixa; c05 liquidez do terreno; por consequência c12 margem e c13 terreno/preço",
+  "alternativa": "Licença de dados de MLS (NTREIS) via corretor; API paga com direito de uso comercial (ex.: ATTOM); valor de terra dos appraisal districts (público) como aproximação"
+ },
+ {
+  "id": "osm_tiles",
+  "nome": "Fundo do mapa (tile.openstreetmap.org)",
+  "orgao": "OpenStreetMap Foundation",
+  "url": "https://tile.openstreetmap.org",
+  "script": "(carregado pelo navegador)",
+  "periodicidade": "contínua",
+  "situacao": "ok",
+  "obs": "só o fundo de ruas do mapa; não entra em nenhum critério",
+  "licenca": "Dados sob ODbL com atribuição; o servidor de imagens é doado e não tem garantia de serviço",
+  "uso_comercial": "com restrição",
+  "redistribuicao": "com restrição",
+  "termos_url": "https://operations.osmfoundation.org/policies/tiles/",
+  "verificacao": "citado de memória; a política de uso do servidor não foi relida nesta sessão",
+  "criterios": "mapa (fundo)",
+  "alternativa": "Provedor pago de mapas base ou servidor próprio"
  },
  {
   "id": "usuario",
@@ -157,6 +296,13 @@
   "script": "",
   "periodicidade": "—",
   "situacao": "ok",
-  "obs": ""
+  "obs": "",
+  "licenca": "Dado privado do usuário",
+  "uso_comercial": "decisão do dono",
+  "redistribuicao": "não (privado)",
+  "termos_url": "",
+  "verificacao": "—",
+  "criterios": "qualquer valor editado manualmente",
+  "alternativa": ""
  }
 ]
