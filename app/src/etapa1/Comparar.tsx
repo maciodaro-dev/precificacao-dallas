@@ -1,7 +1,7 @@
 import type { Base, Edicao, Projeto } from "../tipos";
 import { chave, indicador, type Linha } from "../ranking";
 import { avaliar, ativos, descreveAlvo, PARAMS, textoCobertura } from "../parametros";
-import { cor, fmt } from "../formato";
+import { cor, fmt, estiloNota } from "../formato";
 
 export function CompararUnidades({ base, projeto, edicoes, linhas, remover }: { base: Base; projeto: Projeto; edicoes: Record<string, Edicao>; linhas: Linha[]; remover: (id: string) => void }) {
   if (!linhas.length) return <p className="vazio">Marque até 4 unidades na coluna "Comp." do ranking para compará-las lado a lado.</p>;
@@ -10,7 +10,7 @@ export function CompararUnidades({ base, projeto, edicoes, linhas, remover }: { 
     <div className="rolagem"><table className="simples comp">
       <thead><tr><th>Critério</th>{linhas.map((l) => <th key={l.u.unidade_id}>{l.u.nome}<button className="link" onClick={() => remover(l.u.unidade_id)}>remover</button></th>)}</tr></thead>
       <tbody>
-        <tr className="principal"><td>Nota (posição)</td>{linhas.map((l) => <td key={l.u.unidade_id}><span className="nota-final" style={{ background: cor(l.nota) }}>{l.nota === null ? "–" : l.nota.toFixed(0)}</span> {l.posicao ? `#${l.posicao}` : ""}</td>)}</tr>
+        <tr className="principal"><td>Nota (posição)</td>{linhas.map((l) => <td key={l.u.unidade_id}><span className="nota-final" style={estiloNota(l.nota)}>{l.nota === null ? "–" : l.nota.toFixed(0)}</span> {l.posicao ? `#${l.posicao}` : ""}</td>)}</tr>
         <tr><td>Com dado<small>parâmetros em uso com dado, ponderado pelo peso</small></td>{linhas.map((l) => <td key={l.u.unidade_id} className={l.cobertura < 0.5 ? "baixa" : ""}>{textoCobertura(l)}</td>)}</tr>
         <tr><td>Não atende</td>{linhas.map((l) => <td key={l.u.unidade_id} className={l.falhas?.length ? "nao" : ""}>{l.falhas?.length ? l.falhas.map((f) => `${f.nome} (${f.valor}; alvo ${f.alvo})`).join("; ") : "nada, entre os parâmetros com dado"}</td>)}</tr>
         {base.criterios.map((c) => (
@@ -35,7 +35,7 @@ export function CompararProjetos({ base, projetos, edicoes }: { base: Base; proj
         <tr><td>Parâmetros em uso</td>{res.map((r) => <td key={r.p.projeto_id}>{r.defs.map((d) => `${d.nome}: ${descreveAlvo(d, r.p.parametros?.[d.id]?.alvo, r.p, base)}`).join(" · ") || "nenhum"}</td>)}</tr>
         
         <tr><td>Unidade eleita</td>{res.map((r) => <td key={r.p.projeto_id}>{base.unidades.find((u) => u.unidade_id === r.p.unidade_eleita_id)?.nome ?? "—"}</td>)}</tr>
-        {Array.from({ length: 15 }, (_, i) => <tr key={i}><td>{i + 1}º</td>{res.map((r) => { const l = r.linhas[i]; return <td key={r.p.projeto_id}>{l ? <><span className="nota-final p" style={{ background: cor(l.nota) }}>{l.nota?.toFixed(0)}</span> {l.u.nome}<small>com dado {textoCobertura(l)}</small></> : ""}</td>; })}</tr>)}
+        {Array.from({ length: 15 }, (_, i) => <tr key={i}><td>{i + 1}º</td>{res.map((r) => { const l = r.linhas[i]; return <td key={r.p.projeto_id}>{l ? <><span className="nota-final p" style={estiloNota(l.nota)}>{l.nota?.toFixed(0)}</span> {l.u.nome}<small>com dado {textoCobertura(l)}</small></> : ""}</td>; })}</tr>)}
       </tbody></table></div>
   );
 }
