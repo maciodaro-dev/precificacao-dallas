@@ -1,3 +1,4 @@
+import { IDIOMAS, definirIdioma, idiomaAtual, type Idioma } from "./i18n";
 import { useEffect, useMemo, useState } from "react";
 import type { Base, Edicao, Projeto } from "./tipos";
 import { carregarAtivo, carregarEdicoes, carregarProjetos, duplicar, hoje, novoProjeto, DONO_LOCAL, salvarAtivo, salvarEdicoes, salvarProjetos } from "./estado";
@@ -9,6 +10,9 @@ import { baixar } from "./exportar";
 import { telaAnterior, telaInicial, useRota } from "./rota";
 
 export default function App() {
+  // idioma da interface: trocar o idioma redesenha a tela inteira (as respostas ficam no projeto, nada se perde)
+  const [idioma, setIdioma] = useState<Idioma>(idiomaAtual());
+  const trocarIdioma = (i: Idioma) => { definirIdioma(i); setIdioma(i); };
   const [base, setBase] = useState<Base | null>(null);
   const [geo, setGeo] = useState<GeoJSON.FeatureCollection | null>(null);
   const [erro, setErro] = useState("");
@@ -60,11 +64,12 @@ export default function App() {
   const trocarProjeto = (id: string) => { setAtivoId(id); substituir(telaInicial(projetos.find((x) => x.projeto_id === id))); };
 
   return (
-    <div className="app">
+    <div className="app" key={idioma}>
       <header>
         <div className="marca"><img src="./marca/mark.png" alt="" onError={(e) => { e.currentTarget.style.display = "none"; }} /><b className="csd">CSD</b><i className="tools">Tools</i> <span>Formação de preço · Dallas–Fort Worth</span></div>
         <p className="lema">Não é sobre fazer mais. É sobre fazer melhor.</p>
         <div className="projeto">
+          <label className="idioma" title="Idioma"><span aria-hidden="true">🌐</span><select id="idioma" aria-label="Idioma" value={idioma} onChange={(e) => trocarIdioma(e.target.value as Idioma)}>{IDIOMAS.map((i) => <option key={i.id} value={i.id}>{i.nome}</option>)}</select></label>
           <label>Projeto
             <select value={projeto.projeto_id} onChange={(e) => trocarProjeto(e.target.value)}>
               {projetos.map((p) => <option key={p.projeto_id} value={p.projeto_id}>{p.nome}</option>)}

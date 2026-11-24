@@ -1,3 +1,4 @@
 { "compilerOptions": { "target": "ES2020", "lib": ["ES2020", "DOM", "DOM.Iterable"], "module": "ESNext", "moduleResolution": "bundler",
-  "jsx": "react-jsx", "strict": true, "skipLibCheck": true, "noEmit": true, "resolveJsonModule": true, "isolatedModules": true },
+  "jsx": "react-jsx", "jsxImportSource": "i18n-jsx", "baseUrl": ".", "paths": { "i18n-jsx/jsx-runtime": ["./src/i18n/jsx-runtime.ts"], "i18n-jsx/jsx-dev-runtime": ["./src/i18n/jsx-dev-runtime.ts"] },
+  "strict": true, "skipLibCheck": true, "noEmit": true, "resolveJsonModule": true, "isolatedModules": true },
   "include": ["src"] }

@@ -1,3 +1,4 @@
+import { tr } from "../i18n";
 import { useEffect, useRef } from "react";
 import L from "leaflet";
 import type { Linha } from "../ranking";
@@ -30,7 +31,12 @@ export default function Mapa({ geo, linhas, sel, setSel, eleita, camada = "nota"
         return { fillColor: cor(!l ? null : camada === "nota" ? l.nota : (l.porCriterio[camada]?.nota ?? null)), fillOpacity: 0.7, color: id === sel ? "#8C6A3D" : id === eleita ? "#17253C" : "#fff", weight: id === sel || id === eleita ? 3 : 0.8 }; },
       onEachFeature: (f, lyr) => { const l = por.get(f.properties.unidade_id);
         const foraT = !!l?.recorte && !l.recorte.partes.some((pt) => pt.parte_id === f.properties.parte_id);
-        lyr.bindTooltip(`<b>${f.properties.nome}</b>${f.properties.parte_nome && f.properties.parte_nome !== f.properties.nome ? ` <small>(${String(f.properties.parte_nome).split(" × ").pop()})</small>` : ""}${foraT ? "<br><i>esta parte não tem a nota de escola pedida</i>" : l?.recorte ? `<br><i>${l.recorte.texto}</i>` : ""}<br>${!l ? "" : `nota ${l.nota?.toFixed(0) ?? "–"} · posição ${l.posicao ?? "–"}<br>com dado: ${Math.round(l.cobertura * 100)}% (${l.avaliados} de ${l.emUso} parâmetros)${l.poucosDados ? " · <b>poucos dados</b>" : ""}`}${l && camada !== "nota" ? `<br>${nomeCamada}: ${l.porCriterio[camada]?.nota ?? "sem dado"}` : ""}${l?.falhas?.length ? `<br>Não atende: ${l.falhas.slice(0, 4).map((x) => x.nome).join("; ")}` : ""}`, { sticky: true });
+        // o balão do mapa é HTML montado à mão (não passa pela camada de tradução do JSX): cada frase é traduzida aqui
+        const linhasT = [`<b>${f.properties.nome}</b>${f.properties.parte_nome && f.properties.parte_nome !== f.properties.nome ? ` <small>(${String(f.properties.parte_nome).split(" × ").pop()})</small>` : ""}`];
+        if (foraT) linhasT.push(`<i>${tr("esta parte não tem a nota de escola pedida")}</i>`); else if (l?.recorte) linhasT.push(`<i>${tr(l.recorte.texto)}</i>`);
+        if (l) { linhasT.push(tr(`nota ${l.nota?.toFixed(0) ?? "–"}`) + " · " + tr(`atende ${l.atendidos} de ${l.avaliados}`)); linhasT.push(tr(`com dado: ${l.avaliados} de ${l.emUso} parâmetros`) + (l.poucosDados ? ` · <b>${tr("dados insuficientes")}</b>` : "")); }
+        if (l?.falhas?.length) linhasT.push(tr("Não atende:") + " " + l.falhas.slice(0, 4).map((x) => tr(x.nome)).join("; "));
+        lyr.bindTooltip(linhasT.join("<br>"), { sticky: true });
         lyr.on("click", () => setSel(f.properties.unidade_id)); },
     }).addTo(m);
   }, [geo, linhas, sel, eleita, setSel, camada, nomeCamada, vivo, apagadas]);
