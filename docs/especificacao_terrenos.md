@@ -145,6 +145,34 @@ Entram em três categorias separadas, nunca somadas aos lotes: "gleba residencia
 - Conferir Tarrant (2.570 vagos residenciais de 5 a 20 acres): mostrar 20 exemplos e o que o código inclui lá.
 - Completar a contagem em Johnson, Kaufman, Rockwall, Hunt, Ellis, Parker e Wise.
 
+## 3c. Decisões do usuário (2026-11-24, terceira rodada)
+
+### OpenStreetMap para o corte de franja: aprovado
+- Usar vias arteriais e acima (motorway, trunk, primary, secondary), ferrovias, rios, córregos principais e lagos.
+- Cada loteamento fica inteiro de um lado: quando a via atravessa um loteamento, o limite contorna o loteamento, que vai para o lado onde está a maior parte da sua área.
+- Meta: nenhuma região cortada por grade e nenhum loteamento dividido. Mostrar quantos casos sobram de cada um em Frisco e Mansfield.
+- Nome por via só com complemento de posição ("Mansfield · US 287, norte"); nunca três regiões com o mesmo nome.
+- Registrar o OSM na tabela de fontes com a licença (ODbL: atribuição e compartilhamento de base derivada) e exibir o crédito no mapa.
+- Verificar se o inventário de vias do TxDOT e a hidrografia do USGS (NHD) fariam o mesmo corte (fontes públicas sem cláusula de compartilhamento), para trocar depois sem refazer as regiões.
+
+### Área medida pelo desenho do lote quando o cadastro não informa: aprovado
+- Calcular em State Plane Texas North Central e marcar o lote como "área medida no mapa".
+- Quando o cadastro informa a área e ela difere da medida em mais de 10%, manter a do cadastro e listar o caso.
+- Depois, refazer os passos d) e e) em Dallas e mostrar quantos dos lotes de até US$ 1.000 restam.
+
+### Tela de resultado (dois modos) — o que falta
+O publicado (topo limpo, nível de exigência, ocultas, avisos no fim) está aprovado.
+1. Duas colunas: lista à esquerda, mapa à direita, fixo enquanto a lista rola; em tela estreita, o mapa vai para cima.
+2. Lista só com: a) região, com o condado embaixo em letra menor; b) Atende ("6 de 8"); c) Nota; d) Terrenos vagos no tamanho procurado; e) Custo de referência do terreno (intervalo);
+   f) Valorização em 5 anos; g) Nota do distrito escolar; h) Imposto total (com MUD/PID). d) e e) aparecem desde já ("sem dado" em cinza).
+   Sai da linha o "Não atende: ..." e as observações de fatia (vão para a ficha). Saem as demais colunas e as notas por parâmetro. Numerar de 1 em diante só as exibidas. Caixa de comparar discreta, no fim da linha.
+3. Recorte (DFW inteira, lado Dallas, lado Fort Worth, condado) num seletor único.
+4. Mapa: mesmo componente e legenda do painel. Regiões abaixo do nível de exigência em cinza claro. Lista e mapa ligados: clicar na linha destaca a região; clicar na região leva à linha e abre a ficha.
+5. Ficha da região em painel lateral: todos os critérios com valor, nota, fonte, data e confiança; o que não atende; observações de fatia e ISD; alertas; botão "Escolher esta região".
+6. Modo guiado: cinco cartões com nome, "atende X de Y", os dados das colunas d) a h) e a frase de explicação, com o mapa ao lado.
+7. A exportação continua completa.
+Mostrar antes e depois nos dois modos, com o nível em 50% e em "o máximo possível".
+
 ## 4. Pontos em aberto
 
 - O arquivo estadual do TxGIO (inclusive o de 2025) devolve HTTP 403 a partir deste ambiente: precisa ser baixado pelo usuário ou liberado de outra forma.
