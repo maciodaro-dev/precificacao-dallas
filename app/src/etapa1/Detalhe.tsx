@@ -37,7 +37,7 @@ export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar,
   return (
     <section className="detalhe" ref={caixa}>
       <div className="cab">
-        <div><h2>{u.nome}</h2><p>{u.tipo === "cidade_isd" ? "Cidade × ISD" : "Área não incorporada"} · {u.condados_pct} · {fmt(u.acres_terra)} acres de terra{u.pct_cidade != null && ` (${fmt(u.pct_cidade)}% da área da cidade${u.pct_domicilios != null ? `, ${fmt(u.pct_domicilios)}% dos domicílios` : ""})`} · ID {u.unidade_id}</p></div>
+        <div><h2>{u.nome}</h2><p>{u.tipo === "cidade_isd" ? "Cidade" : "Área fora de cidade"} · {u.isd_nome} · {u.condados_pct} · {fmt(u.acres_terra)} acres de terra · ID {u.unidade_id}</p></div>
         <div className="acoes">
           <span className="nota-final g" style={{ background: cor(linha.nota) }}>{linha.nota === null ? "–" : linha.nota.toFixed(0)}</span><span className="com-dado">com dado {textoCobertura(linha)}</span>
           {!semRolagem && <button onClick={() => alternar(u.unidade_id)}>{emComparacao ? "Tirar da comparação" : "Comparar"}</button>}
@@ -48,6 +48,14 @@ export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar,
       </div>
       <p className="nota">Para registrar o que você viu no Homes.com (preço da terra, tamanho típico, quantos anúncios na sua faixa, dias anunciado), clique em "sem dado" nos critérios 1, 2, 3 e 5 abaixo e digite o valor. Fica gravado com a data.</p>
       {u.tipo === "cidade_isd" && <p className="nota">Cada dado abaixo diz se é desta fatia ou da cidade inteira. Onde aparece "dado da cidade inteira", o valor não representa bem esta fatia e a confiança é baixa.</p>}
+      {linha.recorte && <p className="aviso"><b>Vale {linha.recorte.texto}.</b> O resto {u.tipo === "cidade_isd" ? "da cidade" : "da área"} não tem a nota de escola pedida. Imposto, alagamento, renda e tempo até o emprego usados na nota são os dessa parte; a tabela abaixo mostra os valores da região inteira.</p>}
+      {u.partes && u.partes.length > 1 && <div className="rolagem"><table className="simples partes">
+        <thead><tr><th>Distrito escolar (ISD) nesta região</th><th>Nota do ISD</th><th>% da área</th><th>% dos domicílios</th><th>Imposto total</th><th>Área em zona de alagamento</th><th>Renda (setor censitário)</th></tr></thead>
+        <tbody>{u.partes.map((pt) => { const v = (k: string) => base.indicadores[pt.parte_id]?.[k] ?? base.indicadores[u.unidade_id]?.[k]; const vale = !linha.recorte || linha.recorte.partes.some((x) => x.parte_id === pt.parte_id); return (
+          <tr key={pt.parte_id} className={vale ? "" : "fora"}><td>{pt.isd_nome}{pt.pequena && <small>parte pequena</small>}{linha.recorte && <small>{vale ? "✓ vale para a nota" : "fora: não tem a nota de escola pedida"}</small>}</td>
+            <td>{String(v("c21|nota_isd_letra")?.v ?? "sem dado")}</td><td>{pt.pct_area == null ? "–" : fmt(pt.pct_area) + "%"}</td><td>{pt.pct_domicilios == null ? "–" : fmt(pt.pct_domicilios) + "%"}</td>
+            <td>{v("c24|aliquota_total")?.v == null ? "sem dado" : fmt(v("c24|aliquota_total")!.v, "%")}</td><td>{v("c25|pct_area_sfha")?.v == null ? "sem dado" : fmt(v("c25|pct_area_sfha")!.v, "%")}</td>
+            <td>{base.indicadores[pt.parte_id]?.["c23|renda_mediana"]?.v == null ? "–" : fmt(base.indicadores[pt.parte_id]["c23|renda_mediana"].v, "US$/ano")}</td></tr>); })}</tbody></table></div>}
       <p className={linha.falhas?.length ? "naoatende" : "nota"}><b>Não atende:</b> {linha.falhas?.length ? linha.falhas.map((f) => `${f.nome} (${f.valor}; alvo ${f.alvo})`).join("; ") + "." : "nada, entre os parâmetros que têm dado."}</p>
       <div className="rolagem"><table className="simples det">
         <thead><tr><th>Critério</th><th>Valor bruto</th><th>Sua resposta</th><th>Fonte</th><th>Data de referência</th><th>Confiança</th><th>Observação</th></tr></thead>

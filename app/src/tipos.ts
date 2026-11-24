@@ -4,7 +4,11 @@
 export type Confianca = "alta" | "media" | "baixa" | "sem_dado";
 export type Direcao = "maior" | "menor" | "configuravel";
 
+/** Parte de uma região: o pedaço da cidade (ou da área fora de cidade do condado) que cai num distrito escolar. */
+export interface ParteInfo { parte_id: string; isd_id: string; isd_nome: string; acres: number; pct_area: number | null; pct_domicilios: number | null; /** pequena demais para a região "atender" à nota de escola só por ela */ pequena: boolean }
+/** Unidade do ranking = região: a cidade inteira, ou a área fora de cidade de um condado. O ISD só divide a região na pergunta da escola. */
 export interface Unidade {
+  /** partes da região por distrito escolar */ partes?: ParteInfo[]; /** só nas partes: região a que pertence */ regiao_id?: string;
   unidade_id: string; nome: string; tipo: "cidade_isd" | "nao_incorporado"; cidade: string; place_geoid: string;
   isd_id: string; isd_nome: string; condado: string; condado_fips: string; condados_pct: string; /** lado da área metropolitana; só recorta a exibição */ lado?: "dallas" | "fort_worth";
   acres_terra: number; /** parcela da área da cidade que esta unidade representa */ pct_cidade: number | null; /** parcela dos domicílios da cidade (setores censitários), quando calculada */ pct_domicilios?: number | null; /** fatia pequena: oculta por padrão na exibição, nunca excluída da base */ fatia_pequena?: boolean; lat: number; lon: number; fonte: string;
@@ -23,7 +27,7 @@ export interface Fonte { id: string; nome: string; orgao: string; url: string; s
   licenca?: string; uso_comercial?: string; redistribuicao?: string; termos_url?: string; verificacao?: string; criterios?: string; alternativa?: string }
 export interface Premissa { premissa_id: string; descricao: string; valor: string; unidade: string; autor: string; data: string; justificativa: string; usada_em: string }
 export interface Base {
-  gerado_em: string; unidades: Unidade[]; criterios: Criterio[]; indicadores: Record<string, Record<string, Indicador>>;
+  gerado_em: string; unidades: Unidade[]; /** partes (cidade × ISD) de cada região; usadas no mapa, na pergunta da escola e no fluxo "já tenho o terreno" */ partes?: Unidade[]; criterios: Criterio[]; indicadores: Record<string, Record<string, Indicador>>;
   faixas: Faixa[]; fontes: Fonte[]; premissas: Premissa[];
 }
 

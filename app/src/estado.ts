@@ -1,5 +1,6 @@
 import type { Base, Edicao, PerfilSalvo, Projeto } from "./tipos";
 
+import { paraRegiao } from "./ranking";
 const K = { projetos: "pd.projetos.v1", ativo: "pd.ativo.v1", edicoes: "pd.edicoes.v1", perfis: "pd.perfis.v1" };
 const ler = <T,>(k: string, padrao: T): T => { try { const s = localStorage.getItem(k); return s ? (JSON.parse(s) as T) : padrao; } catch { return padrao; } };
 const gravar = (k: string, v: unknown) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* armazenamento indisponível */ } };
@@ -16,7 +17,8 @@ export function novoProjeto(_base: Base, nome = "Novo projeto"): Projeto {
 export function duplicar(p: Projeto): Projeto {
   return { ...JSON.parse(JSON.stringify(p)), projeto_id: id(), nome: p.nome + " (cópia)", criado_em: hoje(), alterado_em: hoje() };
 }
-export const carregarProjetos = () => ler<Projeto[]>(K.projetos, []).map((p) => ({ dono_id: DONO_LOCAL, ...p }));
+/** Projetos gravados antes de o ranking passar a ser por região tinham a unidade eleita como cidade × ISD: converte para a região. O terreno próprio continua apontando para a parte. */
+export const carregarProjetos = () => ler<Projeto[]>(K.projetos, []).map((p) => ({ dono_id: DONO_LOCAL, ...p, unidade_eleita_id: paraRegiao(p.unidade_eleita_id) }));
 export const salvarProjetos = (ps: Projeto[]) => gravar(K.projetos, ps);
 export const carregarAtivo = () => ler<string | null>(K.ativo, null);
 export const salvarAtivo = (i: string) => gravar(K.ativo, i);

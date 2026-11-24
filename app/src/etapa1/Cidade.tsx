@@ -29,7 +29,7 @@ export default function Cidade({ base, projeto, edicoes, linhas, sel, setSel, ed
         {daCidade.length > 1 && <div className="isds"><span>Distrito escolar (ISD):</span>
           {daCidade.map((u) => <button key={u.unidade_id} className={u.unidade_id === sel ? "ativo" : ""} onClick={() => setSel(u.unidade_id)}>{u.isd_nome}{u.pct_cidade != null && <small> {fmt(u.pct_cidade)}% da cidade</small>}</button>)}</div>}
       </div>
-      {daCidade.length > 1 && <p className="nota">Esta cidade é atendida por mais de um ISD. O ISD muda a nota da escola e o imposto, então cada combinação é tratada como um lugar diferente.</p>}
+      
       {!atual && <p className="vazio">Escolha uma cidade para ver o que ela significa para o projeto.</p>}
       {atual && linha && <>
         <div className="significa">

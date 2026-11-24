@@ -33,6 +33,7 @@ export default function Tabela({ params, projeto, linhas, sel, setSel, comparar,
               <td onClick={(e) => e.stopPropagation()}><input type="checkbox" checked={comparar.includes(l.u.unidade_id)} disabled={!comparar.includes(l.u.unidade_id) && comparar.length >= 4} onChange={() => alternar(l.u.unidade_id)} /></td>
               <td>{l.posicao ?? "–"}</td>
               <td className="nome">{l.u.nome}{projeto.unidade_eleita_id === l.u.unidade_id && <span className="selo">eleita</span>}
+                {l.recorte && <span className="recorte">{l.recorte.texto}</span>}
                 {!!l.falhas?.length && <span className="motivo">Não atende: {l.falhas.map((f) => f.nome).join("; ")}</span>}</td>
               <td>{l.u.condado}</td>
               <td><span className="nota-final" style={{ background: cor(l.nota) }}>{l.nota === null ? "–" : l.nota.toFixed(0)}</span></td>

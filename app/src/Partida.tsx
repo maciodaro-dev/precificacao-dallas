@@ -1,3 +1,4 @@
+import { paraRegiao } from "./ranking";
 import { useState } from "react";
 import type { Base, Edicao, LinhaCusto, ParteRealizada, Projeto, SimNaoNaoSei, Terreno } from "./tipos";
 import { retrato, ITENS_RETRATO } from "./retrato";
@@ -36,15 +37,18 @@ export default function Partida({ base, edicoes, projeto, alterar, passo, ir, vo
   const pp = projeto.ponto_partida ?? { tem_terreno: null };
   const terreno = projeto.terrenos.find((t) => t.ja_possuido);
   const gravarPP = (m: Partial<typeof pp>) => alterar({ ponto_partida: { ...pp, ...m, data: hoje() } });
-  const cidades = [...new Set(base.unidades.map((u) => u.cidade))].sort((a, b) => a.localeCompare(b));
-  const unidade = base.unidades.find((u) => u.unidade_id === (terreno?.unidade_id ?? (pp.tem_terreno ? projeto.unidade_eleita_id : null)));
+  // Quem já tem o terreno sabe em que distrito escolar ele está: o vínculo é com a parte (cidade × ISD); a unidade eleita do projeto é a região.
+  const partes = base.partes ?? base.unidades;
+  const cidades = [...new Set(partes.map((u) => u.cidade))].sort((a, b) => a.localeCompare(b));
+  const alvoId = terreno?.unidade_id ?? (pp.tem_terreno ? projeto.unidade_eleita_id : null);
+  const unidade = partes.find((u) => u.unidade_id === alvoId) ?? base.unidades.find((u) => u.unidade_id === alvoId);
   const [cidade, setCidade] = useState(unidade?.cidade ?? ""); const [endereco, setEndereco] = useState(pp.endereco ?? terreno?.endereco ?? "");
-  const daCidade = base.unidades.filter((u) => u.cidade === cidade);
+  const daCidade = partes.filter((u) => u.cidade === cidade);
 
   const vincular = (uid: string) => {
     const t: Terreno = { terreno_id: terreno?.terreno_id ?? "T-" + Date.now().toString(36), unidade_id: uid, endereco, parcel_id: terreno?.parcel_id ?? "", acres: terreno?.acres ?? null, preco_pedido: null, isd_id_proprio: null, mud_pid: null,
       isencao_agricola: terreno?.isencao_agricola ?? false, status: "eleito", ja_possuido: true, preco_pago: terreno?.preco_pago ?? null, data_compra: terreno?.data_compra ?? null, valor_atual: terreno?.valor_atual ?? null, valor_atual_origem: terreno?.valor_atual_origem ?? null, due_diligence: terreno?.due_diligence ?? [] };
-    alterar({ ponto_partida: { ...pp, tem_terreno: true, endereco, data: hoje() }, terrenos: [...projeto.terrenos.filter((x) => !x.ja_possuido), t], unidade_eleita_id: uid, eleita_em: hoje() });
+    alterar({ ponto_partida: { ...pp, tem_terreno: true, endereco, data: hoje() }, terrenos: [...projeto.terrenos.filter((x) => !x.ja_possuido), t], unidade_eleita_id: paraRegiao(uid), eleita_em: hoje() });
   };
   /** Lança (ou atualiza) na pilha o valor de uma parte já realizada. Não apaga o que já foi lançado se a resposta mudar depois. */
   const lancar = (parte: ParteRealizada["parte"], etapa: 2 | 3 | 4, categoria: string, valor: number | null, naoSei: boolean, data: string | null): Partial<Projeto> => {

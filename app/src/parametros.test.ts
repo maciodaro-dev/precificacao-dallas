@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import { paraRegiao } from "./ranking";
 import { avaliar, coberturaGeral, nota, PARAMS, pesoTerreno, textoCobertura } from "./parametros";
 import { deduzir, mesclar, projetoDoLeigo } from "./leigo";
 import type { Base, Projeto, Indicador, ParamResp } from "./tipos";
@@ -62,6 +63,25 @@ describe("motor único", () => {
     expect(de(r, "c").nota).toBe(100); // só o ISD conta para "c", e ela atende
     expect(de(r, "c").porCriterio.moratoria.nota).toBeNull(); expect(de(r, "a").nota).toBe(100); expect(de(r, "b").nota).toBeCloseTo(20); // b: ISD C vale metade (peso 2), moratória "sim" vale zero (peso 3)
   });
+});
+describe("região e pergunta da escola", () => {
+  // cidade "le" com duas partes: ISD "A" (30% da área, imposto 1,7) e ISD "C" (70%, imposto 2,1). Na região: ISD principal C, imposto médio 1,98.
+  const le = { ...U("le"), partes: [{ parte_id: "le-c", isd_id: "1", isd_nome: "Little ISD", acres: 70, pct_area: 70, pct_domicilios: 70, pequena: false }, { parte_id: "le-a", isd_id: "2", isd_nome: "Frisco ISD", acres: 30, pct_area: 30, pct_domicilios: 30, pequena: false }] };
+  const b2: Base = { ...base, unidades: [le, U("x")], partes: [{ ...U("le-c"), regiao_id: "le" }, { ...U("le-a"), regiao_id: "le" }],
+    indicadores: { le: { "c21|nota_isd_letra": ind("C"), "c24|aliquota_total": ind(1.98), "c23|renda_mediana": { ...ind(90000), f: "census_acs" } }, "le-a": { "c21|nota_isd_letra": ind("A"), "c24|aliquota_total": ind(1.7) }, "le-c": { "c24|aliquota_total": ind(2.1) },
+      x: { "c21|nota_isd_letra": ind("B"), "c24|aliquota_total": ind(1.9), "c23|renda_mediana": ind(90000) } } };
+  it("pedindo nota A, vale só a parte da cidade que tem nota A, com o imposto dessa parte", () => {
+    const l = de(avaliar(b2, proj({ isd: P({ valor: "A" }, "alto"), imposto: P({ max: 1.8 }), renda: P({ min: 75000 }) }), {}), "le");
+    expect(l.recorte!.partes.map((x) => x.parte_id)).toEqual(["le-a"]); expect(l.recorte!.texto).toMatch(/só a parte no Frisco ISD \(30% da área da cidade\)/);
+    expect(l.porCriterio.isd.nota).toBe(100); expect(l.porCriterio.imposto.bruto).toBeCloseTo(1.7); expect(l.porCriterio.imposto.nota).toBe(100);
+    expect(l.porCriterio.renda.esc).toBe("cidade"); // renda só existe para a cidade inteira
+  });
+  it("sem pedir escola, ou se nenhuma parte atende, vale a região inteira", () => {
+    const s = de(avaliar(b2, proj({ imposto: P({ max: 1.8 }) }), {}), "le"); expect(s.recorte).toBeUndefined(); expect(s.porCriterio.imposto.bruto).toBeCloseTo(1.98);
+    const pequena: Base = { ...b2, unidades: [{ ...le, partes: le.partes!.map((x) => (x.parte_id === "le-a" ? { ...x, pequena: true } : x)) }, U("x")] };
+    const n = de(avaliar(pequena, proj({ isd: P({ valor: "A" }, "alto") }), {}), "le"); expect(n.recorte).toBeUndefined(); expect(n.porCriterio.isd.nota).toBe(0); expect(n.falhas.map((f) => f.id)).toContain("isd");
+  });
+  it("id antigo de cidade × ISD vira o id da região", () => { expect(paraRegiao("U-4843012-4820010")).toBe("R-4843012"); expect(paraRegiao("U-ETJ-48085-4808340")).toBe("R-ETJ-48085"); expect(paraRegiao("R-4843012")).toBe("R-4843012"); expect(paraRegiao(null)).toBeNull(); });
 });
 describe("modo leigo", () => {
   it("1 casa: lote pronto, até 0,5 acre, só dentro da cidade, custo de lotear não se aplica", () => {

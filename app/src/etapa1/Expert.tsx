@@ -80,7 +80,7 @@ export default function Expert({ base, projeto, alterar, verResultado, voltar, g
         <p className="nota"><b>{tudo.length} de {linhas.length} regiões</b> atendem tudo o que você escolheu, entre os dados que existem. As que atendem em parte ficam em verde mais claro; as que atendem pouco, em cinza.</p>
         {efeito && <p className="efeito" id="efeito-escolha"><b>Sua última escolha: {efeito.nome}.</b> {efeito.texto}</p>}
         <Mapa geo={geo} linhas={linhas} sel={sel} setSel={setSel} eleita={null} vivo destaque={efeito?.marcar ? ultimo : null} />
-        {escolhida ? <p className="nota"><b>{escolhida.u.nome}</b> · nota {escolhida.nota?.toFixed(0) ?? "–"} · com dado {textoCobertura(escolhida)}. {escolhida.falhas.length ? "Não atende: " + escolhida.falhas.map((f) => f.nome).join("; ") + "." : "Atende tudo o que tem dado."}</p> : <p className="nota">Clique numa região do mapa para ver o que ela não atende.</p>}
+        {escolhida ? <p className="nota"><b>{escolhida.u.nome}</b>{escolhida.recorte && ` (${escolhida.recorte.texto})`} · nota {escolhida.nota?.toFixed(0) ?? "–"} · com dado {textoCobertura(escolhida)}. {escolhida.falhas.length ? "Não atende: " + escolhida.falhas.map((f) => f.nome).join("; ") + "." : "Atende tudo o que tem dado."}</p> : <p className="nota">Clique numa região do mapa para ver o que ela não atende.</p>}
         <p className="nota">Parâmetros marcados "sem dado ainda" não mudam o mapa.</p>
       </aside>
       </div>

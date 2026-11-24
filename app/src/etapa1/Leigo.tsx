@@ -68,6 +68,7 @@ export function ResultadoLeigo({ seletor, total, base, geo, projeto, edicoes, li
   const cartao = (l: Linha, compacto = false) => { const e = explicar(l, projeto, base, edicoes); const eleita = projeto.unidade_eleita_id === l.u.unidade_id; return (
     <article key={l.u.unidade_id} className={"cartao" + (eleita ? " eleita" : "")}>
       <header><span className="pos">{l.posicao}º</span><h3>{l.u.nome}</h3><span className="nota-final" style={{ background: cor(l.nota) }} title="Nota de 0 a 100: quanto a unidade atende às suas respostas">{l.nota?.toFixed(0)}</span></header>
+      {l.recorte && <p className="recorte"><b>Região:</b> {l.recorte.texto}. O resto da cidade não tem a nota de escola pedida.</p>}
       <p><b>Por que apareceu:</b> {e.porque}</p><p><b>Ponto forte:</b> {e.forte}</p><p><b>Ponto de atenção:</b> {e.atencao}</p>
       <p className={e.nao.length ? "naoatende" : ""}><b>Não atende:</b> {e.nao.length ? e.nao.join("; ") + "." : "nada, entre as respostas que têm dado."}</p>
       <p className="nota">{e.prazo} <b>Com dado: {textoCobertura(l)}</b> das suas respostas nesta região.</p>

@@ -1,7 +1,7 @@
 // Motor único da etapa 1. Lê só os parâmetros gravados no Projeto; não sabe se vieram do modo leigo ou do expert.
 // Nenhum parâmetro elimina unidades: toda resposta afeta apenas a nota, e o resultado lista o que cada unidade não atende.
-import type { Base, Edicao, Indicador, ParamResp, Peso, Projeto, Unidade } from "./tipos";
-import { indicador, numero, LETRAS, type Falha, type Linha } from "./ranking";
+import type { Base, Edicao, Indicador, ParamResp, ParteInfo, Peso, Projeto, Unidade } from "./tipos";
+import { indicador, numero, LETRAS, type Falha, type Linha, type Recorte } from "./ranking";
 import regras from "./config/regrasLeigo.json";
 
 export type Forma = "max" | "min" | "intervalo" | "letra" | "quer_sim" | "quer_nao" | "so_cidade" | "oferta";
@@ -103,10 +103,38 @@ export function descreveAlvo(p: Param, a: Alvo | null | undefined, pr?: Projeto,
 }
 export type { Falha };
 
+/** A pergunta da escola é a única que divide a região. Se a nota pedida só existe em parte da cidade, valem só as partes que atendem;
+ *  o resto da cidade fica de fora (no mapa, transparente). Partes pequenas demais não bastam. Se nenhuma parte atende, vale a região inteira. */
+export function recortar(base: Base, edicoes: Record<string, Edicao>, u: Unidade, isdP: Param, alvo: Alvo): Recorte | undefined {
+  const ps = u.partes; if (!ps || ps.length < 2 || !isdP.chave) return undefined;
+  const ok = ps.filter((pt) => !pt.pequena && nota(isdP, alvo, u, indicador(base, edicoes, pt.parte_id, isdP.chave!)) === 1);
+  if (!ok.length || ok.length === ps.length) return undefined;
+  const soma = (f: (p: ParteInfo) => number | null) => (ok.some((p) => f(p) === null) ? null : Math.round(ok.reduce((s, p) => s + f(p)!, 0) * 10) / 10);
+  const pa = soma((p) => p.pct_area), pd = soma((p) => p.pct_domicilios); const onde = u.tipo === "cidade_isd" ? "da cidade" : "da área";
+  return { partes: ok, pct_area: pa, pct_domicilios: pd, texto: `só a parte no ${ok.map((p) => p.isd_nome).join(" e no ")}${pa !== null ? ` (${pa.toLocaleString("pt-BR")}% da área ${onde})` : ""}` };
+}
+const SO_CIDADE = ["census_acs", "census_bps", "zillow", "derivado"];
+/** Valor de um indicador só para as partes do recorte. O que muda dentro da cidade (imposto, alagamento, renda por setor, tempo até o emprego) acompanha as partes;
+ *  o que só existe para a cidade inteira continua o da cidade, com a marca "cidade". */
+function daParte(base: Base, edicoes: Record<string, Edicao>, u: Unidade, r: Recorte, k: string): Indicador | undefined {
+  const reg = indicador(base, edicoes, u.unidade_id, k); if (reg?.editado) return reg;
+  const xs = r.partes.map((pt) => ({ pt, i: base.indicadores[pt.parte_id]?.[k] ?? (edicoes[`${pt.parte_id}|${k}`] ? indicador(base, edicoes, pt.parte_id, k) : undefined) }));
+  if (xs.every((x) => !x.i)) return reg && reg.v != null && u.tipo === "cidade_isd" && SO_CIDADE.includes(reg.f) ? { ...reg, esc: "cidade" } : reg;
+  const com = xs.map((x) => ({ pt: x.pt, i: x.i ?? reg })).filter((x): x is { pt: (typeof xs)[number]["pt"]; i: Indicador } => !!x.i && x.i.v != null);
+  if (!com.length) return reg; const p0 = com[0].i; const obs = `${r.texto}. ${p0.obs}`;
+  if (com.every((x) => typeof x.i.v === "number")) { const dom = (k.startsWith("c24|") || k.startsWith("c23|")) && com.every((x) => x.pt.pct_domicilios);
+    const w = com.map((x) => (dom ? x.pt.pct_domicilios! : x.pt.acres) || 1e-9); const v = com.reduce((s, x, j) => s + (x.i.v as number) * w[j], 0) / w.reduce((a, b) => a + b, 0);
+    return { ...p0, v: Math.round(v * 1e4) / 1e4, esc: "fatia", obs }; }
+  const letras = com.map((x) => LETRAS.indexOf(String(x.i.v))); const melhor = letras.every((n) => n >= 0) ? com[letras.indexOf(Math.min(...letras))].i : p0;
+  return { ...melhor, esc: "fatia", obs };
+}
 /** Ranking: todas as unidades, ordenadas pela nota. Parâmetro sem dado em nenhuma unidade fica fora da conta; unidade sem dado num parâmetro recebe nota neutra, exceto nos de NAO_PONTUA, em que o parâmetro sai da conta daquela unidade. */
 export function avaliar(base: Base, pr: Projeto, edicoes: Record<string, Edicao>): Linha[] {
   const ps = ativos(pr);
-  const ind = (u: Unidade, p: Param) => { const c = chaveDe(p, pr); return c ? indicador(base, edicoes, u.unidade_id, c) : undefined; };
+  const isdP = PARAMS.find((p) => p.id === "isd")!; const isdOn = ps.includes(isdP);
+  const recortes = new Map<string, Recorte>();
+  if (isdOn) for (const u of base.unidades) { const r = recortar(base, edicoes, u, isdP, pr.parametros!.isd.alvo ?? {}); if (r) recortes.set(u.unidade_id, r); }
+  const ind = (u: Unidade, p: Param) => { const c = chaveDe(p, pr); if (!c) return undefined; const r = recortes.get(u.unidade_id); return r ? daParte(base, edicoes, u, r, c) : indicador(base, edicoes, u.unidade_id, c); };
   const comDado = new Set(ps.filter((p) => p.forma === "so_cidade" || base.unidades.some((u) => ind(u, p)?.v != null)).map((p) => p.id));
   const total = ps.filter((p) => comDado.has(p.id)).reduce((s, p) => s + PESOS[pesoDe(pr, p.id)], 0);
   const totalUso = ps.reduce((s, p) => s + PESOS[pesoDe(pr, p.id)], 0);
@@ -124,7 +152,7 @@ export function avaliar(base: Base, pr: Projeto, edicoes: Record<string, Edicao>
         valor: texto ?? (numero(bruto) === null ? "" : p.um.startsWith("US$") ? `$${Math.round(numero(bruto)!).toLocaleString("pt-BR")}${p.um === "US$/ano" ? " por ano" : p.um === "US$/lote" ? " por lote" : ""}` : `${(numero(bruto)! / (p.fator ?? 1)).toLocaleString("pt-BR", { maximumFractionDigits: 1 })} ${p.um}`.trim()) }); }
     }
     falhas.sort((x, y) => PESOS[y.peso as Peso] - PESOS[x.peso as Peso] || x.s - y.s);
-    return { u, nota: tot > 0 ? (100 * soma) / tot : null, cobertura: totalUso ? wReal / totalUso : 0, emUso: ps.length, porCriterio, posicao: null, atendidos: sim, avaliados: n, falhas };
+    return { u, nota: tot > 0 ? (100 * soma) / tot : null, cobertura: totalUso ? wReal / totalUso : 0, emUso: ps.length, porCriterio, posicao: null, recorte: recortes.get(u.unidade_id), atendidos: sim, avaliados: n, falhas };
   });
   linhas.sort((a, b) => (b.nota ?? -1) - (a.nota ?? -1) || (a.falhas?.length ?? 0) - (b.falhas?.length ?? 0) || b.cobertura - a.cobertura || a.u.nome.localeCompare(b.u.nome));
   linhas.forEach((l, i) => { l.posicao = l.nota === null ? null : i + 1; });
