@@ -271,3 +271,12 @@ Faltam: Kaufman e Hunt (o código está só no arquivo do rol, a baixar e ler), 
 | pessoa ou outro | 1 | 372 |
 
 Só o grupo "empresa" (899 lotes) receberia o motivo "isento em nome de construtora". Entidades públicas, associações e igrejas já saem no passo a), pelo dono. A classificação é por palavras no nome do dono e tem erro: precisa da conferência do usuário numa amostra antes de aplicar. (Nomes de dono ficam só nos arquivos de trabalho.)
+
+# Corte de franja com OpenStreetMap — situação em 2026-11-24 (não executado)
+
+- Aprovado pelo usuário, mas **os dados do OpenStreetMap não puderam ser baixados deste ambiente**: três servidores de consulta (Overpass) e o servidor de arquivos (Geofabrik) derrubaram a conexão ou não responderam.
+- Caminho proposto: o usuário baixa `texas-latest.osm.pbf` em download.geofabrik.de (América do Norte > Estados Unidos > Texas, cerca de 700 MB) e compartilha pelo OneDrive, como fez com os arquivos do DCAD.
+- Fontes públicas alternativas, ambas acessíveis daqui:
+  - TxDOT Roadways (inventário de vias): traz o prefixo da rota (IH, US, SH, FM, e também vias de condado e de cidade), mas a camada vista não traz a classe funcional da via. Dá para cortar por rodovias e FM roads; **não dá para separar as avenidas arteriais das ruas locais só com ela**.
+  - USGS NHD (hidrografia): traz rios, córregos e corpos d'água; serve para as barreiras naturais.
+  - Se as duas fariam "o mesmo corte" que o OpenStreetMap só dá para responder comparando os três sobre as mesmas cidades, o que depende de ter o arquivo do OSM. A diferença esperada está nas arteriais urbanas.
