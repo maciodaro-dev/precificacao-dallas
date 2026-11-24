@@ -229,3 +229,45 @@ Mantidos depois de a), b), c), do corte proposto no d), fora os de construtora e
 19 donos, 1.946 lotes. Os maiores: Bloomfield Homes LP (228), Grand Prairie Strata nas cinco grafias (cerca de 700), AR & PR LLC (105), Texas SFI Partnership 63 Ltd (96), TSHH LLC (93),
 DR Horton Texas Ltd (90), Solterra Texas 3 LLC (85), Porter P LLC (84), KB Home Lone Star Inc (78), DCP 6104 LBJ Freeway LLC (78), Perry & Associates Inc (74).
 (Nomes de dono ficam só nos arquivos de trabalho; nunca em tela nem em exportação.)
+
+# Depois de medir a área pelo desenho do lote (2026-11-24, terceira rodada)
+
+Regra aprovada: quando o cadastro não informa a área, usa-se a área do desenho do lote, calculada em State Plane Texas North Central, e o lote fica marcado "área medida no mapa". Quando o cadastro informa e a medida difere em mais de 10%, vale a do cadastro e o caso fica listado.
+
+- Lotes depois dos passos a), b) e c): 22720. Área do cadastro: 18019. Área medida no mapa: 4682. Sem área e sem desenho: 19.
+- Casos em que o cadastro difere do mapa em mais de 10% (mantida a do cadastro): 1404.
+- Atenção: 279 lotes medidos no mapa dividem o mesmo desenho com outra conta (condomínio ou conta dividida); a área medida é a do desenho inteiro.
+- **Passo d) refeito**: saem 3628 pela área menor que 3.000 sqft (1854 deles só agora, com a área medida no mapa) e 341 só pela largura menor que 25 pés. **Restam 18751**, dos quais 903 ficam marcados "lote pequeno" (3.000 a 4.000 sqft).
+- Lotes do "Grand Prairie Strata" que restam: 64.
+- **Passo e)**: lotes com valor de terra de até US$ 1.000 que ainda restam: **515** (eram 1.926).
+
+Amostra de 20 deles, ao acaso:
+
+| Conta | Descrição do lote | Cidade | Área (sqft) | Origem da área | Valor da terra (US$) | Código |
+|---|---|---|--:|---|--:|---|
+| 60113500850010000 | LAKESIDE 2ND INST BLK 85 TRI 109X116X79 | GRAND PRAIRIE | 3.746 | medida no mapa | 500 | C11 |
+| 007041000E0000100 | ENCLAVE AT ASH CREEK BLK E/7041 LT 0.1 ACS 1.4368 | DALLAS | 62.596 | cadastro | 100 | C11 |
+| 60113500660010000 | LAKESIDE 1 & 2 BLK 66 LT 1 | GRAND PRAIRIE | 4.303 | medida no mapa | 500 | C11 |
+| 28154500372050000 | MOUNTAIN CREEK TOWNHOUSES 2 ACS 4.065  COMMON GREEN | GRAND PRAIRIE | 563.572 | medida no mapa | 100 | C11 |
+| 160045300L00A0000 | BEAR CREEK RANCH PH II BLK L LT A ACS 1.263 | CEDAR HILL | 56.626 | cadastro | 100 | C11 |
+| 00000563440000000 | BLK 6315 LOT 004 70X175X360X166.36X100.29X82.72X 141 | DALLAS | 92.392 | cadastro | 100 | C11 |
+| 65055563010034300 | JOHN K HANKS ABST 555 PG 630 TR 3.43  ACS 0.320 | COMBINE | 13.939 | cadastro | 190 | C14 |
+| 281104600A0120000 | KIRBY CREEK VILLAGE SEC 9 BLK A LT 12 ACS 0.2396 NON | GRAND PRAIRIE | 10.454 | cadastro | 100 | C11 |
+| 00000815680490000 | BRAEBURN GLEN 3 BLK G/8571 PT LT 21 INSIDE 148.31FR  | DALLAS | 12.260 | cadastro | 700 | C11 |
+| 65059408010430000 | HENRY HARTER ABST 594 PG 080 TR 43 0.1805 AC | MESQUITE | 7.884 | cadastro | 500 | C11 |
+| 60113500670190000 | LAKESIDE 1 & 2 BLK 67 LT 19 | GRAND PRAIRIE | 4.699 | medida no mapa | 500 | C11 |
+| 327577200H06X0000 | SOUTH HAVEN BLK H LT 6X | IRVING | 13.472 | cadastro | 100 | C11 |
+| 60113500520170000 | LAKESIDE 1 & 2 BLK 52 LT 17 | GRAND PRAIRIE | 4.645 | medida no mapa | 500 | C11 |
+| 281155100F01X0000 | LAKE RIDGE COMMONS SOUTH BLK F LT 1X ACS 2.093 | GRAND PRAIRIE | 90.963 | medida no mapa | 100 | C11 |
+| 0061290035CAF0000 | TENISON VLG AT BUCKNER TER BLK 35/6129 COM AREA F AC | DALLAS | 19.406 | cadastro | 100 | C11 |
+| 140277000L0020000 | COUNTRY VILLAS REV REP BLK L TRACT 2 | CARROLLTON | 4.914 | medida no mapa | 100 | C11 |
+| 14107500200210000 | TWO WORLDS KELLER SPRINGS VILLAGE BLK 20 LOT 21 COMM | CARROLLTON | 4.799 | cadastro | 100 | C11 |
+| 60113500500160000 | LAKESIDE 1 & 2 BLK 50    LT 16 | GRAND PRAIRIE | 4.293 | medida no mapa | 500 | C11 |
+| 281448000A24A0000 | MEL-ROSE REVISED BLK A LT 24A ACS 0.277 | GRAND PRAIRIE | 12.066 | cadastro | 100 | C11 |
+| 26262650010660000 | HIDDEN FOREST ESTATES BLK 1 LT 66 ACS 8.925 | GARLAND | 388.773 | cadastro | 100 | C11 |
+
+Leitura da amostra de 20 (regra do usuário: aplicar o corte de valor só se pelo menos 18 forem claramente não construíveis):
+- Claramente não construíveis pela descrição: 11 ou 12 (5 do Lakeside; 2 "common green"; 1 "nonbuildable"; 2 lotes "X", padrão de área comum; 1 "com area").
+- Os outros 8 ou 9 têm valor simbólico (US$ 100 a 700) mas a descrição não diz por quê: terrenos de 0,18 a 8,9 acres, alguns com cara de sobra ou de área alagável.
+- **Conclusão: não chegou a 18; o corte de valor não foi aplicado.**
+- Proposta: acrescentar ao passo c) as expressões que apareceram aqui e ainda não estavam na lista ("common green", "com area", "nonbuildable"/"non-buildable", lote terminado em "X" como "LT 1X"), refazer e tirar nova amostra.

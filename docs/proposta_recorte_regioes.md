@@ -244,3 +244,30 @@ Cadastro completo das duas cidades baixado e guardado em `cache/cadastro/` (Coll
 | Mansfield · North Ridge Sub | Mansfield ISD | 849 | 37 | loteamento |  | $65.527 ± 14% |
 | Mansfield · Hillcrest. norte | Mansfield ISD | 690 | 35 | loteamento |  | $79.659 ± 38% |
 | Mansfield · Country Meadows | Mansfield ISD | 809 | 28 | loteamento |  | $111.677 ± 10% (setor inteiro) |
+## Glebas acima de 5 acres — Johnson e Rockwall (só parcelas com benfeitoria zero)
+
+| Condado | Código | O que é | 5 a 20 acres | Mais de 20 |
+|---|---|---|--:|--:|
+| Johnson | C1 | vago residencial | 47 | 54 |
+| Johnson | C3 | vago, maior parte residencial/rural | 182 | 36 |
+| Johnson | D1 | terra de pasto qualificada | 1384 | 3002 |
+| Johnson | D3 | lavoura qualificada | 269 | 946 |
+| Johnson | E4 | rural não agrícola, vago | 783 | 597 |
+| Rockwall | C1 | vago residencial | 118 | 39 |
+| Rockwall | C3 | lote fora de cidade | 27 | 5 |
+| Rockwall | D1 | terra agrícola qualificada | 211 | 231 |
+| Rockwall | E4 | rural não qualificada | 52 | 38 |
+
+Faltam: Kaufman e Hunt (o código está só no arquivo do rol, a baixar e ler), Ellis e Parker (sem código de uso; só aproximação) e Wise (sem fonte).
+
+## Lotes vagos isentos (código EX-), por tipo de dono — Collin e Denton
+
+| Tipo de dono | Collin | Denton |
+|---|--:|--:|
+| associação de moradores | 0 | 3400 |
+| empresa (construtora, loteadora ou investidora) | 0 | 899 |
+| entidade pública | 35 | 1197 |
+| igreja ou cemitério | 1 | 42 |
+| pessoa ou outro | 1 | 372 |
+
+Só o grupo "empresa" (899 lotes) receberia o motivo "isento em nome de construtora". Entidades públicas, associações e igrejas já saem no passo a), pelo dono. A classificação é por palavras no nome do dono e tem erro: precisa da conferência do usuário numa amostra antes de aplicar. (Nomes de dono ficam só nos arquivos de trabalho.)
