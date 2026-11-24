@@ -5,17 +5,24 @@ from comum import *
 import geopandas as gpd, pandas as pd
 warnings.filterwarnings("ignore")
 SVC = "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/28/query"
-def pagina(bbox, off):
+def pagina(bbox, off, n):
     q = dict(where="SFHA_TF='T'", geometry=",".join(map(str, bbox)), geometryType="esriGeometryEnvelope", inSR=4326, outSR=4326,
              spatialRel="esriSpatialRelIntersects", outFields="FLD_ZONE", returnGeometry="true", geometryPrecision=5,
-             resultOffset=off, resultRecordCount=1000, orderByFields="OBJECTID", f="geojson")
+             resultOffset=off, resultRecordCount=n, orderByFields="OBJECTID", f="geojson")
     url = SVC + "?" + urllib.parse.urlencode(q)
-    for t in range(6):
+    with urllib.request.urlopen(url, timeout=240) as r: return json.load(r)
+def baixar_recorte(bb):
+    """Baixa todos os polígonos de um recorte. O servidor da FEMA devolve erro 500 em páginas pesadas: nesse caso a página encolhe e tenta de novo."""
+    feats = []; off = 0; n = 500; falhas = 0
+    while True:
         try:
-            with urllib.request.urlopen(url, timeout=180) as r: return json.load(r)
+            fs = pagina(bb, off, n).get("features", [])
         except Exception as e:
-            time.sleep(5 * (t + 1)); err = e
-    raise err
+            falhas += 1
+            if falhas > 12: raise
+            n = max(25, n // 2); time.sleep(min(60, 5 * falhas)); continue
+        feats += fs; off += len(fs)
+        if len(fs) < n: return feats
 def main():
     u = gpd.read_file(DATA / "unidades.geojson"); x0, y0, x1, y1 = u.total_bounds
     dst = CACHE / "fema"; dst.mkdir(exist_ok=True, parents=True); n = 4; partes = []
@@ -24,10 +31,7 @@ def main():
             bb = (x0 + (x1 - x0) * i / n, y0 + (y1 - y0) * j / n, x0 + (x1 - x0) * (i + 1) / n, y0 + (y1 - y0) * (j + 1) / n)
             arq = dst / ("sfha_" + "_".join(f"{v:.3f}" for v in bb) + ".geojson")  # o nome leva o recorte, para o cache não servir a outra área
             if not arq.exists():
-                feats = []; off = 0
-                while True:
-                    d = pagina(bb, off); fs = d.get("features", []); feats += fs; off += len(fs)
-                    if len(fs) < 1000: break
+                feats = baixar_recorte(bb)
                 json.dump({"type": "FeatureCollection", "features": feats}, open(arq, "w"))
                 print(arq.name, len(feats), flush=True)
             g = gpd.read_file(arq)
