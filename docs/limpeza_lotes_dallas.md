@@ -1,0 +1,273 @@
+# Limpeza dos lotes vagos de Dallas County — para aprovação
+
+Fonte: DCAD, certificado de 2026 com suplementos (arquivos de 2026-11-09). Estudo exploratório: nada foi aplicado à base. Cada lote filtrado ficará marcado com o motivo; nada é apagado.
+
+Ponto de partida: **30419** lotes C11 (vago residencial) e **1090** lotes C14 ("terreno vago rural", menos de 5 acres), tratados juntos nos mesmos passos.
+
+## a) Dono: HOA, prefeitura, condado, estado, escola, distrito de água, concessionária, igreja
+
+Saem **5401**; restam **26108**.
+
+Amostra de 20 removidos (ao acaso):
+
+| Conta | Dono | Descrição do lote | Cidade | Área (sqft) | Valor da terra (US$) | Motivo |
+|---|---|---|---|--:|--:|---|
+| 26422010000000B00 | OAKS OF STONEY CREEK HOA | OAKS AT STONEY CREEK 2 SPLIT B ACS 0.1616 COMMON | GARLAND | 7.057 | 100 | HOA |
+| 00000169981000000 | DALLAS CITY OF ET AL | SOUTH SIDE BLK A/1694 SE PT LT 38 54X50 LENWAY & | DALLAS | 2.550 | 25.500 | CITY OF |
+| 00000279640000000 | DALLAS CITY OF | EDGEMONT BLK 21/3581 TRI ADJ LT 12 @ CREEK ADJ D | DALLAS | 0 | 40.500 | CITY OF |
+| 00000642175000000 | DALLAS CITY OF | CARVER HEIGHTS BLK 3/6889   LT 17 | DALLAS | 5.972 | 52.500 | CITY OF |
+| 00000424379000000 | TEALWOOD SQ HOME OWNERS | MUNGER SQUARE REV BLK D/5645  A PVT ST THRU BLK  | DALLAS | 25.154 | 100 | HOME OWNERS |
+| 28052501040240000 | ST JOHNS BAPTIST CHURCH | DALWORTH PARK BLK 104 LT 24 | GRAND PRAIRIE | 3.142 | 25.000 | BAPTIST |
+| 00000784240000000 | DALLAS CITY OF | FLORAL FARMS UNREC BLK 12/8002 LT 1 LESS ROW ACS | DALLAS | 7.710 | 690 | CITY OF |
+| 52007160000000A00 | JOBSON EAST HOMEOWNERS | MEADOWLAKE 2 SPLIT A ACS 0.07 ROW ISLAND | SUNNYVALE | 3.049 | 100 | HOMEOWNERS |
+| 28052501040210000 | ST JOHNS BAPTIST CHURCH | DALWORTH PARK BLK 104 LT 21 | GRAND PRAIRIE | 3.268 | 25.000 | BAPTIST |
+| 65022558010360000 | GARLAND CITY OF | REASON CRIST ABST 225 PG 580 TR 36 ACS .28 | GARLAND | 0 | 8.000 | CITY OF |
+| 00000762586000000 | DALLAS CITY OF ET AL | MEADOWMERE 3 BLK 7/7679 LT 11 | DALLAS | 7.474 | 142.500 | CITY OF |
+| 28175000000000700 | PARKVIEW HOMEOWNERS ASN | PARKVIEW PH 1A BLK 1 SPLIT 7 ACS 0.002 HOA COMMO | GRAND PRAIRIE | 87 | 100 | HOMEOWNERS |
+| 18007000110340000 | COPPELL CITY OF | WILLOWOOD 1  3.236 AC GREEN BELT | COPPELL | 100 | 100 | CITY OF |
+| 00000799759000000 | PRESTON TRAILS HOMEOWNERS | PRESTON TRAILS 1ST SEC BLK 1/8211 PT TR A ACS 0. | DALLAS | 27.016 | 100 | HOMEOWNERS |
+| 00000675679000000 | BETHEL BAPTIST MISSION | GALLINI BLK A/7112 N PT LTS 10 & 11 75X93.5 | DALLAS | 6.862 | 171.550 | BAPTIST |
+| 00000444553000100 | UNION PACIFIC RAILROAD COMPANY | OVERLOOK HEIGHTS BLK B/5827  PT LT 4  ACS 0.0115 | DALLAS | 505 | 100 | RAILROAD |
+| 00000783796000000 | DALLAS CITY OF | LOT 4 JAPONICO LANE TR | DALLAS | 8.100 | 730 | CITY OF |
+| 26080500000010000 | GARLAND CITY OF | CARNEY HEIGHTS LOT 1 | GARLAND | 0 | 48.000 | CITY OF |
+| 14105600020080000 | TRAFALGAR SQUARE HOMEOWNERS ASSOC | TRAFALGAR SQUARE BLK B COMMON AREA 0.0413 AC | CARROLLTON | 1.819 | 100 | HOMEOWNERS |
+| 00000222424000000 | DALLAS CITY OF ETAL | LINCOLN MANOR 2 BLK 22/2564 LT 41 & PT LT 40 | DALLAS | 3.953 | 27.670 | CITY OF |
+
+## b) Isenção total de imposto
+
+Saem **750**; restam **25358**.
+
+Amostra de 20 removidos (ao acaso):
+
+| Conta | Dono | Descrição do lote | Cidade | Área (sqft) | Valor da terra (US$) | Motivo |
+|---|---|---|---|--:|--:|---|
+| 65081374510120000 | GAMBLE BARNEY CEMETRY | WILLIAM J LEWIS ABST 813 PG 745 TR 12 | NO TOWN | 57.935 | 46.550 | CEMETERY |
+| 65147846010060300 | NORTH TEXAS TOLLWAY | JOHN M THOMAS ABST 1478 PG 460 TR 6.3 ACS 0.3988 | ROWLETT | 17.380 | 69.830 | OTHER PUBLIC PROPERTY |
+| 00000754717000000 | DART | OAK CLIFF PLANTATIONS BLK 2/7606 E 55FT LOT 11 | DALLAS | 0 | 12.000 | OTHER PUBLIC PROPERTY |
+| 32350500010060100 | IGLESIA EVANGELIC APOSTOLES Y PROF | NORTH OAKS BLK A E 59FT LTS 6 & 7 | IRVING | 0 | 85.000 | RELIGIOUS |
+| 00000622570000000 | SACP RC | SANTA MONICA PARK BLK 2/6664 LT 6 | DALLAS | 14.227 | 77.000 | RELIGIOUS |
+| 00000811248800000 | DALLAS CITY    OF | WOODBRIDGE 3 BLK 6/8439 ACS 1.406 FLOODWAY MANAG | DALLAS | 0 | 100 | CITY PROPERTY |
+| 00000224035000000 | DALLAS HOUSING ACQUISITION & DEV C | ELLINGTON PARK BLK 1/2615 LT 10 | DALLAS | 5.300 | 74.200 | OTHER PUBLIC PROPERTY |
+| 00000762220000000 | FIRST THOMPSON MBC | MEADOWMERE BLK 1/7676 LOT 10 | DALLAS | 4.000 | 95.000 | RELIGIOUS |
+| 00000800575000100 | ANOINTED LIFESTYLE MINISTRIES INC | PLEASANT VIEW PLANTATIONS BLK 8262 LT 1.1 ACS 1. | DALLAS | 46.479 | 72.020 | RELIGIOUS |
+| 00000281749000000 | LIVING LIFE HOLY TEMPLE | TRINITY HEIGHTS 2 BLK 6/3628 LT 6 | DALLAS | 7.275 | 100.000 | RELIGIOUS |
+| 00000682174000000 | DALLAS CITY    OF | COLONIA WEISENBERGER BLK 4/7138 LT 16 & 17 EXEMP | DALLAS | 22.991 | 247.500 | CITY PROPERTY |
+| 00000622648000000 | SACP RC | KELLY J BLK 5/6664 LT 15 | DALLAS | 7.791 | 63.000 | RELIGIOUS |
+| 00000215020000000 | TRUE LEE MISSIONARY | PARISH BLK A/2385 LT 7 | DALLAS | 7.305 | 70.000 | RELIGIOUS |
+| 00000621994000000 | SACP RC | LAKE JUNE REVISED BLK 30/6662 LT G | DALLAS | 9.213 | 37.500 | RELIGIOUS |
+| 00000546556000000 | CORPORATION OF EPISCOPAL | BLK G/6237 S/PT LOT 4 (EXEMPT 1966) 209.3FR JIM  | DALLAS | 20.308 | 62.500 | RELIGIOUS |
+| 360103000E0080000 | TEXAS LAND CONSERVANCY | CALUMET FARMS PH 1 BLK E LT 8-11 ACS 0.979 | LANCASTER | 42.645 | 9.810 | CHARITY |
+| 00000215026000000 | TRUE LEE MISSIONARY | PARISH BLK A/2385 LT 9 | DALLAS | 6.879 | 70.000 | RELIGIOUS |
+| 00000162487000000 | GREATER NEW ZION | REAVES PLACE LOT 12-57.96X113.2X50X131.58 PINE | DALLAS | 6.726 | 67.260 | RELIGIOUS |
+| 00000622546000000 | SACP RC | SANTA MONICA PARK BLK 1/6664 LT 12 | DALLAS | 13.971 | 77.000 | RELIGIOUS |
+| 00000762292000000 | DHADC | MEADOWMERE LOT 11 HART | DALLAS | 3.185 | 76.000 | OTHER PUBLIC PROPERTY |
+
+## c) Descrição: área comum, espaço aberto, drenagem, servidão etc.
+
+Saem **2638**; restam **22720**.
+
+Amostra de 20 removidos (ao acaso):
+
+| Conta | Dono | Descrição do lote | Cidade | Área (sqft) | Valor da terra (US$) | Motivo |
+|---|---|---|---|--:|--:|---|
+| 360755100K0400000 | MEGATEL HOMES III LLC | PLEASANT RUN ESTATES PH 1B BLK K LT 40 ACS 3.491 | LANCASTER | 153.322 | 100 | COMMON AREA |
+| 00000811157440000 | RUSSELL BILLY G & | CIMMARON RIDGE 1 BLK A/8432 NON-CONTIG ACS 0.072 | DALLAS | 0 | 100 | ALLEY |
+| 447760000D04X0000 | SUNSET LANDING AT BAYSIDE OWNERS | SUNSET LANDING @ BAYSIDE NORTH BLK D LT 4X ACS 0 | ROWLETT | 1.338 | 100 | COMMON AREA |
+| 381112500A0350000 | IRON HORSE VILLAGE RESI | IRON HORSE PHASE 1 BLK A LT 35 ACS 0.105 HOA LOT | MESQUITE | 1 | 100 | HOA |
+| 00000761476000000 | TRUNKO REALTY LLC THE | MOUNTAIN VALLEY ESTATES BLK 16/7667 LOT 56 WIN O | DALLAS | 10.005 | 60.000 | ALLEY |
+| 60224500000201100 | ZEPEDA DAMARIS A | VALLEY VIEW RANCH UNREC PT TR 20  SPLIT 11 ACS 0 | LANCASTER | 27.704 | 71.550 | ALLEY |
+| 14107220500750000 | TRAFALGAR SQUARE | TRAFALGAR SQUARE PH 7 BLK A TR 75 ACS 0.0323 CAL | CARROLLTON | 1.394 | 100 | COMMON AREA |
+| 00000796954000200 | PRESTONWOOD 1 A HOME | PRESTONWOOD 1 BLK A/8195 SPLIT 2  ACS 0.1529 COM | DALLAS | 6.660 | 100 | COMMON AREA |
+| 381615800H07X0000 | RIDGE RANCH MESQUITE | RIDGE RANCH PH 3 BLK H LT 7X ACS 0.26 OPEN SPACE | MESQUITE | 11.430 | 100 | OPEN SPACE |
+| 266281601101X0000 | RIVERSET RESIDENTIAL ASSOC INC | RIVERSET PH 1 BLK 11 LT 1X COMMON AREA | GARLAND | 3.375 | 100 | COMMON AREA |
+| 260825200A0000200 | CASTLEGLEN HOMES LLC | CASTLEGLEN ESTATES REP BLK A SPLIT 2  ACS 0.15 C | GARLAND | 6.534 | 100 | COMMON AREA |
+| 200521500A01X0000 | HIDDEN LAKES DESOTO | HIDDEN LAKES ESTATES BLK A LT 1X ACS 0.479 HOA O | DESOTO | 20.803 | 100 | HOA |
+| 240837500A26X0000 | GOODLAND TOWNHOMES LLC | GOODLAND TOWNHOMES BLK A  LT 26X   ACS 0.5847 AC | FARMERS BRANCH | 25.483 | 100 | COMMON AREA |
+| 26615500040000B00 | RALDON CORPORATION MC VLG | TWO WORLDS BROADWAY BLK 4 SPLIT B  ACS 0.0554CAL | GARLAND | 2.413 | 100 | COMMON AREA |
+| 322635501R03X0000 | LEGENDS CROSSING MASTER | LEGENDS CROSSING REV BLK 1R LT 3X ACS 8.307 OPEN | IRVING | 361.514 | 100 | OPEN SPACE |
+| 22115000000000E00 | OAKLEAF CROSSING HMOWNRS | OAKLEAF CROSSING SPLIT E ACS 0.0185 CALC COMMON  | DUNCANVILLE | 828 | 100 | COMMON AREA |
+| 160011300M01X0000 | ADDISON HILLS RESIDENTIAL | ADDISON HILLS BLK M LT 1X ACS 0.0156 OPEN SPACE | CEDAR HILL | 681 | 100 | OPEN SPACE |
+| 00000734718550000 | PARC DU LAC PROPERTY CORP | PARC DU LAC ESTATES BLK 24/7460 COMMON AREA # 2 | DALLAS | 769 | 100 | COMMON AREA |
+| 18005610000000B00 | RIVERCHASE OWNERS | RIVERCHASE ESTATES SPLIT B ACS 0.210 COMMON AREA | COPPELL | 9.148 | 100 | COMMON AREA |
+| 00000169546000000 | LUNA ISMAEL | ERVAY TERRACE BLK C/1687 PT LOT 6 73 5/6X52.5 BA | DALLAS | 4.028 | 36.250 | ALLEY |
+
+## d) Forma e tamanho — distribuição, antes de aplicar
+
+Dos 22720 lotes restantes, 18019 têm área no cadastro e 4701 não têm (a calcular pelo desenho do lote).
+
+Área dos que têm: mínimo 0 sqft; 5% abaixo de 1.763; 25% abaixo de 6.001; mediana 8.668; 75% abaixo de 20.037; 95% abaixo de 115.826; máximo 53.056.080.
+
+| Faixa de área | Lotes |
+|---|--:|
+| até 1.000 sqft | 465 |
+| 1.000 a 2.500 | 966 |
+| 2.500 a 3.000 | 350 |
+| 3.000 a 4.000 | 732 |
+| 4.000 a 5.000 | 901 |
+| 5.000 a 7.500 | 4008 |
+| 7.500 sqft a 0,25 acre | 3343 |
+| 0,25 a 0,5 acre | 3054 |
+| 0,5 a 1 acre | 1844 |
+| 1 a 5 acres | 1971 |
+| 5 a 20 acres | 297 |
+| mais de 20 acres | 88 |
+
+Largura (frente do lote): 11408 lotes têm a medida no cadastro; 502 têm menos de 25 pés.
+
+| Corte | Saem pela área | Saem pela largura menor que 25 pés (e não pela área) | Total que sai | Restam |
+|---|--:|--:|--:|--:|
+| área menor que 2.500 sqft ou largura menor que 25 pés | 1420 | 315 | 1735 | 20985 |
+| área menor que 3.000 sqft ou largura menor que 25 pés | 1774 | 290 | 2064 | 20656 |
+| área menor que 4.000 sqft ou largura menor que 25 pés | 2495 | 270 | 2765 | 19955 |
+
+## e) Valor — só para mostrar; nenhum corte aplicado
+
+Antes do passo d) havia 2616 lotes com valor de terra de até US$ 1.000. Aplicando o corte proposto no d) (3.000 sqft ou 25 pés), **restam 2039**.
+
+Amostra de 20 deles (ao acaso):
+
+| Conta | Dono | Descrição do lote | Cidade | Área (sqft) | Valor da terra (US$) | Motivo |
+|---|---|---|---|--:|--:|---|
+| 60113500100090000 | PERRY & ASSOCIATES INC | LAKESIDE 1 & 2 BLK 10 LOT 9 | GRAND PRAIRIE | 0 | 500 | valor até US$ 1.000 |
+| 60113500090020000 | PERRY & ASSOC INC | LAKESIDE 1 & 2 BLK 9 LOT 2 | GRAND PRAIRIE | 0 | 500 | valor até US$ 1.000 |
+| 60113500750310000 | NOVIN LOUIS MRS | LAKESIDE 1 & 2      LT 0031 | GRAND PRAIRIE | 0 | 500 | valor até US$ 1.000 |
+| 26309240080150000 | MCCORMICK KAREN | LA PRADA 8 BLK 8 PT LT 5 JURIS SPLIT-SEE 2630924 | GARLAND | 0 | 600 | valor até US$ 1.000 |
+| 00000791103320000 | OAK TREE VILLAGE | OAK TREE VILLAGE BLK A/8102  COMMON GREEN AREA # | DALLAS | 0 | 100 | valor até US$ 1.000 |
+| 60113500580030000 | GRAND PRAIRIE STRATA HOLDING | LAKESIDE 1 & 2 BLK 53 LT 03 | GRAND PRAIRIE | 0 | 500 | valor até US$ 1.000 |
+| 60113500690020000 | WILLE BEULAH MAE | LAKESIDE 1 & 2      LT 0002 | GRAND PRAIRIE | 0 | 500 | valor até US$ 1.000 |
+| 324412700L79R0000 | LAKES OF LAS COLINAS HOME | RIVERSIDE VILLAGE PH 2B REVISED BLK L  PT LT 79R | IRVING | 41.484 | 100 | valor até US$ 1.000 |
+| 00000635959000000 | JAMES CLARESE | BLK 6858 N PT TR 8 N PT TR 8 ACS 0.62 INSIDE 452 | DALLAS | 27.007 | 340 | valor até US$ 1.000 |
+| 60113500730100000 | GRAND PRAIRIE STRATA HOLDING | LAKESIDE 1 & 2 BLK 73 LT 10 | GRAND PRAIRIE | 0 | 500 | valor até US$ 1.000 |
+| 60113500780050000 | GRAND PRAIRIE STRATA HOLDING CO | LAKESIDE 1 & 2 BLK 78 LOT 5 | GRAND PRAIRIE | 0 | 500 | valor até US$ 1.000 |
+| 320155100A01X0000 | WALNUT-161 PROPERTIES LLC | BARCELONA ESTATES AMND BLK A LT 1X | IRVING | 0 | 100 | valor até US$ 1.000 |
+| 60113500120100000 | PERRY J C | LAKESIDE 1 & 2      LT 0010 | GRAND PRAIRIE | 0 | 500 | valor até US$ 1.000 |
+| 60113500370120000 | GRAND PRAIRIE STRATA HOLDING CO LP | LAKESIDE 1 & 2 BLK 37 LOT 12 | GRAND PRAIRIE | 0 | 500 | valor até US$ 1.000 |
+| 60113500720070000 | GRAND PRAIRIE STRATA HOLDING | LAKESIDE 1 & 2 BLK 72 LT 7 | GRAND PRAIRIE | 0 | 500 | valor até US$ 1.000 |
+| 60113500110130000 | PERRY & ASSOCIATES INC | LAKESIDE 1 & 2 BLK 11 LT 13 | GRAND PRAIRIE | 0 | 500 | valor até US$ 1.000 |
+| 420617400X0040000 | GREENVILLE DEVELOPMENT INC | CROSSING AT GREENVILLE BLK X LT 4  ACS 1.0105 | RICHARDSON | 42.610 | 100 | valor até US$ 1.000 |
+| 60113500060230000 | PERRY & ASSOCIATES INC | LAKESIDE 1 & 2 BLK 6 LT 23 | GRAND PRAIRIE | 0 | 500 | valor até US$ 1.000 |
+| 322601500A0010000 | WEEKLY HOMES L P | LE CHATEAU BLK A LT 1 | IRVING | 43.560 | 100 | valor até US$ 1.000 |
+| 60113500620080000 | GRAND PRAIRIE STRATA HOLDING CO LP | LAKESIDE 1 & 2 BLK 62 LOT 8 | GRAND PRAIRIE | 0 | 500 | valor até US$ 1.000 |
+
+## Estoque de construtora (marcar e contar separado; não remover)
+
+Critério usado: nome do dono com termo de construtora ou loteadora, ou 10 ou mais lotes do mesmo dono no mesmo loteamento.
+
+Em Dallas County, depois do corte do passo d): 4496 de 20656 lotes ficam marcados como de construtora ou loteadora.
+
+**Grand Prairie**: 1161 de 3161 lotes. Maiores donos:
+
+| Dono | Lotes | Loteamento mais comum |
+|---|--:|---|
+| GRAND PRAIRIE STRATA | 210 | LAKESIDE 1 & 2 |
+| GRAND PRAIRIE STRATA HOLDING | 171 | LAKESIDE 1 & 2 |
+| GRAND PRAIRIE STRATA HOLDING CO LP | 156 | LAKESIDE 1 & 2 |
+| GRAND PRAIRIE STRATA HOLDING CO LTD PS | 85 | LAKESIDE 1 & 2 |
+| PERRY & ASSOCIATES INC | 74 | LAKESIDE 1 & 2 |
+| MARSHALL GRAND P LLC | 61 | GRAND OAKS ESTATES |
+| PERRY J C | 55 | LAKESIDE 1 & 2 |
+| DR HORTON TEXAS LTD | 40 | PRESERVE AT FORUM |
+| PERRY & ASSOC INC | 40 | LAKESIDE 1 & 2 |
+| GRAND PRAIRIE STRATA HOLDING CO LTD | 32 | LAKESIDE 1 & 2 |
+| 161 TOWNHOMES LLC | 30 | 161 TOWNHOMES |
+| ANDERSON DOROTHY J | 25 | LAKESIDE 1 & 2 |
+
+## Amostra inversa: 20 lotes mantidos, ao acaso
+
+Mantidos depois de a), b), c), do corte proposto no d), fora os de construtora e os de até US$ 1.000: **15200**.
+
+| Conta | Dono | Descrição do lote | Cidade | Área (sqft) | Valor da terra (US$) | Motivo |
+|---|---|---|---|--:|--:|---|
+| 28021670000240000 | SKGP PROPERTIES LLC | CARRIER PARKWAY TOWNHOMES LT 24 ACS 0.157 | GRAND PRAIRIE | 0 | 50.000 | C11 |
+| 00000758494000000 | HLB ENTERPRISES LLC | KAITE WRIGHT BLK 1/7638 LT 2 | DALLAS | 13.521 | 75.000 | C11 |
+| 60147500000040000 | RAMON MARK A & | OAKHAVEN LT 4 | BALCH SPRINGS | 0 | 40.000 | C11 |
+| 00000335380000000 | MILLER GORGE | MISS CARRIE GILROY BLK C/4711 LT 16 | DALLAS | 3.868 | 110.000 | C11 |
+| 00000209059000000 | MONTERREY ENTERPRISES LTD | CLIFTON PLACE NO 2 BLK 18/2265 LT 10 ACS 0.1641  | DALLAS | 7.269 | 425.000 | C11 |
+| 28114500030190000 | AGUILAR MARCO & SAN JUANA | LAKE CREST 3 BLK C LOT 19 | GRAND PRAIRIE | 0 | 80.000 | C11 |
+| 87405500010010000 | INFANTE PEDRO & | INFANTE QUINONES BLK 1 LT 1 ACS 1.60 | NO TOWN | 69.696 | 104.000 | C11 |
+| 65035566010070000 | WALTERS GENE & | ROBERT CRAWFORD ABST 355 PG 660 TR 7 | LANCASTER | 99.317 | 66.120 | C14 |
+| 00000153457000000 | WILLIAMS TIFFANY | J D HERNDONS 3 BLK 1437 LT 23 | DALLAS | 7.100 | 99.400 | C11 |
+| 65068863010140200 | BLUITT ALFRED | TERRELL A JACKSON ABST 688 PG 630 N 1/2 TR 14 AC | WILMER | 11.238 | 16.860 | C14 |
+| 0088170000000S040 | WISTER INV INC | WHISPERING OAKS MH VILLAGE BLK 8817 SPACE 40 | DALLAS | 18.340 | 45.000 | C11 |
+| 60045600001190000 | ESTRADA CARLOS JR & | DOLLARS LOT 119 | NO TOWN | 8.233 | 28.000 | C11 |
+| 00000172525000000 | BONNER FLOYD | JENKINS & BROUGHTONS BLK 2/1731 LOT 3 | DALLAS | 3.325 | 33.250 | C11 |
+| 00000269269000000 | AHC LAKE CLIFF I LLC | PARK BLK B/3431 LOT 5 | DALLAS | 7.436 | 297.440 | C11 |
+| 00881700001414400 | FLORES GENARO RICO | PRESTIGE MHP  BLK 8817  TR 141.44 ACS 0.1077 AKA | DALLAS | 4.691 | 60.000 | C11 |
+| 00000257995000000 | AUSTRAL IRVING LLC | GEORGE J BRYAN REV BLK 151/3210 LT 16 & BLK 6/32 | DALLAS | 5.750 | 230.000 | C11 |
+| 65049912110080000 | BROWNLEE CLEO WELDON | WILLIAM GATLIN ABST 499 PG 121  S-1-D | HUTCHINS | 27.007 | 67.520 | C11 |
+| 28052501660180000 | WORTHINGTON MARY | DALWORTH PARK BLK 166  LT 18 | GRAND PRAIRIE | 0 | 8.500 | C11 |
+| 65034305510840000 | LOCHHEAD CAROLE A | WOODFIELD CASTEEL ABST 343 PG 055 TR 84  ACS  0. | MESQUITE | 3.006 | 4.000 | C11 |
+| 12026500000120000 | SA PROPERTIES A LLC | HARDIN LOT 12 81X220 | BALCH SPRINGS | 12.744 | 63.720 | C11 |
+
+
+# Conferências pedidas pelo usuário (2026-11-24, segunda rodada)
+
+## Passo e) — os lotes de até US$ 1.000 depois do corte de 3.000 sqft / 25 pés
+
+- Restam 1.926 (a contagem anterior, 2.039, era antes de excluir pela largura).
+- **1.569 deles não têm área no cadastro**, por isso escaparam do passo d). Quando a área é medida pelo desenho do lote, a maioria é minúscula (ver "Grand Prairie Strata" abaixo).
+- Valores: 1.467 valem exatamente US$ 500; 407 valem menos de US$ 250.
+- Leitura da amostra de 20 (ao acaso): 13 são do loteamento "Lakeside 1 & 2", em Grand Prairie (lotes de 25 × 50 pés, preço fixo de US$ 500); 1 é "common green"; 1 é lote "1X" (padrão de área comum);
+  1 é um triângulo de 0,038 acre; 1 é vaga de parque de casas móveis. Esses 17 são claramente não construíveis.
+  Os outros 3 a 5 são terrenos grandes com valor simbólico (ex.: 1,8 acre por US$ 100; 4,6 acres por US$ 110; 0,59 acre por US$ 100; 0,25 acre rural por US$ 550):
+  provavelmente área alagável ou comum, mas **não é claro só pela descrição**.
+- **Pela regra do usuário (pelo menos 18 de 20 claramente não construíveis), o corte de valor NÃO deve ser aplicado ainda.**
+  Proposta: primeiro medir a área pelo desenho do lote onde o cadastro não informa e refazer o passo d); depois tirar nova amostra dos que sobrarem.
+
+## "Grand Prairie Strata" (dono concentrado)
+
+- 727 lotes em cinco grafias do mesmo dono (Grand Prairie Strata / Strata Holding / Holding Co LP / Holding Co Ltd / Ltd PS).
+- Loteamento: "Lakeside 1 & 2" (679), "Lakeside 2nd Inst" (43), "Lakeside 1st Inst" (3).
+- Tamanho: o cadastro não informa área; a medida típica é 25 × 50 pés (579 lotes). Pelo desenho do lote: mediana de 1.148 sqft (entre 1.117 e 1.201).
+- Valor da terra: US$ 500 em 723 dos 727 lotes, por "preço fixo". Zoneamento no cadastro: "Agriculture".
+- Desde quando o dono é o mesmo (ano da última transferência): 2007 a 2012 em 522 lotes; 2018 e 2019 em 198.
+- Onde ficam: sudoeste de Grand Prairie, em torno de latitude 32,669 e longitude −96,991.
+- Leitura: é um loteamento antigo "de papel", de lotes minúsculos, juntado aos poucos por um só dono. **Não é terreno comprável para construir**; com a área medida pelo desenho, todos saem no passo d).
+
+## Donos com mais de 50 lotes vagos em Dallas County (lista para revisão)
+
+19 donos, 1.946 lotes. Os maiores: Bloomfield Homes LP (228), Grand Prairie Strata nas cinco grafias (cerca de 700), AR & PR LLC (105), Texas SFI Partnership 63 Ltd (96), TSHH LLC (93),
+DR Horton Texas Ltd (90), Solterra Texas 3 LLC (85), Porter P LLC (84), KB Home Lone Star Inc (78), DCP 6104 LBJ Freeway LLC (78), Perry & Associates Inc (74).
+(Nomes de dono ficam só nos arquivos de trabalho; nunca em tela nem em exportação.)
+
+# Depois de medir a área pelo desenho do lote (2026-11-24, terceira rodada)
+
+Regra aprovada: quando o cadastro não informa a área, usa-se a área do desenho do lote, calculada em State Plane Texas North Central, e o lote fica marcado "área medida no mapa". Quando o cadastro informa e a medida difere em mais de 10%, vale a do cadastro e o caso fica listado.
+
+- Lotes depois dos passos a), b) e c): 22720. Área do cadastro: 18019. Área medida no mapa: 4682. Sem área e sem desenho: 19.
+- Casos em que o cadastro difere do mapa em mais de 10% (mantida a do cadastro): 1404.
+- Atenção: 279 lotes medidos no mapa dividem o mesmo desenho com outra conta (condomínio ou conta dividida); a área medida é a do desenho inteiro.
+- **Passo d) refeito**: saem 3628 pela área menor que 3.000 sqft (1854 deles só agora, com a área medida no mapa) e 341 só pela largura menor que 25 pés. **Restam 18751**, dos quais 903 ficam marcados "lote pequeno" (3.000 a 4.000 sqft).
+- Lotes do "Grand Prairie Strata" que restam: 64.
+- **Passo e)**: lotes com valor de terra de até US$ 1.000 que ainda restam: **515** (eram 1.926).
+
+Amostra de 20 deles, ao acaso:
+
+| Conta | Descrição do lote | Cidade | Área (sqft) | Origem da área | Valor da terra (US$) | Código |
+|---|---|---|--:|---|--:|---|
+| 60113500850010000 | LAKESIDE 2ND INST BLK 85 TRI 109X116X79 | GRAND PRAIRIE | 3.746 | medida no mapa | 500 | C11 |
+| 007041000E0000100 | ENCLAVE AT ASH CREEK BLK E/7041 LT 0.1 ACS 1.4368 | DALLAS | 62.596 | cadastro | 100 | C11 |
+| 60113500660010000 | LAKESIDE 1 & 2 BLK 66 LT 1 | GRAND PRAIRIE | 4.303 | medida no mapa | 500 | C11 |
+| 28154500372050000 | MOUNTAIN CREEK TOWNHOUSES 2 ACS 4.065  COMMON GREEN | GRAND PRAIRIE | 563.572 | medida no mapa | 100 | C11 |
+| 160045300L00A0000 | BEAR CREEK RANCH PH II BLK L LT A ACS 1.263 | CEDAR HILL | 56.626 | cadastro | 100 | C11 |
+| 00000563440000000 | BLK 6315 LOT 004 70X175X360X166.36X100.29X82.72X 141 | DALLAS | 92.392 | cadastro | 100 | C11 |
+| 65055563010034300 | JOHN K HANKS ABST 555 PG 630 TR 3.43  ACS 0.320 | COMBINE | 13.939 | cadastro | 190 | C14 |
+| 281104600A0120000 | KIRBY CREEK VILLAGE SEC 9 BLK A LT 12 ACS 0.2396 NON | GRAND PRAIRIE | 10.454 | cadastro | 100 | C11 |
+| 00000815680490000 | BRAEBURN GLEN 3 BLK G/8571 PT LT 21 INSIDE 148.31FR  | DALLAS | 12.260 | cadastro | 700 | C11 |
+| 65059408010430000 | HENRY HARTER ABST 594 PG 080 TR 43 0.1805 AC | MESQUITE | 7.884 | cadastro | 500 | C11 |
+| 60113500670190000 | LAKESIDE 1 & 2 BLK 67 LT 19 | GRAND PRAIRIE | 4.699 | medida no mapa | 500 | C11 |
+| 327577200H06X0000 | SOUTH HAVEN BLK H LT 6X | IRVING | 13.472 | cadastro | 100 | C11 |
+| 60113500520170000 | LAKESIDE 1 & 2 BLK 52 LT 17 | GRAND PRAIRIE | 4.645 | medida no mapa | 500 | C11 |
+| 281155100F01X0000 | LAKE RIDGE COMMONS SOUTH BLK F LT 1X ACS 2.093 | GRAND PRAIRIE | 90.963 | medida no mapa | 100 | C11 |
+| 0061290035CAF0000 | TENISON VLG AT BUCKNER TER BLK 35/6129 COM AREA F AC | DALLAS | 19.406 | cadastro | 100 | C11 |
+| 140277000L0020000 | COUNTRY VILLAS REV REP BLK L TRACT 2 | CARROLLTON | 4.914 | medida no mapa | 100 | C11 |
+| 14107500200210000 | TWO WORLDS KELLER SPRINGS VILLAGE BLK 20 LOT 21 COMM | CARROLLTON | 4.799 | cadastro | 100 | C11 |
+| 60113500500160000 | LAKESIDE 1 & 2 BLK 50    LT 16 | GRAND PRAIRIE | 4.293 | medida no mapa | 500 | C11 |
+| 281448000A24A0000 | MEL-ROSE REVISED BLK A LT 24A ACS 0.277 | GRAND PRAIRIE | 12.066 | cadastro | 100 | C11 |
+| 26262650010660000 | HIDDEN FOREST ESTATES BLK 1 LT 66 ACS 8.925 | GARLAND | 388.773 | cadastro | 100 | C11 |
+
+Leitura da amostra de 20 (regra do usuário: aplicar o corte de valor só se pelo menos 18 forem claramente não construíveis):
+- Claramente não construíveis pela descrição: 11 ou 12 (5 do Lakeside; 2 "common green"; 1 "nonbuildable"; 2 lotes "X", padrão de área comum; 1 "com area").
+- Os outros 8 ou 9 têm valor simbólico (US$ 100 a 700) mas a descrição não diz por quê: terrenos de 0,18 a 8,9 acres, alguns com cara de sobra ou de área alagável.
+- **Conclusão: não chegou a 18; o corte de valor não foi aplicado.**
+- Proposta: acrescentar ao passo c) as expressões que apareceram aqui e ainda não estavam na lista ("common green", "com area", "nonbuildable"/"non-buildable", lote terminado em "X" como "LT 1X"), refazer e tirar nova amostra.

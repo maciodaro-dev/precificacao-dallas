@@ -1,3 +1,44 @@
+<<<<<<< HEAD
+
+## Collin (Collin CAD) — testado, completo
+- Serviço oficial: https://services2.arcgis.com/uXyoacYrZTPTKD3R/arcgis/rest/services/CCAD_Parcel_Feature_Set/FeatureServer/4 (441.840 lotes, dados de 2026-10-23, rol em andamento de 2027; polígonos; 2.000 por página).
+- Arquivos: `parcels_with_appraisal_data_R5.zip` (170 MB) e `LiteDatabaseCurrent.zip` (86 MB), ligados em https://collincad.org/category/gis-downloads/ (não baixados por inteiro).
+- Lote vago residencial: `propCategoryCode` = `C1` com `propSubType` = `Land`: 28.257 (C1 total 33.080; 4.823 são comerciais).
+- Ficam de fora: `D1` agrícola (6.078), `D2` (1.018), `E` rural (6.450), C1 comercial (4.823). Não há categoria de estoque de construtora nesta camada.
+- Campos: `landSizeAcres`, `landSizeSqft`, `situsCity`, `situsZip`; valor do ano corrente vem vazio (rol em andamento): usar `prevValLand` (2026).
+- Uso: "para uso público, fins informativos".
+
+## Dallas (DCAD) — arquivos oficiais fornecidos pelo usuário (2026-11-24)
+- O site www.dallascad.org derruba a conexão a partir deste ambiente. O usuário baixou os arquivos pelo navegador e compartilhou pelo OneDrive:
+  `DCAD2026_CURRENT.ZIP` (certificado de 2026 com mudanças suplementares, arquivos de 2026-11-09), `DCAD2027_CURRENT.zip` (2027, dono mais atual),
+  `PARCEL_GEOM.zip` (mapa dos lotes de 2026-11-24, 697.871 lotes; campo `Acct`) e `PARCEL2026.zip` (mapa de 2026-07-20). Todos recebidos. Dos 30.419 lotes C11, 30.295 casam com o mapa pelo `GIS_PARCEL_ID`. Eles substituem a camada da Prefeitura de Dallas e o arquivo estadual de 2025.
+- Documentos lidos dentro do zip: `SPTD_CD_XREF.pdf` (lista de códigos, de 2011-07-25), `TABLES AND FIELD NAMES.xlsx` (2026-07-08).
+- Código (campo `SPTD_CODE` na conta, `SPTD_CD` em cada seção de terra):
+  - **`C11` = "SFR - VACANT LOTS/TRACTS" (lote ou gleba vaga residencial): 30.419 contas em 2026** (29.570 na divisão residencial, 849 na comercial).
+  - Ficam de fora: `C12` vago comercial (24.636), `C13` vago industrial (1.988), `C14` rural vago com menos de 5 acres (1.090), `O10` lotes vagos em estoque de construtora (3.781), `D10` terra agrícola qualificada (2.329), `D20` terra não qualificada.
+- Campos úteis: `LAND.CSV` traz, por seção de terra, `AREA_SIZE` + `AREA_UOM_DESC` (pés quadrados ou acres), `VAL_AMT` (valor da terra), `ZONING`, `AG_USE_IND` e `ACCT_AG_VAL_AMT`;
+  `ACCOUNT_APPRL_YEAR.CSV` traz `LAND_VAL`, `LAND_AG_EXEMPT` (valor de MERCADO da terra com isenção agrícola) e `AG_USE_VAL` (valor de produtividade), além de cidade e ISD da conta;
+  `ACCOUNT_INFO.CSV` traz dono, endereço, descrição legal e `GIS_PARCEL_ID` (liga ao mapa); `TOTAL_EXEMPTION.CSV` traz o motivo da isenção total.
+- Os dois valores da terra agrícola existem: 2.574 contas têm valor de mercado da terra agrícola e 2.573 delas têm também o valor de produtividade. Entre as seções de terra dos lotes C11, só 13 têm uso agrícola.
+- Isenção total entre os C11: 3.333 contas (prefeitura 2.267, religiosa 592, outro órgão público 194, escola 84, caridade 74, estado 46, cemitério 26, condado 24).
+- Tamanho: das 30.506 seções de terra dos C11, 21.491 em pés quadrados, 4.612 em acres, 4.403 sem unidade; 3.259 sem tamanho (a calcular pelo desenho do lote).
+
+## Denton (Denton CAD) — testado, completo
+- Serviço do condado com dados do CAD: https://gis.dentoncounty.gov/arcgis/rest/services/Parcels_FC/MapServer/0 (385.908 lotes, rol em andamento de 2027; polígonos).
+- Lote vago residencial: `stateCodes` = `C1` (campo com vários códigos separados por vírgula): 35.779, mais 3.033 "C1,PLAN".
+- Ficam de fora: `C2` (4.171, provável vago comercial, sem descrição), `C3` (1.383), `D1` agrícola (6.157), `E4` rural (7.514). Sem código de construtora entre os mais frequentes.
+- Campos: `legalAcreage`, `land_sqft`, `situsCity`, `situsZip`, `cityTaxingUnitName`, `exemptions`.
+
+## Rockwall (Rockwall CAD) — testado, com ressalva
+- Contorno oficial dos lotes: https://services6.arcgis.com/9DACe4o4mozvuNJW/arcgis/rest/services/rockwall_parcels/FeatureServer/0 (57.173; só o identificador).
+- Código de uso: só numa cópia do cadastro publicada pela Prefeitura de McLendon-Chisholm (não oficial, pode ficar desatualizada): https://services1.arcgis.com/xP7qm9UK33sxaaxK/arcgis/rest/services/Rockwall_County_Parcels/FeatureServer/0 (56.243 lotes, valores de 2026).
+- Lote vago residencial: `statecd` = `C1` (5.484), mais `C3` lotes fora de cidade (472), `C4` com vista para a água (47), `C5` à beira d'água (49).
+- Ficam de fora: `C2` comercial (662), `O1` estoque de construtora (589), `D1` agrícola (721), `E4` rural (218).
+
+## Vale para todos
+- O código C1 não é limpo: inclui áreas comuns de condomínio, faixas verdes e lotes de drenagem (descrição legal com "COMMON AREA", "LOT CA-1", valor de terra de US$ 50 a 100). É preciso filtrar por valor de terra, isenção e palavras na descrição legal.
+- Collin, Denton e Rockwall já mostram o rol de 2027 em andamento; os valores fechados são os de 2026.
+=======
 # Cadastro de terrenos dos condados — levantamento das fontes (em andamento, 2026-11-24)
 
 Nada foi coletado nem usado ainda. Este arquivo registra o que foi testado, condado a condado, para o usuário aprovar antes do uso.
@@ -23,3 +64,24 @@ Fonte estadual (TxGIO StratMap Land Parcels, versão 2026-09-25): o servidor de 
 
 ## Wise (Wise CAD) — sem fonte confirmada
 - O site é um portal que carrega os arquivos por um serviço do fornecedor; não foi possível testar. O mapa antigo só tem o contorno dos lotes, sem código nem tamanho.
+>>>>>>> e1143f302f65923b8157c79aa30d9f546e54fdf8
+
+## Kaufman (Kaufman CAD) — testado, completo
+- Rol certificado de 2026 (exportado em 2026-07-17): https://kaufman-cad.org/wp-content/uploads/2026/07/2026-Certified-Export-Files.zip (72 MB, texto de largura fixa PACS; leiaute em https://kaufman-cad.org/wp-content/uploads/2026/04/Appraisal-Export-Layout-8.0.33-2026.xlsx). `land_state_cd` nas colunas 2742–2751; `legal_acreage` 1660–1675; situs 1040–1149; linhas válidas têm 9.714 caracteres.
+- Contorno dos lotes: https://services9.arcgis.com/26s7bQ5Q51Gt4J2Q/arcgis/rest/services/KaufmanCADWebService/FeatureServer/0 (100.687 lotes, rol de trabalho de 2027; sem código de uso; junção por `prop_id`).
+- Lote vago residencial: `C1` na cidade (2.737), `C1H` na cidade com condomínio (475), `C3` fora de cidade (2.087), `C3H` fora de cidade com condomínio (837): cerca de 6.136.
+- Ficam de fora: `OL` terra de estoque de construtora sem benfeitoria (7.419), `D1` agrícola (7.265), `E5` rural não desenvolvido (3.509), `C2` vago comercial (1.028), `M2` área pública, isentos `X..`.
+
+## Hunt (Hunt CAD) — testado, mas o rol com códigos é de 2024
+- Rol certificado de 2024 (exportado em 2025-06-24) numa pasta pública do SharePoint ligada no portal de dados do distrito (https://hunt-cad-open-data-hunt-cad.hub.arcgis.com/); exige o cookie do link de compartilhamento. Não há rol de 2025 ou 2026 público: seria preciso pedir ao distrito.
+- Contorno dos lotes: https://services3.arcgis.com/GIIiqmeq0npieHV9/arcgis/rest/services/Hunt_CAD_Parcel_Data/FeatureServer/4 (70.995; só `PROP_ID`). Endereço: CSV "2024 Certified Property Info" do portal.
+- Lote vago residencial: `C1` "lote vago em cidade ou rural/residencial (loteamentos)": 10.008 propriedades (2024).
+- Ficam de fora: `O` estoque (617), `O2` loteamento não desenvolvido (3), `C3` vago comercial (1.110), `D1` agrícola (13.590), `E4` terra não qualificada como agrícola (3.513).
+
+## Ellis (Ellis CAD) — arquivos oficiais inacessíveis daqui
+- Rol de 2026 e arquivos de mapa estão no Google Drive do distrito (ligados em https://www.elliscad.com/appraisal-data-export e /gis-data); todos os downloads devolveram "cota excedida". Mesmo leiaute PACS de Kaufman; a lista de códigos de Ellis não foi vista.
+- Alternativa que funciona: cópia publicada pela Prefeitura de Red Oak, https://services7.arcgis.com/URKkSE6MsjA926qB/arcgis/rest/services/Ellis_County_Parcel_Ownership/FeatureServer/0 (101.505 lotes, valores de 2026, atualizada por volta de 2026-08-20). **Sem código de uso do solo.**
+- Aproximação possível: sem benfeitoria e com valor de terra (17.928); com até 2 acres (12.544); com número de lote (10.002). O campo `marketarea` ajuda a tirar comercial (1.463), área comum de condomínio (983), isentos (352) e ruas (147). Não separa agrícola nem estoque de construtora.
+
+## NCTCOG — não há fonte regional de lotes
+- Só existe o mapa de uso do solo de 2020, em manchas (não lote a lote). Serve no máximo como conferência grosseira.
