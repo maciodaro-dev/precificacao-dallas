@@ -48,11 +48,18 @@ A faixa de investimento volta a entrar na nota, comparada a um custo de referên
 - Mostrar ao lado do custo de referência qual tamanho foi usado na conta.
 
 ### Mais de uma casa
-- A faixa de investimento é comparada com o custo total de terra do projeto. O total depende de como a terra é comprada.
-- Lote pronto = sim: total = custo de referência de um lote (na faixa de tamanho do… — **a mensagem do usuário chegou cortada neste ponto; falta o resto desta regra e o caso "lote pronto = não".**
+A faixa de investimento é comparada com o custo total de terra do projeto. O total depende de como a terra é comprada:
+- Lote pronto = sim: total = custo de referência de um lote (na faixa de tamanho do lote) × nº de casas.
+- Lote pronto = não (gleba para dividir): total = custo de referência de uma gleba só.
+  Tamanho da gleba = nº de casas × tamanho alvo do lote ÷ 0,70 (30% de perda com rua, drenagem e recuos; premissa editável).
+  Usar o valor por sqft da faixa de tamanho da GLEBA, não o do lote.
+- Lote pronto = indiferente: calcular os dois e mostrar lado a lado.
+- "Em sequência" não muda a conta: a terra é comprada de uma vez.
+- Mostrar sempre o total e o custo de terra por casa (total ÷ nº de casas). O custo por casa é o que alimenta o "peso do terreno no preço".
+- O custo de lotear não entra aqui; continua na etapa 4. Deixar isso escrito na tela, para a gleba não parecer mais barata do que é.
 
 ## 4. Pontos em aberto
 
-- Completar a regra do custo total com mais de uma casa (mensagem cortada).
+- Com "lote pronto = indiferente", qual dos dois totais entra na nota (proposta: o menor dos dois, mostrando ambos).
 - Fonte: o arquivo estadual (TxGIO) recusou download automático; o campo de valor da terra dele não distingue mercado de produtividade.
   Os cadastros dos condados costumam trazer os dois; depende do levantamento por condado.
