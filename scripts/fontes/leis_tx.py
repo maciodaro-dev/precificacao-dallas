@@ -9,7 +9,7 @@ import sys, pathlib, csv; sys.path.insert(0, str(pathlib.Path(__file__).resolve(
 from comum import *
 URLP = "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025_48.csv"
 SB15 = "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00015F.htm"
-COND_300K = {"Collin", "Denton", "Dallas", "Tarrant"}  # condados da área com > 300 mil hab. no censo 2020
+COND_300K = {"Collin", "Denton", "Dallas", "Tarrant"}  # condados da DFW com mais de 300 mil hab. no censo 2020 (os outros 7 ficam abaixo)
 def main():
     pop = {}
     for r in csv.DictReader(open(baixar(URLP, CACHE / "popest.csv"), encoding="latin-1")):
@@ -19,7 +19,7 @@ def main():
     for u in unidades():
         g = u["place_geoid"]; b = dict(unidade_id=u["unidade_id"])
         if g and g in pop:
-            p20, p25 = pop[g]; cond = any(c in u["condados_pct"] for c in COND_300K) or u["cidade"] in ("Dallas",)
+            p20, p25 = pop[g]; cond = any(c in u["condados_pct"] for c in COND_300K)
             cob = p20 > 150000 and cond; perto = abs(p20 - 150000) / 150000 < 0.02
             L.append({**b, "criterio_id": "c06", "metrica": "coberta_sb15", "valor": "sim" if cob else "nao", "unidade_medida": "sim/nao", "url": SB15,
                       "data_referencia": HOJE, "confianca": "media" if perto else "alta",

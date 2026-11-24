@@ -4,7 +4,11 @@ from comum import *
 import openpyxl
 ANO = 2026
 URL = "https://tea.texas.gov/school-and-district-leaders/accountability/academic-accountability/performance-reporting/2026-statewide-multi-year-ratings-spreadsheet.xlsx"
-def norm(n): return re.sub(r"[^A-Z]", "", n.upper().replace("INDEPENDENT SCHOOL DISTRICT", "ISD"))
+# nomes que o TEA abrevia de forma diferente do Census
+APELIDOS = {"EAGLEMOUNTAINSAGINAWISD": "EAGLEMTSAGINAWISD"}
+def norm(n):
+    k = re.sub(r"[^A-Z]", "", n.upper().replace("INDEPENDENT SCHOOL DISTRICT", "ISD").replace("CISD", "ISD").replace("CONSOLIDATED ISD", "ISD"))
+    return APELIDOS.get(k, k)
 def main():
     wb = openpyxl.load_workbook(baixar(URL, CACHE / "tea" / f"multi{ANO}.xlsx"), read_only=True)
     ws = wb.worksheets[0]; it = ws.iter_rows(values_only=True); cab = [str(c).replace("\n", " ") if c else "" for c in next(it)]

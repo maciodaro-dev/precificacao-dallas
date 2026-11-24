@@ -54,8 +54,8 @@ function explicar(l: Linha, pr: Projeto, base: Base, edicoes: Record<string, Edi
   };
 }
 
-interface PR { base: Base; geo: GeoJSON.FeatureCollection; projeto: Projeto; edicoes: Record<string, Edicao>; linhas: Linha[]; conflitos: { id: string }[]; eleger: (id: string) => void; irParaEtapa2: () => void; refazer: () => void; abrirExpert: () => void; detalhar: (id: string) => void }
-export function ResultadoLeigo({ base, geo, projeto, edicoes, linhas, conflitos, eleger, irParaEtapa2, refazer, abrirExpert, detalhar }: PR) {
+interface PR { seletor: React.ReactNode; total: number; base: Base; geo: GeoJSON.FeatureCollection; projeto: Projeto; edicoes: Record<string, Edicao>; linhas: Linha[]; conflitos: { id: string }[]; eleger: (id: string) => void; irParaEtapa2: () => void; refazer: () => void; abrirExpert: () => void; detalhar: (id: string) => void }
+export function ResultadoLeigo({ seletor, total, base, geo, projeto, edicoes, linhas, conflitos, eleger, irParaEtapa2, refazer, abrirExpert, detalhar }: PR) {
   const [dois, setDois] = useState<string[]>([]); const [pagina, setPagina] = useState(false); const [sel, setSel] = useState<string | null>(null);
   const top = linhas.slice(0, 5); const faixa = base.faixas.find((f) => f.id === projeto.faixa_id)?.nome ?? ""; const pt = pesoTerreno(base, projeto);
   const frase = resumo(projeto.leigo ?? {}, faixa); const marcar = (id: string) => setDois((d) => (d.includes(id) ? d.filter((x) => x !== id) : d.length < 2 ? [...d, id] : [d[1], id]));
@@ -78,7 +78,8 @@ export function ResultadoLeigo({ base, geo, projeto, edicoes, linhas, conflitos,
           <button onClick={() => setPagina(!pagina)}>{pagina ? "Voltar ao resultado" : "Resumo de uma página"}</button>{pagina && <button className="primario" onClick={() => window.print()}>Imprimir</button>}</div></div>
       {conflitos.length > 0 && <p className="aviso nao-imprimir">{conflitos.length === 1 ? "Um parâmetro foi ajustado" : `${conflitos.length} parâmetros foram ajustados`} manualmente no modo completo e não {conflitos.length === 1 ? "segue" : "seguem"} mais as respostas simples: {conflitos.map((c) => PARAMS.find((p) => p.id === c.id)?.nome).join(", ")}. O ajuste manual foi mantido; abra o modo completo para rever.</p>}
       {pt.pct !== null && <p className={pt.alerta ? "aviso" : "nota"}><b>Peso do terreno no preço da casa: {pt.pct.toFixed(0)}%.</b> {pt.conta}.{pt.alerta && " Acima de 25%, o terreno costuma pesar demais: reveja o investimento, o número de casas ou o preço de venda."}</p>}
-      <p className="nota">Nenhuma unidade é eliminada: as {linhas.length} aparecem em ordem de nota. Aqui estão as 5 melhores.{semDadoGeral.length > 0 && ` Ainda não há dado para avaliar: ${semDadoGeral.join(", ")}; essas respostas não entraram na nota.`}</p>
+      <div className="barra nao-imprimir">{seletor}<span className="resumo">mostrando {linhas.length} de {total} unidades</span></div>
+      <p className="nota">Nenhuma unidade é eliminada: todas aparecem em ordem de nota. Aqui estão as 5 melhores do recorte escolhido; a posição é a geral, na DFW inteira.{semDadoGeral.length > 0 && ` Ainda não há dado para avaliar: ${semDadoGeral.join(", ")}; essas respostas não entraram na nota.`}</p>
       <div className="cartoes">{top.map((l) => cartao(l, pagina))}</div>
       {!pagina && <>
         <h2>Comparação de duas unidades</h2>

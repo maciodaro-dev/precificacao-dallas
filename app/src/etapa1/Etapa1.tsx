@@ -24,11 +24,18 @@ export default function Etapa1(p: Props) {
   const [aba, setAba] = useState<"ranking" | "mapa" | "unidades" | "projetos">("ranking");
   const [sel, setSel] = useState<string | null>(projeto.caminho === "cidade" ? projeto.unidade_eleita_id : null);
   const [comparar, setComparar] = useState<string[]>([]); const [camada, setCamada] = useState("nota");
-  const linhas = useMemo(() => avaliar(base, projeto, edicoes), [base, projeto, edicoes]);
+  const todas = useMemo(() => avaliar(base, projeto, edicoes), [base, projeto, edicoes]);
+  // Recorte: só muda o que é exibido (mapa, ranking, 5 melhores). A nota e a posição geral não mudam.
+  const [recorte, setRecorte] = useState("dfw");
+  const linhas = useMemo(() => todas.filter((l) => recorte === "dfw" || (recorte.startsWith("c:") ? l.u.condado === recorte.slice(2) : l.u.lado === recorte)), [todas, recorte]);
+  const condados = useMemo(() => [...new Set(base.unidades.map((u) => u.condado))].sort(), [base]);
+  const seletor = <label className="escolher">Mostrar <select id="recorte" value={recorte} onChange={(e) => setRecorte(e.target.value)}>
+    <option value="dfw">DFW inteira</option><option value="dallas">Lado Dallas</option><option value="fort_worth">Lado Fort Worth</option>
+    <optgroup label="Por condado">{condados.map((c) => <option key={c} value={"c:" + c}>{c}</option>)}</optgroup></select></label>;
   const ps = ativos(projeto); const conflitos = projeto.leigo ? mesclar(deduzir(projeto.leigo), projeto.parametros).conflitos : [];
   const alternar = (id: string) => setComparar((c) => (c.includes(id) ? c.filter((x) => x !== id) : c.length < 4 ? [...c, id] : c));
   const eleger = (id: string) => p.alterar({ unidade_eleita_id: id, eleita_em: new Date().toISOString().slice(0, 10) });
-  const linhaSel = linhas.find((l) => l.u.unidade_id === sel) ?? null;
+  const linhaSel = todas.find((l) => l.u.unidade_id === sel) ?? null;
   const concluirPerguntas = (r: RespostasLeigo, faixa: string) => { p.alterar({ modo: "leigo", caminho: null, faixa_id: faixa, ...projetoDoLeigo(r, projeto) }); setPasso("leigo"); };
   const abrirExpert = () => { if (!projeto.parametros) p.alterar({ modo: "expert", caminho: null, parametros: Object.fromEntries(Object.entries(deduzir({})).map(([k, v]) => [k, { ...v, origem: v.origem === "sempre" ? "sempre" : "padrao" }])), n_casas: projeto.n_casas ?? 1, preco_venda: projeto.preco_venda ?? { min: 300000, max: 500000 } }); else p.alterar({ modo: "expert", caminho: null }); setPasso("expert"); };
 
@@ -51,10 +58,10 @@ export default function Etapa1(p: Props) {
       </ol>}
       {passo === "perguntas" && <Perguntas projeto={projeto} concluir={concluirPerguntas} cancelar={() => setPasso(projeto.leigo ? "leigo" : "inicio")} />}
       {passo === "leigo" && <>
-        <ResultadoLeigo base={base} geo={p.geo} projeto={projeto} edicoes={edicoes} linhas={linhas} conflitos={conflitos} eleger={eleger} irParaEtapa2={p.irParaEtapa2} refazer={() => setPasso("perguntas")} abrirExpert={abrirExpert} detalhar={setSel} />
+        <ResultadoLeigo seletor={seletor} total={todas.length} base={base} geo={p.geo} projeto={projeto} edicoes={edicoes} linhas={linhas} conflitos={conflitos} eleger={eleger} irParaEtapa2={p.irParaEtapa2} refazer={() => setPasso("perguntas")} abrirExpert={abrirExpert} detalhar={setSel} />
         {linhaSel && <Detalhe key={linhaSel.u.unidade_id} base={base} projeto={projeto} edicoes={edicoes} linha={linhaSel} editar={p.editar} fechar={() => setSel(null)} eleger={eleger} irParaEtapa2={p.irParaEtapa2} emComparacao={false} alternar={() => {}} />}
       </>}
-      {passo === "cidade" && <Cidade base={base} projeto={projeto} edicoes={edicoes} linhas={linhas} sel={sel} setSel={setSel} editar={p.editar} eleger={eleger} irParaEtapa2={p.irParaEtapa2} />}
+      {passo === "cidade" && <Cidade base={base} projeto={projeto} edicoes={edicoes} linhas={todas} sel={sel} setSel={setSel} editar={p.editar} eleger={eleger} irParaEtapa2={p.irParaEtapa2} />}
       {passo === "expert" && <Expert base={base} projeto={projeto} alterar={p.alterar} verResultado={() => setPasso("ranking")} voltarLeigo={() => setPasso("perguntas")} />}
       {passo === "ranking" && <main id="resultado">
         <div className="cab-passo"><div><h1>Resultado: ranking completo</h1>
@@ -67,7 +74,7 @@ export default function Etapa1(p: Props) {
               <button key={k} className={aba === k ? "ativo" : ""} onClick={() => setAba(k)}>{n}</button>)}
           </div>
           {aba === "mapa" && <label className="escolher">Camada <select id="camada" value={camada} onChange={(e) => setCamada(e.target.value)}><option value="nota">Nota final</option>{ps.map((d) => <option key={d.id} value={d.id}>{d.nome}</option>)}</select></label>}
-          <span className="resumo">{linhas.length} unidades</span>
+          {seletor}<span className="resumo">{linhas.length} de {todas.length} unidades</span>
           <div className="exportar">
             <button onClick={() => exportarXlsx(base, projeto, linhas, edicoes)}>Exportar .xlsx</button>
             <button onClick={() => exportarCsv(base, projeto, linhas, edicoes, "ranking")}>Ranking .csv</button>
@@ -76,7 +83,7 @@ export default function Etapa1(p: Props) {
         </div>
         {aba === "ranking" && <Tabela params={[...ps].sort((x, y) => (linhas[0]?.porCriterio[y.id]?.peso ? 1 : 0) - (linhas[0]?.porCriterio[x.id]?.peso ? 1 : 0))} projeto={projeto} linhas={linhas} sel={sel} setSel={setSel} comparar={comparar} alternar={alternar} />}
         {aba === "mapa" && <Mapa geo={p.geo} linhas={linhas} sel={sel} setSel={setSel} eleita={projeto.unidade_eleita_id} camada={camada} nomeCamada={PARAMS.find((x) => x.id === camada)?.nome} />}
-        {aba === "unidades" && <CompararUnidades base={base} projeto={projeto} edicoes={edicoes} linhas={linhas.filter((l) => comparar.includes(l.u.unidade_id))} remover={alternar} />}
+        {aba === "unidades" && <CompararUnidades base={base} projeto={projeto} edicoes={edicoes} linhas={todas.filter((l) => comparar.includes(l.u.unidade_id))} remover={alternar} />}
         {aba === "projetos" && <CompararProjetos base={base} projetos={p.projetos} edicoes={edicoes} />}
         <FontesUsadas base={base} edicoes={edicoes} unidades={base.unidades.map((u) => u.unidade_id)} chaves={ps.map((d) => d.chave).filter((k): k is string => !!k)} />
         {linhaSel && aba !== "unidades" && aba !== "projetos" &&

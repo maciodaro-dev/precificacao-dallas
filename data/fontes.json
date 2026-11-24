@@ -13,7 +13,7 @@
   "redistribuicao": "sim",
   "termos_url": "https://www.census.gov/about/policies/citation.html",
   "verificacao": "regra geral de obras federais; não reli a página de termos nesta sessão",
-  "criterios": "unidades, mapa",
+  "criterios": "unidades, mapa, lado Dallas / Fort Worth",
   "alternativa": ""
  },
  {
@@ -154,20 +154,20 @@
  },
  {
   "id": "comptroller",
-  "nome": "Tax Rates and Levies",
+  "nome": "Tax Rates and Levies 2025",
   "orgao": "Texas Comptroller",
   "url": "https://comptroller.texas.gov/taxes/property-tax/rates/",
-  "script": "(a escrever)",
+  "script": "scripts/fontes/comptroller.py",
   "periodicidade": "anual",
-  "situacao": "bloqueado",
-  "obs": "o site recusa acesso automático (erro 403); exige download manual das planilhas",
+  "situacao": "ok",
+  "obs": "alíquotas de cidade, ISD, condado e distritos de hospital e faculdade que cobrem o condado inteiro; não inclui MUD, PID nem ESD",
   "licenca": "Informação pública do Estado do Texas",
   "uso_comercial": "a confirmar",
   "redistribuicao": "a confirmar",
   "termos_url": "https://comptroller.texas.gov/taxes/property-tax/rates/",
-  "verificacao": "não verificado: o site recusou acesso automático",
-  "criterios": "c24 property tax",
-  "alternativa": "Appraisal districts de cada condado (informação pública)"
+  "verificacao": "arquivos baixados do site do Comptroller em 2026-11-24; termos de reutilização não lidos",
+  "criterios": "24 imposto total",
+  "alternativa": "Appraisal districts dos 11 condados"
  },
  {
   "id": "dps_fbi",
@@ -219,23 +219,6 @@
   "verificacao": "não verificado",
   "criterios": "c26 seguro",
   "alternativa": ""
- },
- {
-  "id": "planilha_usuario",
-  "nome": "Planilha Calculadora de Custos de Casa DFW",
-  "orgao": "Usuário",
-  "url": "",
-  "script": "scripts/fontes/planilha_usuario.py",
-  "periodicidade": "sob demanda",
-  "situacao": "ok",
-  "obs": "valores aproximados do usuário; confiança baixa",
-  "licenca": "Dado privado do usuário",
-  "uso_comercial": "decisão do dono",
-  "redistribuicao": "não (privado)",
-  "termos_url": "",
-  "verificacao": "—",
-  "criterios": "c24 property tax (provisório); segurança e mobilidade em texto",
-  "alternativa": "Substituir pela alíquota oficial; num produto, fica só na conta do dono"
  },
  {
   "id": "manual",

@@ -7,7 +7,7 @@ export default function Mapa({ geo, linhas, sel, setSel, eleita, camada = "nota"
   const div = useRef<HTMLDivElement>(null); const mapa = useRef<L.Map | null>(null); const camadaRef = useRef<L.GeoJSON | null>(null);
   useEffect(() => {
     if (!div.current || mapa.current) return;
-    const m = L.map(div.current, { preferCanvas: true }).setView([32.95, -96.75], 9);
+    const m = L.map(div.current, { preferCanvas: true }).setView([32.85, -97.05], 8);
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: "© OpenStreetMap", maxZoom: 16, opacity: 0.6 }).addTo(m);
     mapa.current = m; return () => { m.remove(); mapa.current = null; };
   }, []);
@@ -15,6 +15,7 @@ export default function Mapa({ geo, linhas, sel, setSel, eleita, camada = "nota"
     const m = mapa.current; if (!m) return; camadaRef.current?.remove();
     const por = new Map(linhas.map((l) => [l.u.unidade_id, l]));
     camadaRef.current = L.geoJSON(geo, {
+      filter: (f) => por.has(f.properties.unidade_id),
       style: (f) => { const l = por.get(f!.properties.unidade_id); const id = f!.properties.unidade_id;
         return { fillColor: cor(!l ? null : camada === "nota" ? l.nota : (l.porCriterio[camada]?.nota ?? null)), fillOpacity: 0.7, color: id === sel ? "#111" : id === eleita ? "#1d4ed8" : "#fff", weight: id === sel || id === eleita ? 3 : 0.8 }; },
       onEachFeature: (f, lyr) => { const l = por.get(f.properties.unidade_id);
@@ -22,6 +23,9 @@ export default function Mapa({ geo, linhas, sel, setSel, eleita, camada = "nota"
         lyr.on("click", () => setSel(f.properties.unidade_id)); },
     }).addTo(m);
   }, [geo, linhas, sel, eleita, setSel, camada, nomeCamada]);
+  // ao trocar o recorte, enquadra o que está sendo mostrado
+  const n = linhas.length;
+  useEffect(() => { const b = camadaRef.current?.getBounds(); if (mapa.current && b?.isValid()) mapa.current.fitBounds(b, { padding: [10, 10] }); }, [n]);
   return (
     <div className="mapa-caixa">
       <div ref={div} className="mapa" />

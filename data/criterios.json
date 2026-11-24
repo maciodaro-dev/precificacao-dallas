@@ -224,12 +224,15 @@
   "fonte_planejada": "OSRM / OpenStreetMap até 5 polos (premissa P-001)",
   "cobertura": "coletado",
   "aux": [
+   "polo_mais_proximo",
    "min_downtown_dallas",
    "min_legacy_plano",
    "min_las_colinas",
    "min_telecom_corridor",
    "min_dfw_airport",
-   "mobilidade_texto"
+   "min_downtown_fort_worth",
+   "min_alliance",
+   "min_arlington"
   ]
  },
  {
@@ -266,9 +269,7 @@
   "fonte_planejada": "Texas DPS UCR / FBI Crime Data Explorer",
   "cobertura": "pendente",
   "correlacionado": true,
-  "aux": [
-   "seguranca_texto"
-  ]
+  "aux": []
  },
  {
   "id": "c23",
@@ -292,9 +293,13 @@
   "metrica": "aliquota_total",
   "unidade_medida": "% do valor",
   "direcao": "menor",
-  "fonte_planejada": "Provisório: planilha do usuário (aproximado). Definitivo: Texas Comptroller / appraisal districts; TCEQ para MUD",
+  "fonte_planejada": "Texas Comptroller, Tax Rates and Levies (cidade + ISD + condado + distritos do condado inteiro); MUD/PID conferidos lote a lote",
   "cobertura": "coletado",
   "aux": [
+   "aliquota_cidade",
+   "aliquota_isd",
+   "aliquota_condado",
+   "aliquota_distritos_condado",
    "mud_pid"
   ]
  },

@@ -22,7 +22,7 @@ def main():
     for i in range(n):
         for j in range(n):
             bb = (x0 + (x1 - x0) * i / n, y0 + (y1 - y0) * j / n, x0 + (x1 - x0) * (i + 1) / n, y0 + (y1 - y0) * (j + 1) / n)
-            arq = dst / f"sfha_{i}_{j}.geojson"
+            arq = dst / ("sfha_" + "_".join(f"{v:.3f}" for v in bb) + ".geojson")  # o nome leva o recorte, para o cache não servir a outra área
             if not arq.exists():
                 feats = []; off = 0
                 while True:

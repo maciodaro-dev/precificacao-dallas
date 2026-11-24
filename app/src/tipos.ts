@@ -6,7 +6,7 @@ export type Direcao = "maior" | "menor" | "configuravel";
 
 export interface Unidade {
   unidade_id: string; nome: string; tipo: "cidade_isd" | "nao_incorporado"; cidade: string; place_geoid: string;
-  isd_id: string; isd_nome: string; condado: string; condado_fips: string; condados_pct: string;
+  isd_id: string; isd_nome: string; condado: string; condado_fips: string; condados_pct: string; /** lado da área metropolitana; só recorta a exibição */ lado?: "dallas" | "fort_worth";
   acres_terra: number; pct_cidade: number | null; lat: number; lon: number; fonte: string;
 }
 export interface Criterio {
