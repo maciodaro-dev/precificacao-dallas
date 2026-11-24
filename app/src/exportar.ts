@@ -8,7 +8,7 @@ export function tabelas(base: Base, p: Projeto, linhas: Linha[], edicoes: Record
   const defs = ativos(p);
   const ranking: L[] = linhas.map((l) => {
     const r: L = { posicao: l.posicao, unidade_id: l.u.unidade_id, unidade: l.u.nome, tipo: l.u.tipo, condado: l.u.condado, isd: l.u.isd_nome, regiao_considerada: l.recorte?.texto ?? "região inteira",
-      nota: l.nota === null ? null : Math.round(l.nota * 10) / 10, com_dado_pct: Math.round(l.cobertura * 100), parametros_com_dado: l.avaliados, parametros_em_uso: l.emUso, nao_atende: (l.falhas ?? []).map((f) => `${f.nome} (${f.valor}; alvo ${f.alvo})`).join("; ") };
+      nota: l.nota === null ? null : Math.round(l.nota * 10) / 10, com_dado_pct: Math.round(l.cobertura * 100), parametros_com_dado: l.avaliados, parametros_em_uso: l.emUso, poucos_dados: l.poucosDados ? "sim" : "nao", nao_atende: (l.falhas ?? []).map((f) => `${f.nome} (${f.valor}; alvo ${f.alvo})`).join("; ") };
     for (const d of defs) { const x = l.porCriterio[d.id]; r[`${d.nome} (valor, ${d.um || "sim/não"})`] = x?.texto ?? (x?.bruto == null ? null : x.bruto / (d.fator ?? 1)); r[`${d.nome} (nota)`] = x?.nota ?? "sem dado"; if (x?.esc === "cidade") r[`${d.nome} (escala)`] = "dado da cidade inteira"; }
     return r;
   });

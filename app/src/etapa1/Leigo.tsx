@@ -59,8 +59,8 @@ function explicar(l: Linha, pr: Projeto, base: Base, edicoes: Record<string, Edi
   };
 }
 
-interface PR { seletor: React.ReactNode; total: number; base: Base; geo: GeoJSON.FeatureCollection; projeto: Projeto; edicoes: Record<string, Edicao>; linhas: Linha[]; conflitos: { id: string }[]; eleger: (id: string) => void; irParaEtapa2: () => void; voltar: () => void; abrirExpert: () => void; detalhar: (id: string) => void }
-export function ResultadoLeigo({ seletor, total, base, geo, projeto, edicoes, linhas, conflitos, eleger, irParaEtapa2, voltar, abrirExpert, detalhar }: PR) {
+interface PR { seletor: React.ReactNode; total: number; insuficientes: number; base: Base; geo: GeoJSON.FeatureCollection; projeto: Projeto; edicoes: Record<string, Edicao>; linhas: Linha[]; conflitos: { id: string }[]; eleger: (id: string) => void; irParaEtapa2: () => void; voltar: () => void; abrirExpert: () => void; detalhar: (id: string) => void }
+export function ResultadoLeigo({ seletor, total, insuficientes, base, geo, projeto, edicoes, linhas, conflitos, eleger, irParaEtapa2, voltar, abrirExpert, detalhar }: PR) {
   const [dois, setDois] = useState<string[]>([]); const [pagina, setPagina] = useState(false); const [sel, setSel] = useState<string | null>(null);
   const top = linhas.slice(0, 5); const faixa = base.faixas.find((f) => f.id === projeto.faixa_id)?.nome ?? ""; const pt = pesoTerreno(base, projeto);
   const frase = resumo(projeto.leigo ?? {}, faixa); const marcar = (id: string) => setDois((d) => (d.includes(id) ? d.filter((x) => x !== id) : d.length < 2 ? [...d, id] : [d[1], id]));
@@ -85,7 +85,7 @@ export function ResultadoLeigo({ seletor, total, base, geo, projeto, edicoes, li
       {conflitos.length > 0 && <p className="aviso nao-imprimir">{conflitos.length === 1 ? "Um parâmetro foi ajustado" : `${conflitos.length} parâmetros foram ajustados`} manualmente no modo especialista e não {conflitos.length === 1 ? "segue" : "seguem"} mais as respostas do modo guiado: {conflitos.map((c) => PARAMS.find((p) => p.id === c.id)?.nome).join(", ")}. O ajuste manual foi mantido; abra o modo especialista para rever.</p>}
       <AvisoCobertura base={base} projeto={projeto} edicoes={edicoes} guiado />
       {pt.min !== null && <p className={pt.alerta ? "aviso" : "nota"} id="peso-terreno"><b>Peso do terreno no preço da casa: de {pt.min.toFixed(0)}% a {pt.max!.toFixed(0)}%.</b> Conta: {pt.conta}. {pt.oQueFazer}</p>}
-      <div className="barra nao-imprimir">{seletor}<span className="resumo">mostrando {linhas.length} de {total} unidades</span></div>
+      <div className="barra nao-imprimir">{seletor}<span className="resumo">{linhas.length} regiões comparáveis de {total}{insuficientes > 0 && ` · ${insuficientes} ficaram de fora desta lista por terem dados insuficientes para comparar (veja no modo especialista)`}</span></div>
       <p className="nota">Nenhuma unidade é eliminada: todas aparecem em ordem de nota. Aqui estão as 5 melhores do recorte escolhido; a posição é a geral, na DFW inteira.</p>
       <div className="cartoes">{top.map((l) => cartao(l, pagina))}</div>
       {!pagina && <>
