@@ -63,6 +63,7 @@ export default function App() {
     <div className="app">
       <header>
         <div className="marca"><img src="./marca/mark.png" alt="" onError={(e) => { e.currentTarget.style.display = "none"; }} /><b className="csd">CSD</b><i className="tools">Tools</i> <span>Formação de preço · Dallas–Fort Worth</span></div>
+        <p className="lema">Não é sobre fazer mais. É sobre fazer melhor.</p>
         <div className="projeto">
           <label>Projeto
             <select value={projeto.projeto_id} onChange={(e) => trocarProjeto(e.target.value)}>
