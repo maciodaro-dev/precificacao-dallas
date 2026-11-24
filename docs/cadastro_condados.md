@@ -11,7 +11,7 @@
 ## Dallas (DCAD) — arquivos oficiais fornecidos pelo usuário (2026-11-24)
 - O site www.dallascad.org derruba a conexão a partir deste ambiente. O usuário baixou os arquivos pelo navegador e compartilhou pelo OneDrive:
   `DCAD2026_CURRENT.ZIP` (certificado de 2026 com mudanças suplementares, arquivos de 2026-11-09), `DCAD2027_CURRENT.zip` (2027, dono mais atual),
-  `PARCEL_GEOM.zip` e `PARCEL2026.zip` (mapa dos lotes; ainda não recebidos). Eles substituem a camada da Prefeitura de Dallas e o arquivo estadual de 2025.
+  `PARCEL_GEOM.zip` (mapa dos lotes de 2026-11-24, 697.871 lotes; campo `Acct`) e `PARCEL2026.zip` (mapa de 2026-07-20). Todos recebidos. Dos 30.419 lotes C11, 30.295 casam com o mapa pelo `GIS_PARCEL_ID`. Eles substituem a camada da Prefeitura de Dallas e o arquivo estadual de 2025.
 - Documentos lidos dentro do zip: `SPTD_CD_XREF.pdf` (lista de códigos, de 2011-07-25), `TABLES AND FIELD NAMES.xlsx` (2026-07-08).
 - Código (campo `SPTD_CODE` na conta, `SPTD_CD` em cada seção de terra):
   - **`C11` = "SFR - VACANT LOTS/TRACTS" (lote ou gleba vaga residencial): 30.419 contas em 2026** (29.570 na divisão residencial, 849 na comercial).
