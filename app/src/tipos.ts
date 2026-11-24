@@ -38,6 +38,13 @@ export interface Tamanho { modo: "maior" | "menor" | "faixa"; min: number; max: 
 /** peso: quanto o critério conta na nota (1 = normal). */
 export interface Resposta { /** critério em uso */ ativo?: boolean; /** índice do subcritério escolhido */ opcao?: number | null; v?: number | string | null; min?: number | null; max?: number | null; obrigatorio?: boolean; peso?: number | null; data?: string }
 
+export type Peso = "baixo" | "medio" | "alto";
+/** Um parâmetro do motor da etapa 1. alvo null = indiferente / não se aplica. origem = pergunta do modo leigo que o deduziu, "manual" ou "perfil:<nome>". */
+export interface ParamResp { alvo: { valor?: string; min?: number; max?: number } | null; peso: Peso; origem: string; ajustado?: boolean }
+export interface RespostasLeigo { casas?: "1" | "2a4" | "5a10" | "mais10"; construcao?: "simultaneo" | "sequencia"; preco?: number; vender_rapido?: boolean; valorizacao?: boolean; comecar_logo?: boolean; agua_esgoto?: boolean; escola?: boolean }
+/** Combinação do modo expert salva com nome, para reutilizar em outros projetos. Dado privado do dono. */
+export interface PerfilSalvo { perfil_id: string; dono_id: string; nome: string; criado_em: string; parametros: Record<string, ParamResp>; n_casas: number; construcao: "simultaneo" | "sequencia"; preco_venda: { min?: number; max?: number } | null; faixa_id: string }
+
 /** Registro central. Nasce na etapa 1 e acumula terrenos, casas, pilha de custos e cronograma. */
 export interface Projeto {
   /** Dono do registro. Todo dado privado tem dono; hoje só existe "local" (uso próprio, sem login). */
@@ -46,6 +53,14 @@ export interface Projeto {
   faixa_id: string; perfil_origem: string; pesos: Record<string, number>; tamanho: Tamanho; filtros: Filtros;
   /** Como o lugar é definido: "cidade" = o usuário já sabe onde quer construir; "criterios" = o lugar sai dos critérios. */
   caminho?: "cidade" | "criterios" | null;
+  /** Modo de entrada usado por último. Os dois gravam no mesmo conjunto de parâmetros abaixo. */
+  modo?: "leigo" | "expert" | null;
+  /** Parâmetros lidos pelo motor (src/parametros.ts). */
+  parametros?: Record<string, ParamResp>;
+  /** Entradas de cálculo: nº de casas, forma de construir e preço de venda pretendido. "sequencia" faz a etapa 6 calcular a terra parada entre uma casa e outra. */
+  n_casas?: number; construcao?: "simultaneo" | "sequencia"; preco_venda?: { min?: number; max?: number } | null;
+  /** Respostas das perguntas simples, guardadas para refazer a dedução. */
+  leigo?: RespostasLeigo;
   /** Critérios definidos (sim/não ou número), por id de src/definicoes.ts. Substituem os pesos. */
   respostas?: Record<string, Resposta>;
   unidade_eleita_id: string | null; eleita_em: string | null;

@@ -1,0 +1,95 @@
+import { useState } from "react";
+import type { Base, Edicao, Projeto, RespostasLeigo } from "../tipos";
+import type { Linha } from "../ranking";
+import { indicador } from "../ranking";
+import { PERGUNTAS, RESPOSTAS_PADRAO, resumo, type Pergunta } from "../leigo";
+import { PARAMS, PESOS, ativos, pesoDe, pesoTerreno } from "../parametros";
+import { cor, fmt } from "../formato";
+import Mapa from "./Mapa";
+import FontesUsadas from "../Fontes";
+
+const valorDe = (q: Pergunta, r: RespostasLeigo, faixa: string | null): string => {
+  if (q.id === "faixa") return faixa ?? ""; const v = (r as Record<string, unknown>)[q.id];
+  if (v === undefined) return q.padrao; return typeof v === "boolean" ? (v ? "sim" : "nao") : String(v);
+};
+/** Uma pergunta por tela. Só o investimento no terreno é obrigatório; as demais já vêm com o padrão marcado. */
+export function Perguntas({ projeto, concluir, cancelar }: { projeto: Projeto; concluir: (r: RespostasLeigo, faixa: string) => void; cancelar: () => void }) {
+  const [r, setR] = useState<RespostasLeigo>({ ...RESPOSTAS_PADRAO, ...projeto.leigo });
+  const [faixa, setFaixa] = useState<string | null>(projeto.leigo ? projeto.faixa_id : null);
+  const [i, setI] = useState(0);
+  const lista = PERGUNTAS.filter((q) => !q.so_se || q.so_se(r)); const q = lista[Math.min(i, lista.length - 1)]; const atual = valorDe(q, r, faixa);
+  const escolher = (v: string) => { if (q.id === "faixa") setFaixa(v); else setR({ ...r, [q.id]: ["vender_rapido", "valorizacao", "comecar_logo", "agua_esgoto", "escola"].includes(q.id) ? v === "sim" : q.id === "preco" ? Number(v) : v }); };
+  const ultima = i >= lista.length - 1; const pode = q.id !== "faixa" || !!faixa;
+  return (
+    <div className="pergunta">
+      <div className="progresso"><span style={{ width: `${(100 * (i + 1)) / lista.length}%` }} /></div>
+      <p className="passo-n">Pergunta {i + 1} de {lista.length}{q.obrigatoria ? " · obrigatória" : " · opcional, já com uma resposta sugerida"}</p>
+      <h1>{q.texto}</h1>
+      <div className="opcoes">{q.opcoes.map((o) => <button key={o.valor} id={`q-${q.id}-${o.valor}`} className={atual === o.valor ? "ativo" : ""} aria-pressed={atual === o.valor} onClick={() => escolher(o.valor)}><b>{o.rotulo}</b>{o.apoio && <span>{o.apoio}</span>}</button>)}</div>
+      <p className="ajuda">{q.ajuda}</p>
+      <div className="nav-perg">
+        <button onClick={() => (i === 0 ? cancelar() : setI(i - 1))}>← {i === 0 ? "Voltar" : "Anterior"}</button>
+        {!ultima && faixa && <button onClick={() => concluir(r, faixa)}>Pular para o resultado</button>}
+        <button className="primario grande" disabled={!pode} onClick={() => (ultima ? concluir(r, faixa!) : setI(i + 1))}>{ultima ? "Ver resultado →" : "Próxima →"}</button>
+      </div>
+      {!pode && <p className="nota">Escolha uma faixa de investimento para continuar.</p>}
+    </div>
+  );
+}
+
+function explicar(l: Linha, pr: Projeto, base: Base, edicoes: Record<string, Edicao>) {
+  const ps = ativos(pr).sort((a, b) => PESOS[pesoDe(pr, b.id)] - PESOS[pesoDe(pr, a.id)]);
+  const ok = ps.filter((p) => l.porCriterio[p.id]?.nota === 100); const semDado = ps.filter((p) => l.porCriterio[p.id] && l.porCriterio[p.id].nota === null && l.porCriterio[p.id].peso > 0);
+  const lista = (xs: string[]) => (xs.length <= 1 ? xs.join("") : xs.slice(0, -1).join(", ") + " e " + xs[xs.length - 1]);
+  const val = (id: string) => { const x = l.porCriterio[id]; const p = PARAMS.find((y) => y.id === id)!; return x?.texto ?? (x?.bruto == null ? "" : fmt(x.bruto / (p.fator ?? 1), p.um === "US$" || p.um === "US$/ano" ? p.um : p.um === "%" ? "%" : p.um)); };
+  const forte = ok.find((p) => ["max", "min", "intervalo", "letra"].includes(p.forma)) ?? ok[0];
+  const f = l.falhas ?? [];
+  const prazo = indicador(base, edicoes, l.u.unidade_id, "c08|prazo_aprovacao_dias");
+  return {
+    porque: ok.length ? `Atende ${ok.length} das ${ps.filter((p) => l.porCriterio[p.id]?.peso > 0).length} respostas que têm dado: ${lista(ok.slice(0, 3).map((p) => p.leigo))}.` : "Não atende por inteiro nenhuma das suas respostas; aparece porque as outras unidades atendem menos.",
+    forte: forte ? `${forte.leigo[0].toUpperCase() + forte.leigo.slice(1)}${val(forte.id) ? ` (${val(forte.id)})` : ""}.` : "Nenhum destaque entre as suas respostas.",
+    atencao: f.length ? `${f[0].leigo[0].toUpperCase() + f[0].leigo.slice(1)}: ${f[0].valor}; você pediu ${f[0].alvo}.` : semDado.length ? `Faltam dados sobre ${lista(semDado.slice(0, 3).map((p) => p.leigo))}.` : "Nenhum entre as suas respostas.",
+    nao: f.map((x) => x.leigo), semDado: semDado.length,
+    prazo: prazo?.v != null ? `Prazo de aprovação nesta cidade: ${fmt(prazo.v, "dias")} (dado de ${prazo.ref}).` : `Prazo de aprovação: sem dado da cidade. Estimativa geral: ${pr.leigo?.comecar_logo === false ? "6 a 12 meses ou mais" : "1 a 3 meses"}.`,
+  };
+}
+
+interface PR { base: Base; geo: GeoJSON.FeatureCollection; projeto: Projeto; edicoes: Record<string, Edicao>; linhas: Linha[]; conflitos: { id: string }[]; eleger: (id: string) => void; irParaEtapa2: () => void; refazer: () => void; abrirExpert: () => void; detalhar: (id: string) => void }
+export function ResultadoLeigo({ base, geo, projeto, edicoes, linhas, conflitos, eleger, irParaEtapa2, refazer, abrirExpert, detalhar }: PR) {
+  const [dois, setDois] = useState<string[]>([]); const [pagina, setPagina] = useState(false); const [sel, setSel] = useState<string | null>(null);
+  const top = linhas.slice(0, 5); const faixa = base.faixas.find((f) => f.id === projeto.faixa_id)?.nome ?? ""; const pt = pesoTerreno(base, projeto);
+  const frase = resumo(projeto.leigo ?? {}, faixa); const marcar = (id: string) => setDois((d) => (d.includes(id) ? d.filter((x) => x !== id) : d.length < 2 ? [...d, id] : [d[1], id]));
+  const ps = ativos(projeto); const semDadoGeral = ps.filter((p) => top[0]?.porCriterio[p.id]?.peso === 0).map((p) => p.leigo);
+  const cartao = (l: Linha, compacto = false) => { const e = explicar(l, projeto, base, edicoes); const eleita = projeto.unidade_eleita_id === l.u.unidade_id; return (
+    <article key={l.u.unidade_id} className={"cartao" + (eleita ? " eleita" : "")}>
+      <header><span className="pos">{l.posicao}º</span><h3>{l.u.nome}</h3><span className="nota-final" style={{ background: cor(l.nota) }} title="Nota de 0 a 100: quanto a unidade atende às suas respostas">{l.nota?.toFixed(0)}</span></header>
+      <p><b>Por que apareceu:</b> {e.porque}</p><p><b>Ponto forte:</b> {e.forte}</p><p><b>Ponto de atenção:</b> {e.atencao}</p>
+      <p className={e.nao.length ? "naoatende" : ""}><b>Não atende:</b> {e.nao.length ? e.nao.join("; ") + "." : "nada, entre as respostas que têm dado."}</p>
+      <p className="nota">{e.prazo}{e.semDado > 0 && ` Sem dado para ${e.semDado} das suas respostas nesta unidade.`}</p>
+      {!compacto && <div className="acoes"><label className="obrig"><input type="checkbox" checked={dois.includes(l.u.unidade_id)} onChange={() => marcar(l.u.unidade_id)} /> comparar</label>
+        <button onClick={() => detalhar(l.u.unidade_id)}>Ver todos os dados</button>
+        {eleita ? <button className="primario" onClick={irParaEtapa2}>Seguir para a etapa 2 →</button> : <button className="primario" onClick={() => eleger(l.u.unidade_id)}>Escolher esta</button>}</div>}
+    </article>); };
+  const comp = linhas.filter((l) => dois.includes(l.u.unidade_id));
+  return (
+    <main className={pagina ? "leigo-res uma-pagina" : "leigo-res"}>
+      <div className="cab-passo"><div><h1>{pagina ? "Resumo" : "Onde procurar"}</h1><p className="frase">{frase}</p></div>
+        <div className="acoes nao-imprimir"><button onClick={refazer}>← Mudar respostas</button><button onClick={abrirExpert}>Abrir no modo completo</button>
+          <button onClick={() => setPagina(!pagina)}>{pagina ? "Voltar ao resultado" : "Resumo de uma página"}</button>{pagina && <button className="primario" onClick={() => window.print()}>Imprimir</button>}</div></div>
+      {conflitos.length > 0 && <p className="aviso nao-imprimir">{conflitos.length === 1 ? "Um parâmetro foi ajustado" : `${conflitos.length} parâmetros foram ajustados`} manualmente no modo completo e não {conflitos.length === 1 ? "segue" : "seguem"} mais as respostas simples: {conflitos.map((c) => PARAMS.find((p) => p.id === c.id)?.nome).join(", ")}. O ajuste manual foi mantido; abra o modo completo para rever.</p>}
+      {pt.pct !== null && <p className={pt.alerta ? "aviso" : "nota"}><b>Peso do terreno no preço da casa: {pt.pct.toFixed(0)}%.</b> {pt.conta}.{pt.alerta && " Acima de 25%, o terreno costuma pesar demais: reveja o investimento, o número de casas ou o preço de venda."}</p>}
+      <p className="nota">Nenhuma unidade é eliminada: as {linhas.length} aparecem em ordem de nota. Aqui estão as 5 melhores.{semDadoGeral.length > 0 && ` Ainda não há dado para avaliar: ${semDadoGeral.join(", ")}; essas respostas não entraram na nota.`}</p>
+      <div className="cartoes">{top.map((l) => cartao(l, pagina))}</div>
+      {!pagina && <>
+        <h2>Comparação de duas unidades</h2>
+        {comp.length < 2 ? <p className="vazio">Marque "comparar" em duas unidades acima.</p> : <div className="rolagem"><table className="simples comp">
+          <thead><tr><th>Sua resposta</th>{comp.map((l) => <th key={l.u.unidade_id}>{l.u.nome} · nota {l.nota?.toFixed(0)}</th>)}</tr></thead>
+          <tbody>{ps.filter((p) => comp.some((l) => l.porCriterio[p.id]?.peso > 0)).map((p) => <tr key={p.id}><td>{p.leigo[0].toUpperCase() + p.leigo.slice(1)}</td>
+            {comp.map((l) => { const x = l.porCriterio[p.id]; return <td key={l.u.unidade_id} className={x.nota === null ? "semdado" : x.nota === 100 ? "sim" : "nao"}>{x.nota === null ? "sem dado" : <><span className="marca-ok">{x.nota === 100 ? "✓ atende" : x.nota === 0 ? "✗ não atende" : "△ atende em parte"}</span><small>{x.texto ?? (x.bruto == null ? "" : fmt(x.bruto / (p.fator ?? 1), p.um))}</small></>}</td>; })}</tr>)}</tbody></table></div>}
+        <h2>Mapa</h2>
+        <Mapa geo={geo} linhas={linhas} sel={sel} setSel={setSel} eleita={projeto.unidade_eleita_id} />
+      </>}
+      <FontesUsadas base={base} edicoes={edicoes} unidades={top.map((l) => l.u.unidade_id)} chaves={ps.map((p) => p.chave).filter((k): k is string => !!k)} />
+    </main>
+  );
+}

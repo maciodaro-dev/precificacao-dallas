@@ -116,3 +116,15 @@ a.botao { text-decoration:none; color:inherit; display:inline-block; } .det td.n
 
 .aviso-legal { margin:0; padding:8px 16px; font-size:12px; color:var(--suave); border-top:1px solid var(--linha); background:var(--papel); }
 .fontes-usadas { margin-top:10px; padding:8px 12px; font-size:12px; color:var(--suave); background:var(--papel); border:1px solid var(--linha); border-radius:8px; }
+/* Dois modos de entrada */
+.pergunta { max-width:760px; margin:20px auto; } .pergunta h1 { font-size:24px; line-height:1.25; margin:6px 0 16px; text-wrap:balance; } .passo-n { color:var(--suave); margin:10px 0 0; font-size:13px; }
+.progresso { height:6px; background:var(--linha); border-radius:3px; overflow:hidden; } .progresso span { display:block; height:100%; background:var(--acento); }
+.opcoes { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; } .opcoes button { display:flex; flex-direction:column; gap:6px; align-items:flex-start; text-align:left; white-space:normal; padding:14px 16px; border-radius:10px; font-size:15px; }
+.opcoes button span { font-size:13px; color:var(--suave); } .opcoes button.ativo span { color:#dfe3e8; } .ajuda { margin:14px 0; padding:10px 12px; background:var(--papel); border:1px solid var(--linha); border-radius:8px; color:var(--suave); }
+.nav-perg { display:flex; flex-wrap:wrap; gap:8px; justify-content:space-between; align-items:center; }
+.frase { max-width:900px; color:var(--tinta) !important; } .cartoes { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:12px; margin:10px 0 18px; }
+.cartao { background:var(--papel); border:1px solid var(--linha); border-radius:10px; padding:14px; } .cartao.eleita { border-color:var(--acento); } .cartao header { display:flex; gap:8px; align-items:center; margin-bottom:6px; } .cartao h3 { flex:1; margin:0; font-size:15px; text-transform:none; letter-spacing:0; color:var(--tinta); display:block; }
+.cartao .pos { font-weight:700; color:var(--suave); } .cartao p { margin:6px 0; font-size:13px; } .naoatende { color:#8f3a1c; } .cartao .acoes { margin-top:10px; }
+.leigo-res h2 { margin:18px 0 8px; } .seg { display:inline-flex; align-items:center; gap:0; font-size:12px; color:var(--suave); } .seg button { border-radius:0; padding:2px 8px; font-size:12px; margin-left:-1px; } .seg button:first-of-type { border-radius:6px 0 0 6px; margin-left:6px; } .seg button:last-of-type { border-radius:0 6px 6px 0; }
+.origem { font-size:11px; color:var(--suave); } .origem.manual { color:#4c2a91; font-weight:600; } .perfil { padding:4px 0; } td.parte { background:#fff8e1; } .aviso ul { margin:6px 0 0; padding-left:18px; }
+@media print { header, nav, footer.passos, .guia, .nao-imprimir, .aviso-legal ~ * { display:none !important; } body { background:#fff; } .etapa1 { padding:0; } .cartoes { grid-template-columns:1fr 1fr; } .cartao { break-inside:avoid; } }

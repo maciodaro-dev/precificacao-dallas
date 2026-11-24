@@ -1,0 +1,60 @@
+import { useState } from "react";
+import type { Base, ParamResp, PerfilSalvo, Peso, Projeto } from "../tipos";
+import { GRUPOS_P, PARAMS, PRECOS, descreveAlvo, emUso, pesoTerreno, type Param } from "../parametros";
+import { deduzir, mesclar, perguntaDe } from "../leigo";
+import { DONO_LOCAL, carregarPerfis, hoje, salvarPerfis } from "../estado";
+
+const igual = (a: unknown, b: unknown) => JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
+const origemTexto = (r: ParamResp | undefined) => !r ? "" : r.ajustado ? "ajustado manualmente" : r.origem === "sempre" ? "regra fixa das perguntas simples" : r.origem === "padrao" ? "padrão inicial" : r.origem.startsWith("perfil:") ? `do perfil "${r.origem.slice(7)}"` :
+  perguntaDe(r.origem) ? `da pergunta ${perguntaDe(r.origem)!.n}: ${perguntaDe(r.origem)!.texto}` : r.origem;
+
+/** Painel com todos os parâmetros. Grava no mesmo conjunto que o modo leigo; o que é alterado aqui fica marcado como ajuste manual. */
+export default function Expert({ base, projeto, alterar, verResultado, voltarLeigo }: { base: Base; projeto: Projeto; alterar: (m: Partial<Projeto>) => void; verResultado: () => void; voltarLeigo: () => void }) {
+  const ps = projeto.parametros ?? {}; const [perfis, setPerfis] = useState<PerfilSalvo[]>(carregarPerfis); const [nome, setNome] = useState("");
+  const mudar = (id: string, m: Partial<ParamResp>) => alterar({ modo: "expert", parametros: { ...ps, [id]: { ...(ps[id] ?? { alvo: null, peso: "medio" as Peso }), ...m, origem: "manual", ajustado: true } } });
+  const conflitos = projeto.leigo ? mesclar(deduzir(projeto.leigo), ps).conflitos : [];
+  const desfazer = (id: string) => alterar({ parametros: { ...ps, [id]: deduzir(projeto.leigo ?? {})[id] } });
+  const pt = pesoTerreno(base, projeto);
+  const salvarPerfil = () => { if (!nome.trim()) return; const n: PerfilSalvo = { perfil_id: "PF-" + Date.now().toString(36), dono_id: DONO_LOCAL, nome: nome.trim(), criado_em: hoje(), parametros: ps, n_casas: projeto.n_casas ?? 1, construcao: projeto.construcao ?? "simultaneo", preco_venda: projeto.preco_venda ?? null, faixa_id: projeto.faixa_id };
+    const l = [...perfis, n]; setPerfis(l); salvarPerfis(l); setNome(""); };
+  const aplicar = (pf: PerfilSalvo) => alterar({ modo: "expert", faixa_id: pf.faixa_id, n_casas: pf.n_casas, construcao: pf.construcao, preco_venda: pf.preco_venda, parametros: Object.fromEntries(Object.entries(pf.parametros).map(([k, v]) => [k, { ...v, origem: "perfil:" + pf.nome, ajustado: true }])) });
+  const excluir = (id: string) => { const l = perfis.filter((x) => x.perfil_id !== id); setPerfis(l); salvarPerfis(l); };
+  const linha = (p: Param) => { const r = ps[p.id]; const on = emUso(p, r); const fora = on && p.forma !== "oferta" && !p.opcoes.some((o) => igual(o.a, r!.alvo));
+    return (
+      <div key={p.id} className={"subcrit" + (on ? " definido" : "")}>
+        <h4 title={p.ajuda}>{p.nome}{base.criterios.find((c) => p.chave?.startsWith(c.id + "|"))?.cobertura !== "coletado" && p.forma !== "so_cidade" && <i>sem dado ainda</i>}</h4>
+        {p.forma === "oferta" ? <p className="nota">Segue a faixa de investimento escolhida acima.</p> :
+          <div className="botoes">{p.opcoes.map((o, i) => <button key={i} id={`o-${p.id}-${i}`} className={r && igual(o.a, r.alvo) && (o.a !== null || !!r) ? "ativo" : ""} onClick={() => mudar(p.id, { alvo: o.a })}>{o.rotulo}</button>)}
+            {fora && <button className="ativo" title="Valor deduzido das perguntas simples, fora das opções fixas">{descreveAlvo(p, r!.alvo)}</button>}
+            {on && !p.opcoes.some((o) => o.a === null) && <button onClick={() => mudar(p.id, { alvo: null })}>Indiferente</button>}</div>}
+        <div className="extras"><span className="seg" role="group" aria-label="peso">peso {(["baixo", "medio", "alto"] as Peso[]).map((w) => <button key={w} id={`w-${p.id}-${w}`} className={(r?.peso ?? (p.id === "faixa" ? "alto" : "medio")) === w ? "ativo" : ""} disabled={!on} onClick={() => mudar(p.id, { peso: w })}>{w === "medio" ? "médio" : w}</button>)}</span>
+          <span className={"origem" + (r?.ajustado ? " manual" : "")}>{origemTexto(r)}</span></div>
+      </div>); };
+  return (
+    <div>
+      <div className="cab-passo"><div><h1>Modo completo</h1><p>Todos os parâmetros. Cada resposta é sim/não ou um valor entre opções fixas e afeta só a nota: nenhuma unidade é eliminada.</p></div>
+        <div className="acoes"><button onClick={voltarLeigo}>Perguntas simples</button><button className="primario grande" onClick={verResultado}>Ver resultado →</button></div></div>
+      {conflitos.length > 0 && <div className="aviso"><b>Ajustes manuais diferentes das respostas simples</b> (o ajuste manual é mantido e não é sobrescrito):
+        <ul>{conflitos.map((c) => { const p = PARAMS.find((x) => x.id === c.id)!; return <li key={c.id}>{p.nome}: você definiu <b>{descreveAlvo(p, c.manual.alvo, projeto, base)}, peso {c.manual.peso}</b>; as perguntas simples dariam {descreveAlvo(p, c.deduzido.alvo, projeto, base)}, peso {c.deduzido.peso}. <button className="link" onClick={() => desfazer(c.id)}>usar o das perguntas</button></li>; })}</ul></div>}
+      <div className="form-criterios">
+        <section className="bloco"><h3>Entradas de cálculo</h3>
+          <div className="subcrit definido"><h4>Faixa de investimento no terreno</h4><div className="botoes">{base.faixas.map((x) => <button key={x.id} className={projeto.faixa_id === x.id ? "ativo" : ""} onClick={() => alterar({ faixa_id: x.id })}>{x.nome}</button>)}</div></div>
+          <div className="subcrit definido"><h4>Número de casas</h4><div className="extras"><input id="n-casas" type="number" min={1} step={1} value={projeto.n_casas ?? 1} onChange={(e) => alterar({ n_casas: Math.max(1, Math.round(Number(e.target.value) || 1)) })} />
+            <span className="seg">{(["simultaneo", "sequencia"] as const).map((m) => <button key={m} className={(projeto.construcao ?? "simultaneo") === m ? "ativo" : ""} disabled={(projeto.n_casas ?? 1) < 2} onClick={() => alterar({ construcao: m })}>{m === "simultaneo" ? "ao mesmo tempo" : "em sequência"}</button>)}</span></div>
+            <p className="nota">Em sequência, a etapa 6 calcula o custo da terra parada entre uma casa e outra.</p></div>
+          <div className="subcrit definido"><h4>Preço de venda de cada casa</h4><div className="botoes">{PRECOS.map((o, i) => <button key={i} id={`pv-${i}`} className={igual({ min: o.min, max: o.max }, projeto.preco_venda) ? "ativo" : ""} onClick={() => alterar({ preco_venda: { min: o.min, max: o.max } })}>{o.rotulo}</button>)}</div></div>
+          <div className="subcrit"><h4>Calculados (apenas exibidos)</h4>
+            <p className={pt.alerta ? "aviso" : "nota"}><b>Peso do terreno no preço: {pt.pct === null ? "—" : pt.pct.toFixed(0) + "%"}</b>{pt.conta && ` · ${pt.conta}`}{pt.alerta && " · acima de 25%"}</p>
+            <p className="nota"><b>Margem potencial:</b> sem dado. Depende do custo de construção (etapa 5) e do preço de venda por sqft da cidade.</p></div>
+        </section>
+        {GRUPOS_P.map((g) => <section className="bloco" key={g}><h3>{g}</h3>{PARAMS.filter((p) => p.grupo === g).map(linha)}</section>)}
+        <section className="bloco"><h3>Perfis salvos</h3>
+          <p className="nota">Guarde esta combinação de parâmetros com um nome para reutilizar em outros projetos.</p>
+          <form className="extras" onSubmit={(e) => { e.preventDefault(); salvarPerfil(); }}><input id="nome-perfil" placeholder="nome do perfil" value={nome} onChange={(e) => setNome(e.target.value)} /><button disabled={!nome.trim()}>Salvar perfil</button></form>
+          {perfis.length === 0 ? <p className="nota">Nenhum perfil salvo.</p> : perfis.map((pf) => <div key={pf.perfil_id} className="extras perfil"><b>{pf.nome}</b><small>{pf.criado_em}</small><button onClick={() => aplicar(pf)}>Aplicar neste projeto</button><button className="link" onClick={() => excluir(pf.perfil_id)}>excluir</button></div>)}
+        </section>
+      </div>
+      <div className="fim-passo"><button className="primario grande" onClick={verResultado}>Ver resultado →</button></div>
+    </div>
+  );
+}
