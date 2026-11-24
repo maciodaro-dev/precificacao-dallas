@@ -27,15 +27,11 @@ export default function EtapaVazia({ n, base, projeto, edicoes, situacao }: { n:
   return (
     <main className="vazia">
       <h1>Etapa {n} — {e.nome}</h1>
-      <p className="aviso">Esta etapa ainda não foi construída. O esquema de dados já existe; a tela será feita depois que a etapa anterior for validada.</p>
+      <p className="nota">Esta etapa ainda não está disponível.</p>
       {situacao && <section><h2>Situação no seu projeto: {situacao}</h2>
         {lancados.length === 0 ? <p>Nada foi lançado como já realizado nesta etapa.</p> : <table className="simples"><thead><tr><th>Item</th><th>Realizado</th><th>Data</th><th>Fonte</th></tr></thead><tbody>
           {lancados.map((l) => <tr key={l.linha_id}><td>{l.categoria}</td><td className={l.realizado == null ? "semdado" : ""}>{l.realizado == null ? "valor não informado" : "$" + l.realizado.toLocaleString("pt-BR")}</td><td>{l.data}</td><td>{l.fonte}</td></tr>)}</tbody></table>}
         <p className="nota">Estas respostas vêm do ponto de partida e podem ser alteradas lá, em "Início", sem perder o que foi lançado.</p></section>}
-      <div className="duas">
-        <section><h2>O que esta etapa lê</h2><p>{e.le}</p></section>
-        <section><h2>O que esta etapa grava</h2><p>{e.grava}</p></section>
-      </div>
       <section>
         <h2>Herdado da região do projeto</h2>
         {!u ? <p>Nenhuma região escolhida neste projeto. Escolha uma na etapa 1 ou informe o seu terreno em "Início".</p> : (
