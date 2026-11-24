@@ -1,6 +1,6 @@
 # Teste de ida e volta da navegação
 
-Rodado em 2026-11-24 20:01 UTC, no navegador Chromium, sem rede, com o arquivo único da ferramenta.
+Rodado em 2026-11-24 20:10 UTC, no navegador Chromium, sem rede, com o arquivo único da ferramenta.
 
 **56 verificações, 0 falhas. Erros de página: 0.**
 
@@ -32,12 +32,12 @@ Rodado em 2026-11-24 20:01 UTC, no navegador Chromium, sem rede, com o arquivo �
 | Guiado · voltar do navegador | voltar | onde-construir | onde-construir | ok | título: Onde construir? |
 | Guiado · voltar do navegador | voltar | inicio | inicio | ok | "Não" mantido: sim |
 | Guiado · voltar do navegador | ida de novo, pulando | guiado-resultado | guiado-resultado | ok | frase igual: sim |
-| Especialista · botão da tela | ida até o ranking | especialista-resultado | especialista-resultado | ok | 217 unidades |
+| Especialista · botão da tela | ida até o ranking | especialista-resultado | especialista-resultado | ok | 95 unidades |
 | Especialista · botão da tela | voltar | especialista | especialista | ok | ISD "A": mantido; peso do imposto alto: mantido; casas: 4 |
 | Especialista · botão da tela | voltar | onde-construir | onde-construir | ok |  |
 | Especialista · botão da tela | voltar | inicio | inicio | ok |  |
 | Especialista · botão da tela | ida de novo | especialista | especialista | ok | ISD "A" ainda: sim; casas: 4 |
-| Especialista · voltar do navegador | ida até o ranking | especialista-resultado | especialista-resultado | ok | 217 unidades |
+| Especialista · voltar do navegador | ida até o ranking | especialista-resultado | especialista-resultado | ok | 95 unidades |
 | Especialista · voltar do navegador | voltar | especialista | especialista | ok | ISD "A": mantido; peso do imposto alto: mantido; casas: 4 |
 | Especialista · voltar do navegador | voltar | onde-construir | onde-construir | ok |  |
 | Especialista · voltar do navegador | voltar | inicio | inicio | ok |  |

@@ -37,7 +37,7 @@ export interface ParamResp { alvo: { valor?: string; min?: number; max?: number;
 export interface RespostasLeigo { /** a faixa de investimento já foi escolhida na pergunta 1 */ faixa_ok?: boolean; casas?: "1" | "2a4" | "5a10" | "mais10"; construcao?: "simultaneo" | "sequencia"; preco?: number; vender_rapido?: boolean; valorizacao?: boolean; comecar_logo?: boolean; agua_esgoto?: boolean; escola?: boolean }
 /** Combinação do modo expert salva com nome, para reutilizar em outros projetos. Dado privado do dono. */
 export interface ValoresAbertos { investimento?: number; preco_venda?: number; tamanho_acres?: number }
-export interface PerfilSalvo { valores_abertos?: ValoresAbertos; perfil_id: string; dono_id: string; nome: string; criado_em: string; parametros: Record<string, ParamResp>; n_casas: number; construcao: "simultaneo" | "sequencia"; preco_venda: { min?: number; max?: number } | null; faixa_id: string | null }
+export interface PerfilSalvo { valores_abertos?: ValoresAbertos; exigencia?: number; perfil_id: string; dono_id: string; nome: string; criado_em: string; parametros: Record<string, ParamResp>; n_casas: number; construcao: "simultaneo" | "sequencia"; preco_venda: { min?: number; max?: number } | null; faixa_id: string | null }
 
 export type SimNaoNaoSei = "sim" | "nao" | "nao_sei";
 /** Ponto de partida: primeira tela do aplicativo. "não sei" é tratado como "não", com aviso para confirmar. */
@@ -70,6 +70,8 @@ export interface Projeto {
   n_casas?: number; construcao?: "simultaneo" | "sequencia"; preco_venda?: { min?: number; max?: number } | null;
   /** valores informados quando a pessoa escolhe uma opção aberta ("mais de X") que entra em cálculo; sem valor, a conta usa o piso da opção e avisa */
   valores_abertos?: ValoresAbertos;
+  /** nível de exigência do resultado: % mínimo dos critérios com dado que a região precisa atender (100 = o máximo possível). Padrão 50. */
+  exigencia?: number;
   /** Respostas das perguntas do modo guiado, gravadas a cada clique. */
   leigo?: RespostasLeigo;
   unidade_eleita_id: string | null; eleita_em: string | null;

@@ -1,14 +1,14 @@
 import * as XLSX from "xlsx";
 import type { Base, Edicao, Projeto } from "./tipos";
 import { chave, indicador, type Linha } from "./ranking";
-import { ativos, descreveAlvo, pesoDe, pesoTerreno } from "./parametros";
+import { ativos, descreveAlvo, pesoDe, pesoTerreno, coberturaGeral } from "./parametros";
 
 type L = Record<string, string | number | null>;
 export function tabelas(base: Base, p: Projeto, linhas: Linha[], edicoes: Record<string, Edicao>) {
   const defs = ativos(p);
   const ranking: L[] = linhas.map((l) => {
     const r: L = { posicao: l.posicao, unidade_id: l.u.unidade_id, unidade: l.u.nome, tipo: l.u.tipo, condado: l.u.condado, isd: l.u.isd_nome, regiao_considerada: l.recorte?.texto ?? "região inteira",
-      nota: l.nota === null ? null : Math.round(l.nota * 10) / 10, com_dado_pct: Math.round(l.cobertura * 100), parametros_com_dado: l.avaliados, parametros_em_uso: l.emUso, poucos_dados: l.poucosDados ? "sim" : "nao", nao_atende: (l.falhas ?? []).map((f) => `${f.nome} (${f.valor}; alvo ${f.alvo})`).join("; ") };
+      nota: l.nota === null ? null : Math.round(l.nota * 10) / 10, atende: `${l.atendidos} de ${l.avaliados}`, aderencia_pct: l.avaliados ? Math.round((100 * l.atendidos) / l.avaliados) : null, com_dado_pct: Math.round(l.cobertura * 100), parametros_com_dado: l.avaliados, parametros_em_uso: l.emUso, poucos_dados: l.poucosDados ? "sim" : "nao", nao_atende: (l.falhas ?? []).map((f) => `${f.nome} (${f.valor}; alvo ${f.alvo})`).join("; ") };
     for (const d of defs) { const x = l.porCriterio[d.id]; r[`${d.nome} (valor, ${d.um || "sim/não"})`] = x?.texto ?? (x?.bruto == null ? null : x.bruto / (d.fator ?? 1)); r[`${d.nome} (nota)`] = x?.nota ?? "sem dado"; if (x?.esc === "cidade") r[`${d.nome} (escala)`] = "dado da cidade inteira"; }
     return r;
   });
@@ -30,6 +30,7 @@ export function tabelas(base: Base, p: Projeto, linhas: Linha[], edicoes: Record
   const projeto: L[] = [
     { campo: "projeto", valor: p.nome }, { campo: "modo de entrada", valor: p.modo === "leigo" ? "guiado" : p.modo === "expert" ? "especialista" : "" },
     { campo: "ferramenta", valor: "CSD Tools — Formação de preço" },
+    { campo: "nível de exigência", valor: (p.exigencia ?? 50) >= 100 ? "o máximo possível" : `${p.exigencia ?? 50}% ou mais dos critérios com dado` },
     { campo: "valores informados nas opções abertas", valor: Object.entries(p.valores_abertos ?? {}).map(([k, v]) => `${k}: ${v}`).join("; ") || "nenhum" },
     { campo: "faixa de investimento no terreno", valor: base.faixas.find((f) => f.id === p.faixa_id)?.nome ?? p.faixa_id ?? "não escolhida" },
     { campo: "número de casas", valor: p.n_casas ?? 1 }, { campo: "construção", valor: p.construcao === "sequencia" ? "em sequência" : "ao mesmo tempo" },
@@ -49,7 +50,7 @@ export function exportarXlsx(base: Base, p: Projeto, linhas: Linha[], e: Record<
   XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(t.projeto), "Projeto");
   XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(base.premissas as unknown as L[]), "Premissas");
   XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(base.fontes.map((f) => ({ fonte: f.nome, orgao: f.orgao, licenca: f.licenca ?? "", uso_comercial: f.uso_comercial ?? "", redistribuicao: f.redistribuicao ?? "", atualizacao: f.periodicidade, criterios: f.criterios ?? "", url: f.url }))), "Fontes e licenças");
-  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet([{ aviso: "CSD Tools — Formação de preço · Dallas–Fort Worth" }, { aviso: "Esta planilha é apoio à decisão. Não é recomendação de investimento nem avaliação de imóvel." }, { aviso: "CSD Tools é um produto da CSD Strategy. CSD Strategy is a d/b/a of Green to suit LLC." }, { aviso: `Base de dados gerada em ${base.gerado_em}. A fonte e a data de referência de cada valor estão na aba "Dados brutos".` }]), "Aviso");
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet([{ aviso: "CSD Tools — Formação de preço · Dallas–Fort Worth" }, { aviso: (() => { const c = coberturaGeral(base, p, e); return c.faltam.length ? `Este ranking usa ${c.usados} de ${c.total} critérios. Faltam dados de: ${c.faltam.map((x) => x.nome).join("; ")}. A ordem pode mudar quando esses dados entrarem.` : `Este ranking usa todos os ${c.total} critérios.`; })() }, { aviso: "Esta planilha é apoio à decisão. Não é recomendação de investimento nem avaliação de imóvel." }, { aviso: "CSD Tools é um produto da CSD Strategy. CSD Strategy is a d/b/a of Green to suit LLC." }, { aviso: `Base de dados gerada em ${base.gerado_em}. A fonte e a data de referência de cada valor estão na aba "Dados brutos".` }]), "Aviso");
   XLSX.writeFile(wb, nomeArq(p, "etapa1") + ".xlsx");
 }
 export function exportarCsv(base: Base, p: Projeto, linhas: Linha[], e: Record<string, Edicao>, qual: "ranking" | "dados") {

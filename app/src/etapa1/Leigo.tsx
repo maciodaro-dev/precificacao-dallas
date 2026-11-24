@@ -6,6 +6,8 @@ import { RESPOSTAS_PADRAO, projetoDoLeigo, resumo, type Pergunta } from "../leig
 import { perguntasVisiveis } from "../rota";
 import { PARAMS, PESOS, ativos, pesoDe, pesoTerreno, textoCobertura } from "../parametros";
 import AvisoCobertura from "./AvisoCobertura";
+import { Exigencia, LinhaOcultas } from "./Exigencia";
+import { cortar, NIVEL_PADRAO, textoAderencia } from "../exigencia";
 import ValorAberto from "./ValorAberto";
 import { cor, fmt, estiloNota } from "../formato";
 import Mapa from "./Mapa";
@@ -63,10 +65,11 @@ function explicar(l: Linha, pr: Projeto, base: Base, edicoes: Record<string, Edi
   };
 }
 
-interface PR { seletor: React.ReactNode; total: number; insuficientes: number; base: Base; geo: GeoJSON.FeatureCollection; projeto: Projeto; edicoes: Record<string, Edicao>; linhas: Linha[]; conflitos: { id: string }[]; eleger: (id: string) => void; irParaEtapa2: () => void; voltar: () => void; abrirExpert: () => void; detalhar: (id: string) => void }
-export function ResultadoLeigo({ seletor, total, insuficientes, base, geo, projeto, edicoes, linhas, conflitos, eleger, irParaEtapa2, voltar, abrirExpert, detalhar }: PR) {
+interface PR { alterar: (m: Partial<Projeto>) => void; seletor: React.ReactNode; total: number; insuficientes: number; base: Base; geo: GeoJSON.FeatureCollection; projeto: Projeto; edicoes: Record<string, Edicao>; linhas: Linha[]; conflitos: { id: string }[]; eleger: (id: string) => void; irParaEtapa2: () => void; voltar: () => void; abrirExpert: () => void; detalhar: (id: string) => void }
+export function ResultadoLeigo({ alterar, seletor, total, insuficientes, base, geo, projeto, edicoes, linhas, conflitos, eleger, irParaEtapa2, voltar, abrirExpert, detalhar }: PR) {
   const [dois, setDois] = useState<string[]>([]); const [pagina, setPagina] = useState(false); const [sel, setSel] = useState<string | null>(null);
-  const top = linhas.slice(0, 5); const faixa = base.faixas.find((f) => f.id === projeto.faixa_id)?.nome ?? ""; const pt = pesoTerreno(base, projeto);
+  const corte = cortar(linhas, projeto.exigencia ?? NIVEL_PADRAO); const [verOcultas, setVerOcultas] = useState(false);
+  const top = corte.visiveis.slice(0, 5); const faixa = base.faixas.find((f) => f.id === projeto.faixa_id)?.nome ?? ""; const pt = pesoTerreno(base, projeto);
   const frase = resumo(projeto.leigo ?? {}, faixa); const marcar = (id: string) => setDois((d) => (d.includes(id) ? d.filter((x) => x !== id) : d.length < 2 ? [...d, id] : [d[1], id]));
   const ps = ativos(projeto);
   const cartao = (l: Linha, compacto = false) => { const e = explicar(l, projeto, base, edicoes); const eleita = projeto.unidade_eleita_id === l.u.unidade_id; return (
@@ -75,7 +78,7 @@ export function ResultadoLeigo({ seletor, total, insuficientes, base, geo, proje
       {l.recorte && <p className="recorte"><b>Região:</b> {l.recorte.texto}. O resto da cidade não tem a nota de escola pedida.</p>}
       <p><b>Por que apareceu:</b> {e.porque}</p><p><b>Ponto forte:</b> {e.forte}</p><p><b>Ponto de atenção:</b> {e.atencao}</p>
       <p className={e.nao.length ? "naoatende" : ""}><b>Não atende:</b> {e.nao.length ? e.nao.join("; ") + "." : "nada, entre as respostas que têm dado."}</p>
-      <p className="nota">{e.prazo} <b>Com dado: {textoCobertura(l)}</b> das suas respostas nesta região.</p>
+      <p className="nota">{e.prazo} <b>{textoAderencia(l)[0].toUpperCase() + textoAderencia(l).slice(1)} critérios com dado.</b> <b>Com dado: {textoCobertura(l)}</b> das suas respostas nesta região.</p>
       {!compacto && <div className="acoes"><label className="obrig"><input type="checkbox" checked={dois.includes(l.u.unidade_id)} onChange={() => marcar(l.u.unidade_id)} /> comparar</label>
         <button onClick={() => detalhar(l.u.unidade_id)}>Ver todos os dados</button>
         {eleita ? <button className="primario" onClick={irParaEtapa2}>Seguir para a etapa 2 →</button> : <button className="primario" onClick={() => eleger(l.u.unidade_id)}>Escolher esta</button>}</div>}
@@ -87,11 +90,13 @@ export function ResultadoLeigo({ seletor, total, insuficientes, base, geo, proje
         <div className="acoes nao-imprimir"><button className="voltar" onClick={voltar}>← Voltar</button><button onClick={abrirExpert}>Abrir no modo especialista</button>
           <button onClick={() => setPagina(!pagina)}>{pagina ? "Voltar ao resultado" : "Resumo de uma página"}</button>{pagina && <button className="primario" onClick={() => window.print()}>Imprimir</button>}</div></div>
       {conflitos.length > 0 && <p className="aviso nao-imprimir">{conflitos.length === 1 ? "Um parâmetro foi ajustado" : `${conflitos.length} parâmetros foram ajustados`} manualmente no modo especialista e não {conflitos.length === 1 ? "segue" : "seguem"} mais as respostas do modo guiado: {conflitos.map((c) => PARAMS.find((p) => p.id === c.id)?.nome).join(", ")}. O ajuste manual foi mantido; abra o modo especialista para rever.</p>}
-      <AvisoCobertura base={base} projeto={projeto} edicoes={edicoes} guiado />
+      <Exigencia projeto={projeto} alterar={alterar} corte={corte} />
       {pt.min !== null && <p className={pt.alerta ? "aviso" : "nota"} id="peso-terreno"><b>Peso do terreno no preço da casa: {pt.min === pt.max ? `${pt.min.toFixed(0)}%` : `de ${pt.min.toFixed(0)}% a ${pt.max!.toFixed(0)}%`}.</b> Conta: {pt.conta}. {pt.oQueFazer} {pt.avisos.join(" ")}</p>}
       <div className="barra nao-imprimir">{seletor}<span className="resumo">{linhas.length} regiões comparáveis de {total}{insuficientes > 0 && ` · ${insuficientes} ficaram de fora desta lista por terem dados insuficientes para comparar (veja no modo especialista)`}</span></div>
       <p className="nota">Nenhuma unidade é eliminada: todas aparecem em ordem de nota. Aqui estão as 5 melhores do recorte escolhido; a posição é a geral, na DFW inteira.</p>
       <div className="cartoes">{top.map((l) => cartao(l, pagina))}</div>
+      <LinhaOcultas corte={corte} mostrar={verOcultas} setMostrar={setVerOcultas} />
+      {verOcultas && !pagina && <div className="cartoes">{corte.ocultas.slice(0, 10).map((l) => cartao(l, true))}</div>}
       {!pagina && <>
         <h2>Comparação de duas unidades</h2>
         {comp.length < 2 ? <p className="vazio">Marque "comparar" em duas unidades acima.</p> : <div className="rolagem"><table className="simples comp">
@@ -99,9 +104,11 @@ export function ResultadoLeigo({ seletor, total, insuficientes, base, geo, proje
           <tbody>{ps.filter((p) => comp.some((l) => l.porCriterio[p.id]?.peso > 0)).map((p) => <tr key={p.id}><td>{p.leigo[0].toUpperCase() + p.leigo.slice(1)}</td>
             {comp.map((l) => { const x = l.porCriterio[p.id]; return <td key={l.u.unidade_id} className={x.nota === null ? "semdado" : x.nota === 100 ? "sim" : "nao"}>{x.nota === null ? "sem dado" : <><span className="marca-ok">{x.nota === 100 ? "✓ atende" : x.nota === 0 ? "✗ não atende" : "△ atende em parte"}</span><small>{x.texto ?? (x.bruto == null ? "" : fmt(x.bruto / (p.fator ?? 1), p.um))}</small></>}</td>; })}</tr>)}</tbody></table></div>}
         <h2>Mapa</h2>
-        <Mapa geo={geo} linhas={linhas} sel={sel} setSel={setSel} eleita={projeto.unidade_eleita_id} />
+        <Mapa geo={geo} linhas={verOcultas ? linhas : corte.visiveis} sel={sel} setSel={setSel} eleita={projeto.unidade_eleita_id} />
       </>}
       <FontesUsadas base={base} edicoes={edicoes} unidades={top.map((l) => l.u.unidade_id)} chaves={ps.map((p) => p.chave).filter((k): k is string => !!k)} />
+      <details className="criterios-usados"><summary>Critérios usados neste ranking ({ps.length})</summary><div className="chips">{ps.map((d) => <span key={d.id} className="chip">{d.leigo[0].toUpperCase() + d.leigo.slice(1)}</span>)}</div></details>
+      <AvisoCobertura base={base} projeto={projeto} edicoes={edicoes} guiado />
     </main>
   );
 }

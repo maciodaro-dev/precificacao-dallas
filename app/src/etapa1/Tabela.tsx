@@ -1,3 +1,4 @@
+import { textoAderencia } from "../exigencia";
 import { useState } from "react";
 import type { Projeto } from "../tipos";
 import type { Linha } from "../ranking";
@@ -34,6 +35,7 @@ export default function Tabela({ params, projeto, linhas, sel, setSel, comparar,
               <td>{l.posicao ?? "–"}</td>
               <td className="nome">{l.u.nome}{projeto.unidade_eleita_id === l.u.unidade_id && <span className="selo">eleita</span>}
                 {l.poucosDados && <span className="motivo">Nota parcial. Falta dado de: {(l.faltam ?? []).join("; ")}</span>}
+                <span className="aderencia">{textoAderencia(l)}</span>
                 {l.recorte && <span className="recorte">{l.recorte.texto}</span>}
                 {!!l.falhas?.length && <span className="motivo">Não atende: {l.falhas.map((f) => f.nome).join("; ")}</span>}</td>
               <td>{l.u.condado}</td>
