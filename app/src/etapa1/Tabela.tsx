@@ -37,8 +37,8 @@ export default function Tabela({ base, edicoes, linhas, sel, setSel, comparar, a
               <td className="num">{i + 1}</td>
               <td className="nome">{l.u.nome}{eleita === l.u.unidade_id && <span className="selo">escolhida</span>}<small>{l.u.tipo === "cidade_isd" ? `Condado de ${l.u.condado}` : "fora dos limites de cidade"}</small></td>
               <td className="num">{l.atendidos} de {l.avaliados}</td>
-              <td><span className="nota-final" style={estiloNota(l.nota)} title={textoAderencia(l)}>{l.nota === null ? "–" : l.nota.toFixed(0)}</span></td>
-              {r.map((c) => <td key={c.id} className={c.valor === null ? "semdado" : "num"} title={c.cidadeInteira ? "dado da cidade inteira" : undefined}>{c.valor ?? "sem dado"}</td>)}
+              <td><span className="nota-final" style={estiloNota(l.nota)} title={textoAderencia(l)}>{l.nota === null ? "–" : l.nota.toFixed(0)}</span><small className="cob-nota">{l.avaliados} de {l.emUso} critérios</small></td>
+              {r.map((c) => <td key={c.id} className={c.valor === null ? "semdado" : "num"} title={c.cidadeInteira ? "dado da cidade inteira" : undefined}>{c.valor ?? "sem dado"}{c.marca && <span className="marca-preco" title="Há preço anunciado, registrado manualmente, nesta região (veja a ficha)"> ●</span>}</td>)}
               <td className="comp" onClick={(e) => e.stopPropagation()}><input type="checkbox" aria-label={`comparar ${l.u.nome}`} checked={comparar.includes(l.u.unidade_id)} disabled={!comparar.includes(l.u.unidade_id) && comparar.length >= 4} onChange={() => alternar(l.u.unidade_id)} /></td>
             </tr>))}
           {!ordenadas.length && <tr><td colSpan={10} className="vazio">Nenhuma região para mostrar com este nível de exigência.</td></tr>}
