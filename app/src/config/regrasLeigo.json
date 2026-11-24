@@ -1,0 +1,41 @@
+{
+  "_leia": "Regras que transformam as respostas do modo leigo em parâmetros do motor. Arquivo editável. Os valores iniciais são premissas a calibrar com dados reais (P-008 em data/premissas.csv). Cada regra define, por parâmetro: alvo (valor sim/nao, ou min/max) e/ou peso (baixo, medio, alto). null = o parâmetro não se aplica. Regra que só traz peso usa o alvo de 'padroes'. As regras são aplicadas na ordem: sempre, casas, sequencia, preco, vender_rapido, valorizacao, comecar_logo, agua_esgoto, escola; a posterior prevalece.",
+  "pesos": { "baixo": 1, "medio": 2, "alto": 3 },
+  "nota_sem_dado": 0.5,
+  "preco_renda_divisor": 3.5,
+  "alerta_peso_terreno_pct": 25,
+  "casas_representativo": { "1": 1, "2a4": 3, "5a10": 7, "mais10": 15 },
+  "padroes": {
+    "lote_minimo": { "max": 5000 }, "taxas": { "max": 20000 }, "custo_lotear": { "max": 50000 }, "prazo": { "max": 6 },
+    "dom": { "max": 60 }, "casas_novas": { "min": 150 }, "builders": { "max": 50 }, "liquidez_terreno": { "max": 180 },
+    "valorizacao": { "min": 10 }, "emprego": { "max": 25 }, "obra": { "valor": "sim" }, "seguranca": { "max": 20 }
+  },
+  "sempre": {
+    "faixa": { "peso": "alto" },
+    "moratoria": { "valor": "nao", "peso": "alto" },
+    "imposto": { "max": 2.0, "peso": "medio" },
+    "alagamento": { "max": 10, "peso": "medio" },
+    "seguro": { "max": 4500, "peso": "medio" }
+  },
+  "casas": {
+    "1": { "lote_pronto": { "valor": "sim", "peso": "alto" }, "tamanho": { "max": 0.5, "peso": "medio" }, "limites": { "valor": "nao", "peso": "alto" }, "custo_lotear": null },
+    "2a4": { "tamanho": { "min": 0.5, "max": 5, "peso": "medio" }, "lote_pronto": null, "lote_minimo": { "peso": "medio" } },
+    "5a10": { "tamanho": { "min": 1, "max": 20, "peso": "medio" }, "lote_minimo": { "peso": "alto" }, "custo_lotear": { "peso": "alto" }, "limites": null },
+    "mais10": { "tamanho": { "min": 5, "peso": "medio" }, "custo_lotear": { "peso": "alto" }, "taxas": { "peso": "alto" }, "prazo": { "peso": "alto" } }
+  },
+  "sequencia": { "liquidez_terreno": { "peso": "alto" }, "custo_lotear": { "peso": "baixo" } },
+  "vender_rapido": {
+    "sim": { "dom": { "max": 60, "peso": "alto" }, "casas_novas": { "peso": "alto" }, "builders": { "peso": "alto" } },
+    "nao": { "dom": { "max": 120, "peso": "baixo" }, "casas_novas": { "peso": "baixo" }, "builders": { "peso": "baixo" } }
+  },
+  "valorizacao": {
+    "sim": { "valorizacao": { "peso": "alto" }, "emprego": { "peso": "alto" }, "obra": { "peso": "alto" } },
+    "nao": { "valorizacao": { "peso": "baixo" }, "emprego": { "peso": "baixo" }, "obra": { "peso": "baixo" } }
+  },
+  "comecar_logo": {
+    "sim": { "prazo": { "max": 6, "peso": "alto" }, "taxas": { "peso": "alto" } },
+    "nao": { "prazo": { "max": 12, "peso": "medio" }, "taxas": { "peso": "medio" }, "limites": null }
+  },
+  "agua_esgoto": { "sim": { "rede": { "valor": "sim", "peso": "alto" } }, "nao": { "rede": null } },
+  "escola": { "sim": { "isd": { "valor": "B", "peso": "alto" }, "seguranca": { "peso": "alto" } }, "nao": { "isd": null, "seguranca": { "peso": "baixo" } } }
+}
