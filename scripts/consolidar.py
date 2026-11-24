@@ -2,6 +2,9 @@
 gera data/pendencias.csv (toda unidade × critério sem valor na métrica principal)."""
 import csv, json, glob, datetime, pathlib
 from comum import DATA, RAIZ, unidades
+FONTES_CIDADE = ("census_acs", "census_bps", "zillow")
+FATIA_REPRESENTATIVA = 90   # % da área da cidade a partir do qual o dado da cidade vale para a unidade
+FATIA_PEQUENA_PCT, FATIA_PEQUENA_ACRES = 10, 5000   # oculta por padrão: menos de 10% da cidade E menos de 5.000 acres
 def num(v):
     try: return float(v)
     except Exception: return v
@@ -19,6 +22,20 @@ def main():
         if a and b and a["v"] and b["v"]:
             d["c23|preco_renda"] = dict(v=round(a["v"] / b["v"], 2), um="x renda anual", f="derivado", url="", ref=min(a["ref"], b["ref"]), col=a["col"], conf="media",
                                         obs="derivado: ZHVI (Zillow) ÷ renda domiciliar mediana (ACS)")
+    # Escala do dado. Census (ACS), permits (BPS) e Zillow são publicados para a cidade inteira. Numa unidade que é só uma fatia da cidade
+    # (menos de FATIA_REPRESENTATIVA % da área), o valor fica marcado "dado da cidade inteira" e a confiança cai para baixa. Dado calculado por
+    # setor censitário (fonte census_tract) é da própria fatia e substitui o da cidade onde existir.
+    por_id = {u["unidade_id"]: u for u in us}
+    for uid, d in ind.items():
+        u = por_id.get(uid)
+        if not u or u["tipo"] != "cidade_isd": continue
+        fatia = float(u["pct_cidade"] or 100) < FATIA_REPRESENTATIVA
+        for k, x in d.items():
+            if x["v"] is None: continue
+            if x["f"] in FONTES_CIDADE or (x["f"] == "derivado" and fatia and (d.get("c23|renda_mediana") or {}).get("f") in FONTES_CIDADE):
+                x["esc"] = "cidade" if fatia else "fatia"
+                if fatia: x["conf"] = "baixa"; x["obs"] = (f"dado da cidade inteira; esta unidade é {float(u['pct_cidade']):.0f}% da área de {u['cidade']}. " + x["obs"]).strip()
+            elif x["f"] in ("census_tract", "tea", "fema_nfhl", "osrm", "comptroller"): x["esc"] = "fatia"
     pend = []
     motivo = {"adiado": "anúncios de terrenos: coleta adiada por decisão do usuário", "manual": "exige leitura manual de documento municipal",
               "bloqueado": "fonte recusou acesso automático; baixar manualmente", "pendente": "coletor ainda não escrito / fonte exige chave ou formulário",
@@ -35,6 +52,10 @@ def main():
         w = csv.DictWriter(f, fieldnames=list(pend[0])); w.writeheader(); w.writerows(pend)
     for u in us:
         for k in ("acres_terra", "pct_cidade", "lat", "lon"): u[k] = num(u[k]) if u[k] != "" else None
+        if u.get("pct_domicilios", "") != "": u["pct_domicilios"] = num(u["pct_domicilios"])
+        else: u.pop("pct_domicilios", None)
+        # Fatia pequena: oculta por padrão na exibição (premissa P-012). Nunca sai da base.
+        u["fatia_pequena"] = bool(u["tipo"] == "cidade_isd" and u["pct_cidade"] is not None and u["pct_cidade"] < FATIA_PEQUENA_PCT and u["acres_terra"] < FATIA_PEQUENA_ACRES)
     base = dict(gerado_em=datetime.date.today().isoformat(), unidades=us, criterios=crit, indicadores=ind,
                 faixas=json.load(open(DATA / "faixas.json", encoding="utf-8")),
                 fontes=json.load(open(DATA / "fontes.json", encoding="utf-8")), premissas=list(csv.DictReader(open(DATA / "premissas.csv", encoding="utf-8"))))

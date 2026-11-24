@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { Base, ParamResp, PerfilSalvo, Peso, Projeto } from "../tipos";
-import { GRUPOS_P, PARAMS, PRECOS, descreveAlvo, emUso, pesoPadrao, pesoTerreno, type Param } from "../parametros";
+import { GRUPOS_P, PARAMS, PRECOS, descreveAlvo, emUso, pesoPadrao, pesoTerreno, textoCobertura, type Param } from "../parametros";
 import { deduzir, mesclar, perguntaDe } from "../leigo";
 import { DONO_LOCAL, carregarPerfis, hoje, salvarPerfis } from "../estado";
 import type { Linha } from "../ranking";
@@ -13,10 +13,17 @@ const origemTexto = (r: ParamResp | undefined) => !r ? "" : r.ajustado ? "ajusta
 /** Painel do modo especialista. Grava no mesmo conjunto de parâmetros que o modo guiado; o que é alterado aqui fica marcado como ajuste manual. */
 export default function Expert({ base, projeto, alterar, verResultado, voltar, geo, linhas }: { geo: GeoJSON.FeatureCollection; linhas: Linha[]; base: Base; projeto: Projeto; alterar: (m: Partial<Projeto>) => void; verResultado: () => void; voltar: () => void }) {
   const ps = projeto.parametros ?? {}; const [perfis, setPerfis] = useState<PerfilSalvo[]>(carregarPerfis); const [nome, setNome] = useState("");
-  const mudar = (id: string, m: Partial<ParamResp>) => alterar({ modo: "expert", parametros: { ...ps, [id]: { ...(ps[id] ?? { alvo: null, peso: pesoPadrao(id) }), ...m, origem: "manual", ajustado: true } } });
+  const [ultimo, setUltimo] = useState<string | null>(null);
+  const mudar = (id: string, m: Partial<ParamResp>) => { setUltimo(id); alterar({ modo: "expert", parametros: { ...ps, [id]: { ...(ps[id] ?? { alvo: null, peso: pesoPadrao(id) }), ...m, origem: "manual", ajustado: true } } }); };
   const conflitos = projeto.leigo ? mesclar(deduzir(projeto.leigo), ps).conflitos : [];
   const desfazer = (id: string) => alterar({ parametros: { ...ps, [id]: deduzir(projeto.leigo ?? {})[id] } });
   const pt = pesoTerreno(base, projeto); const [sel, setSel] = useState<string | null>(null);
+  /** O que a última escolha fez: quantas regiões atendem, não atendem ou não têm dado naquele parâmetro. */
+  const efeito = useMemo(() => { const p = PARAMS.find((x) => x.id === ultimo); if (!p) return null;
+    if (!emUso(p, projeto.parametros?.[p.id])) return { nome: p.nome, marcar: false, texto: "Ficou como indiferente: este parâmetro deixou de restringir as regiões." };
+    let sim = 0, parte = 0, nao = 0, sem = 0; for (const l of linhas) { const n = l.porCriterio[p.id]?.nota; if (n == null) sem++; else if (n === 100) sim++; else if (n === 0) nao++; else parte++; }
+    if (sim + parte + nao === 0) return { nome: p.nome, marcar: false, texto: "Ainda não há dado deste parâmetro para nenhuma região, por isso o mapa não muda. A escolha fica guardada e passa a valer quando o dado entrar." };
+    return { nome: p.nome, marcar: true, texto: `${sim} regiões atendem, ${parte} atendem em parte, ${nao} não atendem${sem ? ` e ${sem} não têm dado` : ""}. No mapa, as que não atendem esta escolha por inteiro estão contornadas em vermelho.` }; }, [ultimo, linhas, projeto.parametros]);
   const tudo = linhas.filter((l) => l.avaliados > 0 && l.falhas.length === 0); const escolhida = linhas.find((l) => l.u.unidade_id === sel);
   const salvarPerfil = () => { if (!nome.trim()) return; const n: PerfilSalvo = { perfil_id: "PF-" + Date.now().toString(36), dono_id: DONO_LOCAL, nome: nome.trim(), criado_em: hoje(), parametros: ps, n_casas: projeto.n_casas ?? 1, construcao: projeto.construcao ?? "simultaneo", preco_venda: projeto.preco_venda ?? null, faixa_id: projeto.faixa_id };
     const l = [...perfis, n]; setPerfis(l); salvarPerfis(l); setNome(""); };
@@ -51,13 +58,14 @@ export default function Expert({ base, projeto, alterar, verResultado, voltar, g
       <div className="painel-com-mapa">
       <div className="form-criterios sequencial">
         <section className="bloco"><h3>Entradas de cálculo</h3>
-          <div className="subcrit definido"><h4>Faixa de investimento no terreno</h4><div className="botoes">{base.faixas.map((x) => <button key={x.id} className={projeto.faixa_id === x.id ? "ativo" : ""} onClick={() => alterar({ faixa_id: x.id })}>{x.nome}</button>)}</div></div>
+          <div className="subcrit definido"><h4>Faixa de investimento no terreno{!projeto.faixa_id && <i>escolha uma</i>}</h4><div className="botoes">{base.faixas.map((x) => <button key={x.id} className={projeto.faixa_id === x.id ? "ativo" : ""} onClick={() => { setUltimo("faixa"); alterar({ faixa_id: x.id }); }}>{x.nome}</button>)}</div></div>
           <div className="subcrit definido"><h4>Número de casas</h4><div className="extras"><input id="n-casas" type="number" min={1} step={1} value={projeto.n_casas ?? 1} onChange={(e) => alterar({ n_casas: Math.max(1, Math.round(Number(e.target.value) || 1)) })} />
             <span className="seg">{(["simultaneo", "sequencia"] as const).map((m) => <button key={m} className={(projeto.construcao ?? "simultaneo") === m ? "ativo" : ""} disabled={(projeto.n_casas ?? 1) < 2} onClick={() => alterar({ construcao: m })}>{m === "simultaneo" ? "ao mesmo tempo" : "em sequência"}</button>)}</span></div>
             <p className="nota">Em sequência, a etapa 6 calcula o custo da terra parada entre uma casa e outra.</p></div>
           <div className="subcrit definido"><h4>Preço de venda de cada casa</h4><div className="botoes">{PRECOS.map((o, i) => <button key={i} id={`pv-${i}`} className={igual({ min: o.min, max: o.max }, projeto.preco_venda) ? "ativo" : ""} onClick={() => alterar({ preco_venda: { min: o.min, max: o.max } })}>{o.rotulo}</button>)}</div></div>
           <div className="subcrit"><h4>Calculados (apenas exibidos)</h4>
-            <p className={pt.alerta ? "aviso" : "nota"}><b>Peso do terreno no preço: {pt.pct === null ? "—" : pt.pct.toFixed(0) + "%"}</b>{pt.conta && ` · ${pt.conta}`}{pt.alerta && " · acima de 25%"}</p>
+            {pt.semFaixa ? <p className="nota" id="peso-terreno"><b>Peso do terreno no preço:</b> escolha acima a faixa de investimento no terreno para calcular.</p>
+              : <p className={pt.alerta ? "aviso" : "nota"} id="peso-terreno"><b>Peso do terreno no preço: {pt.min === null ? "—" : `de ${pt.min.toFixed(0)}% a ${pt.max!.toFixed(0)}%`}</b>{pt.conta && ` · ${pt.conta}`}{pt.oQueFazer && <><br />{pt.oQueFazer}</>}</p>}
             <p className="nota"><b>Margem potencial:</b> sem dado. Depende do custo de construção (etapa 5) e do preço de venda por sqft da cidade.</p></div>
         </section>
         {GRUPOS_P.map((g) => <section className="bloco" key={g}><h3>{g}</h3>{PARAMS.filter((p) => p.grupo === g).map(linha)}</section>)}
@@ -70,8 +78,9 @@ export default function Expert({ base, projeto, alterar, verResultado, voltar, g
       <aside className="mapa-vivo">
         <h3>O que as suas escolhas fazem no mapa</h3>
         <p className="nota"><b>{tudo.length} de {linhas.length} regiões</b> atendem tudo o que você escolheu, entre os dados que existem. As outras vão ficando transparentes conforme deixam de atender.</p>
-        <Mapa geo={geo} linhas={linhas} sel={sel} setSel={setSel} eleita={null} vivo />
-        {escolhida ? <p className="nota"><b>{escolhida.u.nome}</b> · nota {escolhida.nota?.toFixed(0) ?? "–"}. {escolhida.falhas.length ? "Não atende: " + escolhida.falhas.map((f) => f.nome).join("; ") + "." : "Atende tudo o que tem dado."}</p> : <p className="nota">Clique numa região do mapa para ver o que ela não atende.</p>}
+        {efeito && <p className="efeito" id="efeito-escolha"><b>Sua última escolha: {efeito.nome}.</b> {efeito.texto}</p>}
+        <Mapa geo={geo} linhas={linhas} sel={sel} setSel={setSel} eleita={null} vivo destaque={efeito?.marcar ? ultimo : null} />
+        {escolhida ? <p className="nota"><b>{escolhida.u.nome}</b> · nota {escolhida.nota?.toFixed(0) ?? "–"} · com dado {textoCobertura(escolhida)}. {escolhida.falhas.length ? "Não atende: " + escolhida.falhas.map((f) => f.nome).join("; ") + "." : "Atende tudo o que tem dado."}</p> : <p className="nota">Clique numa região do mapa para ver o que ela não atende.</p>}
         <p className="nota">Parâmetros marcados "sem dado ainda" não mudam o mapa.</p>
       </aside>
       </div>

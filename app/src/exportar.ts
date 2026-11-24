@@ -8,8 +8,8 @@ export function tabelas(base: Base, p: Projeto, linhas: Linha[], edicoes: Record
   const defs = ativos(p);
   const ranking: L[] = linhas.map((l) => {
     const r: L = { posicao: l.posicao, unidade_id: l.u.unidade_id, unidade: l.u.nome, tipo: l.u.tipo, condado: l.u.condado, isd: l.u.isd_nome,
-      nota: l.nota === null ? null : Math.round(l.nota * 10) / 10, peso_com_dado_pct: Math.round(l.cobertura * 100), nao_atende: (l.falhas ?? []).map((f) => `${f.nome} (${f.valor}; alvo ${f.alvo})`).join("; ") };
-    for (const d of defs) { const x = l.porCriterio[d.id]; r[`${d.nome} (valor, ${d.um || "sim/não"})`] = x?.texto ?? (x?.bruto == null ? null : x.bruto / (d.fator ?? 1)); r[`${d.nome} (nota)`] = x?.nota ?? "sem dado"; }
+      nota: l.nota === null ? null : Math.round(l.nota * 10) / 10, com_dado_pct: Math.round(l.cobertura * 100), parametros_com_dado: l.avaliados, parametros_em_uso: l.emUso, nao_atende: (l.falhas ?? []).map((f) => `${f.nome} (${f.valor}; alvo ${f.alvo})`).join("; ") };
+    for (const d of defs) { const x = l.porCriterio[d.id]; r[`${d.nome} (valor, ${d.um || "sim/não"})`] = x?.texto ?? (x?.bruto == null ? null : x.bruto / (d.fator ?? 1)); r[`${d.nome} (nota)`] = x?.nota ?? "sem dado"; if (x?.esc === "cidade") r[`${d.nome} (escala)`] = "dado da cidade inteira"; }
     return r;
   });
   const dados: L[] = []; const pend: L[] = [];
@@ -29,7 +29,7 @@ export function tabelas(base: Base, p: Projeto, linhas: Linha[], edicoes: Record
   const pt = pesoTerreno(base, p);
   const projeto: L[] = [
     { campo: "projeto", valor: p.nome }, { campo: "modo de entrada", valor: p.modo === "leigo" ? "guiado" : p.modo === "expert" ? "especialista" : "" },
-    { campo: "faixa de investimento no terreno", valor: base.faixas.find((f) => f.id === p.faixa_id)?.nome ?? p.faixa_id },
+    { campo: "faixa de investimento no terreno", valor: base.faixas.find((f) => f.id === p.faixa_id)?.nome ?? p.faixa_id ?? "não escolhida" },
     { campo: "número de casas", valor: p.n_casas ?? 1 }, { campo: "construção", valor: p.construcao === "sequencia" ? "em sequência" : "ao mesmo tempo" },
     { campo: "preço de venda por casa", valor: p.preco_venda ? `${p.preco_venda.min ?? ""} – ${p.preco_venda.max ?? ""}` : "" },
     { campo: "peso do terreno no preço (%)", valor: pt.pct === null ? null : Math.round(pt.pct) }, { campo: "unidade eleita", valor: p.unidade_eleita_id },

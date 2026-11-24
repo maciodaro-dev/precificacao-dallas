@@ -9,7 +9,7 @@ export const DONO_LOCAL = "local";
 const id = () => "PRJ-" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
 
 export function novoProjeto(_base: Base, nome = "Novo projeto"): Projeto {
-  return { dono_id: DONO_LOCAL, projeto_id: id(), nome, criado_em: hoje(), alterado_em: hoje(), ponto_partida: { tem_terreno: null }, realizadas: [], faixa_id: "F2",
+  return { dono_id: DONO_LOCAL, projeto_id: id(), nome, criado_em: hoje(), alterado_em: hoje(), ponto_partida: { tem_terreno: null }, realizadas: [], faixa_id: null,
     unidade_eleita_id: null, eleita_em: null, margem_alvo_pct: null, juros_aa_pct: null, modo: null, caminho: null, n_casas: 1, construcao: "simultaneo", preco_venda: null,
     terrenos: [], casas: [], linhas_custo: [], cronograma: [] };
 }

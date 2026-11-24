@@ -149,5 +149,7 @@ button.voltar { display:inline-flex; margin:0 0 10px; } button.voltar.solto { ma
 /* Mapa ao vivo ao lado do painel do modo especialista */
 .painel-com-mapa { display:grid; grid-template-columns:minmax(0,860px) minmax(340px,1fr); gap:28px; align-items:start; }
 .etapa1 aside.mapa-vivo { position:sticky; top:12px; background:none; border:0; padding:0; max-height:none; overflow:visible; columns:auto; }
-.mapa-vivo h3 { margin-top:26px; } .mapa-vivo .mapa { height:calc(100vh - 330px); min-height:340px; }
+.mapa-vivo h3 { margin-top:26px; } .mapa-vivo .mapa { height:calc(100vh - 470px); min-height:300px; }
 @media (max-width: 1150px) { .painel-com-mapa { grid-template-columns:1fr; } .etapa1 aside.mapa-vivo { position:static; order:-1; } .mapa-vivo .mapa { height:300px; min-height:0; } .mapa-vivo h3 { margin-top:8px; } }
+.mapa-vivo .efeito { background:#fff7e6; border:1px solid #f0d9a8; border-radius:6px; padding:8px 10px; font-size:13px; margin:0 0 8px; }
+.com-dado { font-size:12px; color:var(--cinza, #5b6470); margin-right:8px; } td small, th small { display:block; }

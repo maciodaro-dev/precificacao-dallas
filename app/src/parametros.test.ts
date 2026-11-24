@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { avaliar, nota, PARAMS, pesoTerreno } from "./parametros";
+import { avaliar, coberturaGeral, nota, PARAMS, pesoTerreno, textoCobertura } from "./parametros";
 import { deduzir, mesclar, projetoDoLeigo } from "./leigo";
 import type { Base, Projeto, Indicador, ParamResp } from "./tipos";
 
@@ -44,6 +44,23 @@ describe("motor único", () => {
   it("peso do terreno no preço e alerta acima de 25%", () => {
     const t = pesoTerreno(base, proj({}, { n_casas: 1, preco_venda: { min: 300000, max: 500000 } })); expect(t.pct).toBeCloseTo(75); expect(t.alerta).toBe(true);
     expect(pesoTerreno(base, proj({}, { n_casas: 7, preco_venda: { min: 300000, max: 500000 } })).alerta).toBe(false);
+  });
+  it("peso do terreno: mostra o intervalo da faixa, explica o que fazer e não calcula sem faixa escolhida", () => {
+    const t = pesoTerreno(base, proj({}, { n_casas: 1, preco_venda: { min: 300000, max: 500000 } })); expect(t.min).toBeCloseTo(25); expect(t.max).toBeCloseTo(125);
+    expect(t.oQueFazer).toMatch(/reduza o investimento no terreno, aumente o nº de casas ou suba o preço de venda/);
+    const s = pesoTerreno(base, proj({}, { faixa_id: null, n_casas: 1, preco_venda: { min: 300000, max: 500000 } })); expect(s.semFaixa).toBe(true); expect(s.pct).toBeNull(); expect(s.alerta).toBe(false);
+  });
+  it("cobertura conta todos os parâmetros em uso, inclusive os que não têm dado em nenhuma unidade", () => {
+    // em uso: terreno na faixa (sem dado), imposto (peso médio = 2), taxas (peso alto = 3, sem dado). Peso total 3 + 2 + 3 = 8.
+    const pr = proj({ imposto: P({ max: 2 }), taxas: P({ max: 10000 }, "alto") }); const r = avaliar(base, pr, {});
+    expect(de(r, "a").cobertura).toBeCloseTo(2 / 8); expect(de(r, "a").avaliados).toBe(1); expect(de(r, "a").emUso).toBe(3); expect(textoCobertura(de(r, "a"))).toBe("25% (1 de 3)");
+    expect(de(r, "c").cobertura).toBe(0);
+    const g = coberturaGeral(base, pr, {}); expect(g.usados).toBe(1); expect(g.total).toBe(3); expect(g.faltam.map((x) => x.id).sort()).toEqual(["faixa", "taxas"]);
+  });
+  it("moratória sem dado não pontua: nem cheia, nem zero, nem metade", () => {
+    const r = avaliar(base, proj({ isd: P({ valor: "B" }), moratoria: P({ valor: "nao" }, "alto") }), {});
+    expect(de(r, "c").nota).toBe(100); // só o ISD conta para "c", e ela atende
+    expect(de(r, "c").porCriterio.moratoria.nota).toBeNull(); expect(de(r, "a").nota).toBe(100); expect(de(r, "b").nota).toBeCloseTo(20); // b: ISD C vale metade (peso 2), moratória "sim" vale zero (peso 3)
   });
 });
 describe("modo leigo", () => {

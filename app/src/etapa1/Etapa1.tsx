@@ -10,6 +10,7 @@ import Cidade from "./Cidade";
 import Expert from "./Expert";
 import { Perguntas, ResultadoLeigo } from "./Leigo";
 import FontesUsadas from "../Fontes";
+import AvisoCobertura from "./AvisoCobertura";
 import { CompararUnidades, CompararProjetos } from "./Comparar";
 
 export interface Props {
@@ -28,11 +29,15 @@ export default function Etapa1(p: Props) {
   const todas = useMemo(() => avaliar(base, projeto, edicoes), [base, projeto, edicoes]);
   // Recorte: só muda o que é exibido (mapa, ranking, 5 melhores). A nota e a posição geral não mudam.
   const [recorte, setRecorte] = useState("dfw");
-  const linhas = useMemo(() => todas.filter((l) => recorte === "dfw" || (recorte.startsWith("c:") ? l.u.condado === recorte.slice(2) : l.u.lado === recorte)), [todas, recorte]);
+  // Fatias pequenas de cidade × ISD ficam ocultas por padrão. É só exibição: continuam na base, com nota e posição.
+  const [fatias, setFatias] = useState(false); const nFatias = useMemo(() => base.unidades.filter((u) => u.fatia_pequena).length, [base]);
+  const visiveis = useMemo(() => (fatias ? todas : todas.filter((l) => !l.u.fatia_pequena || l.u.unidade_id === projeto.unidade_eleita_id)), [todas, fatias, projeto.unidade_eleita_id]);
+  const linhas = useMemo(() => visiveis.filter((l) => recorte === "dfw" || (recorte.startsWith("c:") ? l.u.condado === recorte.slice(2) : l.u.lado === recorte)), [visiveis, recorte]);
   const condados = useMemo(() => [...new Set(base.unidades.map((u) => u.condado))].sort(), [base]);
-  const seletor = <label className="escolher">Mostrar <select id="recorte" value={recorte} onChange={(e) => setRecorte(e.target.value)}>
+  const seletor = <><label className="escolher">Mostrar <select id="recorte" value={recorte} onChange={(e) => setRecorte(e.target.value)}>
     <option value="dfw">DFW inteira</option><option value="dallas">Lado Dallas</option><option value="fort_worth">Lado Fort Worth</option>
-    <optgroup label="Por condado">{condados.map((c) => <option key={c} value={"c:" + c}>{c}</option>)}</optgroup></select></label>;
+    <optgroup label="Por condado">{condados.map((c) => <option key={c} value={"c:" + c}>{c}</option>)}</optgroup></select></label>
+    {nFatias > 0 && <label className="escolher" title="Fatias pequenas: pedaços de uma cidade dentro de outro distrito escolar que representam uma parte pequena dela. Ficam ocultas por padrão; nada sai da base."><input id="fatias" type="checkbox" checked={fatias} onChange={(e) => setFatias(e.target.checked)} /> mostrar fatias pequenas ({nFatias})</label>}</>;
   const ps = ativos(projeto); const conflitos = projeto.leigo ? mesclar(deduzir(projeto.leigo), projeto.parametros).conflitos : [];
   const alternar = (id: string) => setComparar((c) => (c.includes(id) ? c.filter((x) => x !== id) : c.length < 4 ? [...c, id] : c));
   const eleger = (id: string) => p.alterar({ unidade_eleita_id: id, eleita_em: new Date().toISOString().slice(0, 10) });
@@ -65,12 +70,13 @@ export default function Etapa1(p: Props) {
         {linhaSel && <Detalhe key={linhaSel.u.unidade_id} base={base} projeto={projeto} edicoes={edicoes} linha={linhaSel} editar={p.editar} fechar={() => setSel(null)} eleger={eleger} irParaEtapa2={irEtapa2} emComparacao={false} alternar={() => {}} />}
       </>}
       {passo === "cidade" && <><Voltar /><Cidade base={base} projeto={projeto} edicoes={edicoes} linhas={todas} sel={sel} setSel={setSel} editar={p.editar} eleger={eleger} irParaEtapa2={irEtapa2} /></>}
-      {passo === "expert" && <Expert geo={p.geo} linhas={todas} base={base} projeto={projeto} alterar={p.alterar} verResultado={() => ir("especialista-resultado")} voltar={voltar} />}
+      {passo === "expert" && <Expert geo={p.geo} linhas={visiveis} base={base} projeto={projeto} alterar={p.alterar} verResultado={() => ir("especialista-resultado")} voltar={voltar} />}
       {passo === "ranking" && <main id="resultado">
         <Voltar />
         <div className="cab-passo"><div><h1>Resultado: ranking de todas as regiões</h1>
-          <p>Investimento no terreno: {base.faixas.find((f) => f.id === projeto.faixa_id)?.nome} · {projeto.n_casas ?? 1} {(projeto.n_casas ?? 1) === 1 ? "casa" : `casas, ${projeto.construcao === "sequencia" ? "em sequência" : "ao mesmo tempo"}`} · {ps.length} parâmetros em uso · nenhuma unidade é eliminada</p></div>
+          <p>Investimento no terreno: {base.faixas.find((f) => f.id === projeto.faixa_id)?.nome ?? "faixa não escolhida"} · {projeto.n_casas ?? 1} {(projeto.n_casas ?? 1) === 1 ? "casa" : `casas, ${projeto.construcao === "sequencia" ? "em sequência" : "ao mesmo tempo"}`} · {ps.length} parâmetros em uso · nenhuma unidade é eliminada</p></div>
           {projeto.unidade_eleita_id && <button className="primario" onClick={irEtapa2}>Seguir para a etapa 2 →</button>}</div>
+        <AvisoCobertura base={base} projeto={projeto} edicoes={edicoes} />
         <div className="chips">{ps.map((d) => <span key={d.id} className="chip">{d.nome}: <b>{descreveAlvo(d, projeto.parametros?.[d.id]?.alvo, projeto, base)}</b> · peso {pesoDe(projeto, d.id) === "medio" ? "médio" : pesoDe(projeto, d.id)}{todas[0]?.porCriterio[d.id]?.peso === 0 && " · sem dado"}</span>)}</div>
         <div className="barra">
           <div className="abas">

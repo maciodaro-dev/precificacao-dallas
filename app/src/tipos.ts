@@ -7,7 +7,7 @@ export type Direcao = "maior" | "menor" | "configuravel";
 export interface Unidade {
   unidade_id: string; nome: string; tipo: "cidade_isd" | "nao_incorporado"; cidade: string; place_geoid: string;
   isd_id: string; isd_nome: string; condado: string; condado_fips: string; condados_pct: string; /** lado da área metropolitana; só recorta a exibição */ lado?: "dallas" | "fort_worth";
-  acres_terra: number; pct_cidade: number | null; lat: number; lon: number; fonte: string;
+  acres_terra: number; /** parcela da área da cidade que esta unidade representa */ pct_cidade: number | null; /** parcela dos domicílios da cidade (setores censitários), quando calculada */ pct_domicilios?: number | null; /** fatia pequena: oculta por padrão na exibição, nunca excluída da base */ fatia_pequena?: boolean; lat: number; lon: number; fonte: string;
 }
 export interface Criterio {
   id: string; grupo: string; nome: string; metrica: string; unidade_medida: string; direcao: Direcao;
@@ -15,7 +15,7 @@ export interface Criterio {
 }
 /** Valor bruto com unidade. A nota 0–100 nunca é gravada: é calculada a partir daqui. */
 export interface Indicador {
-  v: number | string | null; um: string; f: string; url: string; ref: string; col: string; conf: Confianca; obs: string;
+  v: number | string | null; um: string; f: string; url: string; ref: string; col: string; conf: Confianca; obs: string; /** "cidade" = o dado é da cidade inteira e a unidade é só uma fatia dela */ esc?: "cidade" | "fatia";
   editado?: boolean; data_edicao?: string; original?: number | string | null;
 }
 export interface Faixa { id: string; nome: string; min: number; max: number }
@@ -32,7 +32,7 @@ export type Peso = "baixo" | "medio" | "alto";
 export interface ParamResp { alvo: { valor?: string; min?: number; max?: number } | null; peso: Peso; origem: string; ajustado?: boolean }
 export interface RespostasLeigo { /** a faixa de investimento já foi escolhida na pergunta 1 */ faixa_ok?: boolean; casas?: "1" | "2a4" | "5a10" | "mais10"; construcao?: "simultaneo" | "sequencia"; preco?: number; vender_rapido?: boolean; valorizacao?: boolean; comecar_logo?: boolean; agua_esgoto?: boolean; escola?: boolean }
 /** Combinação do modo expert salva com nome, para reutilizar em outros projetos. Dado privado do dono. */
-export interface PerfilSalvo { perfil_id: string; dono_id: string; nome: string; criado_em: string; parametros: Record<string, ParamResp>; n_casas: number; construcao: "simultaneo" | "sequencia"; preco_venda: { min?: number; max?: number } | null; faixa_id: string }
+export interface PerfilSalvo { perfil_id: string; dono_id: string; nome: string; criado_em: string; parametros: Record<string, ParamResp>; n_casas: number; construcao: "simultaneo" | "sequencia"; preco_venda: { min?: number; max?: number } | null; faixa_id: string | null }
 
 export type SimNaoNaoSei = "sim" | "nao" | "nao_sei";
 /** Ponto de partida: primeira tela do aplicativo. "não sei" é tratado como "não", com aviso para confirmar. */
@@ -54,7 +54,7 @@ export interface Projeto {
   dono_id?: string;
   projeto_id: string; nome: string; criado_em: string; alterado_em: string;
   ponto_partida?: PontoPartida; realizadas?: ParteRealizada[];
-  faixa_id: string;
+  /** null = a pessoa ainda não escolheu a faixa de investimento */ faixa_id: string | null;
   /** "cidade" = o usuário abriu o retrato de uma cidade que tem em mente */
   caminho?: "cidade" | null;
   /** Modo de entrada usado por último. Os dois gravam no mesmo conjunto de parâmetros abaixo. */

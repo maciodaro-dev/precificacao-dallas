@@ -4,7 +4,8 @@ import type { Linha } from "../ranking";
 import { indicador } from "../ranking";
 import { RESPOSTAS_PADRAO, projetoDoLeigo, resumo, type Pergunta } from "../leigo";
 import { perguntasVisiveis } from "../rota";
-import { PARAMS, PESOS, ativos, pesoDe, pesoTerreno } from "../parametros";
+import { PARAMS, PESOS, ativos, pesoDe, pesoTerreno, textoCobertura } from "../parametros";
+import AvisoCobertura from "./AvisoCobertura";
 import { cor, fmt } from "../formato";
 import Mapa from "./Mapa";
 import FontesUsadas from "../Fontes";
@@ -63,13 +64,13 @@ export function ResultadoLeigo({ seletor, total, base, geo, projeto, edicoes, li
   const [dois, setDois] = useState<string[]>([]); const [pagina, setPagina] = useState(false); const [sel, setSel] = useState<string | null>(null);
   const top = linhas.slice(0, 5); const faixa = base.faixas.find((f) => f.id === projeto.faixa_id)?.nome ?? ""; const pt = pesoTerreno(base, projeto);
   const frase = resumo(projeto.leigo ?? {}, faixa); const marcar = (id: string) => setDois((d) => (d.includes(id) ? d.filter((x) => x !== id) : d.length < 2 ? [...d, id] : [d[1], id]));
-  const ps = ativos(projeto); const semDadoGeral = ps.filter((p) => top[0]?.porCriterio[p.id]?.peso === 0).map((p) => p.leigo);
+  const ps = ativos(projeto);
   const cartao = (l: Linha, compacto = false) => { const e = explicar(l, projeto, base, edicoes); const eleita = projeto.unidade_eleita_id === l.u.unidade_id; return (
     <article key={l.u.unidade_id} className={"cartao" + (eleita ? " eleita" : "")}>
       <header><span className="pos">{l.posicao}º</span><h3>{l.u.nome}</h3><span className="nota-final" style={{ background: cor(l.nota) }} title="Nota de 0 a 100: quanto a unidade atende às suas respostas">{l.nota?.toFixed(0)}</span></header>
       <p><b>Por que apareceu:</b> {e.porque}</p><p><b>Ponto forte:</b> {e.forte}</p><p><b>Ponto de atenção:</b> {e.atencao}</p>
       <p className={e.nao.length ? "naoatende" : ""}><b>Não atende:</b> {e.nao.length ? e.nao.join("; ") + "." : "nada, entre as respostas que têm dado."}</p>
-      <p className="nota">{e.prazo}{e.semDado > 0 && ` Sem dado para ${e.semDado} das suas respostas nesta unidade.`}</p>
+      <p className="nota">{e.prazo} <b>Com dado: {textoCobertura(l)}</b> das suas respostas nesta região.</p>
       {!compacto && <div className="acoes"><label className="obrig"><input type="checkbox" checked={dois.includes(l.u.unidade_id)} onChange={() => marcar(l.u.unidade_id)} /> comparar</label>
         <button onClick={() => detalhar(l.u.unidade_id)}>Ver todos os dados</button>
         {eleita ? <button className="primario" onClick={irParaEtapa2}>Seguir para a etapa 2 →</button> : <button className="primario" onClick={() => eleger(l.u.unidade_id)}>Escolher esta</button>}</div>}
@@ -81,14 +82,15 @@ export function ResultadoLeigo({ seletor, total, base, geo, projeto, edicoes, li
         <div className="acoes nao-imprimir"><button className="voltar" onClick={voltar}>← Voltar</button><button onClick={abrirExpert}>Abrir no modo especialista</button>
           <button onClick={() => setPagina(!pagina)}>{pagina ? "Voltar ao resultado" : "Resumo de uma página"}</button>{pagina && <button className="primario" onClick={() => window.print()}>Imprimir</button>}</div></div>
       {conflitos.length > 0 && <p className="aviso nao-imprimir">{conflitos.length === 1 ? "Um parâmetro foi ajustado" : `${conflitos.length} parâmetros foram ajustados`} manualmente no modo especialista e não {conflitos.length === 1 ? "segue" : "seguem"} mais as respostas do modo guiado: {conflitos.map((c) => PARAMS.find((p) => p.id === c.id)?.nome).join(", ")}. O ajuste manual foi mantido; abra o modo especialista para rever.</p>}
-      {pt.pct !== null && <p className={pt.alerta ? "aviso" : "nota"}><b>Peso do terreno no preço da casa: {pt.pct.toFixed(0)}%.</b> {pt.conta}.{pt.alerta && " Acima de 25%, o terreno costuma pesar demais: reveja o investimento, o número de casas ou o preço de venda."}</p>}
+      <AvisoCobertura base={base} projeto={projeto} edicoes={edicoes} guiado />
+      {pt.min !== null && <p className={pt.alerta ? "aviso" : "nota"} id="peso-terreno"><b>Peso do terreno no preço da casa: de {pt.min.toFixed(0)}% a {pt.max!.toFixed(0)}%.</b> Conta: {pt.conta}. {pt.oQueFazer}</p>}
       <div className="barra nao-imprimir">{seletor}<span className="resumo">mostrando {linhas.length} de {total} unidades</span></div>
-      <p className="nota">Nenhuma unidade é eliminada: todas aparecem em ordem de nota. Aqui estão as 5 melhores do recorte escolhido; a posição é a geral, na DFW inteira.{semDadoGeral.length > 0 && ` Ainda não há dado para avaliar: ${semDadoGeral.join(", ")}; essas respostas não entraram na nota.`}</p>
+      <p className="nota">Nenhuma unidade é eliminada: todas aparecem em ordem de nota. Aqui estão as 5 melhores do recorte escolhido; a posição é a geral, na DFW inteira.</p>
       <div className="cartoes">{top.map((l) => cartao(l, pagina))}</div>
       {!pagina && <>
         <h2>Comparação de duas unidades</h2>
         {comp.length < 2 ? <p className="vazio">Marque "comparar" em duas unidades acima.</p> : <div className="rolagem"><table className="simples comp">
-          <thead><tr><th>Sua resposta</th>{comp.map((l) => <th key={l.u.unidade_id}>{l.u.nome} · nota {l.nota?.toFixed(0)}</th>)}</tr></thead>
+          <thead><tr><th>Sua resposta</th>{comp.map((l) => <th key={l.u.unidade_id}>{l.u.nome} · nota {l.nota?.toFixed(0)}<small>com dado {textoCobertura(l)}</small></th>)}</tr></thead>
           <tbody>{ps.filter((p) => comp.some((l) => l.porCriterio[p.id]?.peso > 0)).map((p) => <tr key={p.id}><td>{p.leigo[0].toUpperCase() + p.leigo.slice(1)}</td>
             {comp.map((l) => { const x = l.porCriterio[p.id]; return <td key={l.u.unidade_id} className={x.nota === null ? "semdado" : x.nota === 100 ? "sim" : "nao"}>{x.nota === null ? "sem dado" : <><span className="marca-ok">{x.nota === 100 ? "✓ atende" : x.nota === 0 ? "✗ não atende" : "△ atende em parte"}</span><small>{x.texto ?? (x.bruto == null ? "" : fmt(x.bruto / (p.fator ?? 1), p.um))}</small></>}</td>; })}</tr>)}</tbody></table></div>}
         <h2>Mapa</h2>

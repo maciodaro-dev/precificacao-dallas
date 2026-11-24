@@ -5,7 +5,7 @@ import type { Base, Criterio, Indicador, Unidade, Edicao } from "./tipos";
 export const LETRAS = ["A", "B", "C", "D", "F"];
 export const DIAS_DESATUALIZADO = 183;
 
-export function chave(c: Criterio, faixa: string, metrica?: string) {
+export function chave(c: Criterio, faixa: string | null, metrica?: string) {
   const m = metrica ?? c.metrica;
   return `${c.id}|${m}` + (c.por_faixa && m === c.metrica ? `|${faixa}` : "");
 }
@@ -27,7 +27,7 @@ export function desatualizado(ref: string, hoje = new Date()): boolean {
   return (hoje.getTime() - d.getTime()) / 86400000 > DIAS_DESATUALIZADO;
 }
 
-export interface NotaCriterio { bruto: number | null; nota: number | null; peso: number; texto?: string; fonte?: string; ref?: string; conf?: string }
+export interface NotaCriterio { bruto: number | null; nota: number | null; peso: number; texto?: string; fonte?: string; ref?: string; /** "cidade" = dado da cidade inteira, usado numa fatia */ esc?: "cidade" | "fatia"; conf?: string }
 export interface Falha { id: string; nome: string; leigo: string; s: number; valor: string; alvo: string; peso: string }
 /** Uma unidade no resultado. Nenhuma unidade é eliminada: "falhas" lista o que ela não atende. */
-export interface Linha { u: Unidade; nota: number | null; cobertura: number; porCriterio: Record<string, NotaCriterio>; posicao: number | null; atendidos: number; avaliados: number; falhas: Falha[] }
+export interface Linha { u: Unidade; nota: number | null; /** peso dos parâmetros em uso com dado nesta unidade ÷ peso de todos os parâmetros em uso */ cobertura: number; /** nº de parâmetros em uso */ emUso: number; porCriterio: Record<string, NotaCriterio>; posicao: number | null; atendidos: number; avaliados: number; falhas: Falha[] }
