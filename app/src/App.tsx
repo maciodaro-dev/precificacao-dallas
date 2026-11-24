@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Base, Edicao, Projeto } from "./tipos";
-import { carregarAtivo, carregarEdicoes, carregarProjetos, duplicar, hoje, novoProjeto, salvarAtivo, salvarEdicoes, salvarProjetos } from "./estado";
+import { carregarAtivo, carregarEdicoes, carregarProjetos, duplicar, hoje, novoProjeto, DONO_LOCAL, salvarAtivo, salvarEdicoes, salvarProjetos } from "./estado";
 import Etapa1 from "./etapa1/Etapa1";
 import EtapaVazia, { ETAPAS } from "./EtapaVazia";
 import Dados from "./Dados";
@@ -39,7 +39,7 @@ export default function App() {
   const alterar = (m: Partial<Projeto>) => setProjetos((ps) => ps.map((p) => (p.projeto_id === projeto.projeto_id ? { ...p, ...m, alterado_em: hoje() } : p)));
   const editar = (uid: string, k: string, v: number | string | null | undefined) => setEdicoes((e) => {
     const n = { ...e }; const ch = `${uid}|${k}`;
-    if (v === undefined) delete n[ch]; else n[ch] = { v, data: hoje(), original: e[ch]?.original ?? base.indicadores[uid]?.[k]?.v ?? null };
+    if (v === undefined) delete n[ch]; else n[ch] = { dono_id: DONO_LOCAL, v, data: hoje(), original: e[ch]?.original ?? base.indicadores[uid]?.[k]?.v ?? null };
     return n;
   });
   const importar = (f: File) => f.text().then((t) => {
@@ -65,7 +65,7 @@ export default function App() {
           <button onClick={() => { const p = duplicar(projeto); setProjetos([...projetos, p]); setAtivoId(p.projeto_id); }}>Duplicar</button>
           {!confirmaExcluir ? <button disabled={projetos.length < 2} onClick={() => setConfirmaExcluir(true)}>Excluir</button> :
             <><button className="perigo" onClick={() => { setProjetos(projetos.filter((p) => p.projeto_id !== projeto.projeto_id)); setConfirmaExcluir(false); }}>Excluir "{projeto.nome}"</button><button onClick={() => setConfirmaExcluir(false)}>Cancelar</button></>}
-          <button title="Salva projetos e edições manuais num arquivo" onClick={() => baixar(new Blob([JSON.stringify({ projetos, edicoes }, null, 1)], { type: "application/json" }), `projetos_${hoje()}.json`)}>Salvar em arquivo</button>
+          <button title="Salva projetos e edições manuais num arquivo" onClick={() => baixar(new Blob([JSON.stringify({ dono_id: DONO_LOCAL, projetos, edicoes }, null, 1)], { type: "application/json" }), `projetos_${hoje()}.json`)}>Salvar em arquivo</button>
           <label className="botao">Abrir arquivo<input type="file" accept=".json" hidden onChange={(e) => e.target.files?.[0] && importar(e.target.files[0])} /></label>
         </div>
       </header>
@@ -78,6 +78,7 @@ export default function App() {
       {tela === 1 && <Etapa1 key={projeto.projeto_id} base={base} geo={geo} projeto={projeto} projetos={projetos} edicoes={edicoes} alterar={alterar} editar={editar} irParaEtapa2={() => setTela(2)} />}
       {typeof tela === "number" && tela > 1 && <EtapaVazia n={tela} base={base} projeto={projeto} edicoes={edicoes} />}
       {tela === "dados" && <Dados base={base} edicoes={edicoes} editar={editar} />}
+      <p className="aviso-legal">Esta ferramenta é apoio à decisão. Não é recomendação de investimento nem avaliação de imóvel. Confira os dados na fonte antes de decidir.</p>
       {typeof tela === "number" && (
         <footer className="passos">
           <button disabled={tela === 1} onClick={() => { setTela(tela - 1); window.scrollTo(0, 0); }}>← Etapa anterior{tela > 1 && `: ${ETAPAS[tela - 2].nome}`}</button>

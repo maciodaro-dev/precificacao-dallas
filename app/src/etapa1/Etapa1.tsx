@@ -7,6 +7,7 @@ import Tabela from "./Tabela";
 import Detalhe from "./Detalhe";
 import Mapa from "./Mapa";
 import Cidade from "./Cidade";
+import FontesUsadas from "../Fontes";
 import { CompararUnidades, CompararProjetos } from "./Comparar";
 
 export interface Props {
@@ -85,6 +86,7 @@ export default function Etapa1(p: Props) {
         {aba === "mapa" && <Mapa geo={p.geo} linhas={linhas} sel={sel} setSel={setSel} eleita={projeto.unidade_eleita_id} />}
         {aba === "unidades" && <CompararUnidades base={base} projeto={projeto} edicoes={edicoes} linhas={linhas.filter((l) => comparar.includes(l.u.unidade_id))} remover={alternar} />}
         {aba === "projetos" && <CompararProjetos base={base} projetos={p.projetos} edicoes={edicoes} />}
+        <FontesUsadas base={base} edicoes={edicoes} unidades={base.unidades.map((u) => u.unidade_id)} chaves={defs.map((d) => d.chave).filter((k): k is string => !!k)} />
         {linhaSel && aba !== "unidades" && aba !== "projetos" &&
           <Detalhe key={linhaSel.u.unidade_id} base={base} projeto={projeto} edicoes={edicoes} linha={linhaSel} editar={p.editar} fechar={() => setSel(null)} eleger={eleger} irParaEtapa2={p.irParaEtapa2}
             emComparacao={comparar.includes(linhaSel.u.unidade_id)} alternar={alternar} />}

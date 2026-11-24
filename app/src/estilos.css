@@ -113,3 +113,6 @@ a.botao { text-decoration:none; color:inherit; display:inline-block; } .det td.n
 .subcrit { padding:10px 0; border-top:1px solid var(--linha); } .subcrit h4 { margin:0 0 2px; font-size:13px; color:var(--tinta); display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
 .subcrit h4 i { font-size:11px; color:#a26b00; font-style:normal; font-weight:400; } .subcrit .nota { margin:2px 0 0; } .subcrit .extras { display:flex; gap:14px; align-items:center; margin-top:6px; }
 .subcrit.definido h4::before { content:"●"; color:#2f8f5b; } .subcrit .peso-num input { width:52px; }
+
+.aviso-legal { margin:0; padding:8px 16px; font-size:12px; color:var(--suave); border-top:1px solid var(--linha); background:var(--papel); }
+.fontes-usadas { margin-top:10px; padding:8px 12px; font-size:12px; color:var(--suave); background:var(--papel); border:1px solid var(--linha); border-radius:8px; }

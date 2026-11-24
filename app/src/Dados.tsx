@@ -17,7 +17,7 @@ export default function Dados({ base, edicoes, editar }: { base: Base; edicoes: 
       <h1>Base de dados</h1>
       <p>Base gerada em {base.gerado_em}. {base.unidades.length} unidades, {base.criterios.length} critérios. Preenchimento da métrica principal: <b>{total} de {max}</b> ({Math.round((100 * total) / max)}%).</p>
       <div className="abas">
-        {([["pend", "Pendências por critério"], ["fontes", "Fontes"], ["premissas", "Registro de premissas"], ["edicoes", `Edições manuais (${Object.keys(edicoes).length})`]] as const).map(([k, n]) =>
+        {([["pend", "Pendências por critério"], ["fontes", "Fontes e licenças"], ["premissas", "Registro de premissas"], ["edicoes", `Edições manuais (${Object.keys(edicoes).length})`]] as const).map(([k, n]) =>
           <button key={k} className={aba === k ? "ativo" : ""} onClick={() => setAba(k)}>{n}</button>)}
       </div>
       {aba === "pend" && <>
@@ -35,9 +35,12 @@ export default function Dados({ base, edicoes, editar }: { base: Base; edicoes: 
                 <td>{i?.v == null ? i?.obs || sel.fonte_planejada : i.editado ? "editado em " + i.data_edicao : i.f}</td></tr>); })}
           </tbody></table>{sel.por_faixa && <p className="nota">Critério por faixa: esta lista edita a faixa $100–500 mil. As outras faixas são editadas no detalhe da unidade, na etapa 1.</p>}</section>}
       </>}
-      {aba === "fontes" && <table className="simples"><thead><tr><th>Fonte</th><th>Órgão</th><th>Script de atualização</th><th>Periodicidade</th><th>Situação</th><th>Observação</th></tr></thead><tbody>
-        {base.fontes.map((f) => <tr key={f.id}><td>{f.url ? <a href={f.url} target="_blank" rel="noreferrer">{f.nome}</a> : f.nome}</td><td>{f.orgao}</td><td><code>{f.script}</code></td><td>{f.periodicidade}</td>
-          <td><span className={"sit " + f.situacao}>{f.situacao}</span></td><td>{f.obs}</td></tr>)}</tbody></table>}
+      {aba === "fontes" && <><p className="nota">Levantamento de licenças de 2026-11-24. Não é parecer jurídico: linhas "a confirmar" ou "com restrição" precisam ser conferidas nos termos originais antes de qualquer uso comercial.</p>
+        <div className="rolagem"><table className="simples"><thead><tr><th>Fonte</th><th>Critérios</th><th>Licença / termos</th><th>Uso comercial</th><th>Redistribuição</th><th>Atualização</th><th>Situação</th><th>Alternativa</th></tr></thead><tbody>
+        {base.fontes.map((f) => <tr key={f.id}><td>{f.url ? <a href={f.url} target="_blank" rel="noreferrer">{f.nome}</a> : f.nome}<small>{f.orgao}</small></td><td>{f.criterios}</td>
+          <td>{f.licenca}{f.termos_url && <small><a href={f.termos_url} target="_blank" rel="noreferrer">termos</a> · {f.verificacao}</small>}</td>
+          <td><span className={"sit " + (f.uso_comercial === "sim" ? "ok" : f.uso_comercial === "não" ? "bloqueado" : "pendente")}>{f.uso_comercial}</span></td><td>{f.redistribuicao}</td><td>{f.periodicidade}</td>
+          <td><span className={"sit " + f.situacao}>{f.situacao}</span>{f.obs && <small>{f.obs}</small>}</td><td>{f.alternativa}</td></tr>)}</tbody></table></div></>}
       {aba === "premissas" && <table className="simples"><thead><tr><th>ID</th><th>Premissa</th><th>Valor</th><th>Autor</th><th>Data</th><th>Justificativa</th><th>Usada em</th></tr></thead><tbody>
         {base.premissas.map((p) => <tr key={p.premissa_id}><td>{p.premissa_id}</td><td>{p.descricao}</td><td>{p.valor} {p.unidade}</td><td>{p.autor}</td><td>{p.data}</td><td>{p.justificativa}</td><td>{p.usada_em}</td></tr>)}</tbody></table>}
       {aba === "edicoes" && (Object.keys(edicoes).length === 0 ? <p>Nenhum valor foi editado manualmente.</p> :

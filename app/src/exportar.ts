@@ -43,6 +43,8 @@ export function exportarXlsx(base: Base, p: Projeto, linhas: Linha[], e: Record<
   XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(t.pend), "Pendências");
   XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(t.projeto), "Projeto");
   XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(base.premissas as unknown as L[]), "Premissas");
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(base.fontes.map((f) => ({ fonte: f.nome, orgao: f.orgao, licenca: f.licenca ?? "", uso_comercial: f.uso_comercial ?? "", redistribuicao: f.redistribuicao ?? "", atualizacao: f.periodicidade, criterios: f.criterios ?? "", url: f.url }))), "Fontes e licenças");
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet([{ aviso: "Esta planilha é apoio à decisão. Não é recomendação de investimento nem avaliação de imóvel." }, { aviso: `Base de dados gerada em ${base.gerado_em}. A fonte e a data de referência de cada valor estão na aba "Dados brutos".` }]), "Aviso");
   XLSX.writeFile(wb, nomeArq(p, "etapa1") + ".xlsx");
 }
 export function exportarCsv(base: Base, p: Projeto, linhas: Linha[], e: Record<string, Edicao>, qual: "ranking" | "dados") {

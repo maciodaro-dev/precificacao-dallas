@@ -20,7 +20,8 @@ export interface Indicador {
 }
 export interface Faixa { id: string; nome: string; min: number; max: number }
 export interface Perfil { id: string; nome: string; pesos: Record<string, number> }
-export interface Fonte { id: string; nome: string; orgao: string; url: string; script: string; periodicidade: string; situacao: string; obs: string }
+export interface Fonte { id: string; nome: string; orgao: string; url: string; script: string; periodicidade: string; situacao: string; obs: string;
+  licenca?: string; uso_comercial?: string; redistribuicao?: string; termos_url?: string; verificacao?: string; criterios?: string; alternativa?: string }
 export interface Premissa { premissa_id: string; descricao: string; valor: string; unidade: string; autor: string; data: string; justificativa: string; usada_em: string }
 export interface Base {
   gerado_em: string; unidades: Unidade[]; criterios: Criterio[]; indicadores: Record<string, Record<string, Indicador>>;
@@ -39,6 +40,8 @@ export interface Resposta { /** critério em uso */ ativo?: boolean; /** índice
 
 /** Registro central. Nasce na etapa 1 e acumula terrenos, casas, pilha de custos e cronograma. */
 export interface Projeto {
+  /** Dono do registro. Todo dado privado tem dono; hoje só existe "local" (uso próprio, sem login). */
+  dono_id?: string;
   projeto_id: string; nome: string; criado_em: string; alterado_em: string;
   faixa_id: string; perfil_origem: string; pesos: Record<string, number>; tamanho: Tamanho; filtros: Filtros;
   /** Como o lugar é definido: "cidade" = o usuário já sabe onde quer construir; "criterios" = o lugar sai dos critérios. */
@@ -72,4 +75,8 @@ export interface Marco {
 }
 /** Etapa 8: casas novas realmente vendidas, para medir o desvio do preço calculado. */
 export interface VendaReferencia { venda_id: string; unidade_id: string; endereco: string; sqft: number; lote_sqft: number; data_venda: string; preco_venda: number; builder: string; fonte: string }
-export interface Edicao { v: number | string | null; data: string; original: number | string | null }
+/** Edição manual de um valor da base pública. É dado privado do dono: nunca volta para a base pública. */
+export interface Edicao { v: number | string | null; data: string; original: number | string | null; dono_id?: string }
+/** Dados privados das próximas etapas (ainda sem tela): cotações recebidas e custos reais de obra. Sempre ligados a um dono e a um projeto. */
+export interface Cotacao { cotacao_id: string; dono_id: string; projeto_id: string; linha_id: string | null; fornecedor: string; descricao: string; valor: number; data: string; validade: string | null; arquivo: string | null }
+export interface CustoReal { custo_id: string; dono_id: string; projeto_id: string; linha_id: string; valor: number; data: string; documento: string | null; obs: string }
