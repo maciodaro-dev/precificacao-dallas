@@ -1,172 +1,469 @@
-unidade_id,nome,tipo,cidade,place_geoid,isd_id,isd_nome,condado,condado_fips,condados_pct,acres_terra,pct_cidade,lat,lon,fonte
-U-4801240-4816230,Addison × Dallas ISD,cidade_isd,Addison,4801240,4816230,Dallas ISD,Dallas,48113,Dallas 100%,2649.0,95.0,32.96349,-96.83023,Census TIGER/Line 2025
-U-4801924-4807890,Allen × Allen ISD,cidade_isd,Allen,4801924,4807890,Allen ISD,Collin,48085,Collin 100%,15383.0,90.8,33.11088,-96.67665,Census TIGER/Line 2025
-U-4801924-4835100,Allen × Plano ISD,cidade_isd,Allen,4801924,4835100,Plano ISD,Collin,48085,Collin 100%,852.0,5.0,33.09275,-96.72312,Census TIGER/Line 2025
-U-4804600-4808910,Aubrey × Aubrey ISD,cidade_isd,Aubrey,4804600,4808910,Aubrey ISD,Denton,48121,Denton 100%,2134.0,77.4,33.29149,-96.98752,Census TIGER/Line 2025
-U-4804600-4816740,Aubrey × Denton ISD,cidade_isd,Aubrey,4804600,4816740,Denton ISD,Denton,48121,Denton 100%,585.0,21.2,33.26484,-96.89367,Census TIGER/Line 2025
-U-4805372-4816230,Balch Springs × Dallas ISD,cidade_isd,Balch Springs,4805372,4816230,Dallas ISD,Dallas,48113,Dallas 100%,2325.0,39.9,32.71957,-96.63485,Census TIGER/Line 2025
-U-4805372-4830390,Balch Springs × Mesquite ISD,cidade_isd,Balch Springs,4805372,4830390,Mesquite ISD,Dallas,48113,Dallas 100%,3496.0,60.1,32.72523,-96.61192,Census TIGER/Line 2025
-U-4813024-4813050,Carrollton × Carrollton-Farmers Branch ISD,cidade_isd,Carrollton,4813024,4813050,Carrollton-Farmers Branch ISD,Dallas,48113,Dallas 72%; Denton 28%,13940.0,59.2,32.96869,-96.9033,Census TIGER/Line 2025
-U-4813024-4816230,Carrollton × Dallas ISD,cidade_isd,Carrollton,4813024,4816230,Dallas ISD,Dallas,48113,Dallas 100%,1533.0,6.5,32.97128,-96.85357,Census TIGER/Line 2025
-U-4813024-4827300,Carrollton × Lewisville ISD,cidade_isd,Carrollton,4813024,4827300,Lewisville ISD,Denton,48121,Denton 100%,7467.0,31.7,33.02567,-96.92176,Census TIGER/Line 2025
-U-4813684-4813290,Celina × Celina ISD,cidade_isd,Celina,4813684,4813290,Celina ISD,Collin,48085,Collin 95%; Denton 5%,25001.0,79.2,33.33869,-96.81545,Census TIGER/Line 2025
-U-4813684-4836000,Celina × Prosper ISD,cidade_isd,Celina,4813684,4836000,Prosper ISD,Collin,48085,Collin 56%; Denton 44%,6256.0,19.8,33.27319,-96.74132,Census TIGER/Line 2025
-U-4815796-4816230,Cockrell Hill × Dallas ISD,cidade_isd,Cockrell Hill,4815796,4816230,Dallas ISD,Dallas,48113,Dallas 100%,372.0,100.0,32.73897,-96.88681,Census TIGER/Line 2025
-U-4816612-4813050,Coppell × Carrollton-Farmers Branch ISD,cidade_isd,Coppell,4816612,4813050,Carrollton-Farmers Branch ISD,Dallas,48113,Dallas 100%,1060.0,11.4,32.9553,-96.95048,Census TIGER/Line 2025
-U-4816612-4815210,Coppell × Coppell ISD,cidade_isd,Coppell,4816612,4815210,Coppell ISD,Dallas,48113,Dallas 100%,7904.0,85.0,32.95612,-97.00294,Census TIGER/Line 2025
-U-4816696-4816740,Corinth × Denton ISD,cidade_isd,Corinth,4816696,4816740,Denton ISD,Denton,48121,Denton 100%,2564.0,51.4,33.14382,-97.08705,Census TIGER/Line 2025
-U-4816696-4826430,Corinth × Lake Dallas ISD,cidade_isd,Corinth,4816696,4826430,Lake Dallas ISD,Denton,48121,Denton 100%,2420.0,48.6,33.13793,-97.05983,Census TIGER/Line 2025
-U-4817504-4815510,Crandall × Crandall ISD,cidade_isd,Crandall,4817504,4815510,Crandall ISD,Kaufman,48257,Kaufman 100%,4503.0,100.0,32.62944,-96.46269,Census TIGER/Line 2025
-U-4817852-4808910,Cross Roads × Aubrey ISD,cidade_isd,Cross Roads,4817852,4808910,Aubrey ISD,Denton,48121,Denton 100%,1453.0,33.3,33.24356,-96.9993,Census TIGER/Line 2025
-U-4817852-4816740,Cross Roads × Denton ISD,cidade_isd,Cross Roads,4817852,4816740,Denton ISD,Denton,48121,Denton 100%,2909.0,66.7,33.2205,-96.99229,Census TIGER/Line 2025
-U-4819000-4813050,Dallas × Carrollton-Farmers Branch ISD,cidade_isd,Dallas,4819000,4813050,Carrollton-Farmers Branch ISD,Denton,48121,Denton 74%; Dallas 26%,2078.0,1.0,32.99982,-96.85798,Census TIGER/Line 2025
-U-4819000-4815210,Dallas × Coppell ISD,cidade_isd,Dallas,4819000,4815210,Coppell ISD,Dallas,48113,Dallas 100%,1398.0,0.6,32.94082,-96.9888,Census TIGER/Line 2025
-U-4819000-4816230,Dallas × Dallas ISD,cidade_isd,Dallas,4819000,4816230,Dallas ISD,Dallas,48113,Dallas 100%,170602.0,78.2,32.8053,-96.77881,Census TIGER/Line 2025
-U-4819000-4817640,Dallas × Duncanville ISD,cidade_isd,Dallas,4819000,4817640,Duncanville ISD,Dallas,48113,Dallas 100%,10015.0,4.6,32.66535,-96.95452,Census TIGER/Line 2025
-U-4819000-4819560,Dallas × Forney ISD,cidade_isd,Dallas,4819000,4819560,Forney ISD,Kaufman,48257,Kaufman 100%,1121.0,0.5,32.79038,-96.50801,Census TIGER/Line 2025
-U-4819000-4821420,Dallas × Grand Prairie ISD,cidade_isd,Dallas,4819000,4821420,Grand Prairie ISD,Dallas,48113,Dallas 100%,3946.0,1.8,32.73161,-96.97426,Census TIGER/Line 2025
-U-4819000-4824420,Dallas × Irving ISD,cidade_isd,Dallas,4819000,4824420,Irving ISD,Dallas,48113,Dallas 100%,1669.0,0.8,32.80419,-96.89379,Census TIGER/Line 2025
-U-4819000-4830390,Dallas × Mesquite ISD,cidade_isd,Dallas,4819000,4830390,Mesquite ISD,Dallas,48113,Dallas 100%,1231.0,0.6,32.69146,-96.56798,Census TIGER/Line 2025
-U-4819000-4835100,Dallas × Plano ISD,cidade_isd,Dallas,4819000,4835100,Plano ISD,Collin,48085,Collin 100%,5124.0,2.3,33.0014,-96.80842,Census TIGER/Line 2025
-U-4819000-4837020,Dallas × Richardson ISD,cidade_isd,Dallas,4819000,4837020,Richardson ISD,Dallas,48113,Dallas 100%,16213.0,7.4,32.92378,-96.7648,Census TIGER/Line 2025
-U-4820092-4816230,DeSoto × Dallas ISD,cidade_isd,DeSoto,4820092,4816230,Dallas ISD,Dallas,48113,Dallas 100%,2116.0,15.3,32.631,-96.85435,Census TIGER/Line 2025
-U-4820092-4816860,DeSoto × DeSoto ISD,cidade_isd,DeSoto,4820092,4816860,DeSoto ISD,Dallas,48113,Dallas 100%,10560.0,76.2,32.59254,-96.86518,Census TIGER/Line 2025
-U-4820092-4817640,DeSoto × Duncanville ISD,cidade_isd,DeSoto,4820092,4817640,Duncanville ISD,Dallas,48113,Dallas 100%,1188.0,8.6,32.61197,-96.89857,Census TIGER/Line 2025
-U-4821628-4817640,Duncanville × Duncanville ISD,cidade_isd,Duncanville,4821628,4817640,Duncanville ISD,Dallas,48113,Dallas 100%,7043.0,98.2,32.64788,-96.91711,Census TIGER/Line 2025
-U-4824768-4821660,Euless × Grapevine-Colleyville ISD,cidade_isd,Euless,4824768,4821660,Grapevine-Colleyville ISD,Tarrant,48439,Tarrant 100%,4207.0,40.8,32.85998,-97.05357,Census TIGER/Line 2025
-U-4824768-4824060,Euless × Hurst-Euless-Bedford ISD,cidade_isd,Euless,4824768,4824060,Hurst-Euless-Bedford ISD,Tarrant,48439,Tarrant 100%,6108.0,59.2,32.83818,-97.08242,Census TIGER/Line 2025
-U-4825224-4828380,Fairview × Lovejoy ISD,cidade_isd,Fairview,4825224,4828380,Lovejoy ISD,Collin,48085,Collin 100%,3493.0,61.3,33.14006,-96.60205,Census TIGER/Line 2025
-U-4825224-4829850,Fairview × McKinney ISD,cidade_isd,Fairview,4825224,4829850,McKinney ISD,Collin,48085,Collin 100%,2206.0,38.7,33.14494,-96.63555,Census TIGER/Line 2025
-U-4825452-4813050,Farmers Branch × Carrollton-Farmers Branch ISD,cidade_isd,Farmers Branch,4825452,4813050,Carrollton-Farmers Branch ISD,Dallas,48113,Dallas 100%,5704.0,74.7,32.92444,-96.89588,Census TIGER/Line 2025
-U-4825452-4816230,Farmers Branch × Dallas ISD,cidade_isd,Farmers Branch,4825452,4816230,Dallas ISD,Dallas,48113,Dallas 100%,1932.0,25.3,32.92027,-96.8623,Census TIGER/Line 2025
-U-4825572-4837650,Fate × Rockwall ISD,cidade_isd,Fate,4825572,4837650,Rockwall ISD,Rockwall,48397,Rockwall 100%,4411.0,56.4,32.94728,-96.40302,Census TIGER/Line 2025
-U-4825572-4838220,Fate × Royse City ISD,cidade_isd,Fate,4825572,4838220,Royse City ISD,Rockwall,48397,Rockwall 100%,3416.0,43.6,32.94699,-96.38096,Census TIGER/Line 2025
-U-4825752-4819170,Ferris × Ferris ISD,cidade_isd,Ferris,4825752,4819170,Ferris ISD,Ellis,48139,Ellis 85%; Dallas 15%,3023.0,100.0,32.53885,-96.6739,Census TIGER/Line 2025
-U-4826604-4819560,Forney × Forney ISD,cidade_isd,Forney,4826604,4819560,Forney ISD,Kaufman,48257,Kaufman 100%,10267.0,100.0,32.74594,-96.45118,Census TIGER/Line 2025
-U-4827684-4820010,Frisco × Frisco ISD,cidade_isd,Frisco,4827684,4820010,Frisco ISD,Collin,48085,Collin 64%; Denton 36%,36832.0,83.4,33.15183,-96.812,Census TIGER/Line 2025
-U-4827684-4827300,Frisco × Lewisville ISD,cidade_isd,Frisco,4827684,4827300,Lewisville ISD,Denton,48121,Denton 100%,1902.0,4.3,33.09849,-96.84846,Census TIGER/Line 2025
-U-4827684-4827720,Frisco × Little Elm ISD,cidade_isd,Frisco,4827684,4827720,Little Elm ISD,Denton,48121,Denton 100%,1083.0,2.5,33.14189,-96.90688,Census TIGER/Line 2025
-U-4827684-4836000,Frisco × Prosper ISD,cidade_isd,Frisco,4827684,4836000,Prosper ISD,Collin,48085,Collin 99%,4336.0,9.8,33.20458,-96.81637,Census TIGER/Line 2025
-U-4829000-4820340,Garland × Garland ISD,cidade_isd,Garland,4829000,4820340,Garland ISD,Dallas,48113,Dallas 100%,34020.0,93.4,32.90802,-96.64519,Census TIGER/Line 2025
-U-4829000-4837020,Garland × Richardson ISD,cidade_isd,Garland,4829000,4837020,Richardson ISD,Dallas,48113,Dallas 100%,1423.0,3.9,32.97268,-96.67636,Census TIGER/Line 2025
-U-4829840-4816860,Glenn Heights × DeSoto ISD,cidade_isd,Glenn Heights,4829840,4816860,DeSoto ISD,Dallas,48113,Dallas 100%,3121.0,67.0,32.55751,-96.85598,Census TIGER/Line 2025
-U-4829840-4836660,Glenn Heights × Red Oak ISD,cidade_isd,Glenn Heights,4829840,4836660,Red Oak ISD,Ellis,48139,Ellis 100%,1534.0,33.0,32.53296,-96.85199,Census TIGER/Line 2025
-U-4830464-4808700,Grand Prairie × Arlington ISD,cidade_isd,Grand Prairie,4830464,4808700,Arlington ISD,Tarrant,48439,Tarrant 100%,8590.0,17.5,32.72845,-97.04619,Census TIGER/Line 2025
-U-4830464-4813230,Grand Prairie × Cedar Hill ISD,cidade_isd,Grand Prairie,4830464,4813230,Cedar Hill ISD,Dallas,48113,Dallas 100%,2988.0,6.1,32.56537,-97.02224,Census TIGER/Line 2025
-U-4830464-4821420,Grand Prairie × Grand Prairie ISD,cidade_isd,Grand Prairie,4830464,4821420,Grand Prairie ISD,Dallas,48113,Dallas 100%,25757.0,52.5,32.72246,-97.00652,Census TIGER/Line 2025
-U-4830464-4824420,Grand Prairie × Irving ISD,cidade_isd,Grand Prairie,4830464,4824420,Irving ISD,Dallas,48113,Dallas 100%,1632.0,3.3,32.81041,-97.00424,Census TIGER/Line 2025
-U-4830464-4828920,Grand Prairie × Mansfield ISD,cidade_isd,Grand Prairie,4830464,4828920,Mansfield ISD,Tarrant,48439,Tarrant 100%,5225.0,10.6,32.59168,-97.0519,Census TIGER/Line 2025
-U-4830464-4830600,Grand Prairie × Midlothian ISD,cidade_isd,Grand Prairie,4830464,4830600,Midlothian ISD,Ellis,48139,Ellis 100%,4868.0,9.9,32.50021,-97.05168,Census TIGER/Line 2025
-U-4831715-4827720,Hackberry × Little Elm ISD,cidade_isd,Hackberry,4831715,4827720,Little Elm ISD,Denton,48121,Denton 100%,435.0,100.0,33.15009,-96.91765,Census TIGER/Line 2025
-U-4832984-4837650,Heath × Rockwall ISD,cidade_isd,Heath,4832984,4837650,Rockwall ISD,Rockwall,48397,Rockwall 99%; Kaufman 1%,8010.0,100.0,32.84409,-96.47187,Census TIGER/Line 2025
-U-4833476-4826430,Hickory Creek × Lake Dallas ISD,cidade_isd,Hickory Creek,4833476,4826430,Lake Dallas ISD,Denton,48121,Denton 100%,2901.0,92.1,33.11119,-97.05465,Census TIGER/Line 2025
-U-4833476-4827300,Hickory Creek × Lewisville ISD,cidade_isd,Hickory Creek,4833476,4827300,Lewisville ISD,Denton,48121,Denton 100%,250.0,7.9,33.09788,-97.00268,Census TIGER/Line 2025
-U-4833824-4816230,Highland Park × Dallas ISD,cidade_isd,Highland Park,4833824,4816230,Dallas ISD,Dallas,48113,Dallas 100%,108.0,7.5,32.82904,-96.81749,Census TIGER/Line 2025
-U-4833824-4823250,Highland Park × Highland Park ISD,cidade_isd,Highland Park,4833824,4823250,Highland Park ISD,Dallas,48113,Dallas 100%,1327.0,92.5,32.83126,-96.79927,Census TIGER/Line 2025
-U-4833848-4827300,Highland Village × Lewisville ISD,cidade_isd,Highland Village,4833848,4827300,Lewisville ISD,Denton,48121,Denton 100%,3548.0,100.0,33.08789,-97.04573,Census TIGER/Line 2025
-U-4835612-4816230,Hutchins × Dallas ISD,cidade_isd,Hutchins,4835612,4816230,Dallas ISD,Dallas,48113,Dallas 100%,5397.0,92.2,32.64952,-96.71268,Census TIGER/Line 2025
-U-4835612-4826670,Hutchins × Lancaster ISD,cidade_isd,Hutchins,4835612,4826670,Lancaster ISD,Dallas,48113,Dallas 100%,455.0,7.8,32.6146,-96.72702,Census TIGER/Line 2025
-U-4837000-4813050,Irving × Carrollton-Farmers Branch ISD,cidade_isd,Irving,4837000,4813050,Carrollton-Farmers Branch ISD,Dallas,48113,Dallas 100%,7514.0,17.5,32.90925,-96.95738,Census TIGER/Line 2025
-U-4837000-4815210,Irving × Coppell ISD,cidade_isd,Irving,4837000,4815210,Coppell ISD,Dallas,48113,Dallas 100%,4817.0,11.2,32.91609,-97.008,Census TIGER/Line 2025
-U-4837000-4824420,Irving × Irving ISD,cidade_isd,Irving,4837000,4824420,Irving ISD,Dallas,48113,Dallas 100%,29081.0,67.6,32.83817,-96.96211,Census TIGER/Line 2025
-U-4838068-4814850,Josephine × Community ISD,cidade_isd,Josephine,4838068,4814850,Community ISD,Collin,48085,Collin 97%; Hunt 3%,1372.0,100.0,33.05921,-96.32065,Census TIGER/Line 2025
-U-4839916-4808910,Krugerville × Aubrey ISD,cidade_isd,Krugerville,4839916,4808910,Aubrey ISD,Denton,48121,Denton 100%,1019.0,100.0,33.27477,-96.99409,Census TIGER/Line 2025
-U-4840516-4826430,Lake Dallas × Lake Dallas ISD,cidade_isd,Lake Dallas,4840516,4826430,Lake Dallas ISD,Denton,48121,Denton 100%,1554.0,100.0,33.12742,-97.02676,Census TIGER/Line 2025
-U-4841050-4827720,Lakewood Village × Little Elm ISD,cidade_isd,Lakewood Village,4841050,4827720,Little Elm ISD,Denton,48121,Denton 100%,520.0,100.0,33.13806,-96.97349,Census TIGER/Line 2025
-U-4841212-4816230,Lancaster × Dallas ISD,cidade_isd,Lancaster,4841212,4816230,Dallas ISD,Dallas,48113,Dallas 100%,1701.0,8.0,32.6336,-96.78061,Census TIGER/Line 2025
-U-4841212-4826670,Lancaster × Lancaster ISD,cidade_isd,Lancaster,4841212,4826670,Lancaster ISD,Dallas,48113,Dallas 100%,19368.0,91.4,32.59791,-96.7713,Census TIGER/Line 2025
-U-4841800-4814850,Lavon × Community ISD,cidade_isd,Lavon,4841800,4814850,Community ISD,Collin,48085,Collin 100%,2749.0,99.8,33.02273,-96.44355,Census TIGER/Line 2025
-U-4842508-4827300,Lewisville × Lewisville ISD,cidade_isd,Lewisville,4842508,4827300,Lewisville ISD,Denton,48121,Denton 100%,25823.0,99.1,33.04462,-97.00224,Census TIGER/Line 2025
-U-4843012-4816740,Little Elm × Denton ISD,cidade_isd,Little Elm,4843012,4816740,Denton ISD,Denton,48121,Denton 100%,4033.0,33.9,33.21432,-96.96462,Census TIGER/Line 2025
-U-4843012-4820010,Little Elm × Frisco ISD,cidade_isd,Little Elm,4843012,4820010,Frisco ISD,Denton,48121,Denton 100%,1699.0,14.3,33.16494,-96.89178,Census TIGER/Line 2025
-U-4843012-4827720,Little Elm × Little Elm ISD,cidade_isd,Little Elm,4843012,4827720,Little Elm ISD,Denton,48121,Denton 100%,6086.0,51.2,33.17175,-96.91141,Census TIGER/Line 2025
-U-4844308-4829850,Lowry Crossing × McKinney ISD,cidade_isd,Lowry Crossing,4844308,4829850,McKinney ISD,Collin,48085,Collin 100%,883.0,53.0,33.17845,-96.54636,Census TIGER/Line 2025
-U-4844308-4835850,Lowry Crossing × Princeton ISD,cidade_isd,Lowry Crossing,4844308,4835850,Princeton ISD,Collin,48085,Collin 100%,782.0,47.0,33.16543,-96.54351,Census TIGER/Line 2025
-U-4845012-4807890,Lucas × Allen ISD,cidade_isd,Lucas,4845012,4807890,Allen ISD,Collin,48085,Collin 100%,619.0,6.2,33.0928,-96.61168,Census TIGER/Line 2025
-U-4845012-4828380,Lucas × Lovejoy ISD,cidade_isd,Lucas,4845012,4828380,Lovejoy ISD,Collin,48085,Collin 100%,5817.0,58.2,33.0978,-96.58046,Census TIGER/Line 2025
-U-4845012-4829850,Lucas × McKinney ISD,cidade_isd,Lucas,4845012,4829850,McKinney ISD,Collin,48085,Collin 100%,1905.0,19.1,33.11326,-96.56329,Census TIGER/Line 2025
-U-4845012-4835100,Lucas × Plano ISD,cidade_isd,Lucas,4845012,4835100,Plano ISD,Collin,48085,Collin 100%,905.0,9.1,33.06317,-96.59561,Census TIGER/Line 2025
-U-4845012-4846530,Lucas × Wylie ISD,cidade_isd,Lucas,4845012,4846530,Wylie ISD,Collin,48085,Collin 100%,543.0,5.4,33.06297,-96.57334,Census TIGER/Line 2025
-U-4845744-4807890,McKinney × Allen ISD,cidade_isd,McKinney,4845744,4807890,Allen ISD,Collin,48085,Collin 100%,1277.0,2.9,33.14463,-96.69136,Census TIGER/Line 2025
-U-4845744-4820010,McKinney × Frisco ISD,cidade_isd,McKinney,4845744,4820010,Frisco ISD,Collin,48085,Collin 100%,4505.0,10.2,33.15017,-96.71559,Census TIGER/Line 2025
-U-4845744-4829850,McKinney × McKinney ISD,cidade_isd,McKinney,4845744,4829850,McKinney ISD,Collin,48085,Collin 100%,32152.0,72.9,33.2248,-96.63398,Census TIGER/Line 2025
-U-4845744-4836000,McKinney × Prosper ISD,cidade_isd,McKinney,4845744,4836000,Prosper ISD,Collin,48085,Collin 100%,5273.0,12.0,33.24263,-96.71219,Census TIGER/Line 2025
-U-4845804-4837650,McLendon-Chisholm × Rockwall ISD,cidade_isd,McLendon-Chisholm,4845804,4837650,Rockwall ISD,Rockwall,48397,Rockwall 100%,7978.0,98.4,32.85174,-96.38182,Census TIGER/Line 2025
-U-4847496-4830120,Melissa × Melissa ISD,cidade_isd,Melissa,4847496,4830120,Melissa ISD,Collin,48085,Collin 100%,7323.0,99.5,33.28527,-96.56573,Census TIGER/Line 2025
-U-4847892-4819560,Mesquite × Forney ISD,cidade_isd,Mesquite,4847892,4819560,Forney ISD,Kaufman,48257,Kaufman 100%,3159.0,10.0,32.68796,-96.4895,Census TIGER/Line 2025
-U-4847892-4830390,Mesquite × Mesquite ISD,cidade_isd,Mesquite,4847892,4830390,Mesquite ISD,Dallas,48113,Dallas 100%,27486.0,87.2,32.76704,-96.60989,Census TIGER/Line 2025
-U-4850100-4835100,Murphy × Plano ISD,cidade_isd,Murphy,4850100,4835100,Plano ISD,Collin,48085,Collin 100%,2506.0,68.7,33.01582,-96.6177,Census TIGER/Line 2025
-U-4850100-4846530,Murphy × Wylie ISD,cidade_isd,Murphy,4850100,4846530,Wylie ISD,Collin,48085,Collin 100%,1142.0,31.3,33.02167,-96.59967,Census TIGER/Line 2025
-U-4850760-4814850,Nevada × Community ISD,cidade_isd,Nevada,4850760,4814850,Community ISD,Collin,48085,Collin 100%,1535.0,100.0,33.05014,-96.38276,Census TIGER/Line 2025
-U-4853115-4836660,Oak Leaf × Red Oak ISD,cidade_isd,Oak Leaf,4853115,4836660,Red Oak ISD,Ellis,48139,Ellis 100%,1788.0,98.5,32.51504,-96.84516,Census TIGER/Line 2025
-U-4853130-4816740,Oak Point × Denton ISD,cidade_isd,Oak Point,4853130,4816740,Denton ISD,Denton,48121,Denton 100%,1247.0,33.1,33.20097,-97.0006,Census TIGER/Line 2025
-U-4853130-4827720,Oak Point × Little Elm ISD,cidade_isd,Oak Point,4853130,4827720,Little Elm ISD,Denton,48121,Denton 100%,2515.0,66.9,33.17092,-96.99659,Census TIGER/Line 2025
-U-4854444-4816860,Ovilla × DeSoto ISD,cidade_isd,Ovilla,4854444,4816860,DeSoto ISD,Dallas,48113,Dallas 100%,411.0,11.1,32.55396,-96.89099,Census TIGER/Line 2025
-U-4854444-4830600,Ovilla × Midlothian ISD,cidade_isd,Ovilla,4854444,4830600,Midlothian ISD,Ellis,48139,Ellis 100%,795.0,21.4,32.51904,-96.89225,Census TIGER/Line 2025
-U-4854444-4836660,Ovilla × Red Oak ISD,cidade_isd,Ovilla,4854444,4836660,Red Oak ISD,Ellis,48139,Ellis 100%,2351.0,63.5,32.53178,-96.87858,Census TIGER/Line 2025
-U-4855152-4807890,Parker × Allen ISD,cidade_isd,Parker,4855152,4807890,Allen ISD,Collin,48085,Collin 100%,1009.0,18.5,33.07839,-96.63758,Census TIGER/Line 2025
-U-4855152-4835100,Parker × Plano ISD,cidade_isd,Parker,4855152,4835100,Plano ISD,Collin,48085,Collin 100%,4428.0,81.1,33.04514,-96.62641,Census TIGER/Line 2025
-U-4856485-4836660,Pecan Hill × Red Oak ISD,cidade_isd,Pecan Hill,4856485,4836660,Red Oak ISD,Ellis,48139,Ellis 100%,1267.0,92.9,32.48934,-96.78339,Census TIGER/Line 2025
-U-4856485-4844730,Pecan Hill × Waxahachie ISD,cidade_isd,Pecan Hill,4856485,4844730,Waxahachie ISD,Ellis,48139,Ellis 100%,97.0,7.1,32.47658,-96.79724,Census TIGER/Line 2025
-U-4857476-4813290,Pilot Point × Celina ISD,cidade_isd,Pilot Point,4857476,4813290,Celina ISD,Denton,48121,Denton 100%,796.0,15.7,33.29985,-96.87324,Census TIGER/Line 2025
-U-4857476-4834920,Pilot Point × Pilot Point ISD,cidade_isd,Pilot Point,4857476,4834920,Pilot Point ISD,Denton,48121,Denton 96%; Cooke 2%; Grayson 2%,4280.0,84.3,33.38596,-96.95953,Census TIGER/Line 2025
-U-4858016-4820010,Plano × Frisco ISD,cidade_isd,Plano,4858016,4820010,Frisco ISD,Collin,48085,Collin 100%,4184.0,9.1,33.10238,-96.76264,Census TIGER/Line 2025
-U-4858016-4827300,Plano × Lewisville ISD,cidade_isd,Plano,4858016,4827300,Lewisville ISD,Denton,48121,Denton 100%,1651.0,3.6,33.05581,-96.84332,Census TIGER/Line 2025
-U-4858016-4835100,Plano × Plano ISD,cidade_isd,Plano,4858016,4835100,Plano ISD,Collin,48085,Collin 100%,39969.0,86.8,33.04957,-96.74182,Census TIGER/Line 2025
-U-4859576-4829850,Princeton × McKinney ISD,cidade_isd,Princeton,4859576,4829850,McKinney ISD,Collin,48085,Collin 100%,1181.0,12.8,33.22757,-96.51765,Census TIGER/Line 2025
-U-4859576-4835850,Princeton × Princeton ISD,cidade_isd,Princeton,4859576,4835850,Princeton ISD,Collin,48085,Collin 100%,8059.0,87.2,33.18277,-96.50677,Census TIGER/Line 2025
-U-4859696-4816740,Prosper × Denton ISD,cidade_isd,Prosper,4859696,4816740,Denton ISD,Denton,48121,Denton 100%,1280.0,7.9,33.23534,-96.8833,Census TIGER/Line 2025
-U-4859696-4836000,Prosper × Prosper ISD,cidade_isd,Prosper,4859696,4836000,Prosper ISD,Collin,48085,Collin 78%; Denton 22%,14921.0,92.1,33.24066,-96.80502,Census TIGER/Line 2025
-U-4859748-4808910,Providence Village × Aubrey ISD,cidade_isd,Providence Village,4859748,4808910,Aubrey ISD,Denton,48121,Denton 100%,1369.0,76.1,33.2451,-96.9487,Census TIGER/Line 2025
-U-4859748-4816740,Providence Village × Denton ISD,cidade_isd,Providence Village,4859748,4816740,Denton ISD,Denton,48121,Denton 100%,429.0,23.9,33.22764,-96.95667,Census TIGER/Line 2025
-U-4861196-4819170,Red Oak × Ferris ISD,cidade_isd,Red Oak,4861196,4819170,Ferris ISD,Ellis,48139,Ellis 100%,2724.0,26.2,32.5319,-96.72821,Census TIGER/Line 2025
-U-4861196-4836660,Red Oak × Red Oak ISD,cidade_isd,Red Oak,4861196,4836660,Red Oak ISD,Ellis,48139,Ellis 100%,7412.0,71.3,32.51896,-96.81407,Census TIGER/Line 2025
-U-4861796-4835100,Richardson × Plano ISD,cidade_isd,Richardson,4861796,4835100,Plano ISD,Collin,48085,Collin 100%,6596.0,36.0,32.99558,-96.68446,Census TIGER/Line 2025
-U-4861796-4837020,Richardson × Richardson ISD,cidade_isd,Richardson,4861796,4837020,Richardson ISD,Dallas,48113,Dallas 100%,11693.0,63.9,32.95423,-96.72579,Census TIGER/Line 2025
-U-4862828-4837650,Rockwall × Rockwall ISD,cidade_isd,Rockwall,4862828,4837650,Rockwall ISD,Rockwall,48397,Rockwall 100%,18955.0,99.6,32.92246,-96.44195,Census TIGER/Line 2025
-U-4863572-4820340,Rowlett × Garland ISD,cidade_isd,Rowlett,4863572,4820340,Garland ISD,Dallas,48113,Dallas 100%,12233.0,92.1,32.92227,-96.55375,Census TIGER/Line 2025
-U-4863572-4837650,Rowlett × Rockwall ISD,cidade_isd,Rowlett,4863572,4837650,Rockwall ISD,Rockwall,48397,Rockwall 100%,1050.0,7.9,32.91424,-96.50996,Census TIGER/Line 2025
-U-4863668-4838220,Royse City × Royse City ISD,cidade_isd,Royse City,4863668,4838220,Royse City ISD,Rockwall,48397,Rockwall 48%; Collin 27%; Hunt 24%,13548.0,99.1,32.97017,-96.30928,Census TIGER/Line 2025
-U-4864064-4820340,Sachse × Garland ISD,cidade_isd,Sachse,4864064,4820340,Garland ISD,Dallas,48113,Dallas 100%,4738.0,76.0,32.96268,-96.58377,Census TIGER/Line 2025
-U-4864064-4846530,Sachse × Wylie ISD,cidade_isd,Sachse,4864064,4846530,Wylie ISD,Collin,48085,Collin 100%,1493.0,24.0,32.99415,-96.5801,Census TIGER/Line 2025
-U-4866428-4815510,Seagoville × Crandall ISD,cidade_isd,Seagoville,4866428,4815510,Crandall ISD,Kaufman,48257,Kaufman 100%,1651.0,13.6,32.63924,-96.51545,Census TIGER/Line 2025
-U-4866428-4816230,Seagoville × Dallas ISD,cidade_isd,Seagoville,4866428,4816230,Dallas ISD,Dallas,48113,Dallas 100%,9173.0,75.6,32.64723,-96.54839,Census TIGER/Line 2025
-U-4866428-4830390,Seagoville × Mesquite ISD,cidade_isd,Seagoville,4866428,4830390,Mesquite ISD,Dallas,48113,Dallas 100%,1314.0,10.8,32.68024,-96.54346,Census TIGER/Line 2025
-U-4867100-4816740,Shady Shores × Denton ISD,cidade_isd,Shady Shores,4867100,4816740,Denton ISD,Denton,48121,Denton 100%,1799.0,86.6,33.16505,-97.04658,Census TIGER/Line 2025
-U-4867100-4826430,Shady Shores × Lake Dallas ISD,cidade_isd,Shady Shores,4867100,4826430,Lake Dallas ISD,Denton,48121,Denton 100%,279.0,13.4,33.14478,-97.0335,Census TIGER/Line 2025
-U-4864220-4846530,St. Paul × Wylie ISD,cidade_isd,St. Paul,4864220,4846530,Wylie ISD,Collin,48085,Collin 100%,920.0,100.0,33.04293,-96.55652,Census TIGER/Line 2025
-U-4871156-4841880,Sunnyvale × Sunnyvale ISD,cidade_isd,Sunnyvale,4871156,4841880,Sunnyvale ISD,Dallas,48113,Dallas 100%,10624.0,99.5,32.79434,-96.54946,Census TIGER/Line 2025
-U-4871756-4819560,Talty × Forney ISD,cidade_isd,Talty,4871756,4819560,Forney ISD,Kaufman,48257,Kaufman 100%,2169.0,100.0,32.69414,-96.4035,Census TIGER/Line 2025
-U-4872530-4827300,The Colony × Lewisville ISD,cidade_isd,The Colony,4872530,4827300,Lewisville ISD,Denton,48121,Denton 100%,6468.0,72.1,33.07817,-96.87629,Census TIGER/Line 2025
-U-4872530-4827720,The Colony × Little Elm ISD,cidade_isd,The Colony,4872530,4827720,Little Elm ISD,Denton,48121,Denton 100%,2417.0,26.9,33.10616,-96.92571,Census TIGER/Line 2025
-U-4874492-4823250,University Park × Highland Park ISD,cidade_isd,University Park,4874492,4823250,Highland Park ISD,Dallas,48113,Dallas 100%,2350.0,99.4,32.85103,-96.79296,Census TIGER/Line 2025
-U-4879576-4816230,Wilmer × Dallas ISD,cidade_isd,Wilmer,4879576,4816230,Dallas ISD,Dallas,48113,Dallas 100%,7395.0,94.0,32.59507,-96.68681,Census TIGER/Line 2025
-U-4880356-4814850,Wylie × Community ISD,cidade_isd,Wylie,4880356,4814850,Community ISD,Collin,48085,Collin 100%,1421.0,10.4,33.05681,-96.43273,Census TIGER/Line 2025
-U-4880356-4846530,Wylie × Wylie ISD,cidade_isd,Wylie,4880356,4846530,Wylie ISD,Collin,48085,Collin 100%,11282.0,82.9,33.01848,-96.53227,Census TIGER/Line 2025
-U-ETJ-48085-4813290,Não incorporado – Collin × Celina ISD,nao_incorporado,Não incorporado – Collin,,4813290,Celina ISD,Collin,48085,Collin 100%,30237.0,,33.33952,-96.70067,Census TIGER/Line 2025
-U-ETJ-48085-4814850,Não incorporado – Collin × Community ISD,nao_incorporado,Não incorporado – Collin,,4814850,Community ISD,Collin,48085,Collin 100%,32686.0,,33.04082,-96.3243,Census TIGER/Line 2025
-U-ETJ-48085-4829850,Não incorporado – Collin × McKinney ISD,nao_incorporado,Não incorporado – Collin,,4829850,McKinney ISD,Collin,48085,Collin 100%,27362.0,,33.22947,-96.55197,Census TIGER/Line 2025
-U-ETJ-48085-4830120,Não incorporado – Collin × Melissa ISD,nao_incorporado,Não incorporado – Collin,,4830120,Melissa ISD,Collin,48085,Collin 100%,12283.0,,33.2604,-96.55759,Census TIGER/Line 2025
-U-ETJ-48085-4835850,Não incorporado – Collin × Princeton ISD,nao_incorporado,Não incorporado – Collin,,4835850,Princeton ISD,Collin,48085,Collin 100%,21271.0,,33.20648,-96.46313,Census TIGER/Line 2025
-U-ETJ-48085-4836000,Não incorporado – Collin × Prosper ISD,nao_incorporado,Não incorporado – Collin,,4836000,Prosper ISD,Collin,48085,Collin 100%,4903.0,,33.20879,-96.78399,Census TIGER/Line 2025
-U-ETJ-48085-4838220,Não incorporado – Collin × Royse City ISD,nao_incorporado,Não incorporado – Collin,,4838220,Royse City ISD,Collin,48085,Collin 100%,2300.0,,32.993,-96.35858,Census TIGER/Line 2025
-U-ETJ-48085-4846530,Não incorporado – Collin × Wylie ISD,nao_incorporado,Não incorporado – Collin,,4846530,Wylie ISD,Collin,48085,Collin 100%,5876.0,,33.05263,-96.55445,Census TIGER/Line 2025
-U-ETJ-48113-4816230,Não incorporado – Dallas × Dallas ISD,nao_incorporado,Não incorporado – Dallas,,4816230,Dallas ISD,Dallas,48113,Dallas 100%,31794.0,,32.55762,-96.59462,Census TIGER/Line 2025
-U-ETJ-48113-4819170,Não incorporado – Dallas × Ferris ISD,nao_incorporado,Não incorporado – Dallas,,4819170,Ferris ISD,Dallas,48113,Dallas 100%,1410.0,,32.55245,-96.65561,Census TIGER/Line 2025
-U-ETJ-48113-4820340,Não incorporado – Dallas × Garland ISD,nao_incorporado,Não incorporado – Dallas,,4820340,Garland ISD,Dallas,48113,Dallas 100%,1774.0,,32.97352,-96.53458,Census TIGER/Line 2025
-U-ETJ-48113-4826670,Não incorporado – Dallas × Lancaster ISD,nao_incorporado,Não incorporado – Dallas,,4826670,Lancaster ISD,Dallas,48113,Dallas 100%,3107.0,,32.56224,-96.73882,Census TIGER/Line 2025
-U-ETJ-48113-4830390,Não incorporado – Dallas × Mesquite ISD,nao_incorporado,Não incorporado – Dallas,,4830390,Mesquite ISD,Dallas,48113,Dallas 100%,1167.0,,32.78377,-96.58691,Census TIGER/Line 2025
-U-ETJ-48121-4808910,Não incorporado – Denton × Aubrey ISD,nao_incorporado,Não incorporado – Denton,,4808910,Aubrey ISD,Denton,48121,Denton 100%,22127.0,,33.30951,-96.93533,Census TIGER/Line 2025
-U-ETJ-48121-4813290,Não incorporado – Denton × Celina ISD,nao_incorporado,Não incorporado – Denton,,4813290,Celina ISD,Denton,48121,Denton 100%,3544.0,,33.31597,-96.86042,Census TIGER/Line 2025
-U-ETJ-48121-4816740,Não incorporado – Denton × Denton ISD,nao_incorporado,Não incorporado – Denton,,4816740,Denton ISD,Denton,48121,Denton 100%,29487.0,,33.29164,-97.10989,Census TIGER/Line 2025
-U-ETJ-48121-4827720,Não incorporado – Denton × Little Elm ISD,nao_incorporado,Não incorporado – Denton,,4827720,Little Elm ISD,Denton,48121,Denton 100%,3639.0,,33.1365,-96.92983,Census TIGER/Line 2025
-U-ETJ-48121-4834920,Não incorporado – Denton × Pilot Point ISD,nao_incorporado,Não incorporado – Denton,,4834920,Pilot Point ISD,Denton,48121,Denton 100%,41426.0,,33.34497,-96.90837,Census TIGER/Line 2025
-U-ETJ-48121-4836000,Não incorporado – Denton × Prosper ISD,nao_incorporado,Não incorporado – Denton,,4836000,Prosper ISD,Denton,48121,Denton 100%,1780.0,,33.23624,-96.85321,Census TIGER/Line 2025
-U-ETJ-48139-4819170,Não incorporado – Ellis × Ferris ISD,nao_incorporado,Não incorporado – Ellis,,4819170,Ferris ISD,Ellis,48139,Ellis 100%,43399.0,,32.48674,-96.66043,Census TIGER/Line 2025
-U-ETJ-48139-4830600,Não incorporado – Ellis × Midlothian ISD,nao_incorporado,Não incorporado – Ellis,,4830600,Midlothian ISD,Ellis,48139,Ellis 100%,22924.0,,32.40948,-97.03162,Census TIGER/Line 2025
-U-ETJ-48139-4836660,Não incorporado – Ellis × Red Oak ISD,nao_incorporado,Não incorporado – Ellis,,4836660,Red Oak ISD,Ellis,48139,Ellis 100%,9154.0,,32.52503,-96.76149,Census TIGER/Line 2025
-U-ETJ-48139-4844730,Não incorporado – Ellis × Waxahachie ISD,nao_incorporado,Não incorporado – Ellis,,4844730,Waxahachie ISD,Ellis,48139,Ellis 100%,87302.0,,32.33106,-96.90024,Census TIGER/Line 2025
-U-ETJ-48257-4815510,Não incorporado – Kaufman × Crandall ISD,nao_incorporado,Não incorporado – Kaufman,,4815510,Crandall ISD,Kaufman,48257,Kaufman 100%,43493.0,,32.59553,-96.46363,Census TIGER/Line 2025
-U-ETJ-48257-4819560,Não incorporado – Kaufman × Forney ISD,nao_incorporado,Não incorporado – Kaufman,,4819560,Forney ISD,Kaufman,48257,Kaufman 100%,34799.0,,32.73478,-96.50118,Census TIGER/Line 2025
-U-ETJ-48397-4837650,Não incorporado – Rockwall × Rockwall ISD,nao_incorporado,Não incorporado – Rockwall,,4837650,Rockwall ISD,Rockwall,48397,Rockwall 100%,13450.0,,32.90953,-96.37558,Census TIGER/Line 2025
-U-ETJ-48397-4838220,Não incorporado – Rockwall × Royse City ISD,nao_incorporado,Não incorporado – Rockwall,,4838220,Royse City ISD,Rockwall,48397,Rockwall 100%,17504.0,,32.88659,-96.32285,Census TIGER/Line 2025
+unidade_id,nome,tipo,cidade,place_geoid,isd_id,isd_nome,condado,condado_fips,condados_pct,lado,acres_terra,pct_cidade,lat,lon,fonte
+U-4801240-4816230,Addison × Dallas ISD,cidade_isd,Addison,4801240,4816230,Dallas ISD,Dallas,48113,Dallas 100%,dallas,2649.0,95.0,32.96349,-96.83023,Census TIGER/Line 2025
+U-4801744-4807780,Aledo × Aledo ISD,cidade_isd,Aledo,4801744,4807780,Aledo ISD,Parker,48367,Parker 100%,fort_worth,1828.0,100.0,32.69776,-97.604,Census TIGER/Line 2025
+U-4801924-4807890,Allen × Allen ISD,cidade_isd,Allen,4801924,4807890,Allen ISD,Collin,48085,Collin 100%,dallas,15383.0,90.8,33.11088,-96.67665,Census TIGER/Line 2025
+U-4801924-4835100,Allen × Plano ISD,cidade_isd,Allen,4801924,4835100,Plano ISD,Collin,48085,Collin 100%,dallas,852.0,5.0,33.09275,-96.72312,Census TIGER/Line 2025
+U-4802044-4818540,Alma × Ennis ISD,cidade_isd,Alma,4802044,4818540,Ennis ISD,Ellis,48139,Ellis 100%,dallas,3516.0,100.0,32.28111,-96.54958,Census TIGER/Line 2025
+U-4802260-4800011,Alvarado × Alvarado ISD,cidade_isd,Alvarado,4802260,4800011,Alvarado ISD,Johnson,48251,Johnson 100%,fort_worth,4348.0,100.0,32.39836,-97.21057,Census TIGER/Line 2025
+U-4802284-4808100,Alvord × Alvord ISD,cidade_isd,Alvord,4802284,4808100,Alvord ISD,Wise,48497,Wise 100%,fort_worth,1001.0,100.0,33.35428,-97.69787,Census TIGER/Line 2025
+U-4803300-4808340,Anna × Anna ISD,cidade_isd,Anna,4803300,4808340,Anna ISD,Collin,48085,Collin 100%,dallas,11281.0,98.2,33.34844,-96.56904,Census TIGER/Line 2025
+U-4803340-4807780,Annetta North × Aledo ISD,cidade_isd,Annetta North,4803340,4807780,Aledo ISD,Parker,48367,Parker 100%,fort_worth,1989.0,82.3,32.71572,-97.64422,Census TIGER/Line 2025
+U-4803340-4844800,Annetta North × Weatherford ISD,cidade_isd,Annetta North,4803340,4844800,Weatherford ISD,Parker,48367,Parker 100%,fort_worth,428.0,17.7,32.72967,-97.7282,Census TIGER/Line 2025
+U-4803342-4807780,Annetta South × Aledo ISD,cidade_isd,Annetta South,4803342,4807780,Aledo ISD,Parker,48367,Parker 100%,fort_worth,1222.0,100.0,32.67838,-97.66767,Census TIGER/Line 2025
+U-4803336-4807780,Annetta × Aledo ISD,cidade_isd,Annetta,4803336,4807780,Aledo ISD,Parker,48367,Parker 100%,fort_worth,2402.0,100.0,32.69396,-97.65227,Census TIGER/Line 2025
+U-4803768-4808670,Argyle × Argyle ISD,cidade_isd,Argyle,4803768,4808670,Argyle ISD,Denton,48121,Denton 100%,dallas,7118.0,95.8,33.10793,-97.18019,Census TIGER/Line 2025
+U-4804000-4808700,Arlington × Arlington ISD,cidade_isd,Arlington,4804000,4808700,Arlington ISD,Tarrant,48439,Tarrant 100%,fort_worth,44787.0,72.9,32.71433,-97.09836,Census TIGER/Line 2025
+U-4804000-4819700,Arlington × Fort Worth ISD,cidade_isd,Arlington,4804000,4819700,Fort Worth ISD,Tarrant,48439,Tarrant 100%,fort_worth,1284.0,2.1,32.73479,-97.17309,Census TIGER/Line 2025
+U-4804000-4824060,Arlington × Hurst-Euless-Bedford ISD,cidade_isd,Arlington,4804000,4824060,Hurst-Euless-Bedford ISD,Tarrant,48439,Tarrant 100%,fort_worth,3183.0,5.2,32.79977,-97.10861,Census TIGER/Line 2025
+U-4804000-4825500,Arlington × Kennedale ISD,cidade_isd,Arlington,4804000,4825500,Kennedale ISD,Tarrant,48439,Tarrant 100%,fort_worth,2435.0,4.0,32.64155,-97.17999,Census TIGER/Line 2025
+U-4804000-4828920,Arlington × Mansfield ISD,cidade_isd,Arlington,4804000,4828920,Mansfield ISD,Tarrant,48439,Tarrant 100%,fort_worth,9716.0,15.8,32.62895,-97.13894,Census TIGER/Line 2025
+U-4804600-4808910,Aubrey × Aubrey ISD,cidade_isd,Aubrey,4804600,4808910,Aubrey ISD,Denton,48121,Denton 100%,dallas,2134.0,77.4,33.29149,-96.98752,Census TIGER/Line 2025
+U-4804600-4816740,Aubrey × Denton ISD,cidade_isd,Aubrey,4804600,4816740,Denton ISD,Denton,48121,Denton 100%,dallas,585.0,21.2,33.26484,-96.89367,Census TIGER/Line 2025
+U-4804672-4833180,Aurora × Northwest ISD,cidade_isd,Aurora,4804672,4833180,Northwest ISD,Wise,48497,Wise 100%,fort_worth,2316.0,97.2,33.05967,-97.51097,Census TIGER/Line 2025
+U-4805168-4809200,Azle × Azle ISD,cidade_isd,Azle,4805168,4809200,Azle ISD,Tarrant,48439,Tarrant 71%; Parker 29%,fort_worth,5635.0,100.0,32.91051,-97.55223,Census TIGER/Line 2025
+U-4805372-4816230,Balch Springs × Dallas ISD,cidade_isd,Balch Springs,4805372,4816230,Dallas ISD,Dallas,48113,Dallas 100%,dallas,2325.0,39.9,32.71957,-96.63485,Census TIGER/Line 2025
+U-4805372-4830390,Balch Springs × Mesquite ISD,cidade_isd,Balch Springs,4805372,4830390,Mesquite ISD,Dallas,48113,Dallas 100%,dallas,3496.0,60.1,32.72523,-96.61192,Census TIGER/Line 2025
+U-4805612-4818540,Bardwell × Ennis ISD,cidade_isd,Bardwell,4805612,4818540,Ennis ISD,Ellis,48139,Ellis 100%,dallas,195.0,100.0,32.26686,-96.69569,Census TIGER/Line 2025
+U-4805768-4808670,Bartonville × Argyle ISD,cidade_isd,Bartonville,4805768,4808670,Argyle ISD,Denton,48121,Denton 100%,dallas,2578.0,58.5,33.08485,-97.15843,Census TIGER/Line 2025
+U-4805768-4816740,Bartonville × Denton ISD,cidade_isd,Bartonville,4805768,4816740,Denton ISD,Denton,48121,Denton 100%,dallas,1830.0,41.5,33.07377,-97.13975,Census TIGER/Line 2025
+U-4807132-4824060,Bedford × Hurst-Euless-Bedford ISD,cidade_isd,Bedford,4807132,4824060,Hurst-Euless-Bedford ISD,Tarrant,48439,Tarrant 100%,fort_worth,6413.0,99.8,32.84501,-97.12958,Census TIGER/Line 2025
+U-4807552-4819700,Benbrook × Fort Worth ISD,cidade_isd,Benbrook,4807552,4819700,Fort Worth ISD,Tarrant,48439,Tarrant 100%,fort_worth,6893.0,100.0,32.68427,-97.44676,Census TIGER/Line 2025
+U-4808860-4817700,Blue Mound × Eagle Mountain-Saginaw ISD,cidade_isd,Blue Mound,4808860,4817700,Eagle Mountain-Saginaw ISD,Tarrant,48439,Tarrant 100%,fort_worth,323.0,100.0,32.85481,-97.33807,Census TIGER/Line 2025
+U-4808872-4810590,Blue Ridge × Blue Ridge ISD,cidade_isd,Blue Ridge,4808872,4810590,Blue Ridge ISD,Collin,48085,Collin 100%,dallas,766.0,95.0,33.29483,-96.40409,Census TIGER/Line 2025
+U-4809748-4811010,Boyd × Boyd ISD,cidade_isd,Boyd,4809748,4811010,Boyd ISD,Wise,48497,Wise 100%,fort_worth,2622.0,100.0,33.08545,-97.56312,Census TIGER/Line 2025
+U-4810216-4812180,Briaroaks × Burleson ISD,cidade_isd,Briaroaks,4810216,4812180,Burleson ISD,Johnson,48251,Johnson 100%,fort_worth,713.0,100.0,32.49832,-97.30551,Census TIGER/Line 2025
+U-4810264-4811340,Bridgeport × Bridgeport ISD,cidade_isd,Bridgeport,4810264,4811340,Bridgeport ISD,Wise,48497,Wise 100%,fort_worth,4250.0,84.5,33.19393,-97.74876,Census TIGER/Line 2025
+U-4810264-4813800,Bridgeport × Chico ISD,cidade_isd,Bridgeport,4810264,4813800,Chico ISD,Wise,48497,Wise 100%,fort_worth,782.0,15.5,33.23482,-97.7853,Census TIGER/Line 2025
+U-4811428-4812180,Burleson × Burleson ISD,cidade_isd,Burleson,4811428,4812180,Burleson ISD,Johnson,48251,Johnson 88%; Tarrant 12%,fort_worth,12630.0,67.3,32.51428,-97.33708,Census TIGER/Line 2025
+U-4811428-4824930,Burleson × Joshua ISD,cidade_isd,Burleson,4811428,4824930,Joshua ISD,Johnson,48251,Johnson 100%,fort_worth,5146.0,27.4,32.49549,-97.36626,Census TIGER/Line 2025
+U-4811716-4812390,Caddo Mills × Caddo Mills ISD,cidade_isd,Caddo Mills,4811716,4812390,Caddo Mills ISD,Hunt,48231,Hunt 100%,dallas,3308.0,100.0,33.03935,-96.24332,Census TIGER/Line 2025
+U-4812112-4812660,Campbell × Campbell ISD,cidade_isd,Campbell,4812112,4812660,Campbell ISD,Hunt,48231,Hunt 100%,dallas,797.0,92.8,33.15379,-95.9511,Census TIGER/Line 2025
+U-4812112-4821720,Campbell × Greenville ISD,cidade_isd,Campbell,4812112,4821720,Greenville ISD,Hunt,48231,Hunt 100%,dallas,62.0,7.2,33.1294,-95.99023,Census TIGER/Line 2025
+U-4813024-4813050,Carrollton × Carrollton-Farmers Branch ISD,cidade_isd,Carrollton,4813024,4813050,Carrollton-Farmers Branch ISD,Dallas,48113,Dallas 72%; Denton 28%,dallas,13940.0,59.2,32.96869,-96.9033,Census TIGER/Line 2025
+U-4813024-4816230,Carrollton × Dallas ISD,cidade_isd,Carrollton,4813024,4816230,Dallas ISD,Dallas,48113,Dallas 100%,dallas,1533.0,6.5,32.97128,-96.85357,Census TIGER/Line 2025
+U-4813024-4827300,Carrollton × Lewisville ISD,cidade_isd,Carrollton,4813024,4827300,Lewisville ISD,Denton,48121,Denton 100%,dallas,7467.0,31.7,33.02567,-96.92176,Census TIGER/Line 2025
+U-4813492-4813230,Cedar Hill × Cedar Hill ISD,cidade_isd,Cedar Hill,4813492,4813230,Cedar Hill ISD,Dallas,48113,Dallas 100%,dallas,19960.0,86.9,32.5924,-96.96034,Census TIGER/Line 2025
+U-4813492-4830600,Cedar Hill × Midlothian ISD,cidade_isd,Cedar Hill,4813492,4830600,Midlothian ISD,Ellis,48139,Ellis 100%,dallas,2136.0,9.3,32.54162,-96.97744,Census TIGER/Line 2025
+U-4813672-4813260,Celeste × Celeste ISD,cidade_isd,Celeste,4813672,4813260,Celeste ISD,Hunt,48231,Hunt 100%,dallas,860.0,100.0,33.29141,-96.19497,Census TIGER/Line 2025
+U-4813684-4813290,Celina × Celina ISD,cidade_isd,Celina,4813684,4813290,Celina ISD,Collin,48085,Collin 95%; Denton 5%,dallas,25001.0,79.2,33.33869,-96.81545,Census TIGER/Line 2025
+U-4813684-4836000,Celina × Prosper ISD,cidade_isd,Celina,4813684,4836000,Prosper ISD,Collin,48085,Collin 56%; Denton 44%,dallas,6256.0,19.8,33.27319,-96.74132,Census TIGER/Line 2025
+U-4814620-4813800,Chico × Chico ISD,cidade_isd,Chico,4814620,4813800,Chico ISD,Wise,48497,Wise 100%,fort_worth,972.0,100.0,33.30175,-97.79653,Census TIGER/Line 2025
+U-4815364-4814310,Cleburne × Cleburne ISD,cidade_isd,Cleburne,4815364,4814310,Cleburne ISD,Johnson,48251,Johnson 100%,fort_worth,19611.0,91.2,32.35558,-97.40496,Census TIGER/Line 2025
+U-4815364-4824930,Cleburne × Joshua ISD,cidade_isd,Cleburne,4815364,4824930,Joshua ISD,Johnson,48251,Johnson 100%,fort_worth,1463.0,6.8,32.41071,-97.38234,Census TIGER/Line 2025
+U-4815796-4816230,Cockrell Hill × Dallas ISD,cidade_isd,Cockrell Hill,4815796,4816230,Dallas ISD,Dallas,48113,Dallas 100%,dallas,372.0,100.0,32.73897,-96.88681,Census TIGER/Line 2025
+U-4815988-4821660,Colleyville × Grapevine-Colleyville ISD,cidade_isd,Colleyville,4815988,4821660,Grapevine-Colleyville ISD,Tarrant,48439,Tarrant 100%,fort_worth,7179.0,85.0,32.89393,-97.15109,Census TIGER/Line 2025
+U-4815988-4825260,Colleyville × Keller ISD,cidade_isd,Colleyville,4815988,4825260,Keller ISD,Tarrant,48439,Tarrant 100%,fort_worth,825.0,9.8,32.90075,-97.17662,Census TIGER/Line 2025
+U-4816216-4815510,Combine × Crandall ISD,cidade_isd,Combine,4816216,4815510,Crandall ISD,Kaufman,48257,Kaufman 100%,dallas,2950.0,62.2,32.59081,-96.50624,Census TIGER/Line 2025
+U-4816216-4816230,Combine × Dallas ISD,cidade_isd,Combine,4816216,4816230,Dallas ISD,Dallas,48113,Dallas 100%,dallas,1796.0,37.8,32.59886,-96.54244,Census TIGER/Line 2025
+U-4816240-4814820,Commerce × Commerce ISD,cidade_isd,Commerce,4816240,4814820,Commerce ISD,Hunt,48231,Hunt 100%,dallas,5371.0,100.0,33.25838,-95.89741,Census TIGER/Line 2025
+U-4816540-4830870,Cool × Millsap ISD,cidade_isd,Cool,4816540,4830870,Millsap ISD,Parker,48367,Parker 100%,fort_worth,1056.0,100.0,32.80028,-98.012,Census TIGER/Line 2025
+U-4816612-4813050,Coppell × Carrollton-Farmers Branch ISD,cidade_isd,Coppell,4816612,4813050,Carrollton-Farmers Branch ISD,Dallas,48113,Dallas 100%,dallas,1060.0,11.4,32.9553,-96.95048,Census TIGER/Line 2025
+U-4816612-4815210,Coppell × Coppell ISD,cidade_isd,Coppell,4816612,4815210,Coppell ISD,Dallas,48113,Dallas 100%,dallas,7904.0,85.0,32.95612,-97.00294,Census TIGER/Line 2025
+U-4816636-4816740,Copper Canyon × Denton ISD,cidade_isd,Copper Canyon,4816636,4816740,Denton ISD,Denton,48121,Denton 100%,dallas,1078.0,36.0,33.09474,-97.10792,Census TIGER/Line 2025
+U-4816636-4827300,Copper Canyon × Lewisville ISD,cidade_isd,Copper Canyon,4816636,4827300,Lewisville ISD,Denton,48121,Denton 100%,dallas,1916.0,64.0,33.09316,-97.09454,Census TIGER/Line 2025
+U-4816696-4816740,Corinth × Denton ISD,cidade_isd,Corinth,4816696,4816740,Denton ISD,Denton,48121,Denton 100%,dallas,2564.0,51.4,33.14382,-97.08705,Census TIGER/Line 2025
+U-4816696-4826430,Corinth × Lake Dallas ISD,cidade_isd,Corinth,4816696,4826430,Lake Dallas ISD,Denton,48121,Denton 100%,dallas,2420.0,48.6,33.13793,-97.05983,Census TIGER/Line 2025
+U-4817021-4833180,Corral City × Northwest ISD,cidade_isd,Corral City,4817021,4833180,Northwest ISD,Denton,48121,Denton 100%,dallas,98.0,100.0,33.09862,-97.23044,Census TIGER/Line 2025
+U-4817200-4839570,Cottonwood × Scurry-Rosser ISD,cidade_isd,Cottonwood,4817200,4839570,Scurry-Rosser ISD,Kaufman,48257,Kaufman 100%,dallas,924.0,100.0,32.46247,-96.41433,Census TIGER/Line 2025
+U-4817429-4814310,Coyote Flats × Cleburne ISD,cidade_isd,Coyote Flats,4817429,4814310,Cleburne ISD,Johnson,48251,Johnson 100%,fort_worth,1133.0,95.2,32.35452,-97.29415,Census TIGER/Line 2025
+U-4817504-4815510,Crandall × Crandall ISD,cidade_isd,Crandall,4817504,4815510,Crandall ISD,Kaufman,48257,Kaufman 100%,dallas,4503.0,100.0,32.62944,-96.46269,Census TIGER/Line 2025
+U-4817648-4820960,Cresson × Godley ISD,cidade_isd,Cresson,4817648,4820960,Godley ISD,Johnson,48251,Johnson 96%; Hood 4%,fort_worth,2133.0,28.8,32.54192,-97.58596,Census TIGER/Line 2025
+U-4817648-4821390,Cresson × Granbury ISD,cidade_isd,Cresson,4817648,4821390,Granbury ISD,Hood,48221,Hood 69%; Parker 20%; Johnson 12%,fort_worth,5096.0,68.9,32.52966,-97.62696,Census TIGER/Line 2025
+U-4817852-4808910,Cross Roads × Aubrey ISD,cidade_isd,Cross Roads,4817852,4808910,Aubrey ISD,Denton,48121,Denton 100%,dallas,1453.0,33.3,33.24356,-96.9993,Census TIGER/Line 2025
+U-4817852-4816740,Cross Roads × Denton ISD,cidade_isd,Cross Roads,4817852,4816740,Denton ISD,Denton,48121,Denton 100%,dallas,2909.0,66.7,33.2205,-96.99229,Census TIGER/Line 2025
+U-4817917-4812180,Cross Timber × Burleson ISD,cidade_isd,Cross Timber,4817917,4812180,Burleson ISD,Johnson,48251,Johnson 100%,fort_worth,419.0,42.6,32.486,-97.32437,Census TIGER/Line 2025
+U-4817917-4824930,Cross Timber × Joshua ISD,cidade_isd,Cross Timber,4817917,4824930,Joshua ISD,Johnson,48251,Johnson 100%,fort_worth,564.0,57.4,32.48115,-97.33144,Census TIGER/Line 2025
+U-4817960-4815910,Crowley × Crowley ISD,cidade_isd,Crowley,4817960,4815910,Crowley ISD,Tarrant,48439,Tarrant 100%,fort_worth,4795.0,98.2,32.57726,-97.35858,Census TIGER/Line 2025
+U-4820540-4835310,DISH × Ponder ISD,cidade_isd,DISH,4820540,4835310,Ponder ISD,Denton,48121,Denton 100%,dallas,1015.0,100.0,33.13528,-97.30014,Census TIGER/Line 2025
+U-4819000-4813050,Dallas × Carrollton-Farmers Branch ISD,cidade_isd,Dallas,4819000,4813050,Carrollton-Farmers Branch ISD,Denton,48121,Denton 74%; Dallas 26%,dallas,2078.0,1.0,32.99982,-96.85798,Census TIGER/Line 2025
+U-4819000-4815210,Dallas × Coppell ISD,cidade_isd,Dallas,4819000,4815210,Coppell ISD,Dallas,48113,Dallas 100%,dallas,1398.0,0.6,32.94082,-96.9888,Census TIGER/Line 2025
+U-4819000-4816230,Dallas × Dallas ISD,cidade_isd,Dallas,4819000,4816230,Dallas ISD,Dallas,48113,Dallas 100%,dallas,170602.0,78.2,32.8053,-96.77881,Census TIGER/Line 2025
+U-4819000-4817640,Dallas × Duncanville ISD,cidade_isd,Dallas,4819000,4817640,Duncanville ISD,Dallas,48113,Dallas 100%,dallas,10015.0,4.6,32.66535,-96.95452,Census TIGER/Line 2025
+U-4819000-4819560,Dallas × Forney ISD,cidade_isd,Dallas,4819000,4819560,Forney ISD,Kaufman,48257,Kaufman 100%,dallas,1121.0,0.5,32.79038,-96.50801,Census TIGER/Line 2025
+U-4819000-4821420,Dallas × Grand Prairie ISD,cidade_isd,Dallas,4819000,4821420,Grand Prairie ISD,Dallas,48113,Dallas 100%,dallas,3946.0,1.8,32.73161,-96.97426,Census TIGER/Line 2025
+U-4819000-4824420,Dallas × Irving ISD,cidade_isd,Dallas,4819000,4824420,Irving ISD,Dallas,48113,Dallas 100%,dallas,1669.0,0.8,32.80419,-96.89379,Census TIGER/Line 2025
+U-4819000-4830390,Dallas × Mesquite ISD,cidade_isd,Dallas,4819000,4830390,Mesquite ISD,Dallas,48113,Dallas 100%,dallas,1231.0,0.6,32.69146,-96.56798,Census TIGER/Line 2025
+U-4819000-4835100,Dallas × Plano ISD,cidade_isd,Dallas,4819000,4835100,Plano ISD,Collin,48085,Collin 100%,dallas,5124.0,2.3,33.0014,-96.80842,Census TIGER/Line 2025
+U-4819000-4837020,Dallas × Richardson ISD,cidade_isd,Dallas,4819000,4837020,Richardson ISD,Dallas,48113,Dallas 100%,dallas,16213.0,7.4,32.92378,-96.7648,Census TIGER/Line 2025
+U-4819084-4808700,Dalworthington Gardens × Arlington ISD,cidade_isd,Dalworthington Gardens,4819084,4808700,Arlington ISD,Tarrant,48439,Tarrant 100%,fort_worth,1154.0,100.0,32.69481,-97.1595,Census TIGER/Line 2025
+U-4820092-4816230,DeSoto × Dallas ISD,cidade_isd,DeSoto,4820092,4816230,Dallas ISD,Dallas,48113,Dallas 100%,dallas,2116.0,15.3,32.631,-96.85435,Census TIGER/Line 2025
+U-4820092-4816860,DeSoto × DeSoto ISD,cidade_isd,DeSoto,4820092,4816860,DeSoto ISD,Dallas,48113,Dallas 100%,dallas,10560.0,76.2,32.59254,-96.86518,Census TIGER/Line 2025
+U-4820092-4817640,DeSoto × Duncanville ISD,cidade_isd,DeSoto,4820092,4817640,Duncanville ISD,Dallas,48113,Dallas 100%,dallas,1188.0,8.6,32.61197,-96.89857,Census TIGER/Line 2025
+U-4819528-4816500,Decatur × Decatur ISD,cidade_isd,Decatur,4819528,4816500,Decatur ISD,Wise,48497,Wise 100%,fort_worth,5959.0,100.0,33.22685,-97.59007,Census TIGER/Line 2025
+U-4819924-4811460,Dennis × Brock ISD,cidade_isd,Dennis,4819924,4811460,Brock ISD,Parker,48367,Parker 100%,fort_worth,897.0,100.0,32.60717,-97.93547,Census TIGER/Line 2025
+U-4819972-4808670,Denton × Argyle ISD,cidade_isd,Denton,4819972,4808670,Argyle ISD,Denton,48121,Denton 100%,dallas,1143.0,1.8,33.15619,-97.15913,Census TIGER/Line 2025
+U-4819972-4816740,Denton × Denton ISD,cidade_isd,Denton,4819972,4816740,Denton ISD,Denton,48121,Denton 100%,dallas,56080.0,90.1,33.23227,-97.10625,Census TIGER/Line 2025
+U-4819972-4825980,Denton × Krum ISD,cidade_isd,Denton,4819972,4825980,Krum ISD,Denton,48121,Denton 100%,dallas,1821.0,2.9,33.28129,-97.19775,Census TIGER/Line 2025
+U-4819972-4835310,Denton × Ponder ISD,cidade_isd,Denton,4819972,4835310,Ponder ISD,Denton,48121,Denton 100%,dallas,1647.0,2.6,33.15989,-97.23892,Census TIGER/Line 2025
+U-4819972-4839180,Denton × Sanger ISD,cidade_isd,Denton,4819972,4839180,Sanger ISD,Denton,48121,Denton 100%,dallas,1516.0,2.4,33.34539,-97.06339,Census TIGER/Line 2025
+U-4821028-4816740,Double Oak × Denton ISD,cidade_isd,Double Oak,4821028,4816740,Denton ISD,Denton,48121,Denton 100%,dallas,254.0,16.0,33.06623,-97.12539,Census TIGER/Line 2025
+U-4821028-4827300,Double Oak × Lewisville ISD,cidade_isd,Double Oak,4821028,4827300,Lewisville ISD,Denton,48121,Denton 100%,dallas,1331.0,84.0,33.06247,-97.10911,Census TIGER/Line 2025
+U-4821628-4817640,Duncanville × Duncanville ISD,cidade_isd,Duncanville,4821628,4817640,Duncanville ISD,Dallas,48113,Dallas 100%,dallas,7043.0,98.2,32.64788,-96.91711,Census TIGER/Line 2025
+U-4822588-4815910,Edgecliff Village × Crowley ISD,cidade_isd,Edgecliff Village,4822588,4815910,Crowley ISD,Tarrant,48439,Tarrant 100%,fort_worth,356.0,46.8,32.65378,-97.3414,Census TIGER/Line 2025
+U-4822588-4819700,Edgecliff Village × Fort Worth ISD,cidade_isd,Edgecliff Village,4822588,4819700,Fort Worth ISD,Tarrant,48439,Tarrant 100%,fort_worth,405.0,53.2,32.65944,-97.34029,Census TIGER/Line 2025
+U-4824348-4818540,Ennis × Ennis ISD,cidade_isd,Ennis,4824348,4818540,Ennis ISD,Ellis,48139,Ellis 100%,dallas,20338.0,96.9,32.32515,-96.62854,Census TIGER/Line 2025
+U-4824768-4821660,Euless × Grapevine-Colleyville ISD,cidade_isd,Euless,4824768,4821660,Grapevine-Colleyville ISD,Tarrant,48439,Tarrant 100%,fort_worth,4207.0,40.8,32.85998,-97.05357,Census TIGER/Line 2025
+U-4824768-4824060,Euless × Hurst-Euless-Bedford ISD,cidade_isd,Euless,4824768,4824060,Hurst-Euless-Bedford ISD,Tarrant,48439,Tarrant 100%,fort_worth,6108.0,59.2,32.83818,-97.08242,Census TIGER/Line 2025
+U-4824912-4818810,Everman × Everman ISD,cidade_isd,Everman,4824912,4818810,Everman ISD,Tarrant,48439,Tarrant 100%,fort_worth,1130.0,100.0,32.62983,-97.28543,Census TIGER/Line 2025
+U-4825224-4828380,Fairview × Lovejoy ISD,cidade_isd,Fairview,4825224,4828380,Lovejoy ISD,Collin,48085,Collin 100%,dallas,3493.0,61.3,33.14006,-96.60205,Census TIGER/Line 2025
+U-4825224-4829850,Fairview × McKinney ISD,cidade_isd,Fairview,4825224,4829850,McKinney ISD,Collin,48085,Collin 100%,dallas,2206.0,38.7,33.14494,-96.63555,Census TIGER/Line 2025
+U-4825452-4813050,Farmers Branch × Carrollton-Farmers Branch ISD,cidade_isd,Farmers Branch,4825452,4813050,Carrollton-Farmers Branch ISD,Dallas,48113,Dallas 100%,dallas,5704.0,74.7,32.92444,-96.89588,Census TIGER/Line 2025
+U-4825452-4816230,Farmers Branch × Dallas ISD,cidade_isd,Farmers Branch,4825452,4816230,Dallas ISD,Dallas,48113,Dallas 100%,dallas,1932.0,25.3,32.92027,-96.8623,Census TIGER/Line 2025
+U-4825488-4819080,Farmersville × Farmersville ISD,cidade_isd,Farmersville,4825488,4819080,Farmersville ISD,Collin,48085,Collin 100%,dallas,2619.0,99.7,33.16539,-96.36157,Census TIGER/Line 2025
+U-4825572-4837650,Fate × Rockwall ISD,cidade_isd,Fate,4825572,4837650,Rockwall ISD,Rockwall,48397,Rockwall 100%,dallas,4411.0,56.4,32.94728,-96.40302,Census TIGER/Line 2025
+U-4825572-4838220,Fate × Royse City ISD,cidade_isd,Fate,4825572,4838220,Royse City ISD,Rockwall,48397,Rockwall 100%,dallas,3416.0,43.6,32.94699,-96.38096,Census TIGER/Line 2025
+U-4825752-4819170,Ferris × Ferris ISD,cidade_isd,Ferris,4825752,4819170,Ferris ISD,Ellis,48139,Ellis 85%; Dallas 15%,dallas,3023.0,100.0,32.53885,-96.6739,Census TIGER/Line 2025
+U-4826232-4808670,Flower Mound × Argyle ISD,cidade_isd,Flower Mound,4826232,4808670,Argyle ISD,Denton,48121,Denton 100%,dallas,4783.0,17.7,33.05626,-97.18859,Census TIGER/Line 2025
+U-4826232-4827300,Flower Mound × Lewisville ISD,cidade_isd,Flower Mound,4826232,4827300,Lewisville ISD,Denton,48121,Denton 97%; Tarrant 3%,dallas,19070.0,70.7,33.02971,-97.09715,Census TIGER/Line 2025
+U-4826232-4833180,Flower Mound × Northwest ISD,cidade_isd,Flower Mound,4826232,4833180,Northwest ISD,Denton,48121,Denton 100%,dallas,2283.0,8.5,33.08472,-97.22599,Census TIGER/Line 2025
+U-4826544-4818810,Forest Hill × Everman ISD,cidade_isd,Forest Hill,4826544,4818810,Everman ISD,Tarrant,48439,Tarrant 100%,fort_worth,545.0,20.4,32.64902,-97.26865,Census TIGER/Line 2025
+U-4826544-4819700,Forest Hill × Fort Worth ISD,cidade_isd,Forest Hill,4826544,4819700,Fort Worth ISD,Tarrant,48439,Tarrant 100%,fort_worth,2124.0,79.6,32.67041,-97.26599,Census TIGER/Line 2025
+U-4826604-4819560,Forney × Forney ISD,cidade_isd,Forney,4826604,4819560,Forney ISD,Kaufman,48257,Kaufman 100%,dallas,10267.0,100.0,32.74594,-96.45118,Census TIGER/Line 2025
+U-4827000-4807780,Fort Worth × Aledo ISD,cidade_isd,Fort Worth,4827000,4807780,Aledo ISD,Parker,48367,Parker 100%,fort_worth,6155.0,2.7,32.72649,-97.57064,Census TIGER/Line 2025
+U-4827000-4810230,Fort Worth × Birdville ISD,cidade_isd,Fort Worth,4827000,4810230,Birdville ISD,Tarrant,48439,Tarrant 100%,fort_worth,2181.0,1.0,32.78776,-97.22454,Census TIGER/Line 2025
+U-4827000-4812180,Fort Worth × Burleson ISD,cidade_isd,Fort Worth,4827000,4812180,Burleson ISD,Tarrant,48439,Tarrant 99%; Johnson 1%,fort_worth,3809.0,1.7,32.57854,-97.30482,Census TIGER/Line 2025
+U-4827000-4813170,Fort Worth × Castleberry ISD,cidade_isd,Fort Worth,4827000,4813170,Castleberry ISD,Tarrant,48439,Tarrant 100%,fort_worth,1632.0,0.7,32.79248,-97.39654,Census TIGER/Line 2025
+U-4827000-4815910,Fort Worth × Crowley ISD,cidade_isd,Fort Worth,4827000,4815910,Crowley ISD,Tarrant,48439,Tarrant 100%,fort_worth,18767.0,8.3,32.63006,-97.35198,Census TIGER/Line 2025
+U-4827000-4817700,Fort Worth × Eagle Mountain-Saginaw ISD,cidade_isd,Fort Worth,4827000,4817700,Eagle Mountain-Saginaw ISD,Tarrant,48439,Tarrant 100%,fort_worth,23006.0,10.2,32.87303,-97.41883,Census TIGER/Line 2025
+U-4827000-4818810,Fort Worth × Everman ISD,cidade_isd,Fort Worth,4827000,4818810,Everman ISD,Tarrant,48439,Tarrant 100%,fort_worth,5669.0,2.5,32.62696,-97.31708,Census TIGER/Line 2025
+U-4827000-4819700,Fort Worth × Fort Worth ISD,cidade_isd,Fort Worth,4827000,4819700,Fort Worth ISD,Tarrant,48439,Tarrant 100%,fort_worth,100292.0,44.4,32.73065,-97.44047,Census TIGER/Line 2025
+U-4827000-4824060,Fort Worth × Hurst-Euless-Bedford ISD,cidade_isd,Fort Worth,4827000,4824060,Hurst-Euless-Bedford ISD,Tarrant,48439,Tarrant 100%,fort_worth,9118.0,4.0,32.8079,-97.12528,Census TIGER/Line 2025
+U-4827000-4825260,Fort Worth × Keller ISD,cidade_isd,Fort Worth,4827000,4825260,Keller ISD,Tarrant,48439,Tarrant 100%,fort_worth,15150.0,6.7,32.91297,-97.28722,Census TIGER/Line 2025
+U-4827000-4826490,Fort Worth × Lake Worth ISD,cidade_isd,Fort Worth,4827000,4826490,Lake Worth ISD,Tarrant,48439,Tarrant 100%,fort_worth,3533.0,1.6,32.8198,-97.38682,Census TIGER/Line 2025
+U-4827000-4833180,Fort Worth × Northwest ISD,cidade_isd,Fort Worth,4827000,4833180,Northwest ISD,Tarrant,48439,Tarrant 55%; Denton 44%; Wise 1%,fort_worth,28437.0,12.6,32.96878,-97.38247,Census TIGER/Line 2025
+U-4827000-4845540,Fort Worth × White Settlement ISD,cidade_isd,Fort Worth,4827000,4845540,White Settlement ISD,Tarrant,48439,Tarrant 100%,fort_worth,6358.0,2.8,32.76848,-97.494,Census TIGER/Line 2025
+U-4827684-4820010,Frisco × Frisco ISD,cidade_isd,Frisco,4827684,4820010,Frisco ISD,Collin,48085,Collin 64%; Denton 36%,dallas,36832.0,83.4,33.15183,-96.812,Census TIGER/Line 2025
+U-4827684-4827300,Frisco × Lewisville ISD,cidade_isd,Frisco,4827684,4827300,Lewisville ISD,Denton,48121,Denton 100%,dallas,1902.0,4.3,33.09849,-96.84846,Census TIGER/Line 2025
+U-4827684-4827720,Frisco × Little Elm ISD,cidade_isd,Frisco,4827684,4827720,Little Elm ISD,Denton,48121,Denton 100%,dallas,1083.0,2.5,33.14189,-96.90688,Census TIGER/Line 2025
+U-4827684-4836000,Frisco × Prosper ISD,cidade_isd,Frisco,4827684,4836000,Prosper ISD,Collin,48085,Collin 99%,dallas,4336.0,9.8,33.20458,-96.81637,Census TIGER/Line 2025
+U-4829000-4820340,Garland × Garland ISD,cidade_isd,Garland,4829000,4820340,Garland ISD,Dallas,48113,Dallas 100%,dallas,34020.0,93.4,32.90802,-96.64519,Census TIGER/Line 2025
+U-4829000-4837020,Garland × Richardson ISD,cidade_isd,Garland,4829000,4837020,Richardson ISD,Dallas,48113,Dallas 100%,dallas,1423.0,3.9,32.97268,-96.67636,Census TIGER/Line 2025
+U-4829036-4818540,Garrett × Ennis ISD,cidade_isd,Garrett,4829036,4818540,Ennis ISD,Ellis,48139,Ellis 100%,dallas,1152.0,100.0,32.36819,-96.65475,Census TIGER/Line 2025
+U-4829840-4816860,Glenn Heights × DeSoto ISD,cidade_isd,Glenn Heights,4829840,4816860,DeSoto ISD,Dallas,48113,Dallas 100%,dallas,3121.0,67.0,32.55751,-96.85598,Census TIGER/Line 2025
+U-4829840-4836660,Glenn Heights × Red Oak ISD,cidade_isd,Glenn Heights,4829840,4836660,Red Oak ISD,Ellis,48139,Ellis 100%,dallas,1534.0,33.0,32.53296,-96.85199,Census TIGER/Line 2025
+U-4829972-4820960,Godley × Godley ISD,cidade_isd,Godley,4829972,4820960,Godley ISD,Johnson,48251,Johnson 100%,fort_worth,2484.0,99.9,32.47288,-97.53131,Census TIGER/Line 2025
+U-4830464-4808700,Grand Prairie × Arlington ISD,cidade_isd,Grand Prairie,4830464,4808700,Arlington ISD,Tarrant,48439,Tarrant 100%,fort_worth,8590.0,17.5,32.72845,-97.04619,Census TIGER/Line 2025
+U-4830464-4813230,Grand Prairie × Cedar Hill ISD,cidade_isd,Grand Prairie,4830464,4813230,Cedar Hill ISD,Dallas,48113,Dallas 100%,dallas,2988.0,6.1,32.56537,-97.02224,Census TIGER/Line 2025
+U-4830464-4821420,Grand Prairie × Grand Prairie ISD,cidade_isd,Grand Prairie,4830464,4821420,Grand Prairie ISD,Dallas,48113,Dallas 100%,dallas,25757.0,52.5,32.72246,-97.00652,Census TIGER/Line 2025
+U-4830464-4824420,Grand Prairie × Irving ISD,cidade_isd,Grand Prairie,4830464,4824420,Irving ISD,Dallas,48113,Dallas 100%,dallas,1632.0,3.3,32.81041,-97.00424,Census TIGER/Line 2025
+U-4830464-4828920,Grand Prairie × Mansfield ISD,cidade_isd,Grand Prairie,4830464,4828920,Mansfield ISD,Tarrant,48439,Tarrant 100%,fort_worth,5225.0,10.6,32.59168,-97.0519,Census TIGER/Line 2025
+U-4830464-4830600,Grand Prairie × Midlothian ISD,cidade_isd,Grand Prairie,4830464,4830600,Midlothian ISD,Ellis,48139,Ellis 100%,dallas,4868.0,9.9,32.50021,-97.05168,Census TIGER/Line 2025
+U-4830512-4821540,Grandview × Grandview ISD,cidade_isd,Grandview,4830512,4821540,Grandview ISD,Johnson,48251,Johnson 100%,fort_worth,1265.0,100.0,32.26574,-97.17661,Census TIGER/Line 2025
+U-4830644-4813020,Grapevine × Carroll ISD,cidade_isd,Grapevine,4830644,4813020,Carroll ISD,Tarrant,48439,Tarrant 100%,fort_worth,1004.0,4.9,32.97066,-97.11862,Census TIGER/Line 2025
+U-4830644-4821660,Grapevine × Grapevine-Colleyville ISD,cidade_isd,Grapevine,4830644,4821660,Grapevine-Colleyville ISD,Tarrant,48439,Tarrant 100%,fort_worth,19213.0,93.2,32.93284,-97.067,Census TIGER/Line 2025
+U-4830752-4839570,Grays Prairie × Scurry-Rosser ISD,cidade_isd,Grays Prairie,4830752,4839570,Scurry-Rosser ISD,Kaufman,48257,Kaufman 100%,dallas,783.0,100.0,32.4759,-96.34936,Census TIGER/Line 2025
+U-4830920-4821720,Greenville × Greenville ISD,cidade_isd,Greenville,4830920,4821720,Greenville ISD,Hunt,48231,Hunt 100%,dallas,20570.0,99.4,33.11281,-96.11654,Census TIGER/Line 2025
+U-4831715-4827720,Hackberry × Little Elm ISD,cidade_isd,Hackberry,4831715,4827720,Little Elm ISD,Denton,48121,Denton 100%,dallas,435.0,100.0,33.15009,-96.91765,Census TIGER/Line 2025
+U-4831928-4810230,Haltom City × Birdville ISD,cidade_isd,Haltom City,4831928,4810230,Birdville ISD,Tarrant,48439,Tarrant 100%,fort_worth,7348.0,92.9,32.82086,-97.27039,Census TIGER/Line 2025
+U-4831928-4819700,Haltom City × Fort Worth ISD,cidade_isd,Haltom City,4831928,4819700,Fort Worth ISD,Tarrant,48439,Tarrant 100%,fort_worth,402.0,5.1,32.7835,-97.28192,Census TIGER/Line 2025
+U-4832720-4833180,Haslet × Northwest ISD,cidade_isd,Haslet,4832720,4833180,Northwest ISD,Tarrant,48439,Tarrant 99%; Denton 1%,fort_worth,5762.0,100.0,32.96161,-97.33554,Census TIGER/Line 2025
+U-4832810-4836240,Hawk Cove × Quinlan ISD,cidade_isd,Hawk Cove,4832810,4836240,Quinlan ISD,Hunt,48231,Hunt 100%,dallas,235.0,100.0,32.88401,-96.08512,Census TIGER/Line 2025
+U-4832984-4837650,Heath × Rockwall ISD,cidade_isd,Heath,4832984,4837650,Rockwall ISD,Rockwall,48397,Rockwall 99%; Kaufman 1%,dallas,8010.0,100.0,32.84409,-96.47187,Census TIGER/Line 2025
+U-4833020-4827300,Hebron × Lewisville ISD,cidade_isd,Hebron,4833020,4827300,Lewisville ISD,Denton,48121,Denton 100%,dallas,156.0,90.9,32.99658,-96.94226,Census TIGER/Line 2025
+U-4833020-4835100,Hebron × Plano ISD,cidade_isd,Hebron,4833020,4835100,Plano ISD,Collin,48085,Collin 100%,dallas,16.0,9.1,33.02203,-96.83623,Census TIGER/Line 2025
+U-4833476-4826430,Hickory Creek × Lake Dallas ISD,cidade_isd,Hickory Creek,4833476,4826430,Lake Dallas ISD,Denton,48121,Denton 100%,dallas,2901.0,92.1,33.11119,-97.05465,Census TIGER/Line 2025
+U-4833476-4827300,Hickory Creek × Lewisville ISD,cidade_isd,Hickory Creek,4833476,4827300,Lewisville ISD,Denton,48121,Denton 100%,dallas,250.0,7.9,33.09788,-97.00268,Census TIGER/Line 2025
+U-4833824-4816230,Highland Park × Dallas ISD,cidade_isd,Highland Park,4833824,4816230,Dallas ISD,Dallas,48113,Dallas 100%,dallas,108.0,7.5,32.82904,-96.81749,Census TIGER/Line 2025
+U-4833824-4823250,Highland Park × Highland Park ISD,cidade_isd,Highland Park,4833824,4823250,Highland Park ISD,Dallas,48113,Dallas 100%,dallas,1327.0,92.5,32.83126,-96.79927,Census TIGER/Line 2025
+U-4833848-4827300,Highland Village × Lewisville ISD,cidade_isd,Highland Village,4833848,4827300,Lewisville ISD,Denton,48121,Denton 100%,dallas,3548.0,100.0,33.08789,-97.04573,Census TIGER/Line 2025
+U-4835254-4807780,Hudson Oaks × Aledo ISD,cidade_isd,Hudson Oaks,4835254,4807780,Aledo ISD,Parker,48367,Parker 100%,fort_worth,263.0,13.0,32.74148,-97.70345,Census TIGER/Line 2025
+U-4835254-4844800,Hudson Oaks × Weatherford ISD,cidade_isd,Hudson Oaks,4835254,4844800,Weatherford ISD,Parker,48367,Parker 100%,fort_worth,1761.0,87.0,32.75523,-97.70561,Census TIGER/Line 2025
+U-4835576-4810230,Hurst × Birdville ISD,cidade_isd,Hurst,4835576,4810230,Birdville ISD,Tarrant,48439,Tarrant 100%,fort_worth,1718.0,26.9,32.86177,-97.17957,Census TIGER/Line 2025
+U-4835576-4824060,Hurst × Hurst-Euless-Bedford ISD,cidade_isd,Hurst,4835576,4824060,Hurst-Euless-Bedford ISD,Tarrant,48439,Tarrant 100%,fort_worth,4448.0,69.7,32.83204,-97.18072,Census TIGER/Line 2025
+U-4835612-4816230,Hutchins × Dallas ISD,cidade_isd,Hutchins,4835612,4816230,Dallas ISD,Dallas,48113,Dallas 100%,dallas,5397.0,92.2,32.64952,-96.71268,Census TIGER/Line 2025
+U-4835612-4826670,Hutchins × Lancaster ISD,cidade_isd,Hutchins,4835612,4826670,Lancaster ISD,Dallas,48113,Dallas 100%,dallas,455.0,7.8,32.6146,-96.72702,Census TIGER/Line 2025
+U-4837000-4813050,Irving × Carrollton-Farmers Branch ISD,cidade_isd,Irving,4837000,4813050,Carrollton-Farmers Branch ISD,Dallas,48113,Dallas 100%,dallas,7514.0,17.5,32.90925,-96.95738,Census TIGER/Line 2025
+U-4837000-4815210,Irving × Coppell ISD,cidade_isd,Irving,4837000,4815210,Coppell ISD,Dallas,48113,Dallas 100%,dallas,4817.0,11.2,32.91609,-97.008,Census TIGER/Line 2025
+U-4837000-4824420,Irving × Irving ISD,cidade_isd,Irving,4837000,4824420,Irving ISD,Dallas,48113,Dallas 100%,dallas,29081.0,67.6,32.83817,-96.96211,Census TIGER/Line 2025
+U-4837072-4824450,Italy × Italy ISD,cidade_isd,Italy,4837072,4824450,Italy ISD,Ellis,48139,Ellis 100%,dallas,1284.0,100.0,32.1857,-96.88348,Census TIGER/Line 2025
+U-4838068-4814850,Josephine × Community ISD,cidade_isd,Josephine,4838068,4814850,Community ISD,Collin,48085,Collin 97%; Hunt 3%,dallas,1372.0,100.0,33.05921,-96.32065,Census TIGER/Line 2025
+U-4838080-4824930,Joshua × Joshua ISD,cidade_isd,Joshua,4838080,4824930,Joshua ISD,Johnson,48251,Johnson 100%,fort_worth,5743.0,100.0,32.46235,-97.38182,Census TIGER/Line 2025
+U-4838332-4833180,Justin × Northwest ISD,cidade_isd,Justin,4838332,4833180,Northwest ISD,Denton,48121,Denton 100%,dallas,2966.0,100.0,33.08173,-97.30741,Census TIGER/Line 2025
+U-4838488-4825200,Kaufman × Kaufman ISD,cidade_isd,Kaufman,4838488,4825200,Kaufman ISD,Kaufman,48257,Kaufman 100%,dallas,5727.0,91.6,32.57213,-96.30814,Census TIGER/Line 2025
+U-4838488-4839570,Kaufman × Scurry-Rosser ISD,cidade_isd,Kaufman,4838488,4839570,Scurry-Rosser ISD,Kaufman,48257,Kaufman 100%,dallas,352.0,5.6,32.543,-96.35913,Census TIGER/Line 2025
+U-4838548-4800011,Keene × Alvarado ISD,cidade_isd,Keene,4838548,4800011,Alvarado ISD,Johnson,48251,Johnson 100%,fort_worth,400.0,11.8,32.39733,-97.29217,Census TIGER/Line 2025
+U-4838548-4814310,Keene × Cleburne ISD,cidade_isd,Keene,4838548,4814310,Cleburne ISD,Johnson,48251,Johnson 100%,fort_worth,661.0,19.5,32.38099,-97.34261,Census TIGER/Line 2025
+U-4838548-4824930,Keene × Joshua ISD,cidade_isd,Keene,4838548,4824930,Joshua ISD,Johnson,48251,Johnson 100%,fort_worth,423.0,12.5,32.4112,-97.33269,Census TIGER/Line 2025
+U-4838548-4825230,Keene × Keene ISD,cidade_isd,Keene,4838548,4825230,Keene ISD,Johnson,48251,Johnson 100%,fort_worth,1915.0,56.3,32.39752,-97.32938,Census TIGER/Line 2025
+U-4838632-4825260,Keller × Keller ISD,cidade_isd,Keller,4838632,4825260,Keller ISD,Tarrant,48439,Tarrant 100%,fort_worth,11607.0,98.6,32.93506,-97.22901,Census TIGER/Line 2025
+U-4838788-4825320,Kemp × Kemp ISD,cidade_isd,Kemp,4838788,4825320,Kemp ISD,Kaufman,48257,Kaufman 100%,dallas,1436.0,100.0,32.44504,-96.22698,Census TIGER/Line 2025
+U-4838896-4819700,Kennedale × Fort Worth ISD,cidade_isd,Kennedale,4838896,4819700,Fort Worth ISD,Tarrant,48439,Tarrant 100%,fort_worth,302.0,7.1,32.66133,-97.23801,Census TIGER/Line 2025
+U-4838896-4825500,Kennedale × Kennedale ISD,cidade_isd,Kennedale,4838896,4825500,Kennedale ISD,Tarrant,48439,Tarrant 100%,fort_worth,3308.0,78.1,32.6471,-97.21428,Census TIGER/Line 2025
+U-4838896-4828920,Kennedale × Mansfield ISD,cidade_isd,Kennedale,4838896,4828920,Mansfield ISD,Tarrant,48439,Tarrant 100%,fort_worth,609.0,14.4,32.62688,-97.21394,Census TIGER/Line 2025
+U-4839916-4808910,Krugerville × Aubrey ISD,cidade_isd,Krugerville,4839916,4808910,Aubrey ISD,Denton,48121,Denton 100%,dallas,1019.0,100.0,33.27477,-96.99409,Census TIGER/Line 2025
+U-4839928-4825980,Krum × Krum ISD,cidade_isd,Krum,4839928,4825980,Krum ISD,Denton,48121,Denton 100%,dallas,2032.0,100.0,33.26446,-97.22842,Census TIGER/Line 2025
+U-4840450-4811340,Lake Bridgeport × Bridgeport ISD,cidade_isd,Lake Bridgeport,4840450,4811340,Bridgeport ISD,Wise,48497,Wise 100%,fort_worth,299.0,100.0,33.20834,-97.82991,Census TIGER/Line 2025
+U-4840516-4826430,Lake Dallas × Lake Dallas ISD,cidade_isd,Lake Dallas,4840516,4826430,Lake Dallas ISD,Denton,48121,Denton 100%,dallas,1554.0,100.0,33.12742,-97.02676,Census TIGER/Line 2025
+U-4841056-4826490,Lake Worth × Lake Worth ISD,cidade_isd,Lake Worth,4841056,4826490,Lake Worth ISD,Tarrant,48439,Tarrant 100%,fort_worth,1551.0,98.4,32.81021,-97.43907,Census TIGER/Line 2025
+U-4840744-4809200,Lakeside × Azle ISD,cidade_isd,Lakeside,4840744,4809200,Azle ISD,Tarrant,48439,Tarrant 100%,fort_worth,1059.0,94.8,32.82688,-97.4887,Census TIGER/Line 2025
+U-4841050-4827720,Lakewood Village × Little Elm ISD,cidade_isd,Lakewood Village,4841050,4827720,Little Elm ISD,Denton,48121,Denton 100%,dallas,520.0,100.0,33.13806,-96.97349,Census TIGER/Line 2025
+U-4841212-4816230,Lancaster × Dallas ISD,cidade_isd,Lancaster,4841212,4816230,Dallas ISD,Dallas,48113,Dallas 100%,dallas,1701.0,8.0,32.6336,-96.78061,Census TIGER/Line 2025
+U-4841212-4826670,Lancaster × Lancaster ISD,cidade_isd,Lancaster,4841212,4826670,Lancaster ISD,Dallas,48113,Dallas 100%,dallas,19368.0,91.4,32.59791,-96.7713,Census TIGER/Line 2025
+U-4841800-4814850,Lavon × Community ISD,cidade_isd,Lavon,4841800,4814850,Community ISD,Collin,48085,Collin 100%,dallas,2749.0,99.8,33.02273,-96.44355,Census TIGER/Line 2025
+U-4842508-4827300,Lewisville × Lewisville ISD,cidade_isd,Lewisville,4842508,4827300,Lewisville ISD,Denton,48121,Denton 100%,dallas,25823.0,99.1,33.04462,-97.00224,Census TIGER/Line 2025
+U-4843012-4816740,Little Elm × Denton ISD,cidade_isd,Little Elm,4843012,4816740,Denton ISD,Denton,48121,Denton 100%,dallas,4033.0,33.9,33.21432,-96.96462,Census TIGER/Line 2025
+U-4843012-4820010,Little Elm × Frisco ISD,cidade_isd,Little Elm,4843012,4820010,Frisco ISD,Denton,48121,Denton 100%,dallas,1699.0,14.3,33.16494,-96.89178,Census TIGER/Line 2025
+U-4843012-4827720,Little Elm × Little Elm ISD,cidade_isd,Little Elm,4843012,4827720,Little Elm ISD,Denton,48121,Denton 100%,dallas,6086.0,51.2,33.17175,-96.91141,Census TIGER/Line 2025
+U-4843636-4828020,Lone Oak × Lone Oak ISD,cidade_isd,Lone Oak,4843636,4828020,Lone Oak ISD,Hunt,48231,Hunt 100%,dallas,711.0,100.0,32.99472,-95.94111,Census TIGER/Line 2025
+U-4844308-4829850,Lowry Crossing × McKinney ISD,cidade_isd,Lowry Crossing,4844308,4829850,McKinney ISD,Collin,48085,Collin 100%,dallas,883.0,53.0,33.17845,-96.54636,Census TIGER/Line 2025
+U-4844308-4835850,Lowry Crossing × Princeton ISD,cidade_isd,Lowry Crossing,4844308,4835850,Princeton ISD,Collin,48085,Collin 100%,dallas,782.0,47.0,33.16543,-96.54351,Census TIGER/Line 2025
+U-4845012-4807890,Lucas × Allen ISD,cidade_isd,Lucas,4845012,4807890,Allen ISD,Collin,48085,Collin 100%,dallas,619.0,6.2,33.0928,-96.61168,Census TIGER/Line 2025
+U-4845012-4828380,Lucas × Lovejoy ISD,cidade_isd,Lucas,4845012,4828380,Lovejoy ISD,Collin,48085,Collin 100%,dallas,5817.0,58.2,33.0978,-96.58046,Census TIGER/Line 2025
+U-4845012-4829850,Lucas × McKinney ISD,cidade_isd,Lucas,4845012,4829850,McKinney ISD,Collin,48085,Collin 100%,dallas,1905.0,19.1,33.11326,-96.56329,Census TIGER/Line 2025
+U-4845012-4835100,Lucas × Plano ISD,cidade_isd,Lucas,4845012,4835100,Plano ISD,Collin,48085,Collin 100%,dallas,905.0,9.1,33.06317,-96.59561,Census TIGER/Line 2025
+U-4845012-4846530,Lucas × Wylie ISD,cidade_isd,Lucas,4845012,4846530,Wylie ISD,Collin,48085,Collin 100%,dallas,543.0,5.4,33.06297,-96.57334,Census TIGER/Line 2025
+U-4845324-4825320,Mabank × Kemp ISD,cidade_isd,Mabank,4845324,4825320,Kemp ISD,Kaufman,48257,Kaufman 100%,dallas,366.0,6.5,32.40057,-96.17124,Census TIGER/Line 2025
+U-4845324-4828680,Mabank × Mabank ISD,cidade_isd,Mabank,4845324,4828680,Mabank ISD,Kaufman,48257,Kaufman 78%; Henderson 20%; Van Zandt 2%,dallas,5208.0,92.9,32.36533,-96.1043,Census TIGER/Line 2025
+U-4846452-4828920,Mansfield × Mansfield ISD,cidade_isd,Mansfield,4846452,4828920,Mansfield ISD,Tarrant,48439,Tarrant 79%; Johnson 21%,fort_worth,22520.0,95.6,32.56597,-97.11549,Census TIGER/Line 2025
+U-4846452-4830600,Mansfield × Midlothian ISD,cidade_isd,Mansfield,4846452,4830600,Midlothian ISD,Ellis,48139,Ellis 100%,dallas,1043.0,4.4,32.53099,-97.08396,Census TIGER/Line 2025
+U-4847268-4829580,Maypearl × Maypearl ISD,cidade_isd,Maypearl,4847268,4829580,Maypearl ISD,Ellis,48139,Ellis 100%,dallas,493.0,100.0,32.31966,-96.9905,Census TIGER/Line 2025
+U-4845744-4807890,McKinney × Allen ISD,cidade_isd,McKinney,4845744,4807890,Allen ISD,Collin,48085,Collin 100%,dallas,1277.0,2.9,33.14463,-96.69136,Census TIGER/Line 2025
+U-4845744-4820010,McKinney × Frisco ISD,cidade_isd,McKinney,4845744,4820010,Frisco ISD,Collin,48085,Collin 100%,dallas,4505.0,10.2,33.15017,-96.71559,Census TIGER/Line 2025
+U-4845744-4829850,McKinney × McKinney ISD,cidade_isd,McKinney,4845744,4829850,McKinney ISD,Collin,48085,Collin 100%,dallas,32152.0,72.9,33.2248,-96.63398,Census TIGER/Line 2025
+U-4845744-4836000,McKinney × Prosper ISD,cidade_isd,McKinney,4845744,4836000,Prosper ISD,Collin,48085,Collin 100%,dallas,5273.0,12.0,33.24263,-96.71219,Census TIGER/Line 2025
+U-4845804-4837650,McLendon-Chisholm × Rockwall ISD,cidade_isd,McLendon-Chisholm,4845804,4837650,Rockwall ISD,Rockwall,48397,Rockwall 100%,dallas,7978.0,98.4,32.85174,-96.38182,Census TIGER/Line 2025
+U-4847496-4830120,Melissa × Melissa ISD,cidade_isd,Melissa,4847496,4830120,Melissa ISD,Collin,48085,Collin 100%,dallas,7323.0,99.5,33.28527,-96.56573,Census TIGER/Line 2025
+U-4847892-4819560,Mesquite × Forney ISD,cidade_isd,Mesquite,4847892,4819560,Forney ISD,Kaufman,48257,Kaufman 100%,dallas,3159.0,10.0,32.68796,-96.4895,Census TIGER/Line 2025
+U-4847892-4830390,Mesquite × Mesquite ISD,cidade_isd,Mesquite,4847892,4830390,Mesquite ISD,Dallas,48113,Dallas 100%,dallas,27486.0,87.2,32.76704,-96.60989,Census TIGER/Line 2025
+U-4848096-4830600,Midlothian × Midlothian ISD,cidade_isd,Midlothian,4848096,4830600,Midlothian ISD,Ellis,48139,Ellis 100%,dallas,39197.0,96.0,32.46838,-96.99247,Census TIGER/Line 2025
+U-4848096-4844730,Midlothian × Waxahachie ISD,cidade_isd,Midlothian,4848096,4844730,Waxahachie ISD,Ellis,48139,Ellis 100%,dallas,1646.0,4.0,32.44317,-96.92311,Census TIGER/Line 2025
+U-4848408-4830780,Milford × Milford ISD,cidade_isd,Milford,4848408,4830780,Milford ISD,Ellis,48139,Ellis 100%,dallas,1580.0,100.0,32.11818,-96.94872,Census TIGER/Line 2025
+U-4848564-4830870,Millsap × Millsap ISD,cidade_isd,Millsap,4848564,4830870,Millsap ISD,Parker,48367,Parker 100%,fort_worth,943.0,100.0,32.74872,-98.01407,Census TIGER/Line 2025
+U-4848684-4820370,Mineral Wells × Garner ISD,cidade_isd,Mineral Wells,4848684,4820370,Garner ISD,Parker,48367,Parker 100%,fort_worth,3467.0,26.4,32.83755,-98.04869,Census TIGER/Line 2025
+U-4848684-4830950,Mineral Wells × Mineral Wells ISD,cidade_isd,Mineral Wells,4848684,4830950,Mineral Wells ISD,Palo Pinto,48363,Palo Pinto 96%; Parker 4%,fort_worth,9073.0,69.2,32.80869,-98.10957,Census TIGER/Line 2025
+U-4850100-4835100,Murphy × Plano ISD,cidade_isd,Murphy,4850100,4835100,Plano ISD,Collin,48085,Collin 100%,dallas,2506.0,68.7,33.01582,-96.6177,Census TIGER/Line 2025
+U-4850100-4846530,Murphy × Wylie ISD,cidade_isd,Murphy,4850100,4846530,Wylie ISD,Collin,48085,Collin 100%,dallas,1142.0,31.3,33.02167,-96.59967,Census TIGER/Line 2025
+U-4850760-4814850,Nevada × Community ISD,cidade_isd,Nevada,4850760,4814850,Community ISD,Collin,48085,Collin 100%,dallas,1535.0,100.0,33.05014,-96.38276,Census TIGER/Line 2025
+U-4850920-4816500,New Fairview × Decatur ISD,cidade_isd,New Fairview,4850920,4816500,Decatur ISD,Wise,48497,Wise 100%,fort_worth,3504.0,29.0,33.1375,-97.4734,Census TIGER/Line 2025
+U-4850920-4833180,New Fairview × Northwest ISD,cidade_isd,New Fairview,4850920,4833180,Northwest ISD,Wise,48497,Wise 82%; Denton 18%,fort_worth,8526.0,70.5,33.10316,-97.43536,Census TIGER/Line 2025
+U-4851036-4829850,New Hope × McKinney ISD,cidade_isd,New Hope,4851036,4829850,McKinney ISD,Collin,48085,Collin 100%,dallas,920.0,100.0,33.21032,-96.56199,Census TIGER/Line 2025
+U-4850772-4833180,Newark × Northwest ISD,cidade_isd,Newark,4850772,4833180,Northwest ISD,Wise,48497,Wise 98%; Tarrant 2%,fort_worth,558.0,97.5,33.00856,-97.49422,Census TIGER/Line 2025
+U-4851444-4814820,Neylandville × Commerce ISD,cidade_isd,Neylandville,4851444,4814820,Commerce ISD,Hunt,48231,Hunt 100%,dallas,201.0,100.0,33.20275,-95.99825,Census TIGER/Line 2025
+U-4852356-4810230,North Richland Hills × Birdville ISD,cidade_isd,North Richland Hills,4852356,4810230,Birdville ISD,Tarrant,48439,Tarrant 100%,fort_worth,10585.0,91.0,32.85407,-97.21349,Census TIGER/Line 2025
+U-4852356-4825260,North Richland Hills × Keller ISD,cidade_isd,North Richland Hills,4852356,4825260,Keller ISD,Tarrant,48439,Tarrant 100%,fort_worth,1018.0,8.7,32.89822,-97.19994,Census TIGER/Line 2025
+U-4852212-4808670,Northlake × Argyle ISD,cidade_isd,Northlake,4852212,4808670,Argyle ISD,Denton,48121,Denton 100%,dallas,1081.0,8.5,33.11966,-97.25076,Census TIGER/Line 2025
+U-4852212-4833180,Northlake × Northwest ISD,cidade_isd,Northlake,4852212,4833180,Northwest ISD,Denton,48121,Denton 100%,dallas,11423.0,89.6,33.07918,-97.2506,Census TIGER/Line 2025
+U-4852902-4825200,Oak Grove × Kaufman ISD,cidade_isd,Oak Grove,4852902,4825200,Kaufman ISD,Kaufman,48257,Kaufman 100%,dallas,1277.0,100.0,32.53276,-96.31946,Census TIGER/Line 2025
+U-4853115-4836660,Oak Leaf × Red Oak ISD,cidade_isd,Oak Leaf,4853115,4836660,Red Oak ISD,Ellis,48139,Ellis 100%,dallas,1788.0,98.5,32.51504,-96.84516,Census TIGER/Line 2025
+U-4853130-4816740,Oak Point × Denton ISD,cidade_isd,Oak Point,4853130,4816740,Denton ISD,Denton,48121,Denton 100%,dallas,1247.0,33.1,33.20097,-97.0006,Census TIGER/Line 2025
+U-4853130-4827720,Oak Point × Little Elm ISD,cidade_isd,Oak Point,4853130,4827720,Little Elm ISD,Denton,48121,Denton 100%,dallas,2515.0,66.9,33.17092,-96.99659,Census TIGER/Line 2025
+U-4853160-4825200,Oak Ridge × Kaufman ISD,cidade_isd,Oak Ridge,4853160,4825200,Kaufman ISD,Kaufman,48257,Kaufman 100%,dallas,1327.0,56.8,32.63752,-96.23731,Census TIGER/Line 2025
+U-4853160-4842450,Oak Ridge × Terrell ISD,cidade_isd,Oak Ridge,4853160,4842450,Terrell ISD,Kaufman,48257,Kaufman 100%,dallas,1011.0,43.2,32.67307,-96.25094,Census TIGER/Line 2025
+U-4854444-4816860,Ovilla × DeSoto ISD,cidade_isd,Ovilla,4854444,4816860,DeSoto ISD,Dallas,48113,Dallas 100%,dallas,411.0,11.1,32.55396,-96.89099,Census TIGER/Line 2025
+U-4854444-4830600,Ovilla × Midlothian ISD,cidade_isd,Ovilla,4854444,4830600,Midlothian ISD,Ellis,48139,Ellis 100%,dallas,795.0,21.4,32.51904,-96.89225,Census TIGER/Line 2025
+U-4854444-4836660,Ovilla × Red Oak ISD,cidade_isd,Ovilla,4854444,4836660,Red Oak ISD,Ellis,48139,Ellis 100%,dallas,2351.0,63.5,32.53178,-96.87858,Census TIGER/Line 2025
+U-4854744-4834110,Palmer × Palmer ISD,cidade_isd,Palmer,4854744,4834110,Palmer ISD,Ellis,48139,Ellis 100%,dallas,1993.0,100.0,32.42244,-96.66259,Census TIGER/Line 2025
+U-4855020-4808700,Pantego × Arlington ISD,cidade_isd,Pantego,4855020,4808700,Arlington ISD,Tarrant,48439,Tarrant 100%,fort_worth,666.0,100.0,32.71466,-97.15774,Census TIGER/Line 2025
+U-4855056-4834260,Paradise × Paradise ISD,cidade_isd,Paradise,4855056,4834260,Paradise ISD,Wise,48497,Wise 100%,fort_worth,1335.0,100.0,33.14769,-97.68878,Census TIGER/Line 2025
+U-4855152-4807890,Parker × Allen ISD,cidade_isd,Parker,4855152,4807890,Allen ISD,Collin,48085,Collin 100%,dallas,1009.0,18.5,33.07839,-96.63758,Census TIGER/Line 2025
+U-4855152-4835100,Parker × Plano ISD,cidade_isd,Parker,4855152,4835100,Plano ISD,Collin,48085,Collin 100%,dallas,4428.0,81.1,33.04514,-96.62641,Census TIGER/Line 2025
+U-4856432-4834500,Peaster × Peaster ISD,cidade_isd,Peaster,4856432,4834500,Peaster ISD,Parker,48367,Parker 100%,fort_worth,1454.0,100.0,32.85023,-97.86401,Census TIGER/Line 2025
+U-4856485-4836660,Pecan Hill × Red Oak ISD,cidade_isd,Pecan Hill,4856485,4836660,Red Oak ISD,Ellis,48139,Ellis 100%,dallas,1267.0,92.9,32.48934,-96.78339,Census TIGER/Line 2025
+U-4856485-4844730,Pecan Hill × Waxahachie ISD,cidade_isd,Pecan Hill,4856485,4844730,Waxahachie ISD,Ellis,48139,Ellis 100%,dallas,97.0,7.1,32.47658,-96.79724,Census TIGER/Line 2025
+U-4856640-4809200,Pelican Bay × Azle ISD,cidade_isd,Pelican Bay,4856640,4809200,Azle ISD,Tarrant,48439,Tarrant 100%,fort_worth,429.0,100.0,32.9215,-97.51892,Census TIGER/Line 2025
+U-4857476-4813290,Pilot Point × Celina ISD,cidade_isd,Pilot Point,4857476,4813290,Celina ISD,Denton,48121,Denton 100%,dallas,796.0,15.7,33.29985,-96.87324,Census TIGER/Line 2025
+U-4857476-4834920,Pilot Point × Pilot Point ISD,cidade_isd,Pilot Point,4857476,4834920,Pilot Point ISD,Denton,48121,Denton 96%; Cooke 2%; Grayson 2%,dallas,4280.0,84.3,33.38596,-96.95953,Census TIGER/Line 2025
+U-4858016-4820010,Plano × Frisco ISD,cidade_isd,Plano,4858016,4820010,Frisco ISD,Collin,48085,Collin 100%,dallas,4184.0,9.1,33.10238,-96.76264,Census TIGER/Line 2025
+U-4858016-4827300,Plano × Lewisville ISD,cidade_isd,Plano,4858016,4827300,Lewisville ISD,Denton,48121,Denton 100%,dallas,1651.0,3.6,33.05581,-96.84332,Census TIGER/Line 2025
+U-4858016-4835100,Plano × Plano ISD,cidade_isd,Plano,4858016,4835100,Plano ISD,Collin,48085,Collin 100%,dallas,39969.0,86.8,33.04957,-96.74182,Census TIGER/Line 2025
+U-4858502-4836240,Poetry × Quinlan ISD,cidade_isd,Poetry,4858502,4836240,Quinlan ISD,Hunt,48231,Hunt 100%,dallas,628.0,24.2,32.86997,-96.26284,Census TIGER/Line 2025
+U-4858502-4842450,Poetry × Terrell ISD,cidade_isd,Poetry,4858502,4842450,Terrell ISD,Hunt,48231,Hunt 55%; Kaufman 45%,dallas,1971.0,75.8,32.83159,-96.23813,Census TIGER/Line 2025
+U-4858664-4835310,Ponder × Ponder ISD,cidade_isd,Ponder,4858664,4835310,Ponder ISD,Denton,48121,Denton 100%,dallas,2159.0,100.0,33.18176,-97.29512,Census TIGER/Line 2025
+U-4859065-4825200,Post Oak Bend × Kaufman ISD,cidade_isd,Post Oak Bend,4859065,4825200,Kaufman ISD,Kaufman,48257,Kaufman 100%,dallas,1275.0,98.2,32.63091,-96.31128,Census TIGER/Line 2025
+U-4859576-4829850,Princeton × McKinney ISD,cidade_isd,Princeton,4859576,4829850,McKinney ISD,Collin,48085,Collin 100%,dallas,1181.0,12.8,33.22757,-96.51765,Census TIGER/Line 2025
+U-4859576-4835850,Princeton × Princeton ISD,cidade_isd,Princeton,4859576,4835850,Princeton ISD,Collin,48085,Collin 100%,dallas,8059.0,87.2,33.18277,-96.50677,Census TIGER/Line 2025
+U-4859696-4816740,Prosper × Denton ISD,cidade_isd,Prosper,4859696,4816740,Denton ISD,Denton,48121,Denton 100%,dallas,1280.0,7.9,33.23534,-96.8833,Census TIGER/Line 2025
+U-4859696-4836000,Prosper × Prosper ISD,cidade_isd,Prosper,4859696,4836000,Prosper ISD,Collin,48085,Collin 78%; Denton 22%,dallas,14921.0,92.1,33.24066,-96.80502,Census TIGER/Line 2025
+U-4859748-4808910,Providence Village × Aubrey ISD,cidade_isd,Providence Village,4859748,4808910,Aubrey ISD,Denton,48121,Denton 100%,dallas,1369.0,76.1,33.2451,-96.9487,Census TIGER/Line 2025
+U-4859748-4816740,Providence Village × Denton ISD,cidade_isd,Providence Village,4859748,4816740,Denton ISD,Denton,48121,Denton 100%,dallas,429.0,23.9,33.22764,-96.95667,Census TIGER/Line 2025
+U-4860140-4836240,Quinlan × Quinlan ISD,cidade_isd,Quinlan,4860140,4836240,Quinlan ISD,Hunt,48231,Hunt 100%,dallas,827.0,100.0,32.90926,-96.13491,Census TIGER/Line 2025
+U-4861196-4819170,Red Oak × Ferris ISD,cidade_isd,Red Oak,4861196,4819170,Ferris ISD,Ellis,48139,Ellis 100%,dallas,2724.0,26.2,32.5319,-96.72821,Census TIGER/Line 2025
+U-4861196-4836660,Red Oak × Red Oak ISD,cidade_isd,Red Oak,4861196,4836660,Red Oak ISD,Ellis,48139,Ellis 100%,dallas,7412.0,71.3,32.51896,-96.81407,Census TIGER/Line 2025
+U-4861604-4809200,Reno × Azle ISD,cidade_isd,Reno,4861604,4809200,Azle ISD,Parker,48367,Parker 97%; Tarrant 3%,fort_worth,2209.0,26.2,32.94744,-97.54881,Census TIGER/Line 2025
+U-4861604-4841280,Reno × Springtown ISD,cidade_isd,Reno,4861604,4841280,Springtown ISD,Parker,48367,Parker 100%,fort_worth,6235.0,73.8,32.95032,-97.57998,Census TIGER/Line 2025
+U-4861700-4811010,Rhome × Boyd ISD,cidade_isd,Rhome,4861700,4811010,Boyd ISD,Wise,48497,Wise 100%,fort_worth,386.0,13.1,33.09182,-97.501,Census TIGER/Line 2025
+U-4861700-4833180,Rhome × Northwest ISD,cidade_isd,Rhome,4861700,4833180,Northwest ISD,Wise,48497,Wise 100%,fort_worth,2558.0,86.9,33.05392,-97.47006,Census TIGER/Line 2025
+U-4861796-4835100,Richardson × Plano ISD,cidade_isd,Richardson,4861796,4835100,Plano ISD,Collin,48085,Collin 100%,dallas,6596.0,36.0,32.99558,-96.68446,Census TIGER/Line 2025
+U-4861796-4837020,Richardson × Richardson ISD,cidade_isd,Richardson,4861796,4837020,Richardson ISD,Dallas,48113,Dallas 100%,dallas,11693.0,63.9,32.95423,-96.72579,Census TIGER/Line 2025
+U-4861844-4810230,Richland Hills × Birdville ISD,cidade_isd,Richland Hills,4861844,4810230,Birdville ISD,Tarrant,48439,Tarrant 100%,fort_worth,2006.0,100.0,32.80921,-97.2297,Census TIGER/Line 2025
+U-4862240-4837200,Rio Vista × Rio Vista ISD,cidade_isd,Rio Vista,4862240,4837200,Rio Vista ISD,Johnson,48251,Johnson 100%,fort_worth,707.0,100.0,32.2424,-97.37042,Census TIGER/Line 2025
+U-4862384-4813170,River Oaks × Castleberry ISD,cidade_isd,River Oaks,4862384,4813170,Castleberry ISD,Tarrant,48439,Tarrant 100%,fort_worth,1292.0,100.0,32.77659,-97.40083,Census TIGER/Line 2025
+U-4862504-4833180,Roanoke × Northwest ISD,cidade_isd,Roanoke,4862504,4833180,Northwest ISD,Denton,48121,Denton 97%; Tarrant 3%,dallas,4417.0,100.0,33.01628,-97.23229,Census TIGER/Line 2025
+U-4862828-4837650,Rockwall × Rockwall ISD,cidade_isd,Rockwall,4862828,4837650,Rockwall ISD,Rockwall,48397,Rockwall 100%,dallas,18955.0,99.6,32.92246,-96.44195,Census TIGER/Line 2025
+U-4863404-4839570,Rosser × Scurry-Rosser ISD,cidade_isd,Rosser,4863404,4839570,Scurry-Rosser ISD,Kaufman,48257,Kaufman 100%,dallas,1223.0,100.0,32.46613,-96.44989,Census TIGER/Line 2025
+U-4863572-4820340,Rowlett × Garland ISD,cidade_isd,Rowlett,4863572,4820340,Garland ISD,Dallas,48113,Dallas 100%,dallas,12233.0,92.1,32.92227,-96.55375,Census TIGER/Line 2025
+U-4863572-4837650,Rowlett × Rockwall ISD,cidade_isd,Rowlett,4863572,4837650,Rockwall ISD,Rockwall,48397,Rockwall 100%,dallas,1050.0,7.9,32.91424,-96.50996,Census TIGER/Line 2025
+U-4863668-4838220,Royse City × Royse City ISD,cidade_isd,Royse City,4863668,4838220,Royse City ISD,Rockwall,48397,Rockwall 48%; Collin 27%; Hunt 24%,dallas,13548.0,99.1,32.97017,-96.30928,Census TIGER/Line 2025
+U-4863782-4811340,Runaway Bay × Bridgeport ISD,cidade_isd,Runaway Bay,4863782,4811340,Bridgeport ISD,Wise,48497,Wise 100%,fort_worth,1613.0,100.0,33.17074,-97.88251,Census TIGER/Line 2025
+U-4864064-4820340,Sachse × Garland ISD,cidade_isd,Sachse,4864064,4820340,Garland ISD,Dallas,48113,Dallas 100%,dallas,4738.0,76.0,32.96268,-96.58377,Census TIGER/Line 2025
+U-4864064-4846530,Sachse × Wylie ISD,cidade_isd,Sachse,4864064,4846530,Wylie ISD,Collin,48085,Collin 100%,dallas,1493.0,24.0,32.99415,-96.5801,Census TIGER/Line 2025
+U-4864112-4817700,Saginaw × Eagle Mountain-Saginaw ISD,cidade_isd,Saginaw,4864112,4817700,Eagle Mountain-Saginaw ISD,Tarrant,48439,Tarrant 100%,fort_worth,4842.0,98.9,32.85594,-97.36656,Census TIGER/Line 2025
+U-4865066-4809200,Sanctuary × Azle ISD,cidade_isd,Sanctuary,4865066,4809200,Azle ISD,Parker,48367,Parker 100%,fort_worth,548.0,100.0,32.91273,-97.58688,Census TIGER/Line 2025
+U-4865408-4839180,Sanger × Sanger ISD,cidade_isd,Sanger,4865408,4839180,Sanger ISD,Denton,48121,Denton 100%,dallas,7531.0,99.6,33.37501,-97.17481,Census TIGER/Line 2025
+U-4865660-4813170,Sansom Park × Castleberry ISD,cidade_isd,Sansom Park,4865660,4813170,Castleberry ISD,Tarrant,48439,Tarrant 100%,fort_worth,557.0,70.2,32.80236,-97.40045,Census TIGER/Line 2025
+U-4865660-4826490,Sansom Park × Lake Worth ISD,cidade_isd,Sansom Park,4865660,4826490,Lake Worth ISD,Tarrant,48439,Tarrant 100%,fort_worth,221.0,27.9,32.80541,-97.39231,Census TIGER/Line 2025
+U-4866368-4839570,Scurry × Scurry-Rosser ISD,cidade_isd,Scurry,4866368,4839570,Scurry-Rosser ISD,Kaufman,48257,Kaufman 100%,dallas,1279.0,100.0,32.51033,-96.38906,Census TIGER/Line 2025
+U-4866428-4815510,Seagoville × Crandall ISD,cidade_isd,Seagoville,4866428,4815510,Crandall ISD,Kaufman,48257,Kaufman 100%,dallas,1651.0,13.6,32.63924,-96.51545,Census TIGER/Line 2025
+U-4866428-4816230,Seagoville × Dallas ISD,cidade_isd,Seagoville,4866428,4816230,Dallas ISD,Dallas,48113,Dallas 100%,dallas,9173.0,75.6,32.64723,-96.54839,Census TIGER/Line 2025
+U-4866428-4830390,Seagoville × Mesquite ISD,cidade_isd,Seagoville,4866428,4830390,Mesquite ISD,Dallas,48113,Dallas 100%,dallas,1314.0,10.8,32.68024,-96.54346,Census TIGER/Line 2025
+U-4866908-4825320,Seven Points × Kemp ISD,cidade_isd,Seven Points,4866908,4825320,Kemp ISD,Henderson,48213,Henderson 97%; Kaufman 3%,dallas,853.0,48.4,32.32289,-96.23548,Census TIGER/Line 2025
+U-4866908-4828680,Seven Points × Mabank ISD,cidade_isd,Seven Points,4866908,4828680,Mabank ISD,Henderson,48213,Henderson 100%,dallas,910.0,51.6,32.32438,-96.21193,Census TIGER/Line 2025
+U-4867100-4816740,Shady Shores × Denton ISD,cidade_isd,Shady Shores,4867100,4816740,Denton ISD,Denton,48121,Denton 100%,dallas,1799.0,86.6,33.16505,-97.04658,Census TIGER/Line 2025
+U-4867100-4826430,Shady Shores × Lake Dallas ISD,cidade_isd,Shady Shores,4867100,4826430,Lake Dallas ISD,Denton,48121,Denton 100%,dallas,279.0,13.4,33.14478,-97.0335,Census TIGER/Line 2025
+U-4869032-4813020,Southlake × Carroll ISD,cidade_isd,Southlake,4869032,4813020,Carroll ISD,Tarrant,48439,Tarrant 100%,fort_worth,11163.0,79.3,32.95062,-97.14532,Census TIGER/Line 2025
+U-4869032-4825260,Southlake × Keller ISD,cidade_isd,Southlake,4869032,4825260,Keller ISD,Tarrant,48439,Tarrant 100%,fort_worth,1011.0,7.2,32.93633,-97.19496,Census TIGER/Line 2025
+U-4869032-4833180,Southlake × Northwest ISD,cidade_isd,Southlake,4869032,4833180,Northwest ISD,Denton,48121,Denton 80%; Tarrant 20%,dallas,1520.0,10.8,32.99825,-97.15123,Census TIGER/Line 2025
+U-4869800-4841280,Springtown × Springtown ISD,cidade_isd,Springtown,4869800,4841280,Springtown ISD,Parker,48367,Parker 100%,fort_worth,1943.0,100.0,32.96689,-97.68142,Census TIGER/Line 2025
+U-4864220-4846530,St. Paul × Wylie ISD,cidade_isd,St. Paul,4864220,4846530,Wylie ISD,Collin,48085,Collin 100%,dallas,920.0,100.0,33.04293,-96.55652,Census TIGER/Line 2025
+U-4871156-4841880,Sunnyvale × Sunnyvale ISD,cidade_isd,Sunnyvale,4871156,4841880,Sunnyvale ISD,Dallas,48113,Dallas 100%,dallas,10624.0,99.5,32.79434,-96.54946,Census TIGER/Line 2025
+U-4871756-4819560,Talty × Forney ISD,cidade_isd,Talty,4871756,4819560,Forney ISD,Kaufman,48257,Kaufman 100%,dallas,2169.0,100.0,32.69414,-96.4035,Census TIGER/Line 2025
+U-4872284-4842450,Terrell × Terrell ISD,cidade_isd,Terrell,4872284,4842450,Terrell ISD,Kaufman,48257,Kaufman 100%,dallas,20899.0,98.2,32.73725,-96.28826,Census TIGER/Line 2025
+U-4872530-4827300,The Colony × Lewisville ISD,cidade_isd,The Colony,4872530,4827300,Lewisville ISD,Denton,48121,Denton 100%,dallas,6468.0,72.1,33.07817,-96.87629,Census TIGER/Line 2025
+U-4872530-4827720,The Colony × Little Elm ISD,cidade_isd,The Colony,4872530,4827720,Little Elm ISD,Denton,48121,Denton 100%,dallas,2417.0,26.9,33.10616,-96.92571,Census TIGER/Line 2025
+U-4873592-4843140,Trenton × Trenton ISD,cidade_isd,Trenton,4873592,4843140,Trenton ISD,Fannin,48147,Fannin 97%; Collin 1%; Grayson 1%,dallas,1173.0,97.8,33.42851,-96.33913,Census TIGER/Line 2025
+U-4873710-4833180,Trophy Club × Northwest ISD,cidade_isd,Trophy Club,4873710,4833180,Northwest ISD,Denton,48121,Denton 96%; Tarrant 4%,dallas,2555.0,99.4,33.00619,-97.20274,Census TIGER/Line 2025
+U-4874372-4836240,Union Valley × Quinlan ISD,cidade_isd,Union Valley,4874372,4836240,Quinlan ISD,Hunt,48231,Hunt 100%,dallas,1072.0,62.8,32.92873,-96.25228,Census TIGER/Line 2025
+U-4874372-4838220,Union Valley × Royse City ISD,cidade_isd,Union Valley,4874372,4838220,Royse City ISD,Hunt,48231,Hunt 100%,dallas,636.0,37.2,32.94688,-96.2491,Census TIGER/Line 2025
+U-4874492-4823250,University Park × Highland Park ISD,cidade_isd,University Park,4874492,4823250,Highland Park ISD,Dallas,48113,Dallas 100%,dallas,2350.0,99.4,32.85103,-96.79296,Census TIGER/Line 2025
+U-4874924-4843890,Van Alstyne × Van Alstyne ISD,cidade_isd,Van Alstyne,4874924,4843890,Van Alstyne ISD,Grayson,48181,Grayson 98%; Collin 2%,dallas,3553.0,100.0,33.42816,-96.57953,Census TIGER/Line 2025
+U-4875236-4829580,Venus × Maypearl ISD,cidade_isd,Venus,4875236,4829580,Maypearl ISD,Ellis,48139,Ellis 100%,dallas,619.0,20.2,32.36309,-97.06254,Census TIGER/Line 2025
+U-4875236-4830600,Venus × Midlothian ISD,cidade_isd,Venus,4875236,4830600,Midlothian ISD,Ellis,48139,Ellis 100%,dallas,362.0,11.8,32.44543,-97.07381,Census TIGER/Line 2025
+U-4875236-4844010,Venus × Venus ISD,cidade_isd,Venus,4875236,4844010,Venus ISD,Johnson,48251,Johnson 100%,fort_worth,2053.0,66.8,32.42884,-97.1027,Census TIGER/Line 2025
+U-4876672-4810230,Watauga × Birdville ISD,cidade_isd,Watauga,4876672,4810230,Birdville ISD,Tarrant,48439,Tarrant 100%,fort_worth,1782.0,67.0,32.87316,-97.25016,Census TIGER/Line 2025
+U-4876672-4825260,Watauga × Keller ISD,cidade_isd,Watauga,4876672,4825260,Keller ISD,Tarrant,48439,Tarrant 100%,fort_worth,879.0,33.0,32.88462,-97.25166,Census TIGER/Line 2025
+U-4876816-4844730,Waxahachie × Waxahachie ISD,cidade_isd,Waxahachie,4876816,4844730,Waxahachie ISD,Ellis,48139,Ellis 100%,dallas,31483.0,98.7,32.40547,-96.83805,Census TIGER/Line 2025
+U-4876864-4844800,Weatherford × Weatherford ISD,cidade_isd,Weatherford,4876864,4844800,Weatherford ISD,Parker,48367,Parker 100%,fort_worth,17230.0,91.4,32.79775,-97.63883,Census TIGER/Line 2025
+U-4877896-4836240,West Tawakoni × Quinlan ISD,cidade_isd,West Tawakoni,4877896,4836240,Quinlan ISD,Hunt,48231,Hunt 100%,dallas,1807.0,100.0,32.89554,-96.00447,Census TIGER/Line 2025
+U-4877620-4813020,Westlake × Carroll ISD,cidade_isd,Westlake,4877620,4813020,Carroll ISD,Tarrant,48439,Tarrant 100%,fort_worth,779.0,17.5,32.97717,-97.17347,Census TIGER/Line 2025
+U-4877620-4825260,Westlake × Keller ISD,cidade_isd,Westlake,4877620,4825260,Keller ISD,Tarrant,48439,Tarrant 100%,fort_worth,1355.0,30.4,32.97394,-97.19351,Census TIGER/Line 2025
+U-4877620-4833180,Westlake × Northwest ISD,cidade_isd,Westlake,4877620,4833180,Northwest ISD,Tarrant,48439,Tarrant 76%; Denton 24%,fort_worth,2323.0,52.1,32.98903,-97.20639,Census TIGER/Line 2025
+U-4877740-4813290,Weston × Celina ISD,cidade_isd,Weston,4877740,4813290,Celina ISD,Collin,48085,Collin 100%,dallas,1354.0,46.8,33.3451,-96.66712,Census TIGER/Line 2025
+U-4877740-4829850,Weston × McKinney ISD,cidade_isd,Weston,4877740,4829850,McKinney ISD,Collin,48085,Collin 100%,dallas,1540.0,53.2,33.31572,-96.67475,Census TIGER/Line 2025
+U-4877788-4819700,Westover Hills × Fort Worth ISD,cidade_isd,Westover Hills,4877788,4819700,Fort Worth ISD,Tarrant,48439,Tarrant 100%,fort_worth,453.0,100.0,32.74489,-97.41088,Census TIGER/Line 2025
+U-4878076-4819700,Westworth Village × Fort Worth ISD,cidade_isd,Westworth Village,4878076,4819700,Fort Worth ISD,Tarrant,48439,Tarrant 100%,fort_worth,1054.0,79.1,32.76062,-97.41992,Census TIGER/Line 2025
+U-4878076-4845540,Westworth Village × White Settlement ISD,cidade_isd,Westworth Village,4878076,4845540,White Settlement ISD,Tarrant,48439,Tarrant 100%,fort_worth,278.0,20.9,32.75629,-97.43971,Census TIGER/Line 2025
+U-4878544-4845540,White Settlement × White Settlement ISD,cidade_isd,White Settlement,4878544,4845540,White Settlement ISD,Tarrant,48439,Tarrant 100%,fort_worth,3147.0,97.6,32.76157,-97.46094,Census TIGER/Line 2025
+U-4879492-4807780,Willow Park × Aledo ISD,cidade_isd,Willow Park,4879492,4807780,Aledo ISD,Parker,48367,Parker 100%,fort_worth,2907.0,70.6,32.74501,-97.65411,Census TIGER/Line 2025
+U-4879492-4844800,Willow Park × Weatherford ISD,cidade_isd,Willow Park,4879492,4844800,Weatherford ISD,Parker,48367,Parker 100%,fort_worth,1211.0,29.4,32.77651,-97.65721,Census TIGER/Line 2025
+U-4879576-4816230,Wilmer × Dallas ISD,cidade_isd,Wilmer,4879576,4816230,Dallas ISD,Dallas,48113,Dallas 100%,dallas,7395.0,94.0,32.59507,-96.68681,Census TIGER/Line 2025
+U-4879948-4846350,Wolfe City × Wolfe City ISD,cidade_isd,Wolfe City,4879948,4846350,Wolfe City ISD,Hunt,48231,Hunt 100%,dallas,719.0,100.0,33.36787,-96.07153,Census TIGER/Line 2025
+U-4880356-4814850,Wylie × Community ISD,cidade_isd,Wylie,4880356,4814850,Community ISD,Collin,48085,Collin 100%,dallas,1421.0,10.4,33.05681,-96.43273,Census TIGER/Line 2025
+U-4880356-4846530,Wylie × Wylie ISD,cidade_isd,Wylie,4880356,4846530,Wylie ISD,Collin,48085,Collin 100%,dallas,11282.0,82.9,33.01848,-96.53227,Census TIGER/Line 2025
+U-ETJ-48085-4808340,Não incorporado – Collin × Anna ISD,nao_incorporado,Não incorporado – Collin,,4808340,Anna ISD,Collin,48085,Collin 100%,dallas,27626.0,,33.36877,-96.46131,Census TIGER/Line 2025
+U-ETJ-48085-4810350,Não incorporado – Collin × Bland ISD,nao_incorporado,Não incorporado – Collin,,4810350,Bland ISD,Collin,48085,Collin 100%,dallas,4376.0,,33.24644,-96.30483,Census TIGER/Line 2025
+U-ETJ-48085-4810590,Não incorporado – Collin × Blue Ridge ISD,nao_incorporado,Não incorporado – Collin,,4810590,Blue Ridge ISD,Collin,48085,Collin 100%,dallas,39963.0,,33.27358,-96.43424,Census TIGER/Line 2025
+U-ETJ-48085-4813290,Não incorporado – Collin × Celina ISD,nao_incorporado,Não incorporado – Collin,,4813290,Celina ISD,Collin,48085,Collin 100%,dallas,30237.0,,33.33952,-96.70067,Census TIGER/Line 2025
+U-ETJ-48085-4814850,Não incorporado – Collin × Community ISD,nao_incorporado,Não incorporado – Collin,,4814850,Community ISD,Collin,48085,Collin 100%,dallas,32686.0,,33.04082,-96.3243,Census TIGER/Line 2025
+U-ETJ-48085-4819080,Não incorporado – Collin × Farmersville ISD,nao_incorporado,Não incorporado – Collin,,4819080,Farmersville ISD,Collin,48085,Collin 100%,dallas,46639.0,,33.11255,-96.35316,Census TIGER/Line 2025
+U-ETJ-48085-4827210,Não incorporado – Collin × Leonard ISD,nao_incorporado,Não incorporado – Collin,,4827210,Leonard ISD,Collin,48085,Collin 100%,dallas,4435.0,,33.32333,-96.32049,Census TIGER/Line 2025
+U-ETJ-48085-4829850,Não incorporado – Collin × McKinney ISD,nao_incorporado,Não incorporado – Collin,,4829850,McKinney ISD,Collin,48085,Collin 100%,dallas,27362.0,,33.22947,-96.55197,Census TIGER/Line 2025
+U-ETJ-48085-4830120,Não incorporado – Collin × Melissa ISD,nao_incorporado,Não incorporado – Collin,,4830120,Melissa ISD,Collin,48085,Collin 100%,dallas,12283.0,,33.2604,-96.55759,Census TIGER/Line 2025
+U-ETJ-48085-4835850,Não incorporado – Collin × Princeton ISD,nao_incorporado,Não incorporado – Collin,,4835850,Princeton ISD,Collin,48085,Collin 100%,dallas,21271.0,,33.20648,-96.46313,Census TIGER/Line 2025
+U-ETJ-48085-4836000,Não incorporado – Collin × Prosper ISD,nao_incorporado,Não incorporado – Collin,,4836000,Prosper ISD,Collin,48085,Collin 100%,dallas,4903.0,,33.20879,-96.78399,Census TIGER/Line 2025
+U-ETJ-48085-4838220,Não incorporado – Collin × Royse City ISD,nao_incorporado,Não incorporado – Collin,,4838220,Royse City ISD,Collin,48085,Collin 100%,dallas,2300.0,,32.993,-96.35858,Census TIGER/Line 2025
+U-ETJ-48085-4843890,Não incorporado – Collin × Van Alstyne ISD,nao_incorporado,Não incorporado – Collin,,4843890,Van Alstyne ISD,Collin,48085,Collin 100%,dallas,5410.0,,33.38889,-96.61611,Census TIGER/Line 2025
+U-ETJ-48085-4846530,Não incorporado – Collin × Wylie ISD,nao_incorporado,Não incorporado – Collin,,4846530,Wylie ISD,Collin,48085,Collin 100%,dallas,5876.0,,33.05263,-96.55445,Census TIGER/Line 2025
+U-ETJ-48113-4816230,Não incorporado – Dallas × Dallas ISD,nao_incorporado,Não incorporado – Dallas,,4816230,Dallas ISD,Dallas,48113,Dallas 100%,dallas,31794.0,,32.55762,-96.59462,Census TIGER/Line 2025
+U-ETJ-48113-4819170,Não incorporado – Dallas × Ferris ISD,nao_incorporado,Não incorporado – Dallas,,4819170,Ferris ISD,Dallas,48113,Dallas 100%,dallas,1410.0,,32.55245,-96.65561,Census TIGER/Line 2025
+U-ETJ-48113-4820340,Não incorporado – Dallas × Garland ISD,nao_incorporado,Não incorporado – Dallas,,4820340,Garland ISD,Dallas,48113,Dallas 100%,dallas,1774.0,,32.97352,-96.53458,Census TIGER/Line 2025
+U-ETJ-48113-4826670,Não incorporado – Dallas × Lancaster ISD,nao_incorporado,Não incorporado – Dallas,,4826670,Lancaster ISD,Dallas,48113,Dallas 100%,dallas,3107.0,,32.56224,-96.73882,Census TIGER/Line 2025
+U-ETJ-48113-4830390,Não incorporado – Dallas × Mesquite ISD,nao_incorporado,Não incorporado – Dallas,,4830390,Mesquite ISD,Dallas,48113,Dallas 100%,dallas,1167.0,,32.78377,-96.58691,Census TIGER/Line 2025
+U-ETJ-48121-4808670,Não incorporado – Denton × Argyle ISD,nao_incorporado,Não incorporado – Denton,,4808670,Argyle ISD,Denton,48121,Denton 100%,dallas,5767.0,,33.13636,-97.14788,Census TIGER/Line 2025
+U-ETJ-48121-4808910,Não incorporado – Denton × Aubrey ISD,nao_incorporado,Não incorporado – Denton,,4808910,Aubrey ISD,Denton,48121,Denton 100%,dallas,22127.0,,33.30951,-96.93533,Census TIGER/Line 2025
+U-ETJ-48121-4813290,Não incorporado – Denton × Celina ISD,nao_incorporado,Não incorporado – Denton,,4813290,Celina ISD,Denton,48121,Denton 100%,dallas,3544.0,,33.31597,-96.86042,Census TIGER/Line 2025
+U-ETJ-48121-4816740,Não incorporado – Denton × Denton ISD,nao_incorporado,Não incorporado – Denton,,4816740,Denton ISD,Denton,48121,Denton 100%,dallas,29487.0,,33.29164,-97.10989,Census TIGER/Line 2025
+U-ETJ-48121-4818600,Não incorporado – Denton × Era ISD,nao_incorporado,Não incorporado – Denton,,4818600,Era ISD,Denton,48121,Denton 100%,dallas,1082.0,,33.41725,-97.32365,Census TIGER/Line 2025
+U-ETJ-48121-4825980,Não incorporado – Denton × Krum ISD,nao_incorporado,Não incorporado – Denton,,4825980,Krum ISD,Denton,48121,Denton 100%,dallas,42555.0,,33.2739,-97.3152,Census TIGER/Line 2025
+U-ETJ-48121-4827720,Não incorporado – Denton × Little Elm ISD,nao_incorporado,Não incorporado – Denton,,4827720,Little Elm ISD,Denton,48121,Denton 100%,dallas,3639.0,,33.1365,-96.92983,Census TIGER/Line 2025
+U-ETJ-48121-4833180,Não incorporado – Denton × Northwest ISD,nao_incorporado,Não incorporado – Denton,,4833180,Northwest ISD,Denton,48121,Denton 100%,dallas,33452.0,,33.08163,-97.33451,Census TIGER/Line 2025
+U-ETJ-48121-4834920,Não incorporado – Denton × Pilot Point ISD,nao_incorporado,Não incorporado – Denton,,4834920,Pilot Point ISD,Denton,48121,Denton 100%,dallas,41426.0,,33.34497,-96.90837,Census TIGER/Line 2025
+U-ETJ-48121-4835310,Não incorporado – Denton × Ponder ISD,nao_incorporado,Não incorporado – Denton,,4835310,Ponder ISD,Denton,48121,Denton 100%,dallas,29520.0,,33.1831,-97.35974,Census TIGER/Line 2025
+U-ETJ-48121-4836000,Não incorporado – Denton × Prosper ISD,nao_incorporado,Não incorporado – Denton,,4836000,Prosper ISD,Denton,48121,Denton 100%,dallas,1780.0,,33.23624,-96.85321,Census TIGER/Line 2025
+U-ETJ-48121-4839180,Não incorporado – Denton × Sanger ISD,nao_incorporado,Não incorporado – Denton,,4839180,Sanger ISD,Denton,48121,Denton 100%,dallas,49965.0,,33.36323,-97.24095,Census TIGER/Line 2025
+U-ETJ-48121-4840470,Não incorporado – Denton × Slidell ISD,nao_incorporado,Não incorporado – Denton,,4840470,Slidell ISD,Denton,48121,Denton 100%,dallas,20198.0,,33.35511,-97.36033,Census TIGER/Line 2025
+U-ETJ-48139-4809030,Não incorporado – Ellis × Avalon ISD,nao_incorporado,Não incorporado – Ellis,,4809030,Avalon ISD,Ellis,48139,Ellis 100%,dallas,29570.0,,32.21488,-96.78124,Census TIGER/Line 2025
+U-ETJ-48139-4818540,Não incorporado – Ellis × Ennis ISD,nao_incorporado,Não incorporado – Ellis,,4818540,Ennis ISD,Ellis,48139,Ellis 100%,dallas,123066.0,,32.39565,-96.58693,Census TIGER/Line 2025
+U-ETJ-48139-4819170,Não incorporado – Ellis × Ferris ISD,nao_incorporado,Não incorporado – Ellis,,4819170,Ferris ISD,Ellis,48139,Ellis 100%,dallas,43399.0,,32.48674,-96.66043,Census TIGER/Line 2025
+U-ETJ-48139-4820040,Não incorporado – Ellis × Frost ISD,nao_incorporado,Não incorporado – Ellis,,4820040,Frost ISD,Ellis,48139,Ellis 100%,dallas,3886.0,,32.08245,-96.90539,Census TIGER/Line 2025
+U-ETJ-48139-4824450,Não incorporado – Ellis × Italy ISD,nao_incorporado,Não incorporado – Ellis,,4824450,Italy ISD,Ellis,48139,Ellis 100%,dallas,36913.0,,32.16669,-96.89522,Census TIGER/Line 2025
+U-ETJ-48139-4829580,Não incorporado – Ellis × Maypearl ISD,nao_incorporado,Não incorporado – Ellis,,4829580,Maypearl ISD,Ellis,48139,Ellis 100%,dallas,49138.0,,32.30496,-97.05134,Census TIGER/Line 2025
+U-ETJ-48139-4830600,Não incorporado – Ellis × Midlothian ISD,nao_incorporado,Não incorporado – Ellis,,4830600,Midlothian ISD,Ellis,48139,Ellis 100%,dallas,22924.0,,32.40948,-97.03162,Census TIGER/Line 2025
+U-ETJ-48139-4830780,Não incorporado – Ellis × Milford ISD,nao_incorporado,Não incorporado – Ellis,,4830780,Milford ISD,Ellis,48139,Ellis 100%,dallas,28745.0,,32.14214,-96.97726,Census TIGER/Line 2025
+U-ETJ-48139-4834110,Não incorporado – Ellis × Palmer ISD,nao_incorporado,Não incorporado – Ellis,,4834110,Palmer ISD,Ellis,48139,Ellis 100%,dallas,33019.0,,32.42574,-96.7327,Census TIGER/Line 2025
+U-ETJ-48139-4836660,Não incorporado – Ellis × Red Oak ISD,nao_incorporado,Não incorporado – Ellis,,4836660,Red Oak ISD,Ellis,48139,Ellis 100%,dallas,9154.0,,32.52503,-96.76149,Census TIGER/Line 2025
+U-ETJ-48139-4844730,Não incorporado – Ellis × Waxahachie ISD,nao_incorporado,Não incorporado – Ellis,,4844730,Waxahachie ISD,Ellis,48139,Ellis 100%,dallas,87302.0,,32.33106,-96.90024,Census TIGER/Line 2025
+U-ETJ-48231-4810350,Não incorporado – Hunt × Bland ISD,nao_incorporado,Não incorporado – Hunt,,4810350,Bland ISD,Hunt,48231,Hunt 100%,dallas,34454.0,,33.18296,-96.23474,Census TIGER/Line 2025
+U-ETJ-48231-4810740,Não incorporado – Hunt × Boles ISD,nao_incorporado,Não incorporado – Hunt,,4810740,Boles ISD,Hunt,48231,Hunt 100%,dallas,5016.0,,32.95692,-96.10876,Census TIGER/Line 2025
+U-ETJ-48231-4812390,Não incorporado – Hunt × Caddo Mills ISD,nao_incorporado,Não incorporado – Hunt,,4812390,Caddo Mills ISD,Hunt,48231,Hunt 100%,dallas,40447.0,,33.04221,-96.15568,Census TIGER/Line 2025
+U-ETJ-48231-4812660,Não incorporado – Hunt × Campbell ISD,nao_incorporado,Não incorporado – Hunt,,4812660,Campbell ISD,Hunt,48231,Hunt 100%,dallas,28912.0,,33.13989,-95.91701,Census TIGER/Line 2025
+U-ETJ-48231-4813260,Não incorporado – Hunt × Celeste ISD,nao_incorporado,Não incorporado – Hunt,,4813260,Celeste ISD,Hunt,48231,Hunt 100%,dallas,44572.0,,33.28013,-96.23757,Census TIGER/Line 2025
+U-ETJ-48231-4814820,Não incorporado – Hunt × Commerce ISD,nao_incorporado,Não incorporado – Hunt,,4814820,Commerce ISD,Hunt,48231,Hunt 100%,dallas,66163.0,,33.27354,-95.95734,Census TIGER/Line 2025
+U-ETJ-48231-4814850,Não incorporado – Hunt × Community ISD,nao_incorporado,Não incorporado – Hunt,,4814850,Community ISD,Hunt,48231,Hunt 100%,dallas,2746.0,,33.04394,-96.28521,Census TIGER/Line 2025
+U-ETJ-48231-4815150,Não incorporado – Hunt × Cooper ISD,nao_incorporado,Não incorporado – Hunt,,4815150,Cooper ISD,Hunt,48231,Hunt 100%,dallas,1999.0,,33.35585,-95.87266,Census TIGER/Line 2025
+U-ETJ-48231-4816020,Não incorporado – Hunt × Cumby Collegiate ISD,nao_incorporado,Não incorporado – Hunt,,4816020,Cumby Collegiate ISD,Hunt,48231,Hunt 100%,dallas,6868.0,,33.12171,-95.87581,Census TIGER/Line 2025
+U-ETJ-48231-4819050,Não incorporado – Hunt × Fannindel ISD,nao_incorporado,Não incorporado – Hunt,,4819050,Fannindel ISD,Hunt,48231,Hunt 100%,dallas,7845.0,,33.38595,-95.96477,Census TIGER/Line 2025
+U-ETJ-48231-4821720,Não incorporado – Hunt × Greenville ISD,nao_incorporado,Não incorporado – Hunt,,4821720,Greenville ISD,Hunt,48231,Hunt 100%,dallas,65185.0,,33.13568,-96.02048,Census TIGER/Line 2025
+U-ETJ-48231-4827210,Não incorporado – Hunt × Leonard ISD,nao_incorporado,Não incorporado – Hunt,,4827210,Leonard ISD,Hunt,48231,Hunt 100%,dallas,6360.0,,33.33842,-96.25546,Census TIGER/Line 2025
+U-ETJ-48231-4828020,Não incorporado – Hunt × Lone Oak ISD,nao_incorporado,Não incorporado – Hunt,,4828020,Lone Oak ISD,Hunt,48231,Hunt 100%,dallas,50817.0,,32.99774,-95.89769,Census TIGER/Line 2025
+U-ETJ-48231-4836240,Não incorporado – Hunt × Quinlan ISD,nao_incorporado,Não incorporado – Hunt,,4836240,Quinlan ISD,Hunt,48231,Hunt 100%,dallas,67130.0,,32.92679,-96.16649,Census TIGER/Line 2025
+U-ETJ-48231-4838220,Não incorporado – Hunt × Royse City ISD,nao_incorporado,Não incorporado – Hunt,,4838220,Royse City ISD,Hunt,48231,Hunt 100%,dallas,11027.0,,32.94143,-96.2823,Census TIGER/Line 2025
+U-ETJ-48231-4842450,Não incorporado – Hunt × Terrell ISD,nao_incorporado,Não incorporado – Hunt,,4842450,Terrell ISD,Hunt,48231,Hunt 100%,dallas,8875.0,,32.86466,-96.20844,Census TIGER/Line 2025
+U-ETJ-48231-4846350,Não incorporado – Hunt × Wolfe City ISD,nao_incorporado,Não incorporado – Hunt,,4846350,Wolfe City ISD,Hunt,48231,Hunt 100%,dallas,48195.0,,33.31106,-96.0603,Census TIGER/Line 2025
+U-ETJ-48251-4800011,Não incorporado – Johnson × Alvarado ISD,nao_incorporado,Não incorporado – Johnson,,4800011,Alvarado ISD,Johnson,48251,Johnson 100%,fort_worth,56483.0,,32.43178,-97.27154,Census TIGER/Line 2025
+U-ETJ-48251-4812180,Não incorporado – Johnson × Burleson ISD,nao_incorporado,Não incorporado – Johnson,,4812180,Burleson ISD,Johnson,48251,Johnson 100%,fort_worth,11929.0,,32.50941,-97.24758,Census TIGER/Line 2025
+U-ETJ-48251-4814310,Não incorporado – Johnson × Cleburne ISD,nao_incorporado,Não incorporado – Johnson,,4814310,Cleburne ISD,Johnson,48251,Johnson 100%,fort_worth,101826.0,,32.31965,-97.33098,Census TIGER/Line 2025
+U-ETJ-48251-4815910,Não incorporado – Johnson × Crowley ISD,nao_incorporado,Não incorporado – Johnson,,4815910,Crowley ISD,Johnson,48251,Johnson 100%,fort_worth,1864.0,,32.54251,-97.39873,Census TIGER/Line 2025
+U-ETJ-48251-4820960,Não incorporado – Johnson × Godley ISD,nao_incorporado,Não incorporado – Johnson,,4820960,Godley ISD,Johnson,48251,Johnson 100%,fort_worth,63797.0,,32.45173,-97.47378,Census TIGER/Line 2025
+U-ETJ-48251-4821390,Não incorporado – Johnson × Granbury ISD,nao_incorporado,Não incorporado – Johnson,,4821390,Granbury ISD,Johnson,48251,Johnson 100%,fort_worth,2929.0,,32.52053,-97.59149,Census TIGER/Line 2025
+U-ETJ-48251-4821540,Não incorporado – Johnson × Grandview ISD,nao_incorporado,Não incorporado – Johnson,,4821540,Grandview ISD,Johnson,48251,Johnson 100%,fort_worth,45504.0,,32.2938,-97.21259,Census TIGER/Line 2025
+U-ETJ-48251-4824930,Não incorporado – Johnson × Joshua ISD,nao_incorporado,Não incorporado – Johnson,,4824930,Joshua ISD,Johnson,48251,Johnson 100%,fort_worth,35341.0,,32.44034,-97.32093,Census TIGER/Line 2025
+U-ETJ-48251-4825230,Não incorporado – Johnson × Keene ISD,nao_incorporado,Não incorporado – Johnson,,4825230,Keene ISD,Johnson,48251,Johnson 100%,fort_worth,1271.0,,32.40674,-97.31216,Census TIGER/Line 2025
+U-ETJ-48251-4828920,Não incorporado – Johnson × Mansfield ISD,nao_incorporado,Não incorporado – Johnson,,4828920,Mansfield ISD,Johnson,48251,Johnson 100%,fort_worth,7570.0,,32.53493,-97.21919,Census TIGER/Line 2025
+U-ETJ-48251-4837200,Não incorporado – Johnson × Rio Vista ISD,nao_incorporado,Não incorporado – Johnson,,4837200,Rio Vista ISD,Johnson,48251,Johnson 100%,fort_worth,48146.0,,32.23103,-97.45854,Census TIGER/Line 2025
+U-ETJ-48251-4844010,Não incorporado – Johnson × Venus ISD,nao_incorporado,Não incorporado – Johnson,,4844010,Venus ISD,Johnson,48251,Johnson 100%,fort_worth,20662.0,,32.47309,-97.12962,Census TIGER/Line 2025
+U-ETJ-48257-4815510,Não incorporado – Kaufman × Crandall ISD,nao_incorporado,Não incorporado – Kaufman,,4815510,Crandall ISD,Kaufman,48257,Kaufman 100%,dallas,43493.0,,32.59553,-96.46363,Census TIGER/Line 2025
+U-ETJ-48257-4819560,Não incorporado – Kaufman × Forney ISD,nao_incorporado,Não incorporado – Kaufman,,4819560,Forney ISD,Kaufman,48257,Kaufman 100%,dallas,34799.0,,32.73478,-96.50118,Census TIGER/Line 2025
+U-ETJ-48257-4825200,Não incorporado – Kaufman × Kaufman ISD,nao_incorporado,Não incorporado – Kaufman,,4825200,Kaufman ISD,Kaufman,48257,Kaufman 100%,dallas,95714.0,,32.56478,-96.20281,Census TIGER/Line 2025
+U-ETJ-48257-4825320,Não incorporado – Kaufman × Kemp ISD,nao_incorporado,Não incorporado – Kaufman,,4825320,Kemp ISD,Kaufman,48257,Kaufman 100%,dallas,67833.0,,32.43564,-96.28524,Census TIGER/Line 2025
+U-ETJ-48257-4828680,Não incorporado – Kaufman × Mabank ISD,nao_incorporado,Não incorporado – Kaufman,,4828680,Mabank ISD,Kaufman,48257,Kaufman 100%,dallas,24073.0,,32.465,-96.11525,Census TIGER/Line 2025
+U-ETJ-48257-4836240,Não incorporado – Kaufman × Quinlan ISD,nao_incorporado,Não incorporado – Kaufman,,4836240,Quinlan ISD,Kaufman,48257,Kaufman 100%,dallas,3255.0,,32.82675,-96.16426,Census TIGER/Line 2025
+U-ETJ-48257-4839570,Não incorporado – Kaufman × Scurry-Rosser ISD,nao_incorporado,Não incorporado – Kaufman,,4839570,Scurry-Rosser ISD,Kaufman,48257,Kaufman 100%,dallas,47727.0,,32.501,-96.4324,Census TIGER/Line 2025
+U-ETJ-48257-4842450,Não incorporado – Kaufman × Terrell ISD,nao_incorporado,Não incorporado – Kaufman,,4842450,Terrell ISD,Kaufman,48257,Kaufman 100%,dallas,77852.0,,32.78356,-96.19595,Census TIGER/Line 2025
+U-ETJ-48257-4845950,Não incorporado – Kaufman × Wills Point ISD,nao_incorporado,Não incorporado – Kaufman,,4845950,Wills Point ISD,Kaufman,48257,Kaufman 100%,dallas,36263.0,,32.70818,-96.12803,Census TIGER/Line 2025
+U-ETJ-48367-4807780,Não incorporado – Parker × Aledo ISD,nao_incorporado,Não incorporado – Parker,,4807780,Aledo ISD,Parker,48367,Parker 100%,fort_worth,62725.0,,32.63585,-97.65874,Census TIGER/Line 2025
+U-ETJ-48367-4809200,Não incorporado – Parker × Azle ISD,nao_incorporado,Não incorporado – Parker,,4809200,Azle ISD,Parker,48367,Parker 100%,fort_worth,28803.0,,32.85936,-97.6075,Census TIGER/Line 2025
+U-ETJ-48367-4811460,Não incorporado – Parker × Brock ISD,nao_incorporado,Não incorporado – Parker,,4811460,Brock ISD,Parker,48367,Parker 100%,fort_worth,55049.0,,32.59147,-97.94968,Census TIGER/Line 2025
+U-ETJ-48367-4820370,Não incorporado – Parker × Garner ISD,nao_incorporado,Não incorporado – Parker,,4820370,Garner ISD,Parker,48367,Parker 100%,fort_worth,28716.0,,32.86873,-97.9705,Census TIGER/Line 2025
+U-ETJ-48367-4821390,Não incorporado – Parker × Granbury ISD,nao_incorporado,Não incorporado – Parker,,4821390,Granbury ISD,Parker,48367,Parker 100%,fort_worth,3776.0,,32.56813,-97.56937,Census TIGER/Line 2025
+U-ETJ-48367-4827630,Não incorporado – Parker × Lipan ISD,nao_incorporado,Não incorporado – Parker,,4827630,Lipan ISD,Parker,48367,Parker 100%,fort_worth,8581.0,,32.59101,-98.04105,Census TIGER/Line 2025
+U-ETJ-48367-4830870,Não incorporado – Parker × Millsap ISD,nao_incorporado,Não incorporado – Parker,,4830870,Millsap ISD,Parker,48367,Parker 100%,fort_worth,57988.0,,32.73115,-98.00398,Census TIGER/Line 2025
+U-ETJ-48367-4834500,Não incorporado – Parker × Peaster ISD,nao_incorporado,Não incorporado – Parker,,4834500,Peaster ISD,Parker,48367,Parker 100%,fort_worth,34322.0,,32.86219,-97.84452,Census TIGER/Line 2025
+U-ETJ-48367-4834630,Não incorporado – Parker × Perrin-Whitt CISD,nao_incorporado,Não incorporado – Parker,,4834630,Perrin-Whitt CISD,Parker,48367,Parker 100%,fort_worth,25759.0,,32.93612,-98.02593,Census TIGER/Line 2025
+U-ETJ-48367-4835340,Não incorporado – Parker × Poolville ISD,nao_incorporado,Não incorporado – Parker,,4835340,Poolville ISD,Parker,48367,Parker 100%,fort_worth,31152.0,,32.94914,-97.86802,Census TIGER/Line 2025
+U-ETJ-48367-4841280,Não incorporado – Parker × Springtown ISD,nao_incorporado,Não incorporado – Parker,,4841280,Springtown ISD,Parker,48367,Parker 100%,fort_worth,41162.0,,32.93314,-97.67534,Census TIGER/Line 2025
+U-ETJ-48367-4844800,Não incorporado – Parker × Weatherford ISD,nao_incorporado,Não incorporado – Parker,,4844800,Weatherford ISD,Parker,48367,Parker 100%,fort_worth,138592.0,,32.85985,-97.74552,Census TIGER/Line 2025
+U-ETJ-48397-4837650,Não incorporado – Rockwall × Rockwall ISD,nao_incorporado,Não incorporado – Rockwall,,4837650,Rockwall ISD,Rockwall,48397,Rockwall 100%,dallas,13450.0,,32.90953,-96.37558,Census TIGER/Line 2025
+U-ETJ-48397-4838220,Não incorporado – Rockwall × Royse City ISD,nao_incorporado,Não incorporado – Rockwall,,4838220,Royse City ISD,Rockwall,48397,Rockwall 100%,dallas,17504.0,,32.88659,-96.32285,Census TIGER/Line 2025
+U-ETJ-48439-4807780,Não incorporado – Tarrant × Aledo ISD,nao_incorporado,Não incorporado – Tarrant,,4807780,Aledo ISD,Tarrant,48439,Tarrant 100%,fort_worth,4203.0,,32.64391,-97.53809,Census TIGER/Line 2025
+U-ETJ-48439-4809200,Não incorporado – Tarrant × Azle ISD,nao_incorporado,Não incorporado – Tarrant,,4809200,Azle ISD,Tarrant,48439,Tarrant 100%,fort_worth,13938.0,,32.84072,-97.52131,Census TIGER/Line 2025
+U-ETJ-48439-4812180,Não incorporado – Tarrant × Burleson ISD,nao_incorporado,Não incorporado – Tarrant,,4812180,Burleson ISD,Tarrant,48439,Tarrant 100%,fort_worth,2720.0,,32.57188,-97.27343,Census TIGER/Line 2025
+U-ETJ-48439-4815910,Não incorporado – Tarrant × Crowley ISD,nao_incorporado,Não incorporado – Tarrant,,4815910,Crowley ISD,Tarrant,48439,Tarrant 100%,fort_worth,9801.0,,32.60406,-97.3658,Census TIGER/Line 2025
+U-ETJ-48439-4817700,Não incorporado – Tarrant × Eagle Mountain-Saginaw ISD,nao_incorporado,Não incorporado – Tarrant,,4817700,Eagle Mountain-Saginaw ISD,Tarrant,48439,Tarrant 100%,fort_worth,14876.0,,32.9394,-97.47644,Census TIGER/Line 2025
+U-ETJ-48439-4818810,Não incorporado – Tarrant × Everman ISD,nao_incorporado,Não incorporado – Tarrant,,4818810,Everman ISD,Tarrant,48439,Tarrant 100%,fort_worth,4170.0,,32.61803,-97.25699,Census TIGER/Line 2025
+U-ETJ-48439-4819700,Não incorporado – Tarrant × Fort Worth ISD,nao_incorporado,Não incorporado – Tarrant,,4819700,Fort Worth ISD,Tarrant,48439,Tarrant 100%,fort_worth,13657.0,,32.68612,-97.50648,Census TIGER/Line 2025
+U-ETJ-48439-4820960,Não incorporado – Tarrant × Godley ISD,nao_incorporado,Não incorporado – Tarrant,,4820960,Godley ISD,Tarrant,48439,Tarrant 100%,fort_worth,7270.0,,32.57664,-97.51145,Census TIGER/Line 2025
+U-ETJ-48439-4828920,Não incorporado – Tarrant × Mansfield ISD,nao_incorporado,Não incorporado – Tarrant,,4828920,Mansfield ISD,Tarrant,48439,Tarrant 100%,fort_worth,12720.0,,32.58673,-97.22372,Census TIGER/Line 2025
+U-ETJ-48439-4833180,Não incorporado – Tarrant × Northwest ISD,nao_incorporado,Não incorporado – Tarrant,,4833180,Northwest ISD,Tarrant,48439,Tarrant 100%,fort_worth,10993.0,,32.95823,-97.43636,Census TIGER/Line 2025
+U-ETJ-48439-4845540,Não incorporado – Tarrant × White Settlement ISD,nao_incorporado,Não incorporado – Tarrant,,4845540,White Settlement ISD,Tarrant,48439,Tarrant 100%,fort_worth,5295.0,,32.78382,-97.52274,Census TIGER/Line 2025
+U-ETJ-48497-4808100,Não incorporado – Wise × Alvord ISD,nao_incorporado,Não incorporado – Wise,,4808100,Alvord ISD,Wise,48497,Wise 100%,fort_worth,68243.0,,33.34441,-97.6446,Census TIGER/Line 2025
+U-ETJ-48497-4809200,Não incorporado – Wise × Azle ISD,nao_incorporado,Não incorporado – Wise,,4809200,Azle ISD,Wise,48497,Wise 100%,fort_worth,1381.0,,33.00034,-97.55096,Census TIGER/Line 2025
+U-ETJ-48497-4811010,Não incorporado – Wise × Boyd ISD,nao_incorporado,Não incorporado – Wise,,4811010,Boyd ISD,Wise,48497,Wise 100%,fort_worth,40309.0,,33.07365,-97.62583,Census TIGER/Line 2025
+U-ETJ-48497-4811340,Não incorporado – Wise × Bridgeport ISD,nao_incorporado,Não incorporado – Wise,,4811340,Bridgeport ISD,Wise,48497,Wise 100%,fort_worth,78658.0,,33.1481,-97.78301,Census TIGER/Line 2025
+U-ETJ-48497-4813800,Não incorporado – Wise × Chico ISD,nao_incorporado,Não incorporado – Wise,,4813800,Chico ISD,Wise,48497,Wise 100%,fort_worth,70337.0,,33.33334,-97.8159,Census TIGER/Line 2025
+U-ETJ-48497-4816500,Não incorporado – Wise × Decatur ISD,nao_incorporado,Não incorporado – Wise,,4816500,Decatur ISD,Wise,48497,Wise 100%,fort_worth,126988.0,,33.26612,-97.61814,Census TIGER/Line 2025
+U-ETJ-48497-4824530,Não incorporado – Wise × Jacksboro ISD,nao_incorporado,Não incorporado – Wise,,4824530,Jacksboro ISD,Wise,48497,Wise 100%,fort_worth,5117.0,,33.21412,-97.89997,Census TIGER/Line 2025
+U-ETJ-48497-4833180,Não incorporado – Wise × Northwest ISD,nao_incorporado,Não incorporado – Wise,,4833180,Northwest ISD,Wise,48497,Wise 100%,fort_worth,26375.0,,33.04863,-97.41634,Census TIGER/Line 2025
+U-ETJ-48497-4834260,Não incorporado – Wise × Paradise ISD,nao_incorporado,Não incorporado – Wise,,4834260,Paradise ISD,Wise,48497,Wise 100%,fort_worth,44993.0,,33.11191,-97.71488,Census TIGER/Line 2025
+U-ETJ-48497-4835340,Não incorporado – Wise × Poolville ISD,nao_incorporado,Não incorporado – Wise,,4835340,Poolville ISD,Wise,48497,Wise 100%,fort_worth,16103.0,,33.02846,-97.85219,Census TIGER/Line 2025
+U-ETJ-48497-4840470,Não incorporado – Wise × Slidell ISD,nao_incorporado,Não incorporado – Wise,,4840470,Slidell ISD,Wise,48497,Wise 100%,fort_worth,48240.0,,33.3466,-97.42234,Census TIGER/Line 2025
+U-ETJ-48497-4841280,Não incorporado – Wise × Springtown ISD,nao_incorporado,Não incorporado – Wise,,4841280,Springtown ISD,Wise,48497,Wise 100%,fort_worth,16115.0,,33.02454,-97.69155,Census TIGER/Line 2025

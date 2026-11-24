@@ -16,6 +16,7 @@ def main():
             base = dict(unidade_id=u["unidade_id"], criterio_id="c19", unidade_medida="min", url="https://router.project-osrm.org", data_referencia=HOJE, confianca="media")
             det = "; ".join(f"{p['nome']} {m}" for p, m in zip(POLOS, mins))
             L.append({**base, "metrica": "min_polo_mais_proximo", "valor": min(ok) if ok else None, "obs": f"fluxo livre, a partir de um ponto interno da unidade. {det}"})
+            if ok: L.append({**base, "metrica": "polo_mais_proximo", "valor": POLOS[mins.index(min(ok))]["nome"], "unidade_medida": "texto", "obs": "polo de emprego com o menor tempo de carro"})
             for p, m in zip(POLOS, mins):
                 L.append({**base, "metrica": f"min_{p['id']}", "valor": m, "obs": f"fluxo livre até {p['nome']}"})
         time.sleep(2)

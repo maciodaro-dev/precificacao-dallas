@@ -10,7 +10,7 @@ export function CompararUnidades({ base, projeto, edicoes, linhas, remover }: { 
     <div className="rolagem"><table className="simples comp">
       <thead><tr><th>Critério</th>{linhas.map((l) => <th key={l.u.unidade_id}>{l.u.nome}<button className="link" onClick={() => remover(l.u.unidade_id)}>remover</button></th>)}</tr></thead>
       <tbody>
-        <tr className="principal"><td>Nota (posição)</td>{linhas.map((l) => <td key={l.u.unidade_id}><span className="nota-final" style={{ background: cor(l.eliminada.length ? null : l.nota) }}>{l.nota === null ? "–" : l.nota.toFixed(0)}</span> {l.posicao ? `#${l.posicao}` : l.eliminada.length ? "eliminada" : ""}</td>)}</tr>
+        <tr className="principal"><td>Nota (posição)</td>{linhas.map((l) => <td key={l.u.unidade_id}><span className="nota-final" style={{ background: cor(l.nota) }}>{l.nota === null ? "–" : l.nota.toFixed(0)}</span> {l.posicao ? `#${l.posicao}` : ""}</td>)}</tr>
         
         <tr><td>Não atende</td>{linhas.map((l) => <td key={l.u.unidade_id} className={l.falhas?.length ? "nao" : ""}>{l.falhas?.length ? l.falhas.map((f) => `${f.nome} (${f.valor}; alvo ${f.alvo})`).join("; ") : "nada, entre os parâmetros com dado"}</td>)}</tr>
         {base.criterios.map((c) => (
@@ -30,7 +30,7 @@ export function CompararProjetos({ base, projetos, edicoes }: { base: Base; proj
       <thead><tr><th></th>{res.map((r) => <th key={r.p.projeto_id}>{r.p.nome}</th>)}</tr></thead>
       <tbody>
         <tr><td>Faixa</td>{res.map((r) => <td key={r.p.projeto_id}>{base.faixas.find((f) => f.id === r.p.faixa_id)?.nome}</td>)}</tr>
-        <tr><td>Modo</td>{res.map((r) => <td key={r.p.projeto_id}>{r.p.modo === "leigo" ? "simples" : r.p.modo === "expert" ? "completo" : "—"}</td>)}</tr>
+        <tr><td>Modo</td>{res.map((r) => <td key={r.p.projeto_id}>{r.p.modo === "leigo" ? "guiado" : r.p.modo === "expert" ? "especialista" : "—"}</td>)}</tr>
         <tr><td>Casas</td>{res.map((r) => <td key={r.p.projeto_id}>{r.p.n_casas ?? 1}{(r.p.n_casas ?? 1) > 1 ? (r.p.construcao === "sequencia" ? ", em sequência" : ", ao mesmo tempo") : ""}</td>)}</tr>
         <tr><td>Parâmetros em uso</td>{res.map((r) => <td key={r.p.projeto_id}>{r.defs.map((d) => `${d.nome}: ${descreveAlvo(d, r.p.parametros?.[d.id]?.alvo, r.p, base)}`).join(" · ") || "nenhum"}</td>)}</tr>
         

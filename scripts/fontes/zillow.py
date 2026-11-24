@@ -13,7 +13,7 @@ def main():
     ult = datas[-1]; L = []
     for u in unidades():
         base = dict(unidade_id=u["unidade_id"], url=URL, data_referencia=ult)
-        c = Z.get(u["cidade"].lower().replace("st. paul", "st. paul"), []) if u["place_geoid"] else []
+        c = Z.get(u["cidade"].split(" (")[0].lower(), []) if u["place_geoid"] else []
         if len(c) > 1: c = [x for x in c if x[0].replace(" County", "") in u["condados_pct"]]
         def v(k):
             try: return float(c[0][1][k])

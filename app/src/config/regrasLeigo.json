@@ -1,5 +1,5 @@
 {
-  "_leia": "Regras que transformam as respostas do modo leigo em parâmetros do motor. Arquivo editável. Os valores iniciais são premissas a calibrar com dados reais (P-008 em data/premissas.csv). Cada regra define, por parâmetro: alvo (valor sim/nao, ou min/max) e/ou peso (baixo, medio, alto). null = o parâmetro não se aplica. Regra que só traz peso usa o alvo de 'padroes'. As regras são aplicadas na ordem: sempre, casas, sequencia, preco, vender_rapido, valorizacao, comecar_logo, agua_esgoto, escola; a posterior prevalece.",
+  "_leia": "Regras que transformam as respostas do modo guiado em parâmetros do motor. Arquivo editável. Os valores iniciais são premissas a calibrar com dados reais (P-008 em data/premissas.csv). Cada regra define, por parâmetro: alvo (valor sim/nao, ou min/max) e/ou peso (baixo, medio, alto). null = o parâmetro não se aplica. Regra que só traz peso usa o alvo de 'padroes'. As regras são aplicadas na ordem: sempre, casas, sequencia, preco, vender_rapido, valorizacao, comecar_logo, agua_esgoto, escola; a posterior prevalece.",
   "pesos": { "baixo": 1, "medio": 2, "alto": 3 },
   "nota_sem_dado": 0.5,
   "preco_renda_divisor": 3.5,

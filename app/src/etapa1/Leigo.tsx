@@ -2,7 +2,8 @@ import { useState } from "react";
 import type { Base, Edicao, Projeto, RespostasLeigo } from "../tipos";
 import type { Linha } from "../ranking";
 import { indicador } from "../ranking";
-import { PERGUNTAS, RESPOSTAS_PADRAO, resumo, type Pergunta } from "../leigo";
+import { RESPOSTAS_PADRAO, projetoDoLeigo, resumo, type Pergunta } from "../leigo";
+import { perguntasVisiveis } from "../rota";
 import { PARAMS, PESOS, ativos, pesoDe, pesoTerreno } from "../parametros";
 import { cor, fmt } from "../formato";
 import Mapa from "./Mapa";
@@ -12,25 +13,28 @@ const valorDe = (q: Pergunta, r: RespostasLeigo, faixa: string | null): string =
   if (q.id === "faixa") return faixa ?? ""; const v = (r as Record<string, unknown>)[q.id];
   if (v === undefined) return q.padrao; return typeof v === "boolean" ? (v ? "sim" : "nao") : String(v);
 };
-/** Uma pergunta por tela. Só o investimento no terreno é obrigatório; as demais já vêm com o padrão marcado. */
-export function Perguntas({ projeto, concluir, cancelar }: { projeto: Projeto; concluir: (r: RespostasLeigo, faixa: string) => void; cancelar: () => void }) {
-  const [r, setR] = useState<RespostasLeigo>({ ...RESPOSTAS_PADRAO, ...projeto.leigo });
-  const [faixa, setFaixa] = useState<string | null>(projeto.leigo ? projeto.faixa_id : null);
-  const [i, setI] = useState(0);
-  const lista = PERGUNTAS.filter((q) => !q.so_se || q.so_se(r)); const q = lista[Math.min(i, lista.length - 1)]; const atual = valorDe(q, r, faixa);
-  const escolher = (v: string) => { if (q.id === "faixa") setFaixa(v); else setR({ ...r, [q.id]: ["vender_rapido", "valorizacao", "comecar_logo", "agua_esgoto", "escola"].includes(q.id) ? v === "sim" : q.id === "preco" ? Number(v) : v }); };
-  const ultima = i >= lista.length - 1; const pode = q.id !== "faixa" || !!faixa;
+/** Uma pergunta por tela. Só o investimento no terreno é obrigatório; as demais já vêm com o padrão marcado.
+ *  Cada resposta é gravada no Projeto na hora (e os parâmetros são deduzidos de novo), para que voltar nunca apague nada. */
+export function Perguntas({ projeto, alterar, indice, ir, voltar }: { projeto: Projeto; alterar: (m: Partial<Projeto>) => void; indice: number; ir: (rota: string) => void; voltar: () => void }) {
+  const r: RespostasLeigo = { ...RESPOSTAS_PADRAO, ...projeto.leigo }; const faixa = projeto.leigo?.faixa_ok ? projeto.faixa_id : null;
+  const lista = perguntasVisiveis(r); const i = Math.min(Math.max(indice, 0), lista.length - 1); const q = lista[i]; const atual = valorDe(q, r, faixa);
+  const gravar = (novo: RespostasLeigo, extra: Partial<Projeto> = {}) => alterar({ caminho: null, ...extra, ...projetoDoLeigo(novo, projeto) });
+  const escolher = (v: string) => { const base: RespostasLeigo = { ...projeto.leigo };
+    if (q.id === "faixa") gravar({ ...base, faixa_ok: true }, { faixa_id: v });
+    else gravar({ ...base, [q.id]: ["vender_rapido", "valorizacao", "comecar_logo", "agua_esgoto", "escola"].includes(q.id) ? v === "sim" : q.id === "preco" ? Number(v) : v }); };
+  const ultima = i >= lista.length - 1; const pode = !!faixa;
+  const concluir = () => { alterar({ modo: "leigo", caminho: null, ...projetoDoLeigo({ ...projeto.leigo }, projeto) }); ir("guiado-resultado"); };
   return (
     <div className="pergunta">
+      <button className="voltar" onClick={voltar}>← Voltar</button>
       <div className="progresso"><span style={{ width: `${(100 * (i + 1)) / lista.length}%` }} /></div>
-      <p className="passo-n">Pergunta {i + 1} de {lista.length}{q.obrigatoria ? " · obrigatória" : " · opcional, já com uma resposta sugerida"}</p>
+      <p className="passo-n">Modo guiado · pergunta {i + 1} de {lista.length}{q.obrigatoria ? " · obrigatória" : " · opcional, já com uma resposta sugerida"}</p>
       <h1>{q.texto}</h1>
       <div className="opcoes">{q.opcoes.map((o) => <button key={o.valor} id={`q-${q.id}-${o.valor}`} className={atual === o.valor ? "ativo" : ""} aria-pressed={atual === o.valor} onClick={() => escolher(o.valor)}><b>{o.rotulo}</b>{o.apoio && <span>{o.apoio}</span>}</button>)}</div>
       <p className="ajuda">{q.ajuda}</p>
-      <div className="nav-perg">
-        <button onClick={() => (i === 0 ? cancelar() : setI(i - 1))}>← {i === 0 ? "Voltar" : "Anterior"}</button>
-        {!ultima && faixa && <button onClick={() => concluir(r, faixa)}>Pular para o resultado</button>}
-        <button className="primario grande" disabled={!pode} onClick={() => (ultima ? concluir(r, faixa!) : setI(i + 1))}>{ultima ? "Ver resultado →" : "Próxima →"}</button>
+      <div className="nav-perg"><span />
+        {!ultima && pode && <button onClick={concluir}>Pular para o resultado</button>}
+        <button className="primario grande" disabled={!pode} onClick={() => (ultima ? concluir() : ir(`guiado-${i + 2}`))}>{ultima ? "Ver resultado →" : "Próxima →"}</button>
       </div>
       {!pode && <p className="nota">Escolha uma faixa de investimento para continuar.</p>}
     </div>
@@ -54,8 +58,8 @@ function explicar(l: Linha, pr: Projeto, base: Base, edicoes: Record<string, Edi
   };
 }
 
-interface PR { base: Base; geo: GeoJSON.FeatureCollection; projeto: Projeto; edicoes: Record<string, Edicao>; linhas: Linha[]; conflitos: { id: string }[]; eleger: (id: string) => void; irParaEtapa2: () => void; refazer: () => void; abrirExpert: () => void; detalhar: (id: string) => void }
-export function ResultadoLeigo({ base, geo, projeto, edicoes, linhas, conflitos, eleger, irParaEtapa2, refazer, abrirExpert, detalhar }: PR) {
+interface PR { seletor: React.ReactNode; total: number; base: Base; geo: GeoJSON.FeatureCollection; projeto: Projeto; edicoes: Record<string, Edicao>; linhas: Linha[]; conflitos: { id: string }[]; eleger: (id: string) => void; irParaEtapa2: () => void; voltar: () => void; abrirExpert: () => void; detalhar: (id: string) => void }
+export function ResultadoLeigo({ seletor, total, base, geo, projeto, edicoes, linhas, conflitos, eleger, irParaEtapa2, voltar, abrirExpert, detalhar }: PR) {
   const [dois, setDois] = useState<string[]>([]); const [pagina, setPagina] = useState(false); const [sel, setSel] = useState<string | null>(null);
   const top = linhas.slice(0, 5); const faixa = base.faixas.find((f) => f.id === projeto.faixa_id)?.nome ?? ""; const pt = pesoTerreno(base, projeto);
   const frase = resumo(projeto.leigo ?? {}, faixa); const marcar = (id: string) => setDois((d) => (d.includes(id) ? d.filter((x) => x !== id) : d.length < 2 ? [...d, id] : [d[1], id]));
@@ -74,11 +78,12 @@ export function ResultadoLeigo({ base, geo, projeto, edicoes, linhas, conflitos,
   return (
     <main className={pagina ? "leigo-res uma-pagina" : "leigo-res"}>
       <div className="cab-passo"><div><h1>{pagina ? "Resumo" : "Onde procurar"}</h1><p className="frase">{frase}</p></div>
-        <div className="acoes nao-imprimir"><button onClick={refazer}>← Mudar respostas</button><button onClick={abrirExpert}>Abrir no modo completo</button>
+        <div className="acoes nao-imprimir"><button className="voltar" onClick={voltar}>← Voltar</button><button onClick={abrirExpert}>Abrir no modo especialista</button>
           <button onClick={() => setPagina(!pagina)}>{pagina ? "Voltar ao resultado" : "Resumo de uma página"}</button>{pagina && <button className="primario" onClick={() => window.print()}>Imprimir</button>}</div></div>
-      {conflitos.length > 0 && <p className="aviso nao-imprimir">{conflitos.length === 1 ? "Um parâmetro foi ajustado" : `${conflitos.length} parâmetros foram ajustados`} manualmente no modo completo e não {conflitos.length === 1 ? "segue" : "seguem"} mais as respostas simples: {conflitos.map((c) => PARAMS.find((p) => p.id === c.id)?.nome).join(", ")}. O ajuste manual foi mantido; abra o modo completo para rever.</p>}
+      {conflitos.length > 0 && <p className="aviso nao-imprimir">{conflitos.length === 1 ? "Um parâmetro foi ajustado" : `${conflitos.length} parâmetros foram ajustados`} manualmente no modo especialista e não {conflitos.length === 1 ? "segue" : "seguem"} mais as respostas do modo guiado: {conflitos.map((c) => PARAMS.find((p) => p.id === c.id)?.nome).join(", ")}. O ajuste manual foi mantido; abra o modo especialista para rever.</p>}
       {pt.pct !== null && <p className={pt.alerta ? "aviso" : "nota"}><b>Peso do terreno no preço da casa: {pt.pct.toFixed(0)}%.</b> {pt.conta}.{pt.alerta && " Acima de 25%, o terreno costuma pesar demais: reveja o investimento, o número de casas ou o preço de venda."}</p>}
-      <p className="nota">Nenhuma unidade é eliminada: as {linhas.length} aparecem em ordem de nota. Aqui estão as 5 melhores.{semDadoGeral.length > 0 && ` Ainda não há dado para avaliar: ${semDadoGeral.join(", ")}; essas respostas não entraram na nota.`}</p>
+      <div className="barra nao-imprimir">{seletor}<span className="resumo">mostrando {linhas.length} de {total} unidades</span></div>
+      <p className="nota">Nenhuma unidade é eliminada: todas aparecem em ordem de nota. Aqui estão as 5 melhores do recorte escolhido; a posição é a geral, na DFW inteira.{semDadoGeral.length > 0 && ` Ainda não há dado para avaliar: ${semDadoGeral.join(", ")}; essas respostas não entraram na nota.`}</p>
       <div className="cartoes">{top.map((l) => cartao(l, pagina))}</div>
       {!pagina && <>
         <h2>Comparação de duas unidades</h2>
