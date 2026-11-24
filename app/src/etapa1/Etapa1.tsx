@@ -66,7 +66,7 @@ export default function Etapa1(p: Props) {
         </div>
         <p className="nota">Já tem uma cidade em mente? <button id="link-cidade" className="link" onClick={() => { p.alterar({ caminho: "cidade" }); ir("cidade"); }}>Ver o que ela significa para o seu projeto</button></p>
       </div>}
-      {passo === "perguntas" && <Perguntas projeto={projeto} alterar={p.alterar} indice={Number(nPergunta) - 1} ir={ir} voltar={voltar} />}
+      {passo === "perguntas" && <Perguntas base={base} projeto={projeto} alterar={p.alterar} indice={Number(nPergunta) - 1} ir={ir} voltar={voltar} />}
       {passo === "leigo" && <>
         <ResultadoLeigo seletor={seletor} total={todas.length} insuficientes={insuficientes.length} base={base} geo={p.geo} projeto={projeto} edicoes={edicoes} linhas={principais} conflitos={conflitos} eleger={eleger} irParaEtapa2={irEtapa2} voltar={voltar} abrirExpert={abrirExpert} detalhar={setSel} />
         {linhaSel && <Detalhe key={linhaSel.u.unidade_id} base={base} projeto={projeto} edicoes={edicoes} linha={linhaSel} editar={p.editar} fechar={() => setSel(null)} eleger={eleger} irParaEtapa2={irEtapa2} emComparacao={false} alternar={() => {}} />}

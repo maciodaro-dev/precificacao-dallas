@@ -29,6 +29,7 @@ export function tabelas(base: Base, p: Projeto, linhas: Linha[], edicoes: Record
   const pt = pesoTerreno(base, p);
   const projeto: L[] = [
     { campo: "projeto", valor: p.nome }, { campo: "modo de entrada", valor: p.modo === "leigo" ? "guiado" : p.modo === "expert" ? "especialista" : "" },
+    { campo: "valores informados nas opções abertas", valor: Object.entries(p.valores_abertos ?? {}).map(([k, v]) => `${k}: ${v}`).join("; ") || "nenhum" },
     { campo: "faixa de investimento no terreno", valor: base.faixas.find((f) => f.id === p.faixa_id)?.nome ?? p.faixa_id ?? "não escolhida" },
     { campo: "número de casas", valor: p.n_casas ?? 1 }, { campo: "construção", valor: p.construcao === "sequencia" ? "em sequência" : "ao mesmo tempo" },
     { campo: "preço de venda por casa", valor: p.preco_venda ? `${p.preco_venda.min ?? ""} – ${p.preco_venda.max ?? ""}` : "" },
