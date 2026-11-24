@@ -6,6 +6,7 @@ import { RESPOSTAS_PADRAO, projetoDoLeigo, resumo, type Pergunta } from "../leig
 import { perguntasVisiveis } from "../rota";
 import { PARAMS, PESOS, ativos, pesoDe, pesoTerreno, textoCobertura } from "../parametros";
 import AvisoCobertura from "./AvisoCobertura";
+import ValorAberto from "./ValorAberto";
 import { cor, fmt } from "../formato";
 import Mapa from "./Mapa";
 import FontesUsadas from "../Fontes";
@@ -16,7 +17,8 @@ const valorDe = (q: Pergunta, r: RespostasLeigo, faixa: string | null): string =
 };
 /** Uma pergunta por tela. Só o investimento no terreno é obrigatório; as demais já vêm com o padrão marcado.
  *  Cada resposta é gravada no Projeto na hora (e os parâmetros são deduzidos de novo), para que voltar nunca apague nada. */
-export function Perguntas({ projeto, alterar, indice, ir, voltar }: { projeto: Projeto; alterar: (m: Partial<Projeto>) => void; indice: number; ir: (rota: string) => void; voltar: () => void }) {
+export function Perguntas({ base, projeto, alterar, indice, ir, voltar }: { base: Base; projeto: Projeto; alterar: (m: Partial<Projeto>) => void; indice: number; ir: (rota: string) => void; voltar: () => void }) {
+  const faixaAberta = projeto.leigo?.faixa_ok ? base.faixas.find((f) => f.id === projeto.faixa_id && f.max === null) : undefined;
   const r: RespostasLeigo = { ...RESPOSTAS_PADRAO, ...projeto.leigo }; const faixa = projeto.leigo?.faixa_ok ? projeto.faixa_id : null;
   const lista = perguntasVisiveis(r); const i = Math.min(Math.max(indice, 0), lista.length - 1); const q = lista[i]; const atual = valorDe(q, r, faixa);
   const gravar = (novo: RespostasLeigo, extra: Partial<Projeto> = {}) => alterar({ caminho: null, ...extra, ...projetoDoLeigo(novo, projeto) });
@@ -32,6 +34,8 @@ export function Perguntas({ projeto, alterar, indice, ir, voltar }: { projeto: P
       <p className="passo-n">Modo guiado · pergunta {i + 1} de {lista.length}{q.obrigatoria ? " · obrigatória" : " · opcional, já com uma resposta sugerida"}</p>
       <h1>{q.texto}</h1>
       <div className="opcoes">{q.opcoes.map((o) => <button key={o.valor} id={`q-${q.id}-${o.valor}`} className={atual === o.valor ? "ativo" : ""} aria-pressed={atual === o.valor} onClick={() => escolher(o.valor)}><b>{o.rotulo}</b>{o.apoio && <span>{o.apoio}</span>}</button>)}</div>
+      {q.id === "faixa" && faixaAberta && <ValorAberto projeto={projeto} alterar={alterar} campo="investimento" piso={faixaAberta.min} rotulo="Quanto pretende investir no terreno?" unidade="US$" />}
+      {q.id === "preco" && projeto.preco_venda?.min !== undefined && projeto.preco_venda.max === undefined && <ValorAberto projeto={projeto} alterar={alterar} campo="preco_venda" piso={projeto.preco_venda.min} rotulo="Por quanto pretende vender cada casa?" unidade="US$" />}
       <p className="ajuda">{q.ajuda}</p>
       <div className="nav-perg"><span />
         {!ultima && pode && <button onClick={concluir}>Pular para o resultado</button>}
@@ -84,7 +88,7 @@ export function ResultadoLeigo({ seletor, total, insuficientes, base, geo, proje
           <button onClick={() => setPagina(!pagina)}>{pagina ? "Voltar ao resultado" : "Resumo de uma página"}</button>{pagina && <button className="primario" onClick={() => window.print()}>Imprimir</button>}</div></div>
       {conflitos.length > 0 && <p className="aviso nao-imprimir">{conflitos.length === 1 ? "Um parâmetro foi ajustado" : `${conflitos.length} parâmetros foram ajustados`} manualmente no modo especialista e não {conflitos.length === 1 ? "segue" : "seguem"} mais as respostas do modo guiado: {conflitos.map((c) => PARAMS.find((p) => p.id === c.id)?.nome).join(", ")}. O ajuste manual foi mantido; abra o modo especialista para rever.</p>}
       <AvisoCobertura base={base} projeto={projeto} edicoes={edicoes} guiado />
-      {pt.min !== null && <p className={pt.alerta ? "aviso" : "nota"} id="peso-terreno"><b>Peso do terreno no preço da casa: de {pt.min.toFixed(0)}% a {pt.max!.toFixed(0)}%.</b> Conta: {pt.conta}. {pt.oQueFazer}</p>}
+      {pt.min !== null && <p className={pt.alerta ? "aviso" : "nota"} id="peso-terreno"><b>Peso do terreno no preço da casa: {pt.min === pt.max ? `${pt.min.toFixed(0)}%` : `de ${pt.min.toFixed(0)}% a ${pt.max!.toFixed(0)}%`}.</b> Conta: {pt.conta}. {pt.oQueFazer} {pt.avisos.join(" ")}</p>}
       <div className="barra nao-imprimir">{seletor}<span className="resumo">{linhas.length} regiões comparáveis de {total}{insuficientes > 0 && ` · ${insuficientes} ficaram de fora desta lista por terem dados insuficientes para comparar (veja no modo especialista)`}</span></div>
       <p className="nota">Nenhuma unidade é eliminada: todas aparecem em ordem de nota. Aqui estão as 5 melhores do recorte escolhido; a posição é a geral, na DFW inteira.</p>
       <div className="cartoes">{top.map((l) => cartao(l, pagina))}</div>

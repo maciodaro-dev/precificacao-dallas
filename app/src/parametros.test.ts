@@ -64,6 +64,22 @@ describe("motor único", () => {
     expect(de(r, "c").porCriterio.moratoria.nota).toBeNull(); expect(de(r, "a").nota).toBe(100); expect(de(r, "b").nota).toBeCloseTo(20); // b: ISD C vale metade (peso 2), moratória "sim" vale zero (peso 3)
   });
 });
+describe("última opção sempre aberta", () => {
+  it("todo parâmetro 'até X' termina em 'mais de X', que aceita qualquer valor", () => {
+    for (const p of PARAMS.filter((x) => x.forma === "max")) { const u = p.opcoes[p.opcoes.length - 1]; expect(u.rotulo.startsWith("mais de "), p.id).toBe(true); expect(u.a?.qualquer, p.id).toBe(true); }
+    expect(par("imposto").opcoes.map((o) => o.rotulo)).toEqual(["até 1,8%", "até 2,0%", "até 2,2%", "até 2,5%", "mais de 2,5%"]); expect(par("custo_lotear").opcoes.map((o) => o.rotulo).pop()).toBe("mais de $75 mil por lote");
+    const r = avaliar(base, proj({ imposto: P({ min: 2.5, qualquer: true }, "alto") }), {}); expect(de(r, "a").porCriterio.imposto.nota).toBe(100); expect(de(r, "b").porCriterio.imposto.nota).toBe(100); expect(de(r, "b").falhas.length).toBe(0);
+  });
+  it("respostas já salvas continuam valendo", () => { // alvos gravados antes da mudança continuam casando com a mesma opção
+    expect(par("imposto").opcoes.findIndex((o) => JSON.stringify(o.a) === JSON.stringify({ max: 2 }))).toBe(1); expect(par("seguro").opcoes.some((o) => JSON.stringify(o.a) === JSON.stringify({ max: 4500 }))).toBe(true);
+    expect(par("emprego").opcoes.some((o) => JSON.stringify(o.a) === JSON.stringify({ max: 25 }))).toBe(true);
+  });
+  it("opção aberta que entra em cálculo: sem valor usa o piso e avisa; com valor, usa o valor", () => {
+    const b5: Base = { ...base, faixas: [...base.faixas, { id: "F5", nome: "mais de $2 milhões", min: 2000000, max: null }] };
+    const s = pesoTerreno(b5, proj({}, { faixa_id: "F5", n_casas: 10, preco_venda: { min: 1000000 } })); expect(s.min).toBeCloseTo(20); expect(s.max).toBeCloseTo(20); expect(s.avisos.length).toBe(2); expect(s.avisos[0]).toMatch(/usando o mínimo, \$2\.000\.000/);
+    const c = pesoTerreno(b5, proj({}, { faixa_id: "F5", n_casas: 10, preco_venda: { min: 1000000 }, valores_abertos: { investimento: 3000000, preco_venda: 1500000 } })); expect(c.pct).toBeCloseTo(20); expect(c.avisos.length).toBe(0); expect(c.conta).toMatch(/\$3\.000\.000/);
+  });
+});
 describe("região e pergunta da escola", () => {
   // cidade "le" com duas partes: ISD "A" (30% da área, imposto 1,7) e ISD "C" (70%, imposto 2,1). Na região: ISD principal C, imposto médio 1,98.
   const le = { ...U("le"), partes: [{ parte_id: "le-c", isd_id: "1", isd_nome: "Little ISD", acres: 70, pct_area: 70, pct_domicilios: 70, pequena: false }, { parte_id: "le-a", isd_id: "2", isd_nome: "Frisco ISD", acres: 30, pct_area: 30, pct_domicilios: 30, pequena: false }] };

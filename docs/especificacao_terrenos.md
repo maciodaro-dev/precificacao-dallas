@@ -58,7 +58,22 @@ A faixa de investimento é comparada com o custo total de terra do projeto. O to
 - Mostrar sempre o total e o custo de terra por casa (total ÷ nº de casas). O custo por casa é o que alimenta o "peso do terreno no preço".
 - O custo de lotear não entra aqui; continua na etapa 4. Deixar isso escrito na tela, para a gleba não parecer mais barata do que é.
 
+### Dallas County
+- O usuário vai tentar baixar os arquivos do DCAD pelo navegador; quando chegarem, substituem as outras fontes.
+- Enquanto isso: camada da Prefeitura de Dallas (2026) onde ela cobre; no restante do condado, o arquivo estadual de 2025 baixado direto do TxGIO.
+  Não usar cópia publicada por terceiro. Marcar em cada lote a fonte e o ano, e sinalizar na tela as regiões de Dallas County com dado de 2025.
+
+### Limpeza do código "lote vago" (aprovada)
+Filtrar nesta ordem, mostrando por condado quantos lotes saem em cada passo e uma amostra de 20 lotes removidos por passo:
+a) dono: associação de moradores/HOA, prefeitura, condado, estado, distrito escolar, distrito de água (MUD/PID), concessionária, igreja;
+b) isenção total de imposto;
+c) descrição: common area, open space, greenbelt, drainage, detention, easement, right of way, park, amenity e equivalentes;
+d) forma e tamanho: lote menor… — **a mensagem do usuário chegou cortada aqui; falta o resto do passo d) e o que vier depois.**
+
 ## 4. Pontos em aberto
+
+- Completar o passo d) da limpeza (mensagem cortada).
+- O arquivo estadual do TxGIO (inclusive o de 2025) devolve HTTP 403 a partir deste ambiente: precisa ser baixado pelo usuário ou liberado de outra forma.
 
 - Com "lote pronto = indiferente", qual dos dois totais entra na nota (proposta: o menor dos dois, mostrando ambos).
 - Fonte: o arquivo estadual (TxGIO) recusou download automático; o campo de valor da terra dele não distingue mercado de produtividade.
