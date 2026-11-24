@@ -22,5 +22,11 @@
   "nome": "$1–2 milhões",
   "min": 1000000,
   "max": 2000000
+ },
+ {
+  "id": "F5",
+  "nome": "mais de $2 milhões",
+  "min": 2000000,
+  "max": null
  }
 ]

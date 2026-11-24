@@ -22,7 +22,7 @@ export interface Indicador {
   v: number | string | null; um: string; f: string; url: string; ref: string; col: string; conf: Confianca; obs: string; /** "cidade" = o dado é da cidade inteira e a unidade é só uma fatia dela */ esc?: "cidade" | "fatia";
   editado?: boolean; data_edicao?: string; original?: number | string | null;
 }
-export interface Faixa { id: string; nome: string; min: number; max: number }
+export interface Faixa { id: string; nome: string; min: number; /** null = faixa aberta ("mais de X") */ max: number | null }
 export interface Fonte { id: string; nome: string; orgao: string; url: string; script: string; periodicidade: string; situacao: string; obs: string;
   licenca?: string; uso_comercial?: string; redistribuicao?: string; termos_url?: string; verificacao?: string; criterios?: string; alternativa?: string }
 export interface Premissa { premissa_id: string; descricao: string; valor: string; unidade: string; autor: string; data: string; justificativa: string; usada_em: string }
@@ -33,10 +33,11 @@ export interface Base {
 
 export type Peso = "baixo" | "medio" | "alto";
 /** Um parâmetro do motor da etapa 1. alvo null = indiferente / não se aplica. origem = pergunta do modo leigo que o deduziu, "manual" ou "perfil:<nome>". */
-export interface ParamResp { alvo: { valor?: string; min?: number; max?: number } | null; peso: Peso; origem: string; ajustado?: boolean }
+export interface ParamResp { alvo: { valor?: string; min?: number; max?: number; /** opção aberta: aceita qualquer valor */ qualquer?: boolean } | null; peso: Peso; origem: string; ajustado?: boolean }
 export interface RespostasLeigo { /** a faixa de investimento já foi escolhida na pergunta 1 */ faixa_ok?: boolean; casas?: "1" | "2a4" | "5a10" | "mais10"; construcao?: "simultaneo" | "sequencia"; preco?: number; vender_rapido?: boolean; valorizacao?: boolean; comecar_logo?: boolean; agua_esgoto?: boolean; escola?: boolean }
 /** Combinação do modo expert salva com nome, para reutilizar em outros projetos. Dado privado do dono. */
-export interface PerfilSalvo { perfil_id: string; dono_id: string; nome: string; criado_em: string; parametros: Record<string, ParamResp>; n_casas: number; construcao: "simultaneo" | "sequencia"; preco_venda: { min?: number; max?: number } | null; faixa_id: string | null }
+export interface ValoresAbertos { investimento?: number; preco_venda?: number; tamanho_acres?: number }
+export interface PerfilSalvo { valores_abertos?: ValoresAbertos; perfil_id: string; dono_id: string; nome: string; criado_em: string; parametros: Record<string, ParamResp>; n_casas: number; construcao: "simultaneo" | "sequencia"; preco_venda: { min?: number; max?: number } | null; faixa_id: string | null }
 
 export type SimNaoNaoSei = "sim" | "nao" | "nao_sei";
 /** Ponto de partida: primeira tela do aplicativo. "não sei" é tratado como "não", com aviso para confirmar. */
@@ -67,6 +68,8 @@ export interface Projeto {
   parametros?: Record<string, ParamResp>;
   /** Entradas de cálculo, usadas também nas etapas 3, 5, 6 e 8. "sequencia" faz a etapa 6 calcular a terra parada entre uma casa e outra. */
   n_casas?: number; construcao?: "simultaneo" | "sequencia"; preco_venda?: { min?: number; max?: number } | null;
+  /** valores informados quando a pessoa escolhe uma opção aberta ("mais de X") que entra em cálculo; sem valor, a conta usa o piso da opção e avisa */
+  valores_abertos?: ValoresAbertos;
   /** Respostas das perguntas do modo guiado, gravadas a cada clique. */
   leigo?: RespostasLeigo;
   unidade_eleita_id: string | null; eleita_em: string | null;

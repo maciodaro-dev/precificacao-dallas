@@ -6,13 +6,15 @@ import regras from "./config/regrasLeigo.json";
 
 export type Forma = "max" | "min" | "intervalo" | "letra" | "quer_sim" | "quer_nao" | "so_cidade" | "oferta";
 export interface Opcao { rotulo: string; a: Alvo | null }
-export interface Alvo { valor?: string; min?: number; max?: number }
+export interface Alvo { valor?: string; min?: number; max?: number; /** opção aberta "mais de X" num parâmetro do tipo "até X": a pessoa aceita qualquer valor; toda região com dado recebe nota cheia */ qualquer?: boolean }
 export interface Param {
   id: string; grupo: string; nome: string; /** nome em linguagem comum */ leigo: string; forma: Forma; chave?: string; um: string; fator?: number;
   opcoes: Opcao[]; /** aceita marcar opções vizinhas, formando um intervalo */ vizinhas?: boolean; ajuda?: string; /** texto quando não atende, em linguagem comum */ falha: string;
 }
 const k = (n: number) => (n >= 1e6 ? `${(n / 1e6).toLocaleString("pt-BR")} milhão` : `${n / 1000} mil`);
-const ate = (vs: number[], um: string, f: (n: number) => string = (n) => n.toLocaleString("pt-BR")): Opcao[] => vs.map((v) => ({ rotulo: `até ${f(v)}${um}`, a: { max: v } }));
+const ate = (vs: number[], um: string, f: (n: number) => string = (n) => n.toLocaleString("pt-BR")): Opcao[] => [...vs.map((v) => ({ rotulo: `até ${f(v)}${um}`, a: { max: v } as Alvo })), ABERTA(vs[vs.length - 1], um, f)];
+/** Regra geral: a última opção nunca tem teto. Em parâmetro "até X", "mais de X" = aceita qualquer valor. */
+function ABERTA(ultimo: number, um: string, f: (n: number) => string): Opcao { return { rotulo: `mais de ${f(ultimo)}${um}`, a: { min: ultimo, qualquer: true } }; }
 const apartir = (vs: number[], um: string, f: (n: number) => string = (n) => n.toLocaleString("pt-BR")): Opcao[] => vs.map((v) => ({ rotulo: `${f(v)}${um} ou mais`, a: { min: v } }));
 
 // Opções iniciais em números redondos, registradas como premissa (P-007). A comparação com os quartis reais está em docs/proposta_consolidada.md; trocar as opções é decisão do usuário.
@@ -33,7 +35,7 @@ export const PARAMS: Param[] = [
   { id: "prazo", grupo: "Viabilidade", nome: "Prazo de aprovação", leigo: "tempo de aprovação na prefeitura", forma: "max", chave: "c08|prazo_aprovacao_dias", um: "meses", fator: 30, falha: "a aprovação demora mais", opcoes: ate([3, 6, 9, 12], " meses") },
   { id: "rede", grupo: "Viabilidade", nome: "Rede de água e esgoto", leigo: "água e esgoto da cidade", forma: "quer_sim", chave: "c09|rede_esgoto", um: "", falha: "não há rede pública de água e esgoto",
     opcoes: [{ rotulo: "Exijo rede pública", a: { valor: "sim" } }, { rotulo: "Aceito poço e fossa", a: null }] },
-  { id: "custo_lotear", grupo: "Viabilidade", nome: "Custo de lotear", leigo: "custo de dividir a terra em lotes", forma: "max", chave: "c10|custo_lotear_por_lote", um: "US$/lote", falha: "lotear custa mais", opcoes: [...ate([25000, 50000, 75000], " por lote", (n) => "$" + k(n)), { rotulo: "sem teto", a: null }],
+  { id: "custo_lotear", grupo: "Viabilidade", nome: "Custo de lotear", leigo: "custo de dividir a terra em lotes", forma: "max", chave: "c10|custo_lotear_por_lote", um: "US$/lote", falha: "lotear custa mais", opcoes: ate([25000, 50000, 75000], " por lote", (n) => "$" + k(n)),
     ajuda: "Funciona como teto: atende a unidade onde lotear custa até esse valor por lote. Sem fonte pública; depende de premissa sua." },
   { id: "limites", grupo: "Viabilidade", nome: "Limites da cidade", leigo: "terreno dentro da cidade", forma: "so_cidade", um: "", falha: "fica fora dos limites de uma cidade",
     opcoes: [{ rotulo: "Só dentro da cidade", a: { valor: "nao" } }, { rotulo: "Aceito fora da cidade", a: null }] },
@@ -87,6 +89,7 @@ export function nota(p: Param, a: Alvo, u: Unidade, i: Indicador | undefined): n
   if (p.forma === "oferta") { const n = numero(v); return n === null ? null : n > 0 ? 1 : 0; }
   if (p.forma === "letra") { const d = LETRAS.indexOf(String(v)) - LETRAS.indexOf(String(a.valor)); return LETRAS.indexOf(String(v)) < 0 ? null : d <= 0 ? 1 : d === 1 ? 0.5 : 0; }
   const n = numero(v); if (n === null) return null; const f = p.fator ?? 1;
+  if (a.qualquer) return 1;
   const mn = fin(a.min) ? a.min * f : null, mx = fin(a.max) ? a.max * f : null;
   if (mn !== null && n < mn) return mn > 0 ? Math.max(0, n / mn) : 0;
   if (mx !== null && n > mx) return mx > 0 ? Math.max(0, 1 - (n - mx) / mx) : 0;
@@ -95,7 +98,7 @@ export function nota(p: Param, a: Alvo, u: Unidade, i: Indicador | undefined): n
 export function descreveAlvo(p: Param, a: Alvo | null | undefined, pr?: Projeto, base?: Base): string {
   if (p.forma === "oferta") return base?.faixas.find((f) => f.id === pr?.faixa_id)?.nome ?? "";
   if (!a) return "indiferente";
-  const o = p.opcoes.find((x) => x.a && x.a.valor === a.valor && x.a.min === a.min && x.a.max === a.max); if (o) return o.rotulo;
+  const o = p.opcoes.find((x) => x.a && x.a.valor === a.valor && x.a.min === a.min && x.a.max === a.max && !!x.a.qualquer === !!a.qualquer); if (o) return o.rotulo;
   const usd = p.um.startsWith("US$"); const n = (x: number) => (usd ? "$" : "") + x.toLocaleString("pt-BR", { maximumFractionDigits: 2 });
   const um = usd ? (p.um === "US$/ano" ? "por ano" : p.um === "US$/lote" ? "por lote" : "") : p.um;
   return ([fin(a.min) && (fin(a.max) ? `de ${n(a.min)}` : `${n(a.min)} ou mais`), fin(a.max) && (fin(a.min) ? `a ${n(a.max)}` : `até ${n(a.max)}`)].filter(Boolean).join(" ") + ` ${um}`).trim();
@@ -169,15 +172,20 @@ export function coberturaGeral(base: Base, pr: Projeto, edicoes: Record<string, 
 export const textoCobertura = (l: Linha) => `${l.avaliados} de ${l.emUso} parâmetros, ${Math.round(l.cobertura * 100)}% do peso`;
 
 /** Calculado e apenas exibido. Peso do terreno no preço = investimento no terreno ÷ nº de casas ÷ preço de venda. Mostra o intervalo da faixa (mínimo e máximo), não só o ponto médio. Sem faixa escolhida, não calcula. */
-export function pesoTerreno(base: Base, pr: Projeto): { pct: number | null; min: number | null; max: number | null; alerta: boolean; conta: string; oQueFazer: string; semFaixa: boolean } {
-  const vazio = { pct: null, min: null, max: null, alerta: false, conta: "", oQueFazer: "" };
+export function pesoTerreno(base: Base, pr: Projeto): { pct: number | null; min: number | null; max: number | null; alerta: boolean; conta: string; oQueFazer: string; semFaixa: boolean; avisos: string[] } {
+  const vazio = { pct: null, min: null, max: null, alerta: false, conta: "", oQueFazer: "", avisos: [] as string[] };
   const f = base.faixas.find((x) => x.id === pr.faixa_id); if (!f) return { ...vazio, semFaixa: true };
-  const nc = pr.n_casas ?? 1; const pv = pr.preco_venda;
-  const preco = pv ? (fin(pv.min) && fin(pv.max) ? (pv.min + pv.max) / 2 : fin(pv.max) ? pv.max : fin(pv.min) ? pv.min : null) : null;
-  if (!preco || !nc) return { ...vazio, semFaixa: false };
-  const de = (inv: number) => (100 * inv) / nc / preco; const d = (x: number) => "$" + Math.round(x).toLocaleString("pt-BR");
-  const min = de(f.min), max = de(f.max), pct = de((f.min + f.max) / 2); const lim = regras.alerta_peso_terreno_pct;
-  return { pct, min, max, semFaixa: false, alerta: max > lim,
-    conta: `terreno de ${d(f.min)} a ${d(f.max)} ÷ ${nc} ${nc === 1 ? "casa" : "casas"} ÷ ${d(preco)} por casa`,
+  const nc = pr.n_casas ?? 1; const pv = pr.preco_venda; const va = pr.valores_abertos ?? {}; const avisos: string[] = []; const d = (x: number) => "$" + Math.round(x).toLocaleString("pt-BR");
+  // opção aberta que entra em cálculo: usa o valor informado; sem valor, usa o piso da opção e avisa
+  const invAberto = f.max === null; const invMin = invAberto ? (fin(va.investimento) ? va.investimento : f.min) : f.min, invMax = invAberto ? invMin : f.max!;
+  if (invAberto && !fin(va.investimento)) avisos.push(`Investimento no terreno: você escolheu "${f.nome}" e não informou o valor. A conta está usando o mínimo, ${d(f.min)}.`);
+  const pvAberto = !!pv && fin(pv.min) && !fin(pv.max);
+  const preco = pv ? (fin(pv.min) && fin(pv.max) ? (pv.min + pv.max) / 2 : pvAberto ? (fin(va.preco_venda) ? va.preco_venda : pv.min!) : fin(pv.max) ? pv.max : null) : null;
+  if (pvAberto && !fin(va.preco_venda)) avisos.push(`Preço de venda: você escolheu a opção aberta e não informou o valor. A conta está usando o mínimo, ${d(pv!.min!)}.`);
+  if (!preco || !nc) return { ...vazio, semFaixa: false, avisos };
+  const de = (inv: number) => (100 * inv) / nc / preco;
+  const min = de(invMin), max = de(invMax), pct = de((invMin + invMax) / 2); const lim = regras.alerta_peso_terreno_pct;
+  return { pct, min, max, semFaixa: false, alerta: max > lim, avisos,
+    conta: `terreno de ${invMin === invMax ? d(invMin) : `${d(invMin)} a ${d(invMax)}`} ÷ ${nc} ${nc === 1 ? "casa" : "casas"} ÷ ${d(preco)} por casa`,
     oQueFazer: max > lim ? `Acima de ${lim}% o terreno pesa demais no preço da casa: reduza o investimento no terreno, aumente o nº de casas ou suba o preço de venda.` : "" };
 }
