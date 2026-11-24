@@ -34,6 +34,13 @@ describe("critérios definidos", () => {
     const r = avaliar(base, proj({ lote_pronto: { v: "nao" }, etj: { v: "nao", obrigatorio: true } }), {});
     expect(de(r, "c").eliminada.length).toBe(1); expect(de(r, "a").atendidos).toBe(1);
   });
+  it("peso muda a nota e a ordem", () => {
+    const igual = avaliar(base, proj({ alagamento: { v: 10 }, isd: { v: "B" } }), {});
+    expect(de(igual, "a").nota).toBe(50); expect(de(igual, "b").nota).toBe(50);
+    const r = avaliar(base, proj({ alagamento: { v: 10, peso: 3 }, isd: { v: "B", peso: 1 } }), {});
+    expect(de(r, "b").nota).toBe(75); expect(de(r, "a").nota).toBe(25); expect(r[0].u.unidade_id).toBe("b");
+    expect(r.findIndex((l) => l.u.unidade_id === "b")).toBeLessThan(r.findIndex((l) => l.u.unidade_id === "a"));
+  });
   it("prazo em meses é comparado com dias", () => {
     const b2 = { ...base, indicadores: { ...base.indicadores, a: { ...base.indicadores.a, "c08|prazo_aprovacao_dias": ind(100) } } };
     expect(de(avaliar(b2, proj({ prazo: { v: 3 } }), {}), "a").atendidos).toBe(0); expect(de(avaliar(b2, proj({ prazo: { v: 4 } }), {}), "a").atendidos).toBe(1);

@@ -31,6 +31,7 @@ export default function Criterios({ base, projeto, alterar }: Props) {
           <div className="faixas">{base.faixas.map((x) => <button key={x.id} className={projeto.faixa_id === x.id ? "ativo" : ""} onClick={() => alterar({ faixa_id: x.id })}>{x.nome}</button>)}</div>
         </div>
         {DEFS.filter((d) => d.grupo === "Terra").map((d) => linha(d))}
+        <p className="nota"><b>Peso</b>: quanto o critério conta na nota da cidade. Todos começam em 1; ponha 2 ou 3 no que importa mais e 0 no que não deve contar. <b>Obrigatório</b>: a cidade que não atende sai do resultado.</p>
         <p className="nota">A quantidade de terrenos anunciados no seu perfil (faixa e tamanho) não é critério: aparece no resultado de cada cidade.</p>
       </section>
       {GRUPOS_DEF.filter((g) => g !== "Terra").map((g) => { const ds = DEFS.filter((d) => d.grupo === g && visivel(d, resp)); return ds.length === 0 ? null : (
@@ -45,6 +46,8 @@ export default function Criterios({ base, projeto, alterar }: Props) {
       <div key={d.id} className={"crit" + (respondido(d) ? " definido" : "")}>
         <div className="perg"><b>{d.pergunta}</b>{d.ajuda && <p>{d.ajuda}</p>}{sit && <i>{sit}</i>}</div>
         <div className="resp">{campo(d)}
+          {!cenario(d) && <label className="peso-num" title="Quanto este critério conta na nota. 1 = normal, 2 = conta em dobro, 0 = não conta.">peso
+            <input id={"p-" + d.id} type="number" min={0} max={10} step={1} disabled={!respondido(d)} value={resp[d.id]?.peso ?? 1} onChange={(e) => mudar(d.id, { peso: n(e.target.value) })} /></label>}
           {!cenario(d) && <label className="obrig" title="Se marcado, a cidade que não atende sai do resultado. Se não, ela continua aparecendo com a marcação de que não atende.">
             <input type="checkbox" checked={!!resp[d.id]?.obrigatorio} disabled={!respondido(d)} onChange={(e) => mudar(d.id, { obrigatorio: e.target.checked })} /> obrigatório</label>}
           {cenario(d) && <span className="tag">muda os custos</span>}

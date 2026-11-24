@@ -38,7 +38,7 @@ export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar,
       <div className="cab">
         <div><h2>{u.nome}</h2><p>{u.tipo === "cidade_isd" ? "Cidade × ISD" : "Área não incorporada"} · {u.condados_pct} · {fmt(u.acres_terra)} acres de terra{u.pct_cidade != null && ` (${fmt(u.pct_cidade)}% da cidade)`} · ID {u.unidade_id}</p></div>
         <div className="acoes">
-          <span className="nota-final g" style={{ background: cor(linha.eliminada.length ? null : linha.nota) }}>{linha.avaliados ? `${linha.atendidos} de ${linha.avaliados}` : "–"}</span>
+          <span className="nota-final g" style={{ background: cor(linha.eliminada.length ? null : linha.nota) }}>{linha.nota === null ? "–" : linha.nota.toFixed(0)}</span>
           {!semRolagem && <button onClick={() => alternar(u.unidade_id)}>{emComparacao ? "Tirar da comparação" : "Comparar"}</button>}
           {u.tipo === "cidade_isd" && <a className="botao" target="_blank" rel="noreferrer" href={`https://www.homes.com/${u.cidade.toLowerCase().replace(/\./g, "").replace(/[^a-z0-9]+/g, "-")}-tx/land-for-sale/`}>Ver terrenos no Homes.com ↗</a>}
           {eleita ? <button className="primario" onClick={irParaEtapa2}>Ir para a etapa 2</button> : <button className="primario" onClick={() => eleger(u.unidade_id)}>Eleger unidade</button>}

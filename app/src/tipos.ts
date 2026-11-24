@@ -34,7 +34,8 @@ export interface Filtros {
 export interface Tamanho { modo: "maior" | "menor" | "faixa"; min: number; max: number }
 
 /** Resposta do usuário a um critério definido: sim/não, um número, uma letra ou um intervalo. */
-export interface Resposta { v?: number | string | null; min?: number | null; max?: number | null; obrigatorio?: boolean; data?: string }
+/** peso: quanto o critério conta na nota (1 = normal). */
+export interface Resposta { v?: number | string | null; min?: number | null; max?: number | null; obrigatorio?: boolean; peso?: number | null; data?: string }
 
 /** Registro central. Nasce na etapa 1 e acumula terrenos, casas, pilha de custos e cronograma. */
 export interface Projeto {

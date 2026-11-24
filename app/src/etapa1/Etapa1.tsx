@@ -62,7 +62,7 @@ export default function Etapa1(p: Props) {
           <p>Investimento no terreno: {base.faixas.find((f) => f.id === projeto.faixa_id)?.nome}{resp.lote_pronto?.v && ` · lote pronto: ${resp.lote_pronto.v === "sim" ? "sim" : "não"}`} · {defs.length} {defs.length === 1 ? "critério definido" : "critérios definidos"}</p></div>
           <button onClick={() => setPasso("criterios")}>← Ajustar critérios</button></div>
         {semCriterio && <p className="aviso">Nenhum critério que avalia a cidade foi definido, então todas aparecem sem nota. Volte em "Ajustar critérios" e responda ao menos um.</p>}
-        {!semCriterio && <div className="chips">{defs.map((d) => <span key={d.id} className={resp[d.id]?.obrigatorio ? "chip obrig" : "chip"}>{d.pergunta.replace(/, no (máximo|mínimo)$/, "")}: <b>{descreve(d, resp[d.id])}</b>{resp[d.id]?.obrigatorio && " · obrigatório"}</span>)}</div>}
+        {!semCriterio && <div className="chips">{defs.map((d) => <span key={d.id} className={resp[d.id]?.obrigatorio ? "chip obrig" : "chip"}>{d.pergunta.replace(/, no (máximo|mínimo)$/, "")}: <b>{descreve(d, resp[d.id])}</b> · peso {resp[d.id]?.peso ?? 1}{resp[d.id]?.obrigatorio && " · obrigatório"}</span>)}</div>}
         {!semCriterio && cobMedia < 0.5 && <p className="aviso">Em média, só {Math.round(cobMedia * 100)}% dos seus critérios têm dado nas cidades. Onde falta dado aparece "sem dado", e a cidade não é julgada por esse critério.</p>}
         <div className="barra">
           <div className="abas">

@@ -82,22 +82,26 @@ export function descreve(d: Definicao, r: Resposta): string {
   if (d.tipo === "letra") return `${r.v} ou melhor`; if (d.tipo === "exige") return "exige"; return "não aceita";
 }
 
-/** Resultado por critérios definidos. "nota" = % dos critérios com dado que a unidade atende; "cobertura" = fração dos critérios que tinham dado.
+/** Resultado por critérios definidos. "nota" = % do peso dos critérios com dado que a unidade atende; "cobertura" = fração do peso que tinha dado.
+ *  A ordem é pelo peso total atendido (pontos), para que uma cidade com pouco dado não passe na frente só por ter 1 de 1.
  *  Critério marcado como obrigatório elimina quem não atende. */
 export function avaliar(base: Base, p: Projeto, edicoes: Record<string, Edicao>): Linha[] {
   const resp = p.respostas ?? {}; const defs = ativas(p);
+  const peso = (id: string) => { const w = resp[id]?.peso; return typeof w === "number" && isFinite(w) && w >= 0 ? w : 1; };
+  const total = defs.reduce((a, d) => a + peso(d.id), 0);
   const linhas: Linha[] = base.unidades.map((u) => {
-    const porCriterio: Linha["porCriterio"] = {}; const eliminada: Motivo[] = []; let sim = 0, comDado = 0;
+    const porCriterio: Linha["porCriterio"] = {}; const eliminada: Motivo[] = []; let sim = 0, comDado = 0, wSim = 0, wDado = 0;
     for (const d of defs) {
-      const i = d.chave ? indicador(base, edicoes, u.unidade_id, d.chave) : undefined; const r = resp[d.id]; const ok = atende(d, r, u, i);
+      const i = d.chave ? indicador(base, edicoes, u.unidade_id, d.chave) : undefined; const r = resp[d.id]; const ok = atende(d, r, u, i); const w = peso(d.id);
       const bruto = d.tipo === "so_cidade" ? (u.tipo === "cidade_isd" ? "cidade" : "não incorporada") : (i?.v ?? null);
-      porCriterio[d.id] = { bruto: typeof bruto === "string" ? null : numero(bruto), texto: typeof bruto === "string" ? (bruto === "sim" ? "Sim" : bruto === "nao" ? "Não" : bruto) : undefined, nota: ok === null ? null : ok ? 100 : 0, peso: 1 / defs.length };
-      if (ok !== null) { comDado++; if (ok) sim++; }
+      porCriterio[d.id] = { bruto: typeof bruto === "string" ? null : numero(bruto), texto: typeof bruto === "string" ? (bruto === "sim" ? "Sim" : bruto === "nao" ? "Não" : bruto) : undefined,
+        nota: ok === null ? null : ok ? 100 : 0, peso: total ? w / total : 0 };
+      if (ok !== null) { comDado++; wDado += w; if (ok) { sim++; wSim += w; } }
       if (r.obrigatorio && (ok === false || (ok === null && p.filtros.eliminar_sem_dado))) eliminada.push({ filtro: d.pergunta, semDado: ok === null });
     }
-    return { u, nota: comDado ? (100 * sim) / comDado : null, cobertura: defs.length ? comDado / defs.length : 0, porCriterio, eliminada, posicao: null, atendidos: sim, avaliados: comDado };
+    return { u, nota: wDado > 0 ? (100 * wSim) / wDado : comDado ? 0 : null, cobertura: total ? wDado / total : 0, porCriterio, eliminada, posicao: null, atendidos: sim, avaliados: comDado, pontos: wSim };
   });
-  linhas.sort((a, b) => (a.eliminada.length ? 1 : 0) - (b.eliminada.length ? 1 : 0) || (b.atendidos ?? 0) - (a.atendidos ?? 0) || (b.nota ?? -1) - (a.nota ?? -1) || a.u.nome.localeCompare(b.u.nome));
+  linhas.sort((a, b) => (a.eliminada.length ? 1 : 0) - (b.eliminada.length ? 1 : 0) || (b.pontos ?? 0) - (a.pontos ?? 0) || (b.nota ?? -1) - (a.nota ?? -1) || a.u.nome.localeCompare(b.u.nome));
   let pos = 0; for (const l of linhas) if (!l.eliminada.length && l.nota !== null) l.posicao = ++pos;
   return linhas;
 }

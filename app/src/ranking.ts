@@ -58,7 +58,7 @@ export function passaFiltros(val: (k: string) => Indicador | undefined, u: Unida
 }
 
 export interface NotaCriterio { bruto: number | null; nota: number | null; peso: number; texto?: string }
-export interface Linha { u: Unidade; nota: number | null; cobertura: number; porCriterio: Record<string, NotaCriterio>; eliminada: Motivo[]; posicao: number | null; atendidos?: number; avaliados?: number }
+export interface Linha { u: Unidade; nota: number | null; cobertura: number; porCriterio: Record<string, NotaCriterio>; eliminada: Motivo[]; posicao: number | null; atendidos?: number; avaliados?: number; pontos?: number }
 
 function notaTamanho(v: number, p: Projeto, lo: number, hi: number): number {
   const t = p.tamanho;

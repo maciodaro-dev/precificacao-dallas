@@ -8,7 +8,7 @@ interface P { defs: Definicao[]; projeto: Projeto; linhas: Linha[]; sel: string 
 export default function Tabela({ defs, projeto, linhas, sel, setSel, comparar, alternar }: P) {
   const [ord, setOrd] = useState<{ col: string; desc: boolean }>({ col: "pos", desc: false });
   const valor = (l: Linha, col: string): number | string | null =>
-    col === "pos" ? (l.posicao ?? 9999) : col === "nome" ? l.u.nome : col === "condado" ? l.u.condado : col === "nota" ? (l.atendidos ?? null) : col === "cob" ? (l.avaliados ?? null) : (l.porCriterio[col]?.bruto ?? null);
+    col === "pos" ? (l.posicao ?? 9999) : col === "nome" ? l.u.nome : col === "condado" ? l.u.condado : col === "nota" ? l.nota : col === "at" ? (l.atendidos ?? null) : col === "cob" ? (l.avaliados ?? null) : (l.porCriterio[col]?.bruto ?? null);
   const ordenadas = [...linhas].sort((a, b) => {
     const x = valor(a, ord.col), y = valor(b, ord.col);
     if (x === null && y === null) return 0; if (x === null) return 1; if (y === null) return -1;
@@ -21,9 +21,10 @@ export default function Tabela({ defs, projeto, linhas, sel, setSel, comparar, a
     <div className="rolagem">
       <table className="ranking">
         <thead><tr>
-          <th title="Marque até 4 unidades para comparar">Comp.</th><Th col="pos">#</Th><Th col="nome">Unidade</Th><Th col="condado">Condado</Th><Th col="nota" title="Quantos dos seus critérios a cidade atende, entre os que têm dado">Atende</Th>
+          <th title="Marque até 4 unidades para comparar">Comp.</th><Th col="pos">#</Th><Th col="nome">Unidade</Th><Th col="condado">Condado</Th><Th col="nota" title="Percentual do peso dos seus critérios que a cidade atende, entre os que têm dado">Nota</Th>
+          <Th col="at" title="Quantos dos seus critérios a cidade atende, entre os que têm dado">Atende</Th>
           <Th col="cob" title="Quantos dos seus critérios têm dado para esta cidade">Com dado</Th>
-          {defs.map((d) => <Th key={d.id} col={d.id} title={d.pergunta}>{d.pergunta.replace(/, no (máximo|mínimo)$/, "")}</Th>)}
+          {defs.map((d) => <Th key={d.id} col={d.id} title={d.pergunta}>{d.pergunta.replace(/, no (máximo|mínimo)$/, "")}<small>peso {projeto.respostas?.[d.id]?.peso ?? 1}</small></Th>)}
         </tr></thead>
         <tbody>
           {ordenadas.map((l) => (
@@ -32,7 +33,8 @@ export default function Tabela({ defs, projeto, linhas, sel, setSel, comparar, a
               <td>{l.posicao ?? "–"}</td>
               <td className="nome">{l.u.nome}{projeto.unidade_eleita_id === l.u.unidade_id && <span className="selo">eleita</span>}{l.eliminada.length > 0 && <span className="motivo">eliminada: {l.eliminada.map((m) => m.filtro + (m.semDado ? " (sem dado)" : "")).join(", ")}</span>}</td>
               <td>{l.u.condado}</td>
-              <td><span className="nota-final" style={{ background: cor(l.eliminada.length ? null : l.nota) }}>{l.avaliados ? `${l.atendidos} de ${l.avaliados}` : "–"}</span></td>
+              <td><span className="nota-final" style={{ background: cor(l.eliminada.length ? null : l.nota) }}>{l.nota === null ? "–" : l.nota.toFixed(0)}</span></td>
+              <td>{l.avaliados ? `${l.atendidos} de ${l.avaliados}` : "–"}</td>
               <td className={l.cobertura < 0.5 ? "baixa" : ""}>{defs.length ? `${l.avaliados ?? 0} de ${defs.length}` : "–"}</td>
               {defs.map((d) => { const x = l.porCriterio[d.id]; const sem = !x || x.nota === null; return (
                 <td key={d.id} className={sem ? "semdado" : x.nota === 100 ? "sim" : "nao"}>{sem ? "sem dado" : <><span className="marca-ok">{x.nota === 100 ? "✓" : "✗"}</span> {x.texto ?? fmt(x.bruto, d.fator ? "dias" : d.um === "casas/ano" ? "" : d.um ?? "")}</>}</td>); })}
