@@ -3,8 +3,9 @@ import L from "leaflet";
 import type { Linha } from "../ranking";
 import { cor, estiloNota } from "../formato";
 
-/** Mapa ao vivo: do navy (atende tudo) ao mais claro (não atende 4 ou mais escolhas): escala sóbria derivada do navy da marca. */
-const CORES_VIVO = ["#17253C", "#4E6182", "#8693AB", "#B4BDCC", "#DCE0E8"]; const SEM = "#F4F4F2";
+/** Mapa ao vivo: uma cor distinta por quantidade de escolhas não atendidas, para leitura fácil. */
+// cores diferentes (não tons da mesma cor), sóbrias: navy, verde-petróleo, ocre, bordô e cinza
+const CORES_VIVO = ["#17253C", "#3F7D6E", "#C9A24B", "#8F3F49", "#B9BBBE"]; const SEM = "#F4F4F2";
 export default function Mapa({ geo, linhas, sel, setSel, eleita, camada = "nota", nomeCamada, vivo }: { geo: GeoJSON.FeatureCollection; linhas: Linha[]; sel: string | null; setSel: (s: string | null) => void; eleita: string | null; camada?: string; nomeCamada?: string; /** mapa ao lado do painel: uma cor só; quem deixa de atender vai ficando transparente */ vivo?: boolean; }) {
   const div = useRef<HTMLDivElement>(null); const mapa = useRef<L.Map | null>(null); const camadaRef = useRef<L.GeoJSON | null>(null);
   useEffect(() => {

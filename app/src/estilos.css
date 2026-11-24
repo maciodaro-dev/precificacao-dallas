@@ -2,7 +2,7 @@
 :root { --navy:#17253C; --navy-deep:#121D30; --copper:#8C6A3D; --copper-lt:#B08A52; --bordo:#8F3F49; --offwhite:#F4F4F2; --ink:#22242A; --ink-soft:#5A5D64; --ink-faint:#6A6D73; --hair:#E3E2DD; --on-dark:#EDEDEB; --on-dark-soft:#B9BBBE;
   /* derivadas das cores da marca */ --navy-tint:#E9ECF1; --bordo-tint:#F7EEEF; --bordo-line:#D8B9BE;
   /* nomes antigos, apontando para a marca */ --tinta:var(--ink); --suave:var(--ink-soft); --linha:var(--hair); --fundo:var(--offwhite); --papel:#fff; --acento:var(--navy); --alerta:var(--bordo-tint); --alerta-b:var(--bordo-line);
-  --serifa:"Fraunces", Georgia, serif; --texto:"Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif; --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace; --raio:3px; }
+  --serifa:"Fraunces", Georgia, serif; --texto:"Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif; --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace; --raio:5px; }
 * { box-sizing: border-box; }
 body { margin:0; font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--tinta); background:var(--fundo); }
 h1 { font-size:22px; margin:0 0 12px; } h2 { font-size:17px; margin:0 0 6px; } h3 { font-size:13px; margin:0 0 8px; text-transform:uppercase; letter-spacing:.04em; color:var(--suave); display:flex; justify-content:space-between; align-items:center; }
@@ -191,3 +191,14 @@ td, .nota-final, .com-dado, input[type=number] { font-variant-numeric:tabular-nu
 .progresso span { background:var(--copper); }
 .bloco h3, .form-criterios h3 { font-family:var(--serifa); font-weight:500; font-size:18px; letter-spacing:0; text-transform:none; color:var(--navy); }
 td.baixa, .baixa { color:var(--ink-soft); }
+
+/* Barra das 8 etapas: ativa em navy; concluídas com marca em cobre; demais neutras */
+nav button.ativo { background:var(--navy); color:var(--on-dark); box-shadow:none; border-radius:var(--raio) !important; border-color:var(--navy); }
+nav button.ativo b { border-color:var(--copper-lt); color:var(--copper-lt); background:transparent; }
+nav b.feita { border-color:var(--copper); color:var(--copper); background:#fff; font-weight:600; } nav b.parcial { border-color:var(--copper); border-style:dashed; color:var(--ink-soft); background:#fff; }
+nav button.ativo b.feita { background:transparent; color:var(--copper-lt); border-color:var(--copper-lt); }
+.cartao, .rolagem, .mapa-caixa, .aviso, details { box-shadow:none; border-width:1px; }
+/* celular */
+@media (max-width: 640px) { header { padding:10px 14px; } .marca span { display:block; border-left:0; padding-left:0; } .marca { flex-wrap:wrap; gap:8px; } header .projeto { width:100%; } nav { overflow-x:auto; flex-wrap:nowrap; padding:8px 12px; } nav .eleita { display:none; }
+  h1 { font-size:22px; } .caminhos { grid-template-columns:1fr !important; } .etapa1, main, .pergunta, .inicio { padding-left:14px; padding-right:14px; } .botoes button { white-space:normal; text-align:left; } footer.passos { flex-wrap:wrap; gap:8px; } }
+header .botao, header label.botao { background:transparent; color:var(--on-dark); border-color:rgba(237,237,235,.3); }
