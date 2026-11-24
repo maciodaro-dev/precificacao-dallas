@@ -8,12 +8,20 @@
 - Campos: `landSizeAcres`, `landSizeSqft`, `situsCity`, `situsZip`; valor do ano corrente vem vazio (rol em andamento): usar `prevValLand` (2026).
 - Uso: "para uso público, fins informativos".
 
-## Dallas (DCAD) — fonte oficial inacessível daqui
-- O site www.dallascad.org derruba a conexão em todas as tentativas; os arquivos oficiais não puderam ser testados.
-- Alternativa (a), atual mas parcial: camada da Prefeitura de Dallas, https://gis.dallascityhall.com/arcgis/rest/services/Basemap/DallasTaxParcels/FeatureServer/0 (ano 2026; só a cidade de Dallas e 1 milha em volta, cerca de 60% do condado).
-- Alternativa (b), condado inteiro mas de 2025 e não oficial: cópia pública do arquivo estadual de 2025 feita por terceiro, https://services.arcgis.com/6dxqrE38upDMg1va/arcgis/rest/services/Dallas_Co_Parcels/FeatureServer/0 (694.160 lotes; pode sair do ar).
-- Lote vago residencial: `SPTBCODE` / `STAT_LAND_` = `C11` (lotes e áreas vagas de casa): 29.699 no condado em 2025.
-- Ficam de fora: `C12` vago comercial (24.589), `C13` vago industrial (1.990), `C14` rural vago com menos de 5 acres (1.086), `O10` estoque de construtora (3.118), `D10` agrícola (2.231).
+## Dallas (DCAD) — arquivos oficiais fornecidos pelo usuário (2026-11-24)
+- O site www.dallascad.org derruba a conexão a partir deste ambiente. O usuário baixou os arquivos pelo navegador e compartilhou pelo OneDrive:
+  `DCAD2026_CURRENT.ZIP` (certificado de 2026 com mudanças suplementares, arquivos de 2026-11-09), `DCAD2027_CURRENT.zip` (2027, dono mais atual),
+  `PARCEL_GEOM.zip` e `PARCEL2026.zip` (mapa dos lotes; ainda não recebidos). Eles substituem a camada da Prefeitura de Dallas e o arquivo estadual de 2025.
+- Documentos lidos dentro do zip: `SPTD_CD_XREF.pdf` (lista de códigos, de 2011-07-25), `TABLES AND FIELD NAMES.xlsx` (2026-07-08).
+- Código (campo `SPTD_CODE` na conta, `SPTD_CD` em cada seção de terra):
+  - **`C11` = "SFR - VACANT LOTS/TRACTS" (lote ou gleba vaga residencial): 30.419 contas em 2026** (29.570 na divisão residencial, 849 na comercial).
+  - Ficam de fora: `C12` vago comercial (24.636), `C13` vago industrial (1.988), `C14` rural vago com menos de 5 acres (1.090), `O10` lotes vagos em estoque de construtora (3.781), `D10` terra agrícola qualificada (2.329), `D20` terra não qualificada.
+- Campos úteis: `LAND.CSV` traz, por seção de terra, `AREA_SIZE` + `AREA_UOM_DESC` (pés quadrados ou acres), `VAL_AMT` (valor da terra), `ZONING`, `AG_USE_IND` e `ACCT_AG_VAL_AMT`;
+  `ACCOUNT_APPRL_YEAR.CSV` traz `LAND_VAL`, `LAND_AG_EXEMPT` (valor de MERCADO da terra com isenção agrícola) e `AG_USE_VAL` (valor de produtividade), além de cidade e ISD da conta;
+  `ACCOUNT_INFO.CSV` traz dono, endereço, descrição legal e `GIS_PARCEL_ID` (liga ao mapa); `TOTAL_EXEMPTION.CSV` traz o motivo da isenção total.
+- Os dois valores da terra agrícola existem: 2.574 contas têm valor de mercado da terra agrícola e 2.573 delas têm também o valor de produtividade. Entre as seções de terra dos lotes C11, só 13 têm uso agrícola.
+- Isenção total entre os C11: 3.333 contas (prefeitura 2.267, religiosa 592, outro órgão público 194, escola 84, caridade 74, estado 46, cemitério 26, condado 24).
+- Tamanho: das 30.506 seções de terra dos C11, 21.491 em pés quadrados, 4.612 em acres, 4.403 sem unidade; 3.259 sem tamanho (a calcular pelo desenho do lote).
 
 ## Denton (Denton CAD) — testado, completo
 - Serviço do condado com dados do CAD: https://gis.dentoncounty.gov/arcgis/rest/services/Parcels_FC/MapServer/0 (385.908 lotes, rol em andamento de 2027; polígonos).
