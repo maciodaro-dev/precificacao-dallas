@@ -202,3 +202,9 @@ nav button.ativo b.feita { background:transparent; color:var(--copper-lt); borde
 @media (max-width: 640px) { header { padding:10px 14px; } .marca span { display:block; border-left:0; padding-left:0; } .marca { flex-wrap:wrap; gap:8px; } header .projeto { width:100%; } nav { overflow-x:auto; flex-wrap:nowrap; padding:8px 12px; } nav .eleita { display:none; }
   h1 { font-size:22px; } .caminhos { grid-template-columns:1fr !important; } .etapa1, main, .pergunta, .inicio { padding-left:14px; padding-right:14px; } .botoes button { white-space:normal; text-align:left; } footer.passos { flex-wrap:wrap; gap:8px; } }
 header .botao, header label.botao { background:transparent; color:var(--on-dark); border-color:rgba(237,237,235,.3); }
+
+/* nível de exigência e blocos do fim do resultado */
+.exigencia { display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; margin:4px 0 14px; } .pergunta-exig { font-weight:600; } .exigencia .seg button { padding:6px 12px; } .exig-aviso { flex-basis:100%; margin:0; color:var(--bordo); }
+.aderencia { display:block; font-family:var(--mono); font-size:11.5px; color:var(--ink-soft); } p.ocultas { margin:12px 0; }
+details.criterios-usados { margin-top:22px; } details.criterios-usados summary { cursor:pointer; font-weight:600; padding:6px 0; } details.criterios-usados .chips { margin-top:8px; }
+p.cobertura { color:var(--ink-faint); margin:12px 0 4px; }
