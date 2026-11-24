@@ -68,11 +68,45 @@ Filtrar nesta ordem, mostrando por condado quantos lotes saem em cada passo e um
 a) dono: associação de moradores/HOA, prefeitura, condado, estado, distrito escolar, distrito de água (MUD/PID), concessionária, igreja;
 b) isenção total de imposto;
 c) descrição: common area, open space, greenbelt, drainage, detention, easement, right of way, park, amenity e equivalentes;
-d) forma e tamanho: lote menor… — **a mensagem do usuário chegou cortada aqui; falta o resto do passo d) e o que vier depois.**
+d) forma e tamanho: sai o lote pequeno demais ou estreito demais para construir. Corte inicial proposto pelo usuário: área menor que 3.000 sqft
+   (a menor opção de lote mínimo da ferramenta) ou largura menor que 25 pés. É premissa: antes de aplicar, mostrar a distribuição de área dos lotes
+   restantes e quantos saem com esse corte e com 2.500 e 4.000 sqft;
+e) valor: só o extremo, depois do d). Mostrar quantos dos lotes de até US$ 1.000 ainda restam e uma amostra de 20; o usuário define o corte.
+   Não usar valor baixo como filtro geral: lote barato legítimo existe e interessa à faixa de investimento menor.
+
+Depois dos filtros:
+- Nada é apagado da base: cada lote filtrado fica marcado com o motivo.
+- Estoque de construtora: identificar por nome do dono e por concentração (muitos lotes do mesmo dono no mesmo loteamento). Não remover: marcar e contar
+  separado em cada região. O custo de referência usa só os lotes que não são de construtora. Mostrar quanto há em Grand Prairie.
+- Amostra inversa: 20 lotes mantidos, ao acaso, para o usuário conferir se o que sobrou é terreno comprável.
+- Passos a), b) e c) em Dallas aprovados, condicionados à conferência da amostra em docs/limpeza_lotes_dallas.md. Os lotes sem localização ficam listados e fora das regiões.
+
+### "Park" e "row" no passo c)
+Tirar as palavras soltas. Manter só as formas inequívocas: "right of way", "R.O.W.", "R O W", "city park", "pocket park", "park site", "parkland", "park dedication".
+
+### Lotes isentos em nome de construtora
+Saem, com motivo próprio ("isento em nome de construtora"). Antes, dizer qual é o tipo de isenção e mostrar 20 exemplos.
+
+### C14 (rural vago com menos de 5 acres)
+Entra como categoria separada, "terreno vago rural": passa pela mesma limpeza, conta nas faixas de tamanho e aparece marcado (costuma ficar fora da cidade
+e sem rede de água e esgoto). Usar valor de mercado, nunca o de produtividade.
+
+### Glebas acima de 5 acres
+Dizer quais códigos cobrem terra rural e agrícola acima de 5 acres e quantos lotes existem por faixa (5 a 20 acres, mais de 20), por condado.
+Não incluir ainda: o usuário decide depois de ver o número (sem elas, as duas maiores faixas de tamanho ficam vazias).
+
+### Arquivo de 2027
+Entra depois da limpeza aprovada, para conferir o dono atual e tirar o lote que já recebeu construção.
+
+### Recorte: setor censitário aprovado como bloco de base, com quatro condições
+- Região = setor censitário cortado pelos limites de cidade e de ISD (regras, taxas e escola vêm deles). Pedaços muito pequenos são unidos ao vizinho da mesma cidade e ISD.
+- Nas franjas, onde o setor é muito grande, propor como subdividir.
+- Cada região ganha um nome que uma pessoa reconheça (cidade + bairro ou via de referência), não o número do setor.
+- Renda por setor tem margem de erro alta: marcar a confiança.
+- Continua valendo: mostrar o exemplo em duas cidades antes de aplicar.
 
 ## 4. Pontos em aberto
 
-- Completar o passo d) da limpeza (mensagem cortada).
 - O arquivo estadual do TxGIO (inclusive o de 2025) devolve HTTP 403 a partir deste ambiente: precisa ser baixado pelo usuário ou liberado de outra forma.
 
 - Com "lote pronto = indiferente", qual dos dois totais entra na nota (proposta: o menor dos dois, mostrando ambos).
