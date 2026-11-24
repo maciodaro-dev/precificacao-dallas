@@ -52,6 +52,8 @@ export default function App() {
   }).catch((e) => setMsg("Não foi possível abrir o arquivo: " + e.message));
   const eleita = base.unidades.find((u) => u.unidade_id === projeto.unidade_eleita_id);
   const temTerreno = projeto.ponto_partida?.tem_terreno === true; const sit = situacaoEtapas(projeto);
+  /** Etapa concluída (marca em cobre na barra): já realizada segundo o ponto de partida, ou a etapa 1 com a região escolhida. */
+  const feita = (n: number) => (temTerreno && sit[n] === "feita") || (n === 1 && !!projeto.unidade_eleita_id);
   const etapa1 = temTerreno ? "retrato" : projeto.caminho === "cidade" ? "cidade" : projeto.modo === "expert" ? "especialista" : projeto.modo === "leigo" && projeto.leigo ? "guiado-resultado" : "onde-construir";
   const rotaDe = (n: number | "dados") => (n === "dados" ? "base-de-dados" : n === 0 ? telaInicial(projeto) === "onde-construir" ? "inicio" : telaInicial(projeto) : n === 1 ? etapa1 : `etapa-${n}`);
   const anterior = telaAnterior(rota, projeto);
@@ -81,7 +83,7 @@ export default function App() {
       {msg && <p className="aviso erro" onClick={() => setMsg("")}>{msg}</p>}
       <nav>
         <button className={tela === 0 ? "ativo" : ""} onClick={() => ir(rotaDe(0))}>Início</button>
-        {ETAPAS.map((e) => <button key={e.n} className={tela === e.n ? "ativo" : ""} onClick={() => ir(rotaDe(e.n))} title={temTerreno && e.n <= 4 ? rotuloSituacao(sit[e.n]) : undefined}><b className={temTerreno && sit[e.n] === "feita" ? "feita" : temTerreno && sit[e.n] === "parcial" ? "parcial" : ""}>{temTerreno && sit[e.n] === "feita" ? "✓" : e.n}</b> {e.nome}</button>)}
+        {ETAPAS.map((e) => <button key={e.n} className={tela === e.n ? "ativo" : ""} onClick={() => ir(rotaDe(e.n))} title={temTerreno && e.n <= 4 ? rotuloSituacao(sit[e.n]) : undefined}><b className={feita(e.n) ? "feita" : temTerreno && sit[e.n] === "parcial" ? "parcial" : ""}>{feita(e.n) ? "✓" : e.n}</b> {e.nome}</button>)}
         <button className={tela === "dados" ? "ativo" : ""} onClick={() => ir("base-de-dados")}>Base de dados</button>
         <span className="eleita">{eleita ? <>{temTerreno ? "Região do terreno" : "Unidade escolhida"}: <b>{eleita.nome}</b></> : "Nenhuma unidade escolhida"}</span>
       </nav>
