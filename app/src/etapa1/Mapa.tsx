@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
 import L from "leaflet";
 import type { Linha } from "../ranking";
-import { cor } from "../formato";
+import { cor, estiloNota } from "../formato";
 
-/** Mapa ao vivo: do verde escuro (atende tudo) ao cinza (não atende 4 ou mais escolhas). Cores bem separadas para que cada escolha mude o mapa. */
-const CORES_VIVO = ["#14663a", "#5fbf6f", "#f2c94c", "#f2994a", "#9aa1a9"]; const SEM = "#c9ced4";
+/** Mapa ao vivo: do navy (atende tudo) ao mais claro (não atende 4 ou mais escolhas): escala sóbria derivada do navy da marca. */
+const CORES_VIVO = ["#17253C", "#4E6182", "#8693AB", "#B4BDCC", "#DCE0E8"]; const SEM = "#F4F4F2";
 export default function Mapa({ geo, linhas, sel, setSel, eleita, camada = "nota", nomeCamada, vivo }: { geo: GeoJSON.FeatureCollection; linhas: Linha[]; sel: string | null; setSel: (s: string | null) => void; eleita: string | null; camada?: string; nomeCamada?: string; /** mapa ao lado do painel: uma cor só; quem deixa de atender vai ficando transparente */ vivo?: boolean; }) {
   const div = useRef<HTMLDivElement>(null); const mapa = useRef<L.Map | null>(null); const camadaRef = useRef<L.GeoJSON | null>(null);
   useEffect(() => {
@@ -24,8 +24,8 @@ export default function Mapa({ geo, linhas, sel, setSel, eleita, camada = "nota"
         if (fora) return { fillColor: "#8b939c", fillOpacity: 0.05, color: id === sel ? "#111" : "#9aa3ad", weight: id === sel ? 1.5 : 0.3, opacity: 0.5, dashArray: "3" };
         if (vivo) { // uma cor por quantidade de escolhas não atendidas: cada escolha nova faz muitas regiões mudarem de cor
           const n = !l || l.poucosDados || l.avaliados === 0 ? null : l.falhas.length; const c = n === null ? SEM : CORES_VIVO[Math.min(n, CORES_VIVO.length - 1)];
-          return { fillColor: c, fillOpacity: n === null ? 0.25 : n === 0 ? 0.9 : n >= CORES_VIVO.length - 1 ? 0.45 : 0.75, color: id === sel ? "#111" : n === 0 ? "#0c4526" : "#ffffff", weight: id === sel ? 3 : n === 0 ? 1.4 : 0.5, opacity: 0.9 }; }
-        return { fillColor: cor(!l ? null : camada === "nota" ? l.nota : (l.porCriterio[camada]?.nota ?? null)), fillOpacity: 0.7, color: id === sel ? "#111" : id === eleita ? "#1d4ed8" : "#fff", weight: id === sel || id === eleita ? 3 : 0.8 }; },
+          return { fillColor: c, fillOpacity: n === null ? 0.5 : 0.85, color: id === sel ? "#8C6A3D" : n === null ? "#B9BBBE" : "#ffffff", weight: id === sel ? 3 : 0.6, opacity: 0.95, dashArray: n === null ? "3" : undefined }; }
+        return { fillColor: cor(!l ? null : camada === "nota" ? l.nota : (l.porCriterio[camada]?.nota ?? null)), fillOpacity: 0.7, color: id === sel ? "#8C6A3D" : id === eleita ? "#17253C" : "#fff", weight: id === sel || id === eleita ? 3 : 0.8 }; },
       onEachFeature: (f, lyr) => { const l = por.get(f.properties.unidade_id);
         const foraT = !!l?.recorte && !l.recorte.partes.some((pt) => pt.parte_id === f.properties.parte_id);
         lyr.bindTooltip(`<b>${f.properties.nome}</b>${f.properties.parte_nome && f.properties.parte_nome !== f.properties.nome ? ` <small>(${String(f.properties.parte_nome).split(" × ").pop()})</small>` : ""}${foraT ? "<br><i>esta parte não tem a nota de escola pedida</i>" : l?.recorte ? `<br><i>${l.recorte.texto}</i>` : ""}<br>${!l ? "" : `nota ${l.nota?.toFixed(0) ?? "–"} · posição ${l.posicao ?? "–"}<br>com dado: ${Math.round(l.cobertura * 100)}% (${l.avaliados} de ${l.emUso} parâmetros)${l.poucosDados ? " · <b>poucos dados</b>" : ""}`}${l && camada !== "nota" ? `<br>${nomeCamada}: ${l.porCriterio[camada]?.nota ?? "sem dado"}` : ""}${l?.falhas?.length ? `<br>Não atende: ${l.falhas.slice(0, 4).map((x) => x.nome).join("; ")}` : ""}`, { sticky: true });
@@ -38,8 +38,8 @@ export default function Mapa({ geo, linhas, sel, setSel, eleita, camada = "nota"
   return (
     <div className="mapa-caixa">
       <div ref={div} className="mapa" />
-      {vivo ? <div className="legenda">Escolhas que a região não atende: {["nenhuma (atende tudo)", "1", "2", "3", "4 ou mais"].map((t, k) => <span key={k}><i style={{ background: CORES_VIVO[k] }} />{t}</span>)}<span><i style={{ background: SEM, opacity: 0.4 }} />dados insuficientes</span></div> :
-      <div className="legenda">{camada === "nota" ? "Nota final" : `Nota em: ${nomeCamada}`}: {[10, 30, 50, 70, 90].map((n) => <span key={n}><i style={{ background: cor(n) }} />{n - 10}–{n + 10}</span>)}<span><i style={{ background: cor(null) }} />sem dado</span></div>}
+      {vivo ? <div className="legenda">Escolhas que a região não atende: {["nenhuma (atende tudo)", "1", "2", "3", "4 ou mais"].map((t, k) => <span key={k}><i style={{ background: CORES_VIVO[k] }} />{t}</span>)}<span><i style={{ background: SEM, outline: "1px dashed #B9BBBE" }} />dados insuficientes (contorno tracejado)</span></div> :
+      <div className="legenda">{camada === "nota" ? "Nota final" : `Nota em: ${nomeCamada}`}: {[10, 30, 50, 70, 90].map((n) => <span key={n}><i style={estiloNota(n)} />{n - 10}–{n + 10}</span>)}<span><i style={estiloNota(null)} />sem dado</span></div>}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Base, Criterio, Edicao, Projeto } from "../tipos";
 import { chave, desatualizado, indicador, type Linha } from "../ranking";
-import { CONF, cor, fmt } from "../formato";
+import { CONF, cor, fmt, estiloNota } from "../formato";
 import { PARAMS, textoCobertura } from "../parametros";
 
 interface P { base: Base; projeto: Projeto; edicoes: Record<string, Edicao>; linha: Linha; editar: (u: string, k: string, v: number | string | null | undefined) => void;
@@ -39,7 +39,7 @@ export default function Detalhe({ base, projeto, edicoes, linha, editar, fechar,
       <div className="cab">
         <div><h2>{u.nome}</h2><p>{u.tipo === "cidade_isd" ? "Cidade" : "Área fora de cidade"} · {u.isd_nome} · {u.condados_pct} · {fmt(u.acres_terra)} acres de terra · ID {u.unidade_id}</p></div>
         <div className="acoes">
-          <span className="nota-final g" style={{ background: cor(linha.nota) }}>{linha.nota === null ? "–" : linha.nota.toFixed(0)}</span><span className="com-dado">com dado {textoCobertura(linha)}</span>
+          <span className="nota-final g" style={estiloNota(linha.nota)}>{linha.nota === null ? "–" : linha.nota.toFixed(0)}</span><span className="com-dado">com dado {textoCobertura(linha)}</span>
           {!semRolagem && <button onClick={() => alternar(u.unidade_id)}>{emComparacao ? "Tirar da comparação" : "Comparar"}</button>}
           {u.tipo === "cidade_isd" && <a className="botao" target="_blank" rel="noreferrer" href={`https://www.homes.com/${u.cidade.toLowerCase().replace(/\./g, "").replace(/[^a-z0-9]+/g, "-")}-tx/land-for-sale/`}>Ver terrenos no Homes.com ↗</a>}
           {eleita ? <button className="primario" onClick={irParaEtapa2}>Ir para a etapa 2</button> : <button className="primario" onClick={() => eleger(u.unidade_id)}>Eleger unidade</button>}

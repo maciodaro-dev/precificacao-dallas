@@ -7,7 +7,7 @@ import { perguntasVisiveis } from "../rota";
 import { PARAMS, PESOS, ativos, pesoDe, pesoTerreno, textoCobertura } from "../parametros";
 import AvisoCobertura from "./AvisoCobertura";
 import ValorAberto from "./ValorAberto";
-import { cor, fmt } from "../formato";
+import { cor, fmt, estiloNota } from "../formato";
 import Mapa from "./Mapa";
 import FontesUsadas from "../Fontes";
 
@@ -71,7 +71,7 @@ export function ResultadoLeigo({ seletor, total, insuficientes, base, geo, proje
   const ps = ativos(projeto);
   const cartao = (l: Linha, compacto = false) => { const e = explicar(l, projeto, base, edicoes); const eleita = projeto.unidade_eleita_id === l.u.unidade_id; return (
     <article key={l.u.unidade_id} className={"cartao" + (eleita ? " eleita" : "")}>
-      <header><span className="pos">{l.posicao}º</span><h3>{l.u.nome}</h3><span className="nota-final" style={{ background: cor(l.nota) }} title="Nota de 0 a 100: quanto a unidade atende às suas respostas">{l.nota?.toFixed(0)}</span></header>
+      <header><span className="pos">{l.posicao}º</span><h3>{l.u.nome}</h3><span className="nota-final" style={estiloNota(l.nota)} title="Nota de 0 a 100: quanto a unidade atende às suas respostas">{l.nota?.toFixed(0)}</span></header>
       {l.recorte && <p className="recorte"><b>Região:</b> {l.recorte.texto}. O resto da cidade não tem a nota de escola pedida.</p>}
       <p><b>Por que apareceu:</b> {e.porque}</p><p><b>Ponto forte:</b> {e.forte}</p><p><b>Ponto de atenção:</b> {e.atencao}</p>
       <p className={e.nao.length ? "naoatende" : ""}><b>Não atende:</b> {e.nao.length ? e.nao.join("; ") + "." : "nada, entre as respostas que têm dado."}</p>
@@ -83,7 +83,7 @@ export function ResultadoLeigo({ seletor, total, insuficientes, base, geo, proje
   const comp = linhas.filter((l) => dois.includes(l.u.unidade_id));
   return (
     <main className={pagina ? "leigo-res uma-pagina" : "leigo-res"}>
-      <div className="cab-passo"><div><h1>{pagina ? "Resumo" : "Onde procurar"}</h1><p className="frase">{frase}</p></div>
+      <div className="cab-passo"><div>{pagina && <p className="passo-n">CSD Tools — Formação de preço · Dallas–Fort Worth</p>}<h1>{pagina ? "Resumo" : "Onde procurar"}</h1><p className="frase">{frase}</p></div>
         <div className="acoes nao-imprimir"><button className="voltar" onClick={voltar}>← Voltar</button><button onClick={abrirExpert}>Abrir no modo especialista</button>
           <button onClick={() => setPagina(!pagina)}>{pagina ? "Voltar ao resultado" : "Resumo de uma página"}</button>{pagina && <button className="primario" onClick={() => window.print()}>Imprimir</button>}</div></div>
       {conflitos.length > 0 && <p className="aviso nao-imprimir">{conflitos.length === 1 ? "Um parâmetro foi ajustado" : `${conflitos.length} parâmetros foram ajustados`} manualmente no modo especialista e não {conflitos.length === 1 ? "segue" : "seguem"} mais as respostas do modo guiado: {conflitos.map((c) => PARAMS.find((p) => p.id === c.id)?.nome).join(", ")}. O ajuste manual foi mantido; abra o modo especialista para rever.</p>}

@@ -82,7 +82,7 @@ export default function Expert({ base, projeto, alterar, verResultado, voltar, g
       </div>
       <aside className="mapa-vivo">
         <h3>O que as suas escolhas fazem no mapa</h3>
-        <p className="nota"><b>{tudo.length} de {linhas.length} regiões</b> atendem tudo o que você escolheu, entre os dados que existem. A cor de cada região mostra quantas das suas escolhas ela não atende: quanto mais escolhas você faz, mais regiões saem do verde.</p>
+        <p className="nota"><b>{tudo.length} de {linhas.length} regiões</b> atendem tudo o que você escolheu, entre os dados que existem. A cor de cada região mostra quantas das suas escolhas ela não atende: quanto mais escura, mais ela atende; quanto mais escolhas você faz, mais regiões clareiam.</p>
         {efeito && <p className="efeito" id="efeito-escolha"><b>Sua última escolha: {efeito.nome}.</b> {efeito.texto}</p>}
         <Mapa geo={geo} linhas={linhas} sel={sel} setSel={setSel} eleita={null} vivo />
         {escolhida ? <p className="nota"><b>{escolhida.u.nome}</b>{escolhida.recorte && ` (${escolhida.recorte.texto})`} · nota {escolhida.nota?.toFixed(0) ?? "–"} · com dado {textoCobertura(escolhida)}. {escolhida.falhas.length ? "Não atende: " + escolhida.falhas.map((f) => f.nome).join("; ") + "." : "Atende tudo o que tem dado."}</p> : <p className="nota">Clique numa região do mapa para ver o que ela não atende.</p>}
