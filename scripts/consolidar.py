@@ -36,7 +36,7 @@ def main():
     for u in us:
         for k in ("acres_terra", "pct_cidade", "lat", "lon"): u[k] = num(u[k]) if u[k] != "" else None
     base = dict(gerado_em=datetime.date.today().isoformat(), unidades=us, criterios=crit, indicadores=ind,
-                faixas=json.load(open(DATA / "faixas.json", encoding="utf-8")), perfis=json.load(open(DATA / "perfis.json", encoding="utf-8")),
+                faixas=json.load(open(DATA / "faixas.json", encoding="utf-8")),
                 fontes=json.load(open(DATA / "fontes.json", encoding="utf-8")), premissas=list(csv.DictReader(open(DATA / "premissas.csv", encoding="utf-8"))))
     pub = RAIZ / "app" / "public"; pub.mkdir(parents=True, exist_ok=True)
     json.dump(base, open(pub / "base.json", "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))

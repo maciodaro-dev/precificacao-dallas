@@ -29,7 +29,7 @@
  {
   "id": "c03",
   "grupo": "Terra",
-  "nome": "Oferta na faixa de investimento",
+  "nome": "Oferta por faixa de investimento",
   "metrica": "anuncios_na_faixa",
   "unidade_medida": "anúncios",
   "direcao": "maior",
@@ -40,7 +40,7 @@
  {
   "id": "c04",
   "grupo": "Terra",
-  "nome": "Lotes prontos / infill",
+  "nome": "Oferta de lotes prontos",
   "metrica": "lotes_prontos",
   "unidade_medida": "lotes",
   "direcao": "maior",
@@ -88,7 +88,7 @@
  {
   "id": "c08",
   "grupo": "Viabilidade",
-  "nome": "Atrito regulatório",
+  "nome": "Prazo de aprovação e moratórias",
   "metrica": "prazo_aprovacao_dias",
   "unidade_medida": "dias",
   "direcao": "menor",
@@ -125,7 +125,7 @@
  {
   "id": "c11",
   "grupo": "Viabilidade",
-  "nome": "Terra disponível em ETJ",
+  "nome": "Terra disponível fora dos limites da cidade (ETJ)",
   "metrica": "acres_etj",
   "unidade_medida": "acres",
   "direcao": "maior",
@@ -146,7 +146,7 @@
  {
   "id": "c13",
   "grupo": "Mercado",
-  "nome": "Relação terreno / preço final",
+  "nome": "Peso do terreno no preço",
   "metrica": "relacao_terreno_preco",
   "unidade_medida": "%",
   "direcao": "menor",
@@ -156,7 +156,7 @@
  {
   "id": "c14",
   "grupo": "Mercado",
-  "nome": "Liquidez da casa",
+  "nome": "Dias para vender a casa e meses de estoque",
   "metrica": "dom_casa",
   "unidade_medida": "dias",
   "direcao": "menor",
@@ -169,7 +169,7 @@
  {
   "id": "c15",
   "grupo": "Mercado",
-  "nome": "Absorção de casas novas",
+  "nome": "Casas novas por ano",
   "metrica": "permits_unifamiliares_ano",
   "unidade_medida": "unidades/ano",
   "direcao": "maior",
@@ -217,7 +217,7 @@
  {
   "id": "c19",
   "grupo": "Valorização",
-  "nome": "Acesso a emprego",
+  "nome": "Tempo até polos de emprego",
   "metrica": "min_polo_mais_proximo",
   "unidade_medida": "min",
   "direcao": "menor",
@@ -259,7 +259,7 @@
  {
   "id": "c22",
   "grupo": "Comprador",
-  "nome": "Segurança",
+  "nome": "Crimes por mil habitantes",
   "metrica": "crimes_por_mil",
   "unidade_medida": "crimes/mil hab.",
   "direcao": "menor",
@@ -273,7 +273,7 @@
  {
   "id": "c23",
   "grupo": "Comprador",
-  "nome": "Renda mediana e preço/renda",
+  "nome": "Renda mediana das famílias",
   "metrica": "renda_mediana",
   "unidade_medida": "US$/ano",
   "direcao": "maior",
@@ -288,7 +288,7 @@
  {
   "id": "c24",
   "grupo": "Comprador",
-  "nome": "Property tax total",
+  "nome": "Imposto total (property tax com MUD/PID)",
   "metrica": "aliquota_total",
   "unidade_medida": "% do valor",
   "direcao": "menor",

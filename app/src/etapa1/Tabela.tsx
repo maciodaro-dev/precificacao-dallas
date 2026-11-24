@@ -5,7 +5,7 @@ import { pesoDe, type Param } from "../parametros";
 import { cor, fmt } from "../formato";
 
 interface P { params: Param[]; projeto: Projeto; linhas: Linha[]; sel: string | null; setSel: (s: string | null) => void; comparar: string[]; alternar: (id: string) => void }
-/** Ranking completo: todas as unidades, nota final e nota por parâmetro com o valor bruto. Fonte, data e confiança ficam no detalhe (clique na linha). */
+/** Ranking completo: todas as unidades, nota final e nota por parâmetro com o valor bruto. Fonte, data e confiança aparecem ao passar o mouse em cada valor e no detalhe (clique na linha). */
 export default function Tabela({ params, projeto, linhas, sel, setSel, comparar, alternar }: P) {
   const [ord, setOrd] = useState<{ col: string; desc: boolean }>({ col: "pos", desc: false });
   const valor = (l: Linha, col: string): number | string | null =>
@@ -38,7 +38,7 @@ export default function Tabela({ params, projeto, linhas, sel, setSel, comparar,
               <td><span className="nota-final" style={{ background: cor(l.nota) }}>{l.nota === null ? "–" : l.nota.toFixed(0)}</span></td>
               <td className={l.cobertura < 0.5 ? "baixa" : ""}>{Math.round(l.cobertura * 100)}%</td>
               {params.map((d) => { const x = l.porCriterio[d.id]; const sem = !x || x.nota === null; return (
-                <td key={d.id} className={sem ? "semdado" : x.nota === 100 ? "sim" : x.nota === 0 ? "nao" : "parte"}>{sem ? "sem dado" : <>{x.texto ?? fmt(x.bruto === null ? null : x.bruto / (d.fator ?? 1), d.um === "casas/ano" ? "" : d.um)}<small>nota {x.nota}</small></>}</td>); })}
+                <td key={d.id} className={sem ? "semdado" : x.nota === 100 ? "sim" : x.nota === 0 ? "nao" : "parte"} title={sem ? "sem dado para esta unidade" : `Fonte: ${x.fonte ?? "regra da ferramenta"}${x.ref ? ` · data: ${x.ref}` : ""}${x.conf ? ` · confiança: ${x.conf === "media" ? "média" : x.conf}` : ""}`}>{sem ? "sem dado" : <>{x.texto ?? fmt(x.bruto === null ? null : x.bruto / (d.fator ?? 1), d.um === "casas/ano" ? "" : d.um)}<small>nota {x.nota}</small></>}</td>); })}
             </tr>))}
         </tbody>
       </table>
